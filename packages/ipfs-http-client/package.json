@@ -7,7 +7,9 @@
   "keywords": [
     "ipfs",
     "go-ipfs",
-    "js-ipfs"
+    "js-ipfs",
+    "promise",
+    "async"
   ],
   "main": "index.js",
   "scripts": {
