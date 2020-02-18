@@ -1,6 +1,6 @@
 # README.md
 
-    <description>
+    ipfs-http-client with auto search go-ipfs, js-ipfs
 
 ## install
 
