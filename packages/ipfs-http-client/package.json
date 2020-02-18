@@ -1,0 +1,38 @@
+{
+  "name": "@bluelovers/ipfs-http-client",
+  "version": "1.0.0",
+  "description": "ipfs-http-client with auto search go-ipfs, js-ipfs",
+  "license": "ISC",
+  "author": "",
+  "keywords": [
+    "ipfs",
+    "go-ipfs",
+    "js-ipfs"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "coverage": "npx nyc yarn run test",
+    "lint": "npx eslint **/*.ts",
+    "ncu": "npx yarn-tool ncu -u",
+    "npm:publish": "npm publish",
+    "postpublish_": "git commit -m \"chore(release): publish\" .",
+    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublishOnly": "yarn run ncu && yarn run sort-package-json",
+    "sort-package-json": "npx yarn-tool sort",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "tsc:default": "tsc -p tsconfig.json",
+    "tsc:esm": "tsc -p tsconfig.esm.json"
+  },
+  "devDependencies": {
+    "@bluelovers/tsconfig": "^1.0.17",
+    "@types/node": "^13.5.0",
+    "ipfs-http-client": "^42.0.0"
+  },
+  "peerDependencies": {
+    "ipfs-http-client": "^42.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
