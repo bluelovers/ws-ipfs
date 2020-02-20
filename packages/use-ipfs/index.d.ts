@@ -10,7 +10,7 @@ export declare function checkIPFS(ipfs: any): Promise<boolean>;
 /**
  * get IPFS, if not exists, create or connect it
  */
-export declare function useIPFS(options?: object): Promise<Readonly<{
+export declare function useIPFS(options?: IOptions): Promise<Readonly<{
     ipfs: any;
     ipfsType: EnumIPFSType;
     stop(...argv: any[]): Promise<void>;

@@ -28,7 +28,7 @@ let _cached: Readonly<{
 /**
  * get IPFS, if not exists, create or connect it
  */
-export async function useIPFS(options?: object)
+export async function useIPFS(options?: IOptions)
 {
 	if (typeof _cached === 'undefined' || typeof _cached === null)
 	{
