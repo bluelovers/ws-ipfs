@@ -16,7 +16,7 @@ export declare function useIPFS(options?: IOptions): Promise<Readonly<{
     stop(...argv: any[]): Promise<void>;
 }>>;
 export interface IOptions extends Record<string, any> {
-    type?: string;
+    type?: string | 'js' | 'go' | 'proc';
     ipfsModule?: any;
     ipfsHttpModule?: any;
     ipfsBin?: string;
@@ -33,6 +33,7 @@ export interface IOptions extends Record<string, any> {
                 enabled?: boolean;
             };
         };
+        [k: string]: any;
     };
     disposable?: boolean;
 }

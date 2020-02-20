@@ -73,7 +73,7 @@ export async function useIPFS(options?: IOptions)
 
 export interface IOptions extends Record<string, any>
 {
-	type?: string;
+	type?: string | 'js' | 'go' | 'proc';
 	ipfsModule?: any;
 	ipfsHttpModule?: any;
 	ipfsBin?: string;
@@ -90,6 +90,7 @@ export interface IOptions extends Record<string, any>
 				enabled?: boolean;
 			};
 		};
+		[k: string]: any
 	};
 	disposable?: boolean;
 }
@@ -160,6 +161,7 @@ export async function getIPFS(options?: IOptions)
 			{
 				ipfsd = await createController(fixIPFSOptions(options));
 
+				!ipfsd.initialized && await ipfsd.init();
 				!ipfsd.started && await ipfsd.start();
 				ipfs = ipfsd.api;
 				await checkIPFS(ipfs);
