@@ -31,7 +31,7 @@ export function use(ipfsHttpModule: IIPFSClientFn): IIPFSClientFnWrap
 	{
 		let [config, ...argv] = argvs;
 
-		if (config == null)
+		if (typeof config === 'undefined' || config === null)
 		{
 			let configs: Parameters<typeof _ipfsHttpModule>[] = [];
 
