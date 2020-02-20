@@ -1,6 +1,6 @@
 {
   "name": "use-ipfs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "lazy way for create or connect ipfs",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/use-ipfs#readme",
   "bugs": {
