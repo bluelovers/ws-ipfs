@@ -98,9 +98,9 @@ export function fixIPFSOptions(options?: IOptions)
 {
 	options = defaultsDeep({}, options, {
 		type: 'js',
-		ipfsModule: require('ipfs'),
-		ipfsHttpModule: require('ipfs-http-client'),
-		ipfsBin: require.resolve('ipfs/src/cli/bin.js'),
+		//ipfsModule: require('ipfs'),
+		//ipfsHttpModule: require('ipfs-http-client'),
+		//ipfsBin: require.resolve('ipfs/src/cli/bin.js'),
 		ipfsOptions: {
 			EXPERIMENTAL: {
 				pubsub: true,
