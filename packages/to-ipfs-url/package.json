@@ -1,0 +1,41 @@
+{
+  "name": "to-ipfs-url",
+  "version": "1.0.0",
+  "description": "create ipfs link",
+  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/to-ipfs-url#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-ipfs/issues"
+  },
+  "keywords": [
+    "ipfs",
+    "link",
+    "url",
+    "href",
+    "ipld"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-ipfs.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "npx nyc yarn run test",
+    "lint": "npx eslint **/*.ts",
+    "ncu": "npx yarn-tool ncu -u",
+    "npm:publish": "npm publish",
+    "postpublish_": "git commit -m \"chore(release): publish\" .",
+    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn test",
+    "sort-package-json": "npx yarn-tool sort",
+    "test": "ts-node test/demo",
+    "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "tsc:default": "tsc -p tsconfig.json",
+    "tsc:esm": "tsc -p tsconfig.esm.json"
+  },
+  "devDependencies": {
+    "@bluelovers/tsconfig": "^1.0.18",
+    "@types/node": "^13.7.4"
+  }
+}
