@@ -1,5 +1,6 @@
 import IpfsClient from '@bluelovers/ipfs-http-client';
 import { createController } from 'ipfsd-ctl';
+import defaultsDeep from 'lodash.defaultsdeep';
 
 export enum EnumIPFSType
 {
@@ -70,10 +71,76 @@ export async function useIPFS(options?: object)
 	return _cached
 }
 
+export interface IOptions extends Record<string, any>
+{
+	type?: string;
+	ipfsModule?: any;
+	ipfsHttpModule?: any;
+	ipfsBin?: string;
+	ipfsOptions?: {
+		EXPERIMENTAL?: {
+			pubsub?: boolean;
+			ipnsPubsub?: boolean;
+			sharding?: boolean;
+			dht?: boolean;
+		};
+		relay?: {
+			enabled?: boolean;
+			hop?: {
+				enabled?: boolean;
+			};
+		};
+	};
+	disposable?: boolean;
+}
+
+export function fixIPFSOptions(options?: IOptions)
+{
+	options = defaultsDeep({}, options, {
+		type: 'js',
+		ipfsModule: require('ipfs'),
+		ipfsHttpModule: require('ipfs-http-client'),
+		ipfsBin: require.resolve('ipfs/src/cli/bin.js'),
+		ipfsOptions: {
+			EXPERIMENTAL: {
+				pubsub: true,
+				ipnsPubsub: true,
+				sharding: true,
+				dht: true,
+			},
+			relay: {
+				enabled: true,
+				hop: {
+					enabled: true
+				}
+			},
+		},
+		disposable: false,
+	});
+
+	if (options.type ==='js' || options.type ==='proc')
+	{
+		if (typeof options.ipfsModule === 'undefined')
+		{
+			options.ipfsModule = require('ipfs')
+		}
+		if (typeof options.ipfsHttpModule === 'undefined')
+		{
+			options.ipfsHttpModule = require('ipfs-http-client')
+		}
+		if (typeof options.ipfsBin === 'undefined')
+		{
+			options.ipfsBin = require.resolve('ipfs/src/cli/bin.js')
+		}
+	}
+
+	return options;
+}
+
 /**
  * create or connect it
  */
-export async function getIPFS(options?: object)
+export async function getIPFS(options?: IOptions)
 {
 	return new Promise<typeof _cached>(async (resolve, reject) => {
 		let ipfs;
@@ -91,29 +158,9 @@ export async function getIPFS(options?: object)
 			//console.error(e)
 			try
 			{
-				ipfsd = await createController({
-					type: 'js',
-					ipfsModule: require('ipfs'),
-					ipfsHttpModule: require('ipfs-http-client'),
-					ipfsBin: require.resolve('ipfs/src/cli/bin.js'),
-					ipfsOptions: {
-						EXPERIMENTAL: {
-							pubsub: true,
-							ipnsPubsub: true,
-							sharding: true,
-							dht: true,
-						},
-						relay: {
-							enabled: true,
-							hop: {
-								enabled: true
-							}
-						},
-					},
-					disposable: false,
-				});
+				ipfsd = await createController(fixIPFSOptions(options));
 
-				await ipfsd.start();
+				!ipfsd.started && await ipfsd.start();
 				ipfs = ipfsd.api;
 				await checkIPFS(ipfs);
 

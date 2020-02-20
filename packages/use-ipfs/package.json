@@ -22,18 +22,25 @@
     "prepublish:lockfile": "npx sync-lockfile .",
     "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
     "sort-package-json": "npx yarn-tool sort",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ts-node test/temp",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.17",
+    "@types/lodash.defaultsdeep": "^4.6.6",
     "@types/node": "^13.5.0",
     "ipfs": "^0.41.1",
     "ipfsd-ctl": "^3.0.0"
   },
   "dependencies": {
-    "@bluelovers/ipfs-http-client": "^1.0.2"
+    "@bluelovers/ipfs-http-client": "^1.0.2",
+    "lodash.defaultsdeep": "^4.6.1"
+  },
+  "peerDependencies": {
+    "ipfs-http-client": "^42.0.0",
+    "ipfs": "^0.41.1",
+    "ipfsd-ctl": "^3.0.0"
   }
 }

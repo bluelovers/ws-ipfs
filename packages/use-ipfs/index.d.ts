@@ -15,10 +15,32 @@ export declare function useIPFS(options?: object): Promise<Readonly<{
     ipfsType: EnumIPFSType;
     stop(...argv: any[]): Promise<void>;
 }>>;
+export interface IOptions extends Record<string, any> {
+    type?: string;
+    ipfsModule?: any;
+    ipfsHttpModule?: any;
+    ipfsBin?: string;
+    ipfsOptions?: {
+        EXPERIMENTAL?: {
+            pubsub?: boolean;
+            ipnsPubsub?: boolean;
+            sharding?: boolean;
+            dht?: boolean;
+        };
+        relay?: {
+            enabled?: boolean;
+            hop?: {
+                enabled?: boolean;
+            };
+        };
+    };
+    disposable?: boolean;
+}
+export declare function fixIPFSOptions(options?: IOptions): IOptions;
 /**
  * create or connect it
  */
-export declare function getIPFS(options?: object): Promise<Readonly<{
+export declare function getIPFS(options?: IOptions): Promise<Readonly<{
     ipfs: any;
     ipfsType: EnumIPFSType;
     stop(...argv: any[]): Promise<void>;
