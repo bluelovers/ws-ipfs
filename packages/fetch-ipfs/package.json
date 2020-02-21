@@ -1,22 +1,11 @@
 {
-  "name": "to-ipfs-hash",
+  "name": "fetch-ipfs",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/file-to-ipfs#readme",
+  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/fetch-ipfs#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-ipfs/issues"
   },
-  "keywords": [
-    "ipfs",
-    "link",
-    "url",
-    "href",
-    "file",
-    "fs",
-    "hash",
-    "cid",
-    "ipld"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bluelovers/ws-ipfs.git"
@@ -33,21 +22,22 @@
     "prepublish:lockfile": "npx sync-lockfile .",
     "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn run test",
     "sort-package-json": "npx yarn-tool sort",
-    "test": "echo \"Error: no test specified\"",
+    "test": "ts-node ./test/demo",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.18",
-    "@types/bl": "^2.1.0",
-    "@types/fs-extra": "^8.1.0",
-    "@types/node": "^13.7.4"
+    "@bluelovers/tsconfig": "^1.0.17",
+    "@types/bluebird": "^3.5.29",
+    "@types/node": "^13.5.0"
   },
   "dependencies": {
-    "bl": "^4.0.0",
-    "fs-extra": "^8.1.0",
-    "ipfs-only-hash": "^2.0.1",
-    "ipfs-utils": "^0.7.2"
+    "abort-controller": "^3.0.0",
+    "bluebird": "^3.7.2",
+    "buffer": "^5.4.3",
+    "cross-fetch": "^3.0.4",
+    "is-error-code": "^1.0.0",
+    "to-ipfs-url": "1"
   }
 }

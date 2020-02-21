@@ -20,7 +20,7 @@
     "npm:publish": "npm publish",
     "postpublish_": "git commit -m \"chore(release): publish\" .",
     "prepublish:lockfile": "npx sync-lockfile .",
-    "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
+    "prepublishOnly": "yarn run ncu && yarn run sort-package-json",
     "sort-package-json": "npx yarn-tool sort",
     "test": "ts-node test/temp",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
@@ -28,9 +28,11 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.17",
+    "@bluelovers/tsconfig": "^1.0.18",
+    "@types/fs-extra": "^8.1.0",
     "@types/lodash.defaultsdeep": "^4.6.6",
-    "@types/node": "^13.5.0",
+    "@types/node": "^13.7.4",
+    "fs-extra": "^8.1.0",
     "ipfs": "^0.41.1",
     "ipfsd-ctl": "^3.0.0"
   },

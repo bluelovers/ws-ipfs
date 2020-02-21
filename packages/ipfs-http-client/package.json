@@ -40,7 +40,9 @@
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.17",
+    "@types/bl": "^2.1.0",
     "@types/node": "^13.7.1",
+    "bl": "^4.0.0",
     "ipfs-http-client": "^42.0.0"
   },
   "peerDependencies": {

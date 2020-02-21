@@ -1,4 +1,4 @@
-import { cid as isIPFS } from 'is-ipfs';
+import isIPFS from 'is-ipfs';
 
 export enum EnumIPFSLinkType
 {
@@ -17,22 +17,38 @@ export interface IOptions
 {
 	type?: EnumIPFSLinkType | string,
 	filename?: string,
+	ignoreCheck?: boolean,
 }
 
 export type IOptionsInput = IOptions | string;
 
+export function isPath(cid: string): boolean
+{
+	return isIPFS.path(cid) || isIPFS.ipnsPath(cid) || isIPFS.cidPath(cid)
+}
+
+export function isCidOrPath(cid: string): boolean
+{
+	return isIPFS.cid(cid) || isPath(cid)
+}
+
+export function pathToCid(cid: string): string
+{
+	return cid.replace(/^\/ip[nf]s\//, '')
+}
+
 export function toURL(cid: string, options: IOptionsInput = {})
 {
-	if (!isIPFS(cid))
-	{
-		throw new TypeError(`cid '${cid}' is not valid ipfs`)
-	}
-
 	if (typeof options === 'string')
 	{
 		options = {
 			filename: options,
 		}
+	}
+
+	if (!options.ignoreCheck && !isCidOrPath(cid))
+	{
+		throw new TypeError(`cid '${cid}' is not valid ipfs`)
 	}
 
 	let { filename, type } = options || {};
@@ -49,6 +65,11 @@ export function toURL(cid: string, options: IOptionsInput = {})
 			break;
 	}
 
+	if (isPath(cid))
+	{
+		cid = pathToCid(cid)
+	}
+
 	let url = new URL(`${prefix}${cid}`);
 
 	if (typeof filename === 'string' && filename.length > 0)
@@ -57,6 +78,11 @@ export function toURL(cid: string, options: IOptionsInput = {})
 	}
 
 	return url;
+}
+
+export function toPath(cid: string, options?: IOptionsInput)
+{
+	return toURL(cid, options).pathname
 }
 
 export function toLink(cid: string, options?: IOptionsInput)
