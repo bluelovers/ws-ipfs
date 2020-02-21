@@ -1,6 +1,6 @@
 {
   "name": "use-ipfs",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "lazy way for create or connect ipfs",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/use-ipfs#readme",
   "bugs": {
@@ -37,7 +37,7 @@
     "ipfsd-ctl": "^3.0.0"
   },
   "dependencies": {
-    "@bluelovers/ipfs-http-client": "^1.0.4",
+    "@bluelovers/ipfs-http-client": "^1.0.5",
     "lodash.defaultsdeep": "^4.6.1"
   },
   "peerDependencies": {
