@@ -8,7 +8,10 @@ export function refIPFS(cid: string, ipfs, timeout?: number)
 	return Bluebird.resolve()
 		.then(async () =>
 		{
-			for await (const ref of ipfs.refs(cid, { timeout }))
+			for await (const ref of ipfs.refs(cid, {
+				timeout,
+				pin: false,
+			}))
 			{
 				if (ref.err)
 				{
