@@ -29,7 +29,10 @@ export function catIPFS(cid: string, ipfs, timeout?: number)
 	return refIPFS(cid, ipfs)
 		.then(async () => {
 			const chunks = [];
-			for await (const chunk of ipfs.cat(cid, { timeout })) {
+			for await (const chunk of ipfs.cat(cid, {
+				timeout,
+				pin: false,
+			})) {
 				chunks.push(chunk)
 			}
 			return Buffer.concat(chunks)

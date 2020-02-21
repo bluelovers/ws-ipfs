@@ -28,7 +28,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.17",
-    "@types/node": "^13.5.0"
+    "@bluelovers/tsconfig": "^1.0.18",
+    "@types/node": "^13.7.4"
   }
 }
