@@ -1,6 +1,6 @@
 import IpfsClient from '@bluelovers/ipfs-http-client';
-import { createController } from 'ipfsd-ctl';
 import defaultsDeep from 'lodash.defaultsdeep';
+import startIPFS from './lib/ctl';
 
 export enum EnumIPFSType
 {
@@ -159,18 +159,14 @@ export async function getIPFS(options?: IOptions)
 			//console.error(e)
 			try
 			{
-				ipfsd = await createController(fixIPFSOptions(options));
-
-				!ipfsd.initialized && await ipfsd.init();
-				!ipfsd.started && await ipfsd.start();
+				ipfsd = await startIPFS(options);
 				ipfs = ipfsd.api;
 				await checkIPFS(ipfs);
-
 				ipfsType = EnumIPFSType.Controller;
 			}
 			catch (e)
 			{
-				//console.error(e)
+				console.error(e);
 				await stop();
 
 				return reject(e)
@@ -182,8 +178,15 @@ export async function getIPFS(options?: IOptions)
 			try
 			{
 				ipfsd && await ipfsd.stop();
+			}
+			catch (e)
+			{
+
+			}
+
+			try
+			{
 				ipfs && await ipfs.stop();
-				//console.debug(`ipfs closed`)
 			}
 			catch (e)
 			{
