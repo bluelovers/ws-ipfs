@@ -1,6 +1,7 @@
 import IpfsClient from '@bluelovers/ipfs-http-client';
-import defaultsDeep from 'lodash.defaultsdeep';
 import startIPFS from './lib/ctl';
+import defaultsDeep from 'lodash/defaultsDeep';
+import cloneDeep from 'lodash/cloneDeep';
 
 export enum EnumIPFSType
 {
@@ -23,6 +24,12 @@ let _cached: Readonly<{
 	ipfs,
 	ipfsType: EnumIPFSType,
 	stop(...argv): Promise<void>,
+	address(): Promise<Readonly<{
+		Swarm: string[],
+		API: string,
+		Gateway: string,
+		Delegates: string[]
+	}>>
 }>;
 
 /**
@@ -213,6 +220,11 @@ export async function getIPFS(options?: IOptions)
 			ipfs,
 			ipfsType,
 			stop,
+			async address()
+			{
+				let addr = await ipfs.config.get('Addresses');
+				return cloneDeep(addr)
+			}
 		})
 	});
 }

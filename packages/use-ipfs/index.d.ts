@@ -14,6 +14,12 @@ export declare function useIPFS(options?: IOptions): Promise<Readonly<{
     ipfs: any;
     ipfsType: EnumIPFSType;
     stop(...argv: any[]): Promise<void>;
+    address(): Promise<Readonly<{
+        Swarm: string[];
+        API: string;
+        Gateway: string;
+        Delegates: string[];
+    }>>;
 }>>;
 export interface IOptions extends Record<string, any> {
     type?: string | 'js' | 'go' | 'proc';
@@ -45,5 +51,11 @@ export declare function getIPFS(options?: IOptions): Promise<Readonly<{
     ipfs: any;
     ipfsType: EnumIPFSType;
     stop(...argv: any[]): Promise<void>;
+    address(): Promise<Readonly<{
+        Swarm: string[];
+        API: string;
+        Gateway: string;
+        Delegates: string[];
+    }>>;
 }>>;
 export default useIPFS;
