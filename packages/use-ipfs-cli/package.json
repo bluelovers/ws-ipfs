@@ -1,0 +1,45 @@
+{
+  "name": "use-ipfs-cli",
+  "version": "1.0.0",
+  "description": "<description>",
+  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/use-ipfs-cli#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-ipfs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-ipfs.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "bin": {
+    "use-ipfs-cli": "bin/use-ipfs-cli.js"
+  },
+  "scripts": {
+    "coverage": "npx nyc yarn run test",
+    "lint": "npx eslint **/*.ts",
+    "ncu": "npx yarn-tool ncu -u",
+    "npm:publish": "npm publish",
+    "postpublish_": "git commit -m \"chore(release): publish\" .",
+    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
+    "sort-package-json": "npx yarn-tool sort",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "tsc:default": "tsc -p tsconfig.json",
+    "tsc:esm": "tsc -p tsconfig.esm.json"
+  },
+  "dependencies": {
+    "ipfs": "^0.41.1",
+    "ipfs-http-client": "^42.0.0",
+    "ipfsd-ctl": "^3.0.0",
+    "use-ipfs": "^1.0.7",
+    "yargs": "^15.1.0"
+  },
+  "devDependencies": {
+    "@bluelovers/tsconfig": "^1.0.18",
+    "@types/node": "^13.7.4",
+    "@types/yargs": "^15.0.3"
+  }
+}
