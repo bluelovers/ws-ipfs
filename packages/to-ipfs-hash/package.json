@@ -42,7 +42,7 @@
     "@bluelovers/tsconfig": "^1.0.18",
     "@types/bl": "^2.1.0",
     "@types/fs-extra": "^8.1.0",
-    "@types/node": "^13.7.4"
+    "@types/node": "^13.7.6"
   },
   "dependencies": {
     "bl": "^4.0.0",

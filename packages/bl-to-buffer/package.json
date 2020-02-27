@@ -29,6 +29,6 @@
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.18",
-    "@types/node": "^13.7.4"
+    "@types/node": "^13.7.6"
   }
 }

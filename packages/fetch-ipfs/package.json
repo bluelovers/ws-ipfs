@@ -30,8 +30,8 @@
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.18",
     "@types/bluebird": "^3.5.29",
-    "@types/node": "^13.7.4",
-    "scramjet": "^4.27.7"
+    "@types/node": "^13.7.6",
+    "scramjet": "^4.28.1"
   },
   "dependencies": {
     "abort-controller": "^3.0.0",

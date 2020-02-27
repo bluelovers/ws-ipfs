@@ -31,7 +31,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "ipfs": "^0.41.1",
+    "ipfs": "^0.41.2",
     "ipfs-http-client": "^42.0.0",
     "ipfsd-ctl": "^3.0.0",
     "use-ipfs": "^1.0.8",
@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.18",
-    "@types/node": "^13.7.4",
-    "@types/yargs": "^15.0.3"
+    "@types/node": "^13.7.6",
+    "@types/yargs": "^15.0.4"
   }
 }
