@@ -1,61 +1,18 @@
-export declare enum EnumIPFSType {
-    Unknown = 0,
-    Client = 1,
-    Controller = 2
+import { EnumIPFSType, IOptions, IOptionsExtra } from './lib/types';
+import { IIPFSAddresses } from 'ipfs-types';
+interface ICachedObject extends Readonly<{
+    ipfs: any;
+    ipfsType: EnumIPFSType;
+    stop(...argv: any[]): Promise<void>;
+    address(): Promise<Readonly<IIPFSAddresses>>;
+}> {
 }
-/**
- * check ipfs is work
- */
-export declare function checkIPFS(ipfs: any): Promise<boolean>;
 /**
  * get IPFS, if not exists, create or connect it
  */
-export declare function useIPFS(options?: IOptions): Promise<Readonly<{
-    ipfs: any;
-    ipfsType: EnumIPFSType;
-    stop(...argv: any[]): Promise<void>;
-    address(): Promise<Readonly<{
-        Swarm: string[];
-        API: string;
-        Gateway: string;
-        Delegates: string[];
-    }>>;
-}>>;
-export interface IOptions extends Record<string, any> {
-    type?: string | 'js' | 'go' | 'proc';
-    ipfsModule?: any;
-    ipfsHttpModule?: any;
-    ipfsBin?: string;
-    ipfsOptions?: {
-        EXPERIMENTAL?: {
-            pubsub?: boolean;
-            ipnsPubsub?: boolean;
-            sharding?: boolean;
-            dht?: boolean;
-        };
-        relay?: {
-            enabled?: boolean;
-            hop?: {
-                enabled?: boolean;
-            };
-        };
-        [k: string]: any;
-    };
-    disposable?: boolean;
-}
-export declare function fixIPFSOptions(options?: IOptions): IOptions;
+export declare function useIPFS(options?: IOptions, optionsExtra?: IOptionsExtra): Promise<ICachedObject>;
 /**
  * create or connect it
  */
-export declare function getIPFS(options?: IOptions): Promise<Readonly<{
-    ipfs: any;
-    ipfsType: EnumIPFSType;
-    stop(...argv: any[]): Promise<void>;
-    address(): Promise<Readonly<{
-        Swarm: string[];
-        API: string;
-        Gateway: string;
-        Delegates: string[];
-    }>>;
-}>>;
+export declare function getIPFS(options?: IOptions, optionsExtra?: IOptionsExtra): Promise<ICachedObject>;
 export default useIPFS;

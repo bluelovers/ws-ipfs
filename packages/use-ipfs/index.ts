@@ -1,41 +1,28 @@
-import IpfsClient from '@bluelovers/ipfs-http-client';
+import IpfsClient, { IIPFSClientAddresses, IIPFSClientParameters } from '@bluelovers/ipfs-http-client';
+import { some } from '@bluelovers/ipfs-http-client/core';
 import startIPFS from './lib/ctl';
-import defaultsDeep from 'lodash/defaultsDeep';
 import cloneDeep from 'lodash/cloneDeep';
+import { checkIPFS, ipfsAddresses } from './lib/util';
+import { EnumIPFSType, IOptions, IOptionsExtra } from './lib/types';
+import _ipfsHttpModule from 'ipfs-http-client'
+import { IIPFSAddresses } from 'ipfs-types';
 
-export enum EnumIPFSType
-{
-	Unknown,
-	Client,
-	Controller,
-}
-
-/**
- * check ipfs is work
- */
-export async function checkIPFS(ipfs)
-{
-	await ipfs.id();
-
-	return true
-}
-
-let _cached: Readonly<{
+interface ICachedObject extends Readonly<{
 	ipfs,
 	ipfsType: EnumIPFSType,
 	stop(...argv): Promise<void>,
-	address(): Promise<Readonly<{
-		Swarm: string[],
-		API: string,
-		Gateway: string,
-		Delegates: string[]
-	}>>
-}>;
+	address(): Promise<Readonly<IIPFSAddresses>>
+}>
+{
+
+}
+
+let _cached: ICachedObject;
 
 /**
  * get IPFS, if not exists, create or connect it
  */
-export async function useIPFS(options?: IOptions)
+export async function useIPFS(options?: IOptions, optionsExtra: IOptionsExtra = {})
 {
 	if (typeof _cached === 'undefined' || typeof _cached === null)
 	{
@@ -44,7 +31,8 @@ export async function useIPFS(options?: IOptions)
 		let { stop: closeFnOld, ipfs } = ret;
 
 		await checkIPFS(ipfs)
-			.catch(async (e) => {
+			.catch(async (e) =>
+			{
 				await closeFnOld().catch(e => null);
 				return Promise.reject(e);
 			})
@@ -52,7 +40,8 @@ export async function useIPFS(options?: IOptions)
 
 		let bool = true;
 
-		const stop = (...argv) => {
+		const stop = (...argv) =>
+		{
 			return bool && closeFnOld(...argv)
 				.then(() =>
 				{
@@ -78,107 +67,91 @@ export async function useIPFS(options?: IOptions)
 	return _cached
 }
 
-export interface IOptions extends Record<string, any>
-{
-	type?: string | 'js' | 'go' | 'proc';
-	ipfsModule?: any;
-	ipfsHttpModule?: any;
-	ipfsBin?: string;
-	ipfsOptions?: {
-		EXPERIMENTAL?: {
-			pubsub?: boolean;
-			ipnsPubsub?: boolean;
-			sharding?: boolean;
-			dht?: boolean;
-		};
-		relay?: {
-			enabled?: boolean;
-			hop?: {
-				enabled?: boolean;
-			};
-		};
-		[k: string]: any
-	};
-	disposable?: boolean;
-}
-
-export function fixIPFSOptions(options?: IOptions)
-{
-	options = defaultsDeep({}, options, {
-		type: 'js',
-		//ipfsModule: require('ipfs'),
-		//ipfsHttpModule: require('ipfs-http-client'),
-		//ipfsBin: require.resolve('ipfs/src/cli/bin.js'),
-		ipfsOptions: {
-			EXPERIMENTAL: {
-				pubsub: true,
-				ipnsPubsub: true,
-				sharding: true,
-				dht: true,
-			},
-			relay: {
-				enabled: true,
-				hop: {
-					enabled: true
-				}
-			},
-		},
-		disposable: false,
-	});
-
-	if (options.type ==='js' || options.type ==='proc')
-	{
-		if (typeof options.ipfsModule === 'undefined')
-		{
-			options.ipfsModule = require('ipfs')
-		}
-		if (typeof options.ipfsHttpModule === 'undefined')
-		{
-			options.ipfsHttpModule = require('ipfs-http-client')
-		}
-		if (typeof options.ipfsBin === 'undefined')
-		{
-			options.ipfsBin = require.resolve('ipfs/src/cli/bin.js')
-		}
-	}
-
-	return options;
-}
-
 /**
  * create or connect it
  */
-export async function getIPFS(options?: IOptions)
+export async function getIPFS(options?: IOptions, optionsExtra: IOptionsExtra = {})
 {
-	return new Promise<typeof _cached>(async (resolve, reject) => {
+	return new Promise<ICachedObject>(async (resolve, reject) =>
+	{
 		let ipfs;
 		let ipfsd;
 		let ipfsType: EnumIPFSType = EnumIPFSType.Unknown;
 
-		try
+		await (async () =>
 		{
-			ipfs = await IpfsClient();
-			await checkIPFS(ipfs);
-			ipfsType = EnumIPFSType.Client;
-		}
-		catch (e)
-		{
-			//console.error(e)
+			let fallbackServerArgvs: IIPFSClientParameters;
+
+			if (typeof optionsExtra.fallbackServer !== 'undefined')
+			{
+				let fallbackServer = optionsExtra.fallbackServer;
+
+				fallbackServerArgvs = [fallbackServer]
+			}
+
 			try
 			{
-				ipfsd = await startIPFS(options);
-				ipfs = ipfsd.api;
+				ipfs = await IpfsClient();
 				await checkIPFS(ipfs);
-				ipfsType = EnumIPFSType.Controller;
+				ipfsType = EnumIPFSType.Client;
 			}
 			catch (e)
 			{
-				console.error(e);
-				await stop();
+				if (optionsExtra.useFallbackFirst && fallbackServerArgvs && fallbackServerArgvs.length)
+				{
+					ipfs = await some(_ipfsHttpModule, [fallbackServerArgvs])
+						.then(ipfs => {
+							//checkIPFS(ipfs);
+							ipfsType = EnumIPFSType.ClientFallback;
+							return ipfs;
+						})
+						.catch(e => null)
+					;
 
-				return reject(e)
+					if (ipfs)
+					{
+						return;
+					}
+				}
+
+				//console.error(e)
+				try
+				{
+					ipfsd = await startIPFS(options);
+					ipfs = ipfsd.api;
+					await checkIPFS(ipfs);
+					ipfsType = EnumIPFSType.Controller;
+				}
+				catch (e)
+				{
+					await stop();
+
+					if (fallbackServerArgvs && fallbackServerArgvs.length)
+					{
+						ipfsd = undefined;
+
+						ipfs = await some(_ipfsHttpModule, [fallbackServerArgvs])
+							.then(ipfs => {
+								//checkIPFS(ipfs);
+								ipfsType = EnumIPFSType.ClientFallback;
+								return ipfs;
+							})
+						;
+
+						if (ipfs)
+						{
+							return;
+						}
+					}
+					else
+					{
+						console.error(e);
+					}
+
+					return reject(e)
+				}
 			}
-		}
+		})();
 
 		async function stop()
 		{
@@ -201,17 +174,20 @@ export async function getIPFS(options?: IOptions)
 			}
 		}
 
-		process.once('SIGINT', (...argv) => {
+		process.once('SIGINT', (...argv) =>
+		{
 			//console.debug('[SIGINT]', 'shutting down...', argv);
 			return stop()
 		});
 
-		process.once('SIGTERM', (...argv) => {
+		process.once('SIGTERM', (...argv) =>
+		{
 			//console.debug('[SIGTERM]', 'shutting down...', argv);
 			return stop()
 		});
 
-		process.once('exit', (...argv) => {
+		process.once('exit', (...argv) =>
+		{
 			//console.debug('[exit]', 'shutting down...', argv);
 			return stop()
 		});
@@ -222,9 +198,9 @@ export async function getIPFS(options?: IOptions)
 			stop,
 			async address()
 			{
-				let addr = await ipfs.config.get('Addresses');
+				let addr = await ipfsAddresses(ipfs);
 				return cloneDeep(addr)
-			}
+			},
 		})
 	});
 }

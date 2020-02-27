@@ -1,8 +1,10 @@
 import { createController } from 'ipfsd-ctl';
-import { IOptions, fixIPFSOptions, checkIPFS } from '../index';
 import { checkForRunningApi } from 'ipfsd-ctl/src/utils';
 import IpfsClient from 'ipfs-http-client';
-import { unlinkIPFSApi } from './util';
+import { unlinkIPFSApi } from './util/fs';
+import { checkIPFS } from './util';
+import { IOptions } from './types';
+import { fixIPFSOptions } from './util/ipfsd';
 
 export async function startIPFS(options?: IOptions)
 {

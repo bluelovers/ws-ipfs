@@ -1,15 +1,16 @@
-import { unlinkSync, statSync } from 'fs';
-import { join } from 'path';
+/**
+ * check ipfs is work
+ */
+import { IIPFSAddresses } from 'ipfs-types';
 
-export function unlinkIPFSApi(ipfsPath: string)
+export async function checkIPFS(ipfs)
 {
-	let api = join(ipfsPath, 'api');
-	let stat = statSync(api);
+	await ipfs.id();
 
-	if (!stat.isFile())
-	{
-		throw new Error(`target path not a file, ${api}`);
-	}
+	return true
+}
 
-	unlinkSync(api);
+export function ipfsAddresses(ipfs): Promise<IIPFSAddresses>
+{
+	return ipfs.config.get('Addresses')
 }
