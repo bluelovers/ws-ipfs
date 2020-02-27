@@ -1,8 +1,5 @@
-import _ipfsHttpModule from 'ipfs-http-client';
-export declare type IIPFSClientParameters = Parameters<typeof _ipfsHttpModule>;
-export declare type IIPFSClientReturn = ReturnType<typeof _ipfsHttpModule>;
-export declare type IIPFSClientFn = (...argvs: IIPFSClientParameters) => IIPFSClientReturn;
-export declare type IIPFSClientFnWrap = (...argvs: IIPFSClientParameters) => Promise<IIPFSClientReturn>;
-export declare function some(ipfsClient: IIPFSClientFn, configs: IIPFSClientParameters[]): Promise<IIPFSClientReturn>;
+import { IIPFSClientFnWrap, IIPFSClientFn, IIPFSClientReturn, IIPFSClientParameters, IIPFSClientAddressesURL, IIPFSClientAddresses } from './lib/types';
+export { IIPFSClientFnWrap, IIPFSClientFn, IIPFSClientReturn, IIPFSClientParameters, IIPFSClientAddressesURL, IIPFSClientAddresses };
+export declare function some(ipfsClient: IIPFSClientFn, configs: IIPFSClientParameters[], skipCheck?: boolean): Promise<IIPFSClientReturn>;
 export declare function use(ipfsHttpModule: IIPFSClientFn): IIPFSClientFnWrap;
 export default use;

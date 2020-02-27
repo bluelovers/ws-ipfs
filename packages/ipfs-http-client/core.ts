@@ -1,11 +1,8 @@
-import _ipfsHttpModule from 'ipfs-http-client'
+import { IIPFSClientFnWrap, IIPFSClientFn, IIPFSClientReturn, IIPFSClientParameters, IIPFSClientAddressesURL, IIPFSClientAddresses } from './lib/types';
 
-export type IIPFSClientParameters = Parameters<typeof _ipfsHttpModule>
-export type IIPFSClientReturn = ReturnType<typeof _ipfsHttpModule>
-export type IIPFSClientFn = (...argvs: IIPFSClientParameters) => IIPFSClientReturn
-export type IIPFSClientFnWrap = (...argvs: IIPFSClientParameters) => Promise<IIPFSClientReturn>
+export { IIPFSClientFnWrap, IIPFSClientFn, IIPFSClientReturn, IIPFSClientParameters, IIPFSClientAddressesURL, IIPFSClientAddresses }
 
-export async function some(ipfsClient: IIPFSClientFn, configs: IIPFSClientParameters[]): Promise<IIPFSClientReturn>
+export async function some(ipfsClient: IIPFSClientFn, configs: IIPFSClientParameters[], skipCheck?: boolean): Promise<IIPFSClientReturn>
 {
 	let ipfs: IIPFSClientReturn;
 
@@ -13,9 +10,11 @@ export async function some(ipfsClient: IIPFSClientFn, configs: IIPFSClientParame
 	{
 		try
 		{
-			// @ts-ignore
 			ipfs = ipfsClient(...argv);
-			await ipfs.id();
+			if (!skipCheck)
+			{
+				await ipfs.id();
+			}
 			break;
 		}
 		catch (e)
@@ -33,7 +32,7 @@ export function use(ipfsHttpModule: IIPFSClientFn): IIPFSClientFnWrap
 
 		if (typeof config === 'undefined' || config === null)
 		{
-			let configs: Parameters<typeof _ipfsHttpModule>[] = [];
+			let configs: IIPFSClientParameters[] = [];
 
 			if (typeof process !== 'undefined' && typeof process.env.IPFS_ADDRESSES_API === 'string')
 			{

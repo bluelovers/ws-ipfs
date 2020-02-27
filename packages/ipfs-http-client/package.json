@@ -41,7 +41,7 @@
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.18",
     "@types/bl": "^2.1.0",
-    "@types/node": "^13.7.4",
+    "@types/node": "^13.7.6",
     "bl": "^4.0.0",
     "ipfs-http-client": "^42.0.0"
   },
@@ -50,5 +50,9 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "ipfs-types": "^1.0.0",
+    "ts-type": "^1.2.13"
   }
 }
