@@ -99,7 +99,7 @@ export async function getIPFS(options?: IOptions, optionsExtra: IOptionsExtra = 
 			{
 				if (optionsExtra.useFallbackFirst && fallbackServerArgvs && fallbackServerArgvs.length)
 				{
-					ipfs = await some(_ipfsHttpModule, [fallbackServerArgvs])
+					ipfs = await some(_ipfsHttpModule, [fallbackServerArgvs], true)
 						.then(ipfs => {
 							//checkIPFS(ipfs);
 							ipfsType = EnumIPFSType.ClientFallback;
@@ -130,7 +130,7 @@ export async function getIPFS(options?: IOptions, optionsExtra: IOptionsExtra = 
 					{
 						ipfsd = undefined;
 
-						ipfs = await some(_ipfsHttpModule, [fallbackServerArgvs])
+						ipfs = await some(_ipfsHttpModule, [fallbackServerArgvs], true)
 							.then(ipfs => {
 								//checkIPFS(ipfs);
 								ipfsType = EnumIPFSType.ClientFallback;

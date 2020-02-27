@@ -11,6 +11,9 @@ export enum EnumIPFSType
 
 export interface IOptionsExtra
 {
+	/**
+	 * when use this, will skip check server is work or not
+	 */
 	fallbackServer?: IIPFSClientAddresses,
 	useFallbackFirst?: boolean,
 }
