@@ -35,7 +35,7 @@ export function getIpfsServerList()
 
 	(<Record<string, IIPFSAddressesLike>>data);
 
-	return data as Record<string | keyof typeof data, IIPFSAddressesLike>
+	return data as Record<keyof typeof data, IIPFSAddressesLike> & Record<string, IIPFSAddressesLike>
 }
 
 export const ipfsServerList = getIpfsServerList();
