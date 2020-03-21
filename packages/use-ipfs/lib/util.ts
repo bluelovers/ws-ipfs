@@ -10,7 +10,7 @@ export async function checkIPFS(ipfs)
 	return true
 }
 
-export function ipfsAddresses(ipfs): Promise<IIPFSAddresses>
+export async function ipfsAddresses(ipfs): Promise<IIPFSAddresses>
 {
 	return ipfs.config.get('Addresses')
 }

@@ -27,9 +27,11 @@ export interface IIPFSAsyncIterableApi extends IIPFSFileApi {
         count?: number;
     }): AsyncIterable<IIPFSApiReturnType['ping']>;
 }
-export interface IIPFSPromiseApi extends IIPFSAsyncIterableApi {
+export interface IIPFSApiUtils {
     version(options?: any): Promise<IIPFSApiReturnType['version']>;
     id(options?: any): Promise<IIPFSApiReturnType['id']>;
+}
+export interface IIPFSPromiseApi extends IIPFSAsyncIterableApi, IIPFSApiUtils {
 }
 export interface IIPFSCallbackApi {
     version(...argv: IParametersWithCallbackWithMaybeArgv<IIPFSApiReturnType['version']>): void;

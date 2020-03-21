@@ -36,12 +36,17 @@ export interface IIPFSAsyncIterableApi extends IIPFSFileApi
 
 }
 
-export interface IIPFSPromiseApi extends IIPFSAsyncIterableApi
+export interface IIPFSApiUtils
 {
 
 	version(options?: any): Promise<IIPFSApiReturnType['version']>;
 
 	id(options?: any): Promise<IIPFSApiReturnType['id']>;
+
+}
+
+export interface IIPFSPromiseApi extends IIPFSAsyncIterableApi, IIPFSApiUtils
+{
 
 }
 

@@ -1,4 +1,8 @@
-import IpfsClient, { IIPFSClientAddresses, IIPFSClientParameters } from '@bluelovers/ipfs-http-client';
+import IpfsClient, {
+	IIPFSClientAddresses,
+	IIPFSClientParameters,
+	IIPFSClientReturn,
+} from '@bluelovers/ipfs-http-client';
 import { some } from '@bluelovers/ipfs-http-client/core';
 import startIPFS from './lib/ctl';
 import cloneDeep from 'lodash/cloneDeep';
@@ -6,23 +10,21 @@ import { checkIPFS, ipfsAddresses } from './lib/util';
 import { EnumIPFSType, IOptions, IOptionsExtra } from './lib/types';
 import _ipfsHttpModule from 'ipfs-http-client'
 import { IIPFSAddresses } from 'ipfs-types';
+import { IIPFSPromiseApi } from 'ipfs-types/lib/ipfs/index';
 
-interface ICachedObject extends Readonly<{
-	ipfs,
+export type ICachedObject<IPFS = IIPFSClientReturn> = Readonly<{
+	ipfs: IPFS,
 	ipfsType: EnumIPFSType,
 	stop(...argv): Promise<void>,
 	address(): Promise<Readonly<IIPFSAddresses>>
-}>
-{
+}>;
 
-}
-
-let _cached: ICachedObject;
+let _cached: ICachedObject<IIPFSClientReturn>;
 
 /**
  * get IPFS, if not exists, create or connect it
  */
-export async function useIPFS(options?: IOptions, optionsExtra: IOptionsExtra = {})
+export async function useIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, optionsExtra: IOptionsExtra = {})
 {
 	if (typeof _cached === 'undefined' || typeof _cached === null)
 	{
@@ -71,17 +73,17 @@ export async function useIPFS(options?: IOptions, optionsExtra: IOptionsExtra = 
 		ret = void 0;
 	}
 
-	return _cached
+	return _cached as ICachedObject<IPFS>
 }
 
 /**
  * create or connect it
  */
-export async function getIPFS(options?: IOptions, optionsExtra: IOptionsExtra = {})
+export async function getIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, optionsExtra: IOptionsExtra = {})
 {
-	return new Promise<ICachedObject>(async (resolve, reject) =>
+	return new Promise<ICachedObject<IPFS>>(async (resolve, reject) =>
 	{
-		let ipfs;
+		let ipfs: IIPFSClientReturn;
 		let ipfsd;
 		let ipfsType: EnumIPFSType = EnumIPFSType.Unknown;
 

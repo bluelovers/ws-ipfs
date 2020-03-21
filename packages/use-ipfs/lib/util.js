@@ -6,7 +6,7 @@ async function checkIPFS(ipfs) {
     return true;
 }
 exports.checkIPFS = checkIPFS;
-function ipfsAddresses(ipfs) {
+async function ipfsAddresses(ipfs) {
     return ipfs.config.get('Addresses');
 }
 exports.ipfsAddresses = ipfsAddresses;
