@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import { ICallback } from '../types';
+import { ICallback, IMultihash, ICIDObject } from '../types';
 export interface IInitOptions {
     emptyRepo?: boolean;
     bits?: number;
@@ -8,15 +8,13 @@ export interface IInitOptions {
 export interface IMultiaddr {
     buffer: Uint8Array;
 }
-export declare type IMultihash = any | string;
-export declare type ICID = any;
 export interface ITypes {
     Buffer: any;
     PeerId: any;
     PeerInfo: any;
     multiaddr: IMultiaddr;
     multihash: IMultihash;
-    CID: ICID;
+    CID: ICIDObject;
 }
 export interface IVersion {
     version: string;
@@ -133,48 +131,4 @@ export interface IObjectPatchAPI {
     setData(multihash: IMultihash, data: any, options: IGetObjectOptions): Promise<any>;
     setData(multihash: IMultihash, data: any, callback: ICallback<any>): void;
     setData(multihash: IMultihash, data: any): Promise<any>;
-}
-export interface IObjectAPI {
-    "new"(template: 'unixfs-dir', callback: ICallback<IDAGNode>): void;
-    "new"(callback: ICallback<IDAGNode>): void;
-    "new"(): Promise<IDAGNode>;
-    put(obj: IObj, options: IPutObjectOptions, callback: ICallback<any>): void;
-    put(obj: IObj, options: IPutObjectOptions): Promise<any>;
-    put(obj: IObj, callback: ICallback<any>): void;
-    put(obj: IObj): Promise<any>;
-    get(multihash: IMultihash, options: IGetObjectOptions, callback: ICallback<any>): void;
-    get(multihash: IMultihash, options: IGetObjectOptions): Promise<any>;
-    get(multihash: IMultihash, callback: ICallback<any>): void;
-    get(multihash: IMultihash): Promise<any>;
-    data(multihash: IMultihash, options: IGetObjectOptions, callback: ICallback<any>): void;
-    data(multihash: IMultihash, options: IGetObjectOptions): Promise<any>;
-    data(multihash: IMultihash, callback: ICallback<any>): void;
-    data(multihash: IMultihash): Promise<any>;
-    links(multihash: IMultihash, options: IGetObjectOptions, callback: ICallback<IDAGLink[]>): void;
-    links(multihash: IMultihash, options: IGetObjectOptions): Promise<IDAGLink[]>;
-    links(multihash: IMultihash, callback: ICallback<IDAGLink[]>): void;
-    links(multihash: IMultihash): Promise<IDAGLink[]>;
-    stat(multihash: IMultihash, options: IGetObjectOptions, callback: ICallback<IObjectStat>): void;
-    stat(multihash: IMultihash, options: IGetObjectOptions): Promise<IObjectStat>;
-    stat(multihash: IMultihash, callback: ICallback<IObjectStat>): void;
-    stat(multihash: IMultihash): Promise<IObjectStat>;
-    patch: IObjectPatchAPI;
-}
-export interface IDagAPI {
-    put(dagNode: any, options: any, callback: ICallback<any>): void;
-    put(dagNode: any, options: any): Promise<any>;
-    get(cid: string | ICID, path: string, options: any, callback: ICallback<any>): void;
-    get(cid: string | ICID, path: string, options: any): Promise<any>;
-    get(cid: string | ICID, path: string, callback: ICallback<any>): void;
-    get(cid: string | ICID, path: string): Promise<any>;
-    get(cid: string | ICID, callback: ICallback<any>): void;
-    get(cid: string | ICID): Promise<any>;
-    tree(cid: string | ICID, path: string, options: any, callback: ICallback<any>): void;
-    tree(cid: string | ICID, path: string, options: any): Promise<any>;
-    tree(cid: string | ICID, path: string, callback: ICallback<any>): void;
-    tree(cid: string | ICID, path: string): Promise<any>;
-    tree(cid: string | ICID, options: any, callback: ICallback<any>): void;
-    tree(cid: string | ICID, options: any): Promise<any>;
-    tree(cid: string | ICID, callback: ICallback<any>): void;
-    tree(cid: string | ICID): Promise<any>;
 }

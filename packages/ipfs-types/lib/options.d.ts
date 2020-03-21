@@ -6,5 +6,5 @@ export interface IIPFSOptions {
     config?: any;
 }
 export interface INetworkOptionsBase {
-    timeout?: number;
+    timeout?: number | string;
 }

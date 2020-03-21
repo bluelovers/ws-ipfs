@@ -1,7 +1,10 @@
 import { EventEmitter } from "events";
-import { ITypes, IInitOptions, IVersion, IId, IRepoAPI, IObjectAPI, IDagAPI, ISwarmAPI, IFilesAPI } from './types';
+import { ITypes, IInitOptions, IVersion, IId, IRepoAPI, ISwarmAPI, IFilesAPI } from './types';
 import { ICallback, IParametersWithCallbackWithMaybeArgv, IErrorLike } from '../types';
 import { IIPFSFileApi } from './file';
+import { IDagAPI, IIPFSDagApi } from './dag';
+import { IIPFSRefsApi } from './refs';
+import { IObjectAPI, IIPFSObjectApi } from './object';
 
 export interface IIPFSApiReturnType
 {
@@ -45,7 +48,7 @@ export interface IIPFSApiUtils
 
 }
 
-export interface IIPFSPromiseApi extends IIPFSAsyncIterableApi, IIPFSApiUtils
+export interface IIPFSPromiseApi extends IIPFSAsyncIterableApi, IIPFSApiUtils, IIPFSDagApi, IIPFSRefsApi, IIPFSObjectApi
 {
 
 }
@@ -76,6 +79,10 @@ export type IIPFSInstanceCoreApi = IIPFSCallbackApi & IIPFSPromiseApi & {
 
 }
 
+/**
+ * @todo update this
+ * @deprecated
+ */
 export type IIPFSInstance = IIPFSInstanceCoreApi & {
 
 	types: ITypes;

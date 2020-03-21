@@ -1,7 +1,7 @@
 import { IIPFSOptions } from '../options';
 import { IIPFSInstance } from './index';
 
-export interface IIPFSConstructor
+export interface IIPFSConstructor<T = IIPFSInstance>
 {
-	new(options?: IIPFSOptions): IIPFSInstance;
+	new(options?: IIPFSOptions): T;
 }

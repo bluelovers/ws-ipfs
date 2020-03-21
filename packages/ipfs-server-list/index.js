@@ -7,6 +7,7 @@ function getIpfsServerList() {
          * http://blog.hubwiz.com/2019/09/11/infura-dev-manual/
          * http://cw.hubwiz.com/card/c/infura-api/1/4/3/
          * https://github.com/Pedro-vk/ipfs-website-deployer/blob/master/src/ipfs-website-deployer-cli.ts
+         * https://infura.io/docs/ipfs/get/version
          */
         'infura.io': {
             API: {

@@ -9,5 +9,5 @@ export interface IIPFSOptions
 
 export interface INetworkOptionsBase
 {
-	timeout?: number,
+	timeout?: number | string,
 }

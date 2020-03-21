@@ -100,10 +100,8 @@ export async function getIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, opti
 
 			try
 			{
-
-
 				ipfs = await IpfsClient(optionsExtra?.serverAddr);
-				if (!optionsExtra?.skipCheck)
+				if (!(optionsExtra?.skipCheck && optionsExtra?.serverAddr))
 				{
 					await checkIPFS(ipfs)
 				}

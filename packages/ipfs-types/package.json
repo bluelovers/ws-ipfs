@@ -27,6 +27,10 @@
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
+  "dependencies": {
+    "ts-type": "^1.2.13",
+    "@types/bl": "^2.1.0"
+  },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19",
     "@types/node": "^13.9.2"

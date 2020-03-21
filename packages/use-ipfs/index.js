@@ -68,7 +68,7 @@ async function getIPFS(options, optionsExtra = {}) {
             }
             try {
                 ipfs = await ipfs_http_client_1.default(optionsExtra === null || optionsExtra === void 0 ? void 0 : optionsExtra.serverAddr);
-                if (!(optionsExtra === null || optionsExtra === void 0 ? void 0 : optionsExtra.skipCheck)) {
+                if (!((optionsExtra === null || optionsExtra === void 0 ? void 0 : optionsExtra.skipCheck) && (optionsExtra === null || optionsExtra === void 0 ? void 0 : optionsExtra.serverAddr))) {
                     await util_1.checkIPFS(ipfs);
                 }
                 ipfsType = types_1.EnumIPFSType.Client;

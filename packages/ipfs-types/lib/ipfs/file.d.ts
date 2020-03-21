@@ -1,16 +1,12 @@
 /// <reference types="node" />
 import TypedArray = NodeJS.TypedArray;
 import { INetworkOptionsBase } from '../options';
+import BufferList from 'bl';
+import { IMtime, IUnixTime, IAsyncIterableAbleOrValue, IAsyncIterableAble, ICIDObject } from '../types';
 export declare type IBytes = number[] | Buffer | ArrayBuffer | TypedArray;
 export declare type IBloby = Blob | File;
-export declare type IBufferList = Buffer[];
+export declare type IBufferList = BufferList;
 export declare type IFileContent = IBytes | IBloby | string | Iterable<number> | IAsyncIterableAble<IBytes>;
-export declare type IAsyncIterableAble<T> = Iterable<T> | AsyncIterable<T>;
-export declare type IAsyncIterableAbleOrValue<T> = T | IAsyncIterableAble<T>;
-export declare type IUnixTime = Date | {
-    secs: number;
-    nsecs?: number;
-} | number[];
 export interface IFileObject {
     path?: string;
     content?: IFileContent;
@@ -18,14 +14,10 @@ export interface IFileObject {
     mtime?: IUnixTime;
 }
 export declare type IFileData = IAsyncIterableAbleOrValue<IFileObject> | IAsyncIterableAbleOrValue<IBloby> | IAsyncIterableAbleOrValue<IBytes> | IAsyncIterableAbleOrValue<string> | Iterable<number>;
-export interface IMtime {
-    secs: number;
-    nsecs: number;
-}
 export interface IIPFSFileApi {
     add(data: IFileData, options?: any): AsyncIterable<{
-        path: '/tmp/myfile.txt';
-        cid: any;
+        path: string;
+        cid: ICIDObject;
         mode: number;
         mtime: IMtime;
         size: number;
@@ -34,7 +26,7 @@ export interface IIPFSFileApi {
         offset?: number;
         length?: number;
     } & INetworkOptionsBase): AsyncIterable<Buffer>;
-    get(ipfsPath: any, options?: any): AsyncIterable<{
+    get(ipfsPath: any, options?: {} & INetworkOptionsBase): AsyncIterable<{
         path: string;
         content: AsyncIterable<IBufferList>;
         mode: number;
@@ -45,7 +37,7 @@ export interface IIPFSFileApi {
         name: string;
         path: string;
         size: number;
-        cid: any;
+        cid: ICIDObject;
         type: 'file' | string;
         mode: number;
         mtime: IMtime;

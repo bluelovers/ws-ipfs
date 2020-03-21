@@ -1,5 +1,7 @@
 import TypedArray = NodeJS.TypedArray;
 import { INetworkOptionsBase } from '../options';
+import BufferList from 'bl';
+import { IMtime, IUnixTime, IAsyncIterableAbleOrValue, IAsyncIterableAble, ICIDObject } from '../types';
 
 export type IBytes = number[]
 	| Buffer
@@ -8,7 +10,7 @@ export type IBytes = number[]
 
 export type IBloby = Blob | File;
 
-export type IBufferList = Buffer[];
+export type IBufferList = BufferList;
 
 export type IFileContent = IBytes
 	| IBloby
@@ -16,12 +18,6 @@ export type IFileContent = IBytes
 	| Iterable<number>
 	| IAsyncIterableAble<IBytes>
 ;
-
-export type IAsyncIterableAble<T> = Iterable<T> | AsyncIterable<T>
-
-export type IAsyncIterableAbleOrValue<T> = T | IAsyncIterableAble<T>;
-
-export type IUnixTime = Date | { secs: number, nsecs?: number } | number[];
 
 export interface IFileObject
 {
@@ -42,17 +38,11 @@ export type IFileData = IAsyncIterableAbleOrValue<IFileObject>
 	| Iterable<number>
 	;
 
-export interface IMtime
-{
-	secs: number;
-	nsecs: number;
-}
-
 export interface IIPFSFileApi
 {
 	add(data: IFileData, options?): AsyncIterable<{
-		path: '/tmp/myfile.txt',
-		cid,
+		path: string,
+		cid: ICIDObject,
 		mode: number,
 		mtime: IMtime,
 		size: number
@@ -63,7 +53,7 @@ export interface IIPFSFileApi
 		length?: number,
 	} & INetworkOptionsBase): AsyncIterable<Buffer>
 
-	get(ipfsPath, options?): AsyncIterable<{
+	get(ipfsPath, options?: {} & INetworkOptionsBase): AsyncIterable<{
 		path: string,
 		content: AsyncIterable<IBufferList>,
 		mode: number,
@@ -75,7 +65,7 @@ export interface IIPFSFileApi
 		name: string,
 		path: string,
 		size: number,
-		cid,
+		cid: ICIDObject,
 		type: 'file' | string,
 		mode: number,
 		mtime: IMtime

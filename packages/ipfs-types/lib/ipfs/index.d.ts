@@ -1,8 +1,11 @@
 /// <reference types="node" />
 import { EventEmitter } from "events";
-import { ITypes, IInitOptions, IVersion, IId, IRepoAPI, IObjectAPI, IDagAPI, ISwarmAPI, IFilesAPI } from './types';
+import { ITypes, IInitOptions, IVersion, IId, IRepoAPI, ISwarmAPI, IFilesAPI } from './types';
 import { ICallback, IParametersWithCallbackWithMaybeArgv, IErrorLike } from '../types';
 import { IIPFSFileApi } from './file';
+import { IDagAPI, IIPFSDagApi } from './dag';
+import { IIPFSRefsApi } from './refs';
+import { IObjectAPI, IIPFSObjectApi } from './object';
 export interface IIPFSApiReturnType {
     version: IVersion;
     id: IId;
@@ -31,7 +34,7 @@ export interface IIPFSApiUtils {
     version(options?: any): Promise<IIPFSApiReturnType['version']>;
     id(options?: any): Promise<IIPFSApiReturnType['id']>;
 }
-export interface IIPFSPromiseApi extends IIPFSAsyncIterableApi, IIPFSApiUtils {
+export interface IIPFSPromiseApi extends IIPFSAsyncIterableApi, IIPFSApiUtils, IIPFSDagApi, IIPFSRefsApi, IIPFSObjectApi {
 }
 export interface IIPFSCallbackApi {
     version(...argv: IParametersWithCallbackWithMaybeArgv<IIPFSApiReturnType['version']>): void;
@@ -44,6 +47,10 @@ export interface IIPFSEventEmitterApi {
 }
 export declare type IIPFSInstanceWithEventEmitter = IIPFSEventEmitterApi & EventEmitter & IIPFSInstance;
 export declare type IIPFSInstanceCoreApi = IIPFSCallbackApi & IIPFSPromiseApi & {};
+/**
+ * @todo update this
+ * @deprecated
+ */
 export declare type IIPFSInstance = IIPFSInstanceCoreApi & {
     types: ITypes;
     init(options: IInitOptions, callback: ICallback<boolean>): void;
