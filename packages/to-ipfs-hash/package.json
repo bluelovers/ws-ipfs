@@ -39,15 +39,15 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.18",
+    "@bluelovers/tsconfig": "^1.0.19",
     "@types/bl": "^2.1.0",
     "@types/fs-extra": "^8.1.0",
-    "@types/node": "^13.7.6"
+    "@types/node": "^13.9.2"
   },
   "dependencies": {
-    "bl": "^4.0.0",
-    "fs-extra": "^8.1.0",
+    "bl": "^4.0.2",
+    "fs-extra": "^9.0.0",
     "ipfs-only-hash": "^2.0.1",
-    "ipfs-utils": "^0.7.2"
+    "ipfs-utils": "^1.0.0"
   }
 }

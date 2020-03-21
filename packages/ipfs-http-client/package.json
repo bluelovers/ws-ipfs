@@ -39,10 +39,10 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.18",
+    "@bluelovers/tsconfig": "^1.0.19",
     "@types/bl": "^2.1.0",
-    "@types/node": "^13.7.6",
-    "bl": "^4.0.0",
+    "@types/node": "^13.9.2",
+    "bl": "^4.0.2",
     "ipfs-http-client": "^42.0.0"
   },
   "peerDependencies": {

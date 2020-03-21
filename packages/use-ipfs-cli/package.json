@@ -35,11 +35,11 @@
     "ipfs-http-client": "^42.0.0",
     "ipfsd-ctl": "^3.0.0",
     "use-ipfs": "^1.0.9",
-    "yargs": "^15.1.0"
+    "yargs": "^15.3.1"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.18",
-    "@types/node": "^13.7.6",
+    "@bluelovers/tsconfig": "^1.0.19",
+    "@types/node": "^13.9.2",
     "@types/yargs": "^15.0.4"
   }
 }

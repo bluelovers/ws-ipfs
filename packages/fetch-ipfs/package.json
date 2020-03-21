@@ -28,15 +28,15 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.18",
-    "@types/bluebird": "^3.5.29",
-    "@types/node": "^13.7.6",
-    "scramjet": "^4.28.1"
+    "@bluelovers/tsconfig": "^1.0.19",
+    "@types/bluebird": "^3.5.30",
+    "@types/node": "^13.9.2",
+    "scramjet": "^4.28.3"
   },
   "dependencies": {
     "abort-controller": "^3.0.0",
     "bluebird": "^3.7.2",
-    "buffer": "^5.4.3",
+    "buffer": "^5.5.0",
     "cross-fetch": "^3.0.4",
     "is-error-code": "^1.0.0",
     "to-ipfs-url": "^1.0.2"
