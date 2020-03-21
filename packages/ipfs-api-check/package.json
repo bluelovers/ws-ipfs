@@ -1,6 +1,6 @@
 {
   "name": "ipfs-api-check",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-api-check#readme",
   "bugs": {
@@ -32,7 +32,7 @@
     "@types/node": "^13.9.2"
   },
   "dependencies": {
-    "@bluelovers/ipfs-http-client": "^1.0.6",
-    "ipfs-types": "^1.0.1"
+    "@bluelovers/ipfs-http-client": "^1.0.7",
+    "ipfs-types": "^1.0.2"
   }
 }

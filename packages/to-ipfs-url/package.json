@@ -1,6 +1,6 @@
 {
   "name": "to-ipfs-url",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "create ipfs link",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/to-ipfs-url#readme",
   "bugs": {
