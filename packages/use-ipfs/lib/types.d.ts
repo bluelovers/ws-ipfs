@@ -11,6 +11,8 @@ export interface IOptionsExtra {
      */
     fallbackServer?: IIPFSClientAddresses;
     useFallbackFirst?: boolean;
+    skipCheck?: boolean;
+    serverAddr?: IIPFSClientAddresses;
 }
 export interface IOptions extends Record<string, any> {
     type?: string | 'js' | 'go' | 'proc';

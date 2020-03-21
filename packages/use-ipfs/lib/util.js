@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ipfsAddresses = exports.checkIPFS = void 0;
 async function checkIPFS(ipfs) {
     await ipfs.id();
     return true;
@@ -9,4 +10,4 @@ function ipfsAddresses(ipfs) {
     return ipfs.config.get('Addresses');
 }
 exports.ipfsAddresses = ipfsAddresses;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidXRpbC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbInV0aWwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFLTyxLQUFLLFVBQVUsU0FBUyxDQUFDLElBQUk7SUFFbkMsTUFBTSxJQUFJLENBQUMsRUFBRSxFQUFFLENBQUM7SUFFaEIsT0FBTyxJQUFJLENBQUE7QUFDWixDQUFDO0FBTEQsOEJBS0M7QUFFRCxTQUFnQixhQUFhLENBQUMsSUFBSTtJQUVqQyxPQUFPLElBQUksQ0FBQyxNQUFNLENBQUMsR0FBRyxDQUFDLFdBQVcsQ0FBQyxDQUFBO0FBQ3BDLENBQUM7QUFIRCxzQ0FHQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogY2hlY2sgaXBmcyBpcyB3b3JrXG4gKi9cbmltcG9ydCB7IElJUEZTQWRkcmVzc2VzIH0gZnJvbSAnaXBmcy10eXBlcyc7XG5cbmV4cG9ydCBhc3luYyBmdW5jdGlvbiBjaGVja0lQRlMoaXBmcylcbntcblx0YXdhaXQgaXBmcy5pZCgpO1xuXG5cdHJldHVybiB0cnVlXG59XG5cbmV4cG9ydCBmdW5jdGlvbiBpcGZzQWRkcmVzc2VzKGlwZnMpOiBQcm9taXNlPElJUEZTQWRkcmVzc2VzPlxue1xuXHRyZXR1cm4gaXBmcy5jb25maWcuZ2V0KCdBZGRyZXNzZXMnKVxufVxuIl19
+//# sourceMappingURL=util.js.map

@@ -28,11 +28,11 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.18",
+    "@bluelovers/tsconfig": "^1.0.19",
     "@types/fs-extra": "^8.1.0",
     "@types/lodash": "^4.14.149",
-    "@types/node": "^13.7.6",
-    "fs-extra": "^8.1.0",
+    "@types/node": "^13.9.2",
+    "fs-extra": "^9.0.0",
     "ipfs": "^0.41.2",
     "ipfsd-ctl": "^3.0.0"
   },

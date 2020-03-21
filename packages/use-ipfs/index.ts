@@ -26,15 +26,22 @@ export async function useIPFS(options?: IOptions, optionsExtra: IOptionsExtra = 
 {
 	if (typeof _cached === 'undefined' || typeof _cached === null)
 	{
-		let ret = await getIPFS(options);
+		let ret = await getIPFS(options, optionsExtra);
 		//console.dir({ ipfs, ipfsType })
 		let { stop: closeFnOld, ipfs } = ret;
 
 		await checkIPFS(ipfs)
 			.catch(async (e) =>
 			{
-				await closeFnOld().catch(e => null);
-				return Promise.reject(e);
+				if (optionsExtra?.skipCheck)
+				{
+					e && console.warn(`[checkIPFS]`, String(e))
+				}
+				else
+				{
+					await closeFnOld().catch(e => null);
+					return Promise.reject(e);
+				}
 			})
 		;
 
@@ -91,8 +98,13 @@ export async function getIPFS(options?: IOptions, optionsExtra: IOptionsExtra = 
 
 			try
 			{
-				ipfs = await IpfsClient();
-				await checkIPFS(ipfs);
+
+
+				ipfs = await IpfsClient(optionsExtra?.serverAddr);
+				if (!optionsExtra?.skipCheck)
+				{
+					await checkIPFS(ipfs)
+				}
 				ipfsType = EnumIPFSType.Client;
 			}
 			catch (e)
