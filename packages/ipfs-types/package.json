@@ -1,6 +1,6 @@
 {
   "name": "ipfs-types",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-types#readme",
   "bugs": {
@@ -28,8 +28,8 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "ts-type": "^1.2.13",
-    "@types/bl": "^2.1.0"
+    "@types/bl": "^2.1.0",
+    "ts-type": "^1.2.13"
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19",
