@@ -1,7 +1,9 @@
 /**
  * Created by user on 2020/2/27.
  */
-import { ITSPickRecordType } from 'ts-type';
+import type { ITSPickRecordType } from 'ts-type';
+export type { IIPFSOptions } from './lib/options';
+export type { IIPFSPromiseApi } from './lib/ipfs/index';
 export declare type IIPFSAddressesURL = Partial<Omit<ITSPickRecordType<URL, string>, 'port'>> & {
     port?: number | string;
     protocol?: 'https' | 'http' | string;
