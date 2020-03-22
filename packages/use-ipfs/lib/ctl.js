@@ -12,7 +12,7 @@ const util_1 = require("./util");
 const ipfsd_1 = require("./util/ipfsd");
 async function startIPFS(options) {
     let ipfsd = await ipfsd_ctl_1.createController(ipfsd_1.fixIPFSOptions(options));
-    let addr = utils_1.checkForRunningApi(ipfsd.path);
+    let addr = await utils_1.checkForRunningApi(ipfsd.path);
     if (addr) {
         let ipfs;
         try {
@@ -21,14 +21,14 @@ async function startIPFS(options) {
         }
         catch (e) {
             try {
-                await ipfs.stop();
+                //await ipfs.stop();
             }
             catch (e) { }
             await fs_1.unlinkIPFSApi(ipfsd.path);
         }
         finally {
             try {
-                await ipfs.stop();
+                //await ipfs.stop();
             }
             catch (e) { }
             ipfs = void 0;

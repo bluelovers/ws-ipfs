@@ -169,6 +169,15 @@ export async function getIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, opti
 		{
 			try
 			{
+				ipfsd && await ipfsd.clean();
+			}
+			catch (e)
+			{
+
+			}
+
+			try
+			{
 				ipfsd && await ipfsd.stop();
 			}
 			catch (e)

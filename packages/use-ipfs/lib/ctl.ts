@@ -10,7 +10,7 @@ export async function startIPFS(options?: IOptions)
 {
 	let ipfsd = await createController(fixIPFSOptions(options));
 
-	let addr = checkForRunningApi(ipfsd.path);
+	let addr = await checkForRunningApi(ipfsd.path);
 	if (addr)
 	{
 		let ipfs;
@@ -23,7 +23,7 @@ export async function startIPFS(options?: IOptions)
 		{
 			try
 			{
-				await ipfs.stop();
+				//await ipfs.stop();
 			}
 			catch (e)
 			{}
@@ -34,7 +34,7 @@ export async function startIPFS(options?: IOptions)
 		{
 			try
 			{
-				await ipfs.stop();
+				//await ipfs.stop();
 			}
 			catch (e)
 			{}

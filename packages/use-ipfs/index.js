@@ -116,6 +116,11 @@ async function getIPFS(options, optionsExtra = {}) {
         })();
         async function stop() {
             try {
+                ipfsd && await ipfsd.clean();
+            }
+            catch (e) {
+            }
+            try {
                 ipfsd && await ipfsd.stop();
             }
             catch (e) {
