@@ -1,14 +1,19 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.runSubCheck = void 0;
 /**
  * Created by user on 2020/3/21.
  */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.isBufferMaybe = exports.runSubCheck = void 0;
+const bluebird_1 = __importDefault(require("bluebird"));
 async function runSubCheck(fn) {
     let error;
     const startTime = Date.now();
-    const success = await Promise.resolve()
+    const success = await bluebird_1.default.resolve()
         .then(fn)
+        .timeout(10 * 1000)
         .catch(e => {
         error = e;
     })
@@ -20,8 +25,4 @@ async function runSubCheck(fn) {
     };
 }
 exports.runSubCheck = runSubCheck;
-function isBufferMaybe(buf) {
-    return (buf === null || buf === void 0 ? void 0 : buf.length) && typeof (buf === null || buf === void 0 ? void 0 : buf[0]) === 'number';
-}
-exports.isBufferMaybe = isBufferMaybe;
 //# sourceMappingURL=util.js.map

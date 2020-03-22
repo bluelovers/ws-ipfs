@@ -11,3 +11,4 @@ export { dag } from './check/dag';
 export { config } from './check/config';
 export { name } from './check/name';
 export { key } from './check/key';
+export { ping } from './check/ping';

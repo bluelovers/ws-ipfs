@@ -8,8 +8,8 @@ const ipfsd_ctl_1 = require("ipfsd-ctl");
 const utils_1 = require("ipfsd-ctl/src/utils");
 const ipfs_http_client_1 = __importDefault(require("ipfs-http-client"));
 const fs_1 = require("./util/fs");
-const util_1 = require("./util");
 const ipfsd_1 = require("./util/ipfsd");
+const ipfs_util_lib_1 = require("ipfs-util-lib");
 async function startIPFS(options) {
     let ipfsd = await ipfsd_ctl_1.createController(ipfsd_1.fixIPFSOptions(options));
     let addr = await utils_1.checkForRunningApi(ipfsd.path);
@@ -17,7 +17,7 @@ async function startIPFS(options) {
         let ipfs;
         try {
             ipfs = await ipfs_http_client_1.default(addr);
-            await util_1.checkIPFS(ipfs);
+            await ipfs_util_lib_1.checkIPFS(ipfs);
         }
         catch (e) {
             try {
@@ -36,7 +36,7 @@ async function startIPFS(options) {
     }
     !ipfsd.initialized && await ipfsd.init();
     !ipfsd.started && await ipfsd.start();
-    await util_1.checkIPFS(ipfsd.api);
+    await ipfs_util_lib_1.checkIPFS(ipfsd.api);
     return ipfsd;
 }
 exports.startIPFS = startIPFS;

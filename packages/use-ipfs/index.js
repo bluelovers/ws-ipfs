@@ -8,9 +8,9 @@ const ipfs_http_client_1 = __importDefault(require("@bluelovers/ipfs-http-client
 const core_1 = require("@bluelovers/ipfs-http-client/core");
 const ctl_1 = __importDefault(require("./lib/ctl"));
 const cloneDeep_1 = __importDefault(require("lodash/cloneDeep"));
-const util_1 = require("./lib/util");
 const types_1 = require("./lib/types");
 const ipfs_http_client_2 = __importDefault(require("ipfs-http-client"));
+const ipfs_util_lib_1 = require("ipfs-util-lib");
 let _cached;
 /**
  * get IPFS, if not exists, create or connect it
@@ -20,7 +20,7 @@ async function useIPFS(options, optionsExtra = {}) {
         let ret = await getIPFS(options, optionsExtra);
         //console.dir({ ipfs, ipfsType })
         let { stop: closeFnOld, ipfs } = ret;
-        await util_1.checkIPFS(ipfs)
+        await ipfs_util_lib_1.checkIPFS(ipfs)
             .catch(async (e) => {
             if (optionsExtra === null || optionsExtra === void 0 ? void 0 : optionsExtra.skipCheck) {
                 e && console.warn(`[checkIPFS]`, String(e));
@@ -69,7 +69,7 @@ async function getIPFS(options, optionsExtra = {}) {
             try {
                 ipfs = await ipfs_http_client_1.default(optionsExtra === null || optionsExtra === void 0 ? void 0 : optionsExtra.serverAddr);
                 if (!((optionsExtra === null || optionsExtra === void 0 ? void 0 : optionsExtra.skipCheck) && (optionsExtra === null || optionsExtra === void 0 ? void 0 : optionsExtra.serverAddr))) {
-                    await util_1.checkIPFS(ipfs);
+                    await ipfs_util_lib_1.checkIPFS(ipfs);
                 }
                 ipfsType = types_1.EnumIPFSType.Client;
             }
@@ -90,7 +90,7 @@ async function getIPFS(options, optionsExtra = {}) {
                 try {
                     ipfsd = await ctl_1.default(options);
                     ipfs = ipfsd.api;
-                    await util_1.checkIPFS(ipfs);
+                    await ipfs_util_lib_1.checkIPFS(ipfs);
                     ipfsType = types_1.EnumIPFSType.Controller;
                 }
                 catch (e) {
@@ -151,7 +151,7 @@ async function getIPFS(options, optionsExtra = {}) {
             ipfsType,
             stop,
             async address() {
-                let addr = await util_1.ipfsAddresses(ipfs);
+                let addr = await ipfs_util_lib_1.ipfsAddresses(ipfs);
                 return cloneDeep_1.default(addr);
             },
             get ipfsd() {

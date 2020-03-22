@@ -1,13 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.use = exports.some = void 0;
+const ipfs_util_lib_1 = require("ipfs-util-lib");
 async function some(ipfsClient, configs, skipCheck) {
     let ipfs;
     for (let argv of configs) {
         try {
             ipfs = ipfsClient(...argv);
             if (!skipCheck) {
-                await ipfs.id();
+                //await ipfs.id();
+                await ipfs_util_lib_1.checkIPFS(ipfs);
             }
             break;
         }

@@ -6,11 +6,11 @@ import IpfsClient, {
 import { some } from '@bluelovers/ipfs-http-client/core';
 import startIPFS from './lib/ctl';
 import cloneDeep from 'lodash/cloneDeep';
-import { checkIPFS, ipfsAddresses } from './lib/util';
 import { EnumIPFSType, IOptions, IOptionsExtra } from './lib/types';
 import _ipfsHttpModule from 'ipfs-http-client'
 import { IIPFSAddresses } from 'ipfs-types';
 import { IIPFSPromiseApi } from 'ipfs-types/lib/ipfs/index';
+import { ipfsAddresses, checkIPFS } from 'ipfs-util-lib';
 
 export type ICachedObject<IPFS = IIPFSClientReturn> = Readonly<{
 	ipfs: IPFS,

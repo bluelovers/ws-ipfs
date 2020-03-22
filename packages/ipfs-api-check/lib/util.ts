@@ -1,6 +1,7 @@
 /**
  * Created by user on 2020/3/21.
  */
+import Bluebird from 'bluebird';
 
 export type IRunCheck<E extends Error = Error> = {
 	success: boolean;
@@ -13,8 +14,9 @@ export async function runSubCheck<T, E extends Error = Error>(fn: () => T)
 	let error: E;
 	const startTime = Date.now();
 
-	const success = await Promise.resolve()
+	const success = await Bluebird.resolve()
 		.then(fn)
+		.timeout(10 * 1000)
 		.catch(e => {
 			error = e
 		})
@@ -28,7 +30,3 @@ export async function runSubCheck<T, E extends Error = Error>(fn: () => T)
 	} as IRunCheck<E>
 }
 
-export function isBufferMaybe(buf): buf is Buffer
-{
-	return buf?.length && typeof buf?.[0] === 'number'
-}

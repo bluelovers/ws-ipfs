@@ -26,4 +26,6 @@ var name_1 = require("./check/name");
 Object.defineProperty(exports, "name", { enumerable: true, get: function () { return name_1.name; } });
 var key_1 = require("./check/key");
 Object.defineProperty(exports, "key", { enumerable: true, get: function () { return key_1.key; } });
+var ping_1 = require("./check/ping");
+Object.defineProperty(exports, "ping", { enumerable: true, get: function () { return ping_1.ping; } });
 //# sourceMappingURL=index.js.map

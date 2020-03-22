@@ -7,6 +7,7 @@ import { IIPFSRefsApi } from './refs';
 import { IObjectAPI, IIPFSObjectApi } from './object';
 import { IIPFSConfigApi } from './config';
 import { IIPFSNameApi } from './name';
+import { IApiOptions } from '../options';
 
 export interface IIPFSApiReturnType
 {
@@ -35,9 +36,9 @@ export interface IIPFSAsyncIterableApi extends IIPFSFileApi
 	 * }
 }
 	 */
-	ping(peerId: string, options?: {
+	ping(peerId: string, options?: IApiOptions<{
 		count?: number,
-	}): AsyncIterable<IIPFSApiReturnType['ping']>,
+	}>): AsyncIterable<IIPFSApiReturnType['ping']>,
 
 }
 

@@ -1,4 +1,5 @@
 import { IIPFSClientFnWrap, IIPFSClientFn, IIPFSClientReturn, IIPFSClientParameters, IIPFSClientAddressesURL, IIPFSClientAddresses } from './lib/types';
+import { checkIPFS } from 'ipfs-util-lib';
 
 export { IIPFSClientFnWrap, IIPFSClientFn, IIPFSClientReturn, IIPFSClientParameters, IIPFSClientAddressesURL, IIPFSClientAddresses }
 
@@ -13,7 +14,8 @@ export async function some(ipfsClient: IIPFSClientFn, configs: IIPFSClientParame
 			ipfs = ipfsClient(...argv);
 			if (!skipCheck)
 			{
-				await ipfs.id();
+				//await ipfs.id();
+				await checkIPFS(ipfs)
 			}
 			break;
 		}

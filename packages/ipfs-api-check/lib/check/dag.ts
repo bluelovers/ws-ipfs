@@ -1,9 +1,10 @@
 import { IIPFSFileApi } from 'ipfs-types/lib/ipfs/file';
 import { IIPFSApiUtils } from 'ipfs-types/lib/ipfs/index';
-import { runSubCheck, isBufferMaybe } from '../util';
+import { runSubCheck} from '../util';
 import { IIPFSPinApi } from 'ipfs-types/lib/ipfs/pin';
 import { IIPFSObjectApi } from 'ipfs-types/lib/ipfs/object';
 import { IIPFSDagApi } from 'ipfs-types/lib/ipfs/dag';
+import { isBufferMaybe } from 'ipfs-util-lib';
 
 export async function dag(ipfs: IIPFSDagApi)
 {
