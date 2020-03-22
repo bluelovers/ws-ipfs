@@ -7,7 +7,9 @@ export async function pin(ipfs: IIPFSPinApi)
 {
 	let add = await runSubCheck(async () =>
 	{
-		const pinset = await ipfs.pin.add('QmWATWQ7fVPP2EFGu71UkfnqhYXDYH566qy47CnJDgvs8u')
+		const pinset = await ipfs.pin.add('QmWATWQ7fVPP2EFGu71UkfnqhYXDYH566qy47CnJDgvs8u', {
+			timeout: 5000,
+		})
 
 		return pinset.length && pinset[0].cid;
 	});

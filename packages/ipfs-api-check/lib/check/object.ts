@@ -10,21 +10,27 @@ export async function object(ipfs: IIPFSObjectApi)
 
 	const get = await runSubCheck(async () =>
 	{
-		const node = await ipfs.object.get(multihash)
+		const node = await ipfs.object.get(multihash, {
+			timeout: 5000,
+		})
 
 		return node.size
 	});
 
 	const data = await runSubCheck(async () =>
 	{
-		const node = await ipfs.object.data(multihash)
+		const node = await ipfs.object.data(multihash, {
+			timeout: 5000,
+		})
 
 		return isBufferMaybe(node)
 	});
 
 	const stat = await runSubCheck(async () =>
 	{
-		const node = await ipfs.object.stat(multihash)
+		const node = await ipfs.object.stat(multihash, {
+			timeout: 5000,
+		})
 
 		return node.Hash
 	});

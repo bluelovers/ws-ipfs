@@ -16,7 +16,11 @@ export type ICachedObject<IPFS = IIPFSClientReturn> = Readonly<{
 	ipfs: IPFS,
 	ipfsType: EnumIPFSType,
 	stop(...argv): Promise<void>,
-	address(): Promise<Readonly<IIPFSAddresses>>
+	address(): Promise<Readonly<IIPFSAddresses>>,
+	/**
+	 * ipfsd-ctl
+	 */
+	ipfsd,
 }>;
 
 let _cached: ICachedObject<IIPFSClientReturn>;
@@ -221,6 +225,10 @@ export async function getIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, opti
 			{
 				let addr = await ipfsAddresses(ipfs);
 				return cloneDeep(addr)
+			},
+			get ipfsd()
+			{
+				return ipfsd
 			},
 		})
 	});

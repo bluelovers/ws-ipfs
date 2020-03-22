@@ -10,7 +10,9 @@ export async function add(ipfs: IIPFSFileApi)
 
 	return runSubCheck(async () =>
 	{
-		for await (const result of ipfs.add(file))
+		for await (const result of ipfs.add(file, {
+			timeout: 5000,
+		}))
 		{
 			if (result.path === file.path && result.size)
 			{

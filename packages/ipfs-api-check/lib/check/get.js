@@ -11,7 +11,9 @@ async function get(ipfs) {
     const expected = 'Hello from IPFS Gateway Checker\n';
     return util_1.runSubCheck(async () => {
         let success;
-        for await (const file of ipfs.get(cid)) {
+        for await (const file of ipfs.get(cid, {
+            timeout: 5000,
+        })) {
             if (file.path === cid && !file.content) {
                 continue;
             }

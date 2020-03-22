@@ -151,6 +151,9 @@ async function getIPFS(options, optionsExtra = {}) {
                 let addr = await util_1.ipfsAddresses(ipfs);
                 return cloneDeep_1.default(addr);
             },
+            get ipfsd() {
+                return ipfsd;
+            },
         });
     });
 }

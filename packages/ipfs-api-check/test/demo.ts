@@ -7,7 +7,9 @@ import { inspect } from 'util';
 inspect.defaultOptions.colors = true;
 inspect.defaultOptions.depth = 5;
 
-useIPFS({}, {
+useIPFS({
+	disposable: true,
+}, {
 	//serverAddr: ipfsServerList['infura.io'].API,
 	//skipCheck: true,
 })
@@ -15,13 +17,15 @@ useIPFS({}, {
 		ipfs,
 		ipfsType,
 		stop,
+		ipfsd,
 	}: ICachedObject<IIPFSPromiseApi>) => {
+
+		console.log(`[ipfsType]`, ipfsType)
+		console.log(`[ipfsd.path]`, ipfsd?.path)
 
 		console.dir(await checkAll(ipfs))
 
 		console.log(await ipfs.id().catch(err => String(err)))
-
-		console.log(`[ipfsType]`, ipfsType)
 
 		return stop();
 	})

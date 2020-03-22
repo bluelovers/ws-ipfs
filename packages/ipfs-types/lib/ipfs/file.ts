@@ -60,7 +60,7 @@ export interface IIPFSFileApi
 		mtime: IMtime
 	}>
 
-	ls(ipfsPath): AsyncIterable<{
+	ls(ipfsPath, options?: {} & INetworkOptionsBase): AsyncIterable<{
 		depth: number,
 		name: string,
 		path: string,

@@ -32,7 +32,7 @@ export interface IIPFSFileApi {
         mode: number;
         mtime: IMtime;
     }>;
-    ls(ipfsPath: any): AsyncIterable<{
+    ls(ipfsPath: any, options?: {} & INetworkOptionsBase): AsyncIterable<{
         depth: number;
         name: string;
         path: string;

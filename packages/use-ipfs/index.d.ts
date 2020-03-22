@@ -6,6 +6,10 @@ export declare type ICachedObject<IPFS = IIPFSClientReturn> = Readonly<{
     ipfsType: EnumIPFSType;
     stop(...argv: any[]): Promise<void>;
     address(): Promise<Readonly<IIPFSAddresses>>;
+    /**
+     * ipfsd-ctl
+     */
+    ipfsd: any;
 }>;
 /**
  * get IPFS, if not exists, create or connect it
@@ -15,6 +19,10 @@ export declare function useIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, op
     ipfsType: EnumIPFSType;
     stop(...argv: any[]): Promise<void>;
     address(): Promise<Readonly<IIPFSAddresses>>;
+    /**
+     * ipfsd-ctl
+     */
+    ipfsd: any;
 }>>;
 /**
  * create or connect it
@@ -24,5 +32,9 @@ export declare function getIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, op
     ipfsType: EnumIPFSType;
     stop(...argv: any[]): Promise<void>;
     address(): Promise<Readonly<IIPFSAddresses>>;
+    /**
+     * ipfsd-ctl
+     */
+    ipfsd: any;
 }>>;
 export default useIPFS;

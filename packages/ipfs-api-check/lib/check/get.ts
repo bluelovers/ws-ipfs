@@ -13,7 +13,9 @@ export async function get(ipfs: IIPFSFileApi)
 		{
 			let success;
 
-			for await (const file of ipfs.get(cid))
+			for await (const file of ipfs.get(cid, {
+				timeout: 5000,
+			}))
 			{
 				if (file.path === cid && !file.content)
 				{

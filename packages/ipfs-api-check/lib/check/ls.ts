@@ -9,7 +9,9 @@ export async function ls(ipfs: IIPFSFileApi)
 
 	return runSubCheck(async () =>
 	{
-		for await (const file of ipfs.ls(cid))
+		for await (const file of ipfs.ls(cid, {
+			timeout: 5000,
+		}))
 		{
 			if (file.path === 'QmQ2r6iMNpky5f1m4cnm3Yqw8VSvjuKpTcK1X7dBR1LkJF/cat.gif')
 			{

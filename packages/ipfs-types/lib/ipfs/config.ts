@@ -1,18 +1,14 @@
 import { INetworkOptionsBase } from '../options';
 import { ITSValueOrArray, ITSPartialPick, ITSPartialRecord } from 'ts-type';
 import { ICIDObject, ICIDValue, IDagHashAlg } from '../types';
+import { IIPFSAddresses } from '../../index';
 
 export type IPartialOrAny<T> = IPartial2<T> | any;
 
 export type IPartial2<T> = Partial<T> & ITSPartialRecord<keyof T, any>;
 
 export interface IConfigObject extends IPartial2<{
-	Addresses: {
-		Swarm: string[];
-		API: string;
-		Gateway: string;
-		Delegates: any[];
-	};
+	Addresses: IIPFSAddresses;
 	Discovery: {
 		MDNS: {
 			Enabled: boolean;
