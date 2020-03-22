@@ -18,6 +18,21 @@ export interface IOptions
 	type?: EnumIPFSLinkType | string,
 	filename?: string,
 	ignoreCheck?: boolean,
+
+	prefix?: {
+		/**
+		 * `https://ipfs.io/ipfs/`
+		 */
+		ipfs?: string,
+		/**
+		 * `https://explore.ipld.io/#/explore/`
+		 */
+		ipld?: string,
+		/**
+		 * `https://ipfs.io/ipns/`
+		 */
+		ipns?: string,
+	},
 }
 
 export type IOptionsInput = IOptions | string;
@@ -52,16 +67,16 @@ export function toURL(cid: string, options: IOptionsInput = {})
 	}
 
 	let { filename, type } = options || {};
-	let prefix = `https://ipfs.io/ipfs/`;
+	let prefix = options.prefix?.ipfs ?? `https://ipfs.io/ipfs/`;
 
 	switch (type)
 	{
 		case EnumIPFSLinkType.IPLD:
-			prefix = `https://explore.ipld.io/#/explore/`;
+			prefix = options.prefix?.ipld ?? `https://explore.ipld.io/#/explore/`;
 			break;
 		case EnumIPFSLinkType.IPNS:
 			//prefix = `https://gateway.ipfs.io/ipns/`;
-			prefix = `https://ipfs.io/ipns/`;
+			prefix = options.prefix?.ipns ?? `https://ipfs.io/ipns/`;
 			break;
 	}
 

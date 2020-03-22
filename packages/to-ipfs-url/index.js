@@ -28,6 +28,7 @@ function pathToCid(cid) {
 }
 exports.pathToCid = pathToCid;
 function toURL(cid, options = {}) {
+    var _a, _b, _c, _d, _e, _f;
     if (typeof options === 'string') {
         options = {
             filename: options,
@@ -37,14 +38,14 @@ function toURL(cid, options = {}) {
         throw new TypeError(`cid '${cid}' is not valid ipfs`);
     }
     let { filename, type } = options || {};
-    let prefix = `https://ipfs.io/ipfs/`;
+    let prefix = (_b = (_a = options.prefix) === null || _a === void 0 ? void 0 : _a.ipfs) !== null && _b !== void 0 ? _b : `https://ipfs.io/ipfs/`;
     switch (type) {
         case EnumIPFSLinkType.IPLD:
-            prefix = `https://explore.ipld.io/#/explore/`;
+            prefix = (_d = (_c = options.prefix) === null || _c === void 0 ? void 0 : _c.ipld) !== null && _d !== void 0 ? _d : `https://explore.ipld.io/#/explore/`;
             break;
         case EnumIPFSLinkType.IPNS:
             //prefix = `https://gateway.ipfs.io/ipns/`;
-            prefix = `https://ipfs.io/ipns/`;
+            prefix = (_f = (_e = options.prefix) === null || _e === void 0 ? void 0 : _e.ipns) !== null && _f !== void 0 ? _f : `https://ipfs.io/ipns/`;
             break;
     }
     if (isPath(cid)) {

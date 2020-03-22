@@ -11,6 +11,20 @@ export interface IOptions {
     type?: EnumIPFSLinkType | string;
     filename?: string;
     ignoreCheck?: boolean;
+    prefix?: {
+        /**
+         * `https://ipfs.io/ipfs/`
+         */
+        ipfs?: string;
+        /**
+         * `https://explore.ipld.io/#/explore/`
+         */
+        ipld?: string;
+        /**
+         * `https://ipfs.io/ipns/`
+         */
+        ipns?: string;
+    };
 }
 export declare type IOptionsInput = IOptions | string;
 export declare function isPath(cid: string): boolean;
