@@ -1,5 +1,5 @@
 import fetch from 'cross-fetch';
-import toURL, { toPath, toLink, isCidOrPath } from 'to-ipfs-url';
+import toURL, { toPath, toLink, isCidOrPath, IOptionsInput } from 'to-ipfs-url';
 import { cid as isIPFS } from 'is-ipfs';
 import { Buffer } from "buffer";
 import AbortController from 'abort-controller';
@@ -7,7 +7,7 @@ import catIPFS from './ipfs';
 import Bluebird from 'bluebird';
 import isErrorCode from 'is-error-code';
 
-export function handleCID(cid: string, useIPFS?)
+export function handleCID(cid: string, useIPFS?, options: IOptionsInput = {})
 {
 	if (useIPFS)
 	{
@@ -19,7 +19,7 @@ export function handleCID(cid: string, useIPFS?)
 		{
 			if (!isCidOrPath(cid))
 			{
-				cid = toPath(cid)
+				cid = toPath(cid, options)
 			}
 		}
 	}
@@ -31,7 +31,7 @@ export function handleCID(cid: string, useIPFS?)
 		}
 		catch (e)
 		{
-			cid = toLink(cid)
+			cid = toLink(cid, options)
 		}
 	}
 

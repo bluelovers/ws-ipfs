@@ -8,6 +8,14 @@ import { handleCID, fetchIPFSCore, handleTimeout } from './index';
 import { ITSValueOrArray } from 'ts-type';
 import Bluebird from 'bluebird';
 import { checkIPFS } from 'ipfs-util-lib';
+import ipfsServerList from 'ipfs-server-list';
+
+export function lazyRaceServerList(): IIPFSClientAddresses[]
+{
+	return [
+		ipfsServerList['infura.io'].API,
+	]
+}
 
 export function raceFetchIPFS(cid: string, useIPFS: ITSValueOrArray<(string | IIPFSPromiseApi | IIPFSClientAddresses)>, timeout?: number)
 {
@@ -56,6 +64,18 @@ export function raceFetchIPFS(cid: string, useIPFS: ITSValueOrArray<(string | II
 			})
 
 			ls.push(fetchIPFSCore(cid, null, timeout));
+
+			ls.push(fetchIPFSCore(handleCID(cid, null, {
+				prefix: {
+					ipfs: ipfsServerList['infura.io'].Gateway,
+				}
+			}), null, timeout));
+
+			ls.push(fetchIPFSCore(handleCID(cid, null, {
+				prefix: {
+					ipfs: ipfsServerList.cloudflare.Gateway,
+				}
+			}), null, timeout));
 
 			return pAny(ls, {
 				filter(buf)

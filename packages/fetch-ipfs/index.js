@@ -11,14 +11,14 @@ const abort_controller_1 = __importDefault(require("abort-controller"));
 const ipfs_1 = __importDefault(require("./ipfs"));
 const bluebird_1 = __importDefault(require("bluebird"));
 const is_error_code_1 = __importDefault(require("is-error-code"));
-function handleCID(cid, useIPFS) {
+function handleCID(cid, useIPFS, options = {}) {
     if (useIPFS) {
         try {
             cid = new URL(cid).pathname;
         }
         catch (e) {
             if (!to_ipfs_url_1.isCidOrPath(cid)) {
-                cid = to_ipfs_url_1.toPath(cid);
+                cid = to_ipfs_url_1.toPath(cid, options);
             }
         }
     }
@@ -27,7 +27,7 @@ function handleCID(cid, useIPFS) {
             cid = new URL(cid).href;
         }
         catch (e) {
-            cid = to_ipfs_url_1.toLink(cid);
+            cid = to_ipfs_url_1.toLink(cid, options);
         }
     }
     return cid;

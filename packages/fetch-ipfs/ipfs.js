@@ -7,7 +7,7 @@ exports.catIPFS = exports.refIPFS = void 0;
 const buffer_1 = require("buffer");
 const bluebird_1 = __importDefault(require("bluebird"));
 function refIPFS(cid, ipfs, timeout) {
-    timeout = timeout |= 0 || 20 * 1000;
+    timeout = timeout |= 0 || 10 * 1000;
     return bluebird_1.default.resolve()
         .then(async () => {
         for await (const ref of ipfs.refs(cid, {
@@ -28,7 +28,7 @@ function catIPFS(cid, ipfs, timeout) {
     return refIPFS(cid, ipfs)
         .catch(Error, async (e) => {
         if (e.message && e.message.toLowerCase().includes('ipfs method not allowed')) {
-            console.warn(String(e).replace(/\s+$/, ''), `\nurl: ${e.response.url}`, `\nwill ignore this error and trying fetch content`);
+            //console.warn(String(e).replace(/\s+$/, ''), `\nurl: ${e.response.url}`, `\nwill ignore this error and trying fetch content`);
             return;
         }
         return Promise.reject(e);

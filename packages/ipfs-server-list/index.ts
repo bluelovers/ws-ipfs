@@ -4,10 +4,16 @@ import { IIPFSClientAddresses } from '@bluelovers/ipfs-http-client';
 export type ILimit = ITSPartialRecord<'ref' | 'id' | 'config', boolean>;
 
 export type IIPFSAddressesLike = ITSRequireAtLeastOne<{
-	"API": IIPFSClientAddresses,
-	"Gateway": string,
+	"API"?: IIPFSClientAddresses,
+	"Gateway"?: string,
+	IPLD?: string,
+	IPNS?: string,
+}> & {
+	/**
+	 * @deprecated
+	 */
 	limit?: ITSRequireAtLeastOne<ILimit>,
-}>;
+};
 
 export function getIpfsServerList()
 {
@@ -37,6 +43,11 @@ export function getIpfsServerList()
 		 */
 		'cloudflare': {
 			Gateway: 'https://cloudflare-ipfs.com/ipfs/',
+		},
+		'ipfs': {
+			Gateway: 'https://ipfs.io/ipfs/',
+			IPLD: 'https://explore.ipld.io/#/explore/',
+			IPNS: 'https://ipfs.io/ipns/',
 		},
 	} as const;
 

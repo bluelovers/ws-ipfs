@@ -3,12 +3,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.raceFetchIPFS = void 0;
+exports.raceFetchIPFS = exports.lazyRaceServerList = void 0;
 const p_any_1 = __importDefault(require("p-any"));
 const ipfs_http_client_1 = __importDefault(require("@bluelovers/ipfs-http-client"));
 const index_1 = require("./index");
 const bluebird_1 = __importDefault(require("bluebird"));
 const ipfs_util_lib_1 = require("ipfs-util-lib");
+const ipfs_server_list_1 = __importDefault(require("ipfs-server-list"));
+function lazyRaceServerList() {
+    return [
+        ipfs_server_list_1.default['infura.io'].API,
+    ];
+}
+exports.lazyRaceServerList = lazyRaceServerList;
 function raceFetchIPFS(cid, useIPFS, timeout) {
     const cid2 = index_1.handleCID(cid, true);
     timeout = index_1.handleTimeout(timeout);
@@ -44,6 +51,16 @@ function raceFetchIPFS(cid, useIPFS, timeout) {
             return index_1.fetchIPFSCore(cid2, ipfs, timeout);
         });
         ls.push(index_1.fetchIPFSCore(cid, null, timeout));
+        ls.push(index_1.fetchIPFSCore(index_1.handleCID(cid, null, {
+            prefix: {
+                ipfs: ipfs_server_list_1.default['infura.io'].Gateway,
+            }
+        }), null, timeout));
+        ls.push(index_1.fetchIPFSCore(index_1.handleCID(cid, null, {
+            prefix: {
+                ipfs: ipfs_server_list_1.default.cloudflare.Gateway,
+            }
+        }), null, timeout));
         return p_any_1.default(ls, {
             filter(buf) {
                 return (buf === null || buf === void 0 ? void 0 : buf.length) > 0;

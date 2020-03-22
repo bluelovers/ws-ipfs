@@ -29,6 +29,11 @@ function getIpfsServerList() {
         'cloudflare': {
             Gateway: 'https://cloudflare-ipfs.com/ipfs/',
         },
+        'ipfs': {
+            Gateway: 'https://ipfs.io/ipfs/',
+            IPLD: 'https://explore.ipld.io/#/explore/',
+            IPNS: 'https://ipfs.io/ipns/',
+        },
     };
     data;
     return data;

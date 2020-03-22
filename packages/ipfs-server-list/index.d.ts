@@ -2,26 +2,16 @@ import { ITSRequireAtLeastOne, ITSPartialRecord } from 'ts-type';
 import { IIPFSClientAddresses } from '@bluelovers/ipfs-http-client';
 export declare type ILimit = ITSPartialRecord<'ref' | 'id' | 'config', boolean>;
 export declare type IIPFSAddressesLike = ITSRequireAtLeastOne<{
-    "API": IIPFSClientAddresses;
-    "Gateway": string;
+    "API"?: IIPFSClientAddresses;
+    "Gateway"?: string;
+    IPLD?: string;
+    IPNS?: string;
+}> & {
+    /**
+     * @deprecated
+     */
     limit?: ITSRequireAtLeastOne<ILimit>;
-}>;
-export declare function getIpfsServerList(): Record<"infura.io" | "cloudflare", ITSRequireAtLeastOne<{
-    API: IIPFSClientAddresses;
-    Gateway: string;
-    limit?: ITSRequireAtLeastOne<ITSPartialRecord<"config" | "id" | "ref", boolean>, "config" | "id" | "ref">;
-}, "API" | "Gateway" | "limit">> & Record<string, ITSRequireAtLeastOne<{
-    API: IIPFSClientAddresses;
-    Gateway: string;
-    limit?: ITSRequireAtLeastOne<ITSPartialRecord<"config" | "id" | "ref", boolean>, "config" | "id" | "ref">;
-}, "API" | "Gateway" | "limit">>;
-export declare const ipfsServerList: Record<"infura.io" | "cloudflare", ITSRequireAtLeastOne<{
-    API: IIPFSClientAddresses;
-    Gateway: string;
-    limit?: ITSRequireAtLeastOne<ITSPartialRecord<"config" | "id" | "ref", boolean>, "config" | "id" | "ref">;
-}, "API" | "Gateway" | "limit">> & Record<string, ITSRequireAtLeastOne<{
-    API: IIPFSClientAddresses;
-    Gateway: string;
-    limit?: ITSRequireAtLeastOne<ITSPartialRecord<"config" | "id" | "ref", boolean>, "config" | "id" | "ref">;
-}, "API" | "Gateway" | "limit">>;
+};
+export declare function getIpfsServerList(): Record<"infura.io" | "cloudflare" | "ipfs", IIPFSAddressesLike> & Record<string, IIPFSAddressesLike>;
+export declare const ipfsServerList: Record<"infura.io" | "cloudflare" | "ipfs", IIPFSAddressesLike> & Record<string, IIPFSAddressesLike>;
 export default ipfsServerList;

@@ -4,7 +4,7 @@ import { IIPFSPromiseApi } from 'ipfs-types';
 
 export function refIPFS(cid: string, ipfs: IIPFSPromiseApi, timeout?: number)
 {
-	timeout = timeout |= 0 || 20 * 1000;
+	timeout = timeout |= 0 || 10 * 1000;
 
 	return Bluebird.resolve()
 		.then(async () =>
@@ -36,7 +36,7 @@ export function catIPFS(cid: string, ipfs: IIPFSPromiseApi, timeout?: number)
 		}) => {
 			if (e.message && e.message.toLowerCase().includes('ipfs method not allowed'))
 			{
-				console.warn(String(e).replace(/\s+$/, ''), `\nurl: ${e.response.url}`, `\nwill ignore this error and trying fetch content`);
+				//console.warn(String(e).replace(/\s+$/, ''), `\nurl: ${e.response.url}`, `\nwill ignore this error and trying fetch content`);
 				return;
 			}
 

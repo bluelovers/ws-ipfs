@@ -1,4 +1,5 @@
 import isIPFS from 'is-ipfs';
+import ipfsServerList from 'ipfs-server-list';
 
 export enum EnumIPFSLinkType
 {
@@ -67,7 +68,7 @@ export function toURL(cid: string, options: IOptionsInput = {})
 	}
 
 	let { filename, type } = options || {};
-	let prefix = options.prefix?.ipfs ?? `https://ipfs.io/ipfs/`;
+	let prefix = options.prefix?.ipfs ?? ipfsServerList.ipfs.Gateway;
 
 	switch (type)
 	{

@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.toLink = exports.toPath = exports.toURL = exports.pathToCid = exports.isCidOrPath = exports.isPath = exports.EnumIPFSLinkType = void 0;
 const is_ipfs_1 = __importDefault(require("is-ipfs"));
+const ipfs_server_list_1 = __importDefault(require("ipfs-server-list"));
 var EnumIPFSLinkType;
 (function (EnumIPFSLinkType) {
     EnumIPFSLinkType["ipfs"] = "ipfs";
@@ -38,7 +39,7 @@ function toURL(cid, options = {}) {
         throw new TypeError(`cid '${cid}' is not valid ipfs`);
     }
     let { filename, type } = options || {};
-    let prefix = (_b = (_a = options.prefix) === null || _a === void 0 ? void 0 : _a.ipfs) !== null && _b !== void 0 ? _b : `https://ipfs.io/ipfs/`;
+    let prefix = (_b = (_a = options.prefix) === null || _a === void 0 ? void 0 : _a.ipfs) !== null && _b !== void 0 ? _b : ipfs_server_list_1.default.ipfs.Gateway;
     switch (type) {
         case EnumIPFSLinkType.IPLD:
             prefix = (_d = (_c = options.prefix) === null || _c === void 0 ? void 0 : _c.ipld) !== null && _d !== void 0 ? _d : `https://explore.ipld.io/#/explore/`;
