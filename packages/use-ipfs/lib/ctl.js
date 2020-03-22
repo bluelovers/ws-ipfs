@@ -21,7 +21,7 @@ async function startIPFS(options) {
         }
         catch (e) {
             try {
-                //await ipfs.stop();
+                await ipfs.stop();
             }
             catch (e) { }
             await fs_1.unlinkIPFSApi(ipfsd.path);

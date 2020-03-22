@@ -23,7 +23,7 @@ export async function startIPFS(options?: IOptions)
 		{
 			try
 			{
-				//await ipfs.stop();
+				await ipfs.stop();
 			}
 			catch (e)
 			{}
