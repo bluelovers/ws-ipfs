@@ -8,3 +8,4 @@ export { pin } from './check/pin';
 export { object } from './check/object';
 export { refs } from './check/refs';
 export { dag } from './check/dag';
+export { config } from './check/config';

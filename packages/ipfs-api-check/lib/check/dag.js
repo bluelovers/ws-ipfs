@@ -31,14 +31,14 @@ async function dag(ipfs) {
         const result = await ipfs.dag.tree(expected, void 0, {
             timeout: 5000,
         });
-        console.dir(result);
+        //console.dir(result);
         return result.length;
     });
     const resolve = await util_1.runSubCheck(async () => {
         const result = await ipfs.dag.resolve(expected, void 0, {
             timeout: 5000,
         });
-        console.dir(result);
+        //console.dir(result)
         return result.cid;
     });
     async function getValue(cidPath) {

@@ -6,6 +6,7 @@ import { IIPFSFileApi } from './file';
 import { IDagAPI, IIPFSDagApi } from './dag';
 import { IIPFSRefsApi } from './refs';
 import { IObjectAPI, IIPFSObjectApi } from './object';
+import { IIPFSConfigApi } from './config';
 export interface IIPFSApiReturnType {
     version: IVersion;
     id: IId;
@@ -34,7 +35,7 @@ export interface IIPFSApiUtils {
     version(options?: any): Promise<IIPFSApiReturnType['version']>;
     id(options?: any): Promise<IIPFSApiReturnType['id']>;
 }
-export interface IIPFSPromiseApi extends IIPFSAsyncIterableApi, IIPFSApiUtils, IIPFSDagApi, IIPFSRefsApi, IIPFSObjectApi {
+export interface IIPFSPromiseApi extends IIPFSAsyncIterableApi, IIPFSApiUtils, IIPFSDagApi, IIPFSRefsApi, IIPFSObjectApi, IIPFSConfigApi {
 }
 export interface IIPFSCallbackApi {
     version(...argv: IParametersWithCallbackWithMaybeArgv<IIPFSApiReturnType['version']>): void;

@@ -47,7 +47,7 @@ export async function dag(ipfs: IIPFSDagApi)
 			timeout: 5000,
 		})
 
-		console.dir(result);
+		//console.dir(result);
 
 		return result.length
 	});
@@ -58,7 +58,7 @@ export async function dag(ipfs: IIPFSDagApi)
 			timeout: 5000,
 		})
 
-		console.dir(result)
+		//console.dir(result)
 
 		return result.cid
 	});

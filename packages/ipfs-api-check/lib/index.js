@@ -20,4 +20,6 @@ var refs_1 = require("./check/refs");
 Object.defineProperty(exports, "refs", { enumerable: true, get: function () { return refs_1.refs; } });
 var dag_1 = require("./check/dag");
 Object.defineProperty(exports, "dag", { enumerable: true, get: function () { return dag_1.dag; } });
+var config_1 = require("./check/config");
+Object.defineProperty(exports, "config", { enumerable: true, get: function () { return config_1.config; } });
 //# sourceMappingURL=index.js.map

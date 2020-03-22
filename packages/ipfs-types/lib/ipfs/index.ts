@@ -5,6 +5,7 @@ import { IIPFSFileApi } from './file';
 import { IDagAPI, IIPFSDagApi } from './dag';
 import { IIPFSRefsApi } from './refs';
 import { IObjectAPI, IIPFSObjectApi } from './object';
+import { IIPFSConfigApi } from './config';
 
 export interface IIPFSApiReturnType
 {
@@ -48,7 +49,7 @@ export interface IIPFSApiUtils
 
 }
 
-export interface IIPFSPromiseApi extends IIPFSAsyncIterableApi, IIPFSApiUtils, IIPFSDagApi, IIPFSRefsApi, IIPFSObjectApi
+export interface IIPFSPromiseApi extends IIPFSAsyncIterableApi, IIPFSApiUtils, IIPFSDagApi, IIPFSRefsApi, IIPFSObjectApi, IIPFSConfigApi
 {
 
 }
