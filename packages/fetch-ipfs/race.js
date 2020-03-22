@@ -17,7 +17,7 @@ function lazyRaceServerList() {
     ];
 }
 exports.lazyRaceServerList = lazyRaceServerList;
-function raceFetchIPFS(cid, useIPFS, timeout) {
+function raceFetchIPFS(cid, useIPFS, timeout, options) {
     const cid2 = index_1.handleCID(cid, true);
     timeout = index_1.handleTimeout(timeout || 10 * 1000);
     if (!Array.isArray(useIPFS)) {
@@ -69,7 +69,8 @@ function raceFetchIPFS(cid, useIPFS, timeout) {
         });
         return p_any_1.default(ls, {
             filter(buf) {
-                return (buf === null || buf === void 0 ? void 0 : buf.length) > 0;
+                var _a, _b;
+                return (buf === null || buf === void 0 ? void 0 : buf.length) > 0 && ((_b = (_a = options === null || options === void 0 ? void 0 : options.filter) === null || _a === void 0 ? void 0 : _a.call(options, buf)) !== null && _b !== void 0 ? _b : true);
             },
         });
     });

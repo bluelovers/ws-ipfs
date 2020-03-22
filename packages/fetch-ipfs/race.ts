@@ -5,7 +5,7 @@ import { IIPFSPromiseApi } from 'ipfs-types';
 import pAny from 'p-any';
 import ipfsClient, { IIPFSClientAddresses } from '@bluelovers/ipfs-http-client';
 import { handleCID, fetchIPFSCore, handleTimeout } from './index';
-import { ITSValueOrArray } from 'ts-type';
+import { ITSValueOrArray, ITSResolvable } from 'ts-type';
 import Bluebird from 'bluebird';
 import { checkIPFS } from 'ipfs-util-lib';
 import ipfsServerList from 'ipfs-server-list';
@@ -21,6 +21,9 @@ export function lazyRaceServerList(): IIPFSClientAddresses[]
 export function raceFetchIPFS(cid: string,
 	useIPFS: ITSValueOrArray<(string | IIPFSPromiseApi | IIPFSClientAddresses)>,
 	timeout?: number,
+	options?: {
+	filter?(buf: Buffer): boolean,
+	}
 )
 {
 	const cid2 = handleCID(cid, true);
@@ -93,7 +96,7 @@ export function raceFetchIPFS(cid: string,
 			return pAny(ls, {
 				filter(buf)
 				{
-					return buf?.length > 0
+					return buf?.length > 0 && (options?.filter?.(buf) ?? true)
 				},
 			})
 		})
