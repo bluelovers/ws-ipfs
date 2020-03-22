@@ -13,6 +13,7 @@ export interface IOptionsExtra {
     useFallbackFirst?: boolean;
     skipCheck?: boolean;
     serverAddr?: IIPFSClientAddresses;
+    skipClose?: boolean;
 }
 export interface IOptions extends Record<string, any> {
     type?: string | 'js' | 'go' | 'proc';

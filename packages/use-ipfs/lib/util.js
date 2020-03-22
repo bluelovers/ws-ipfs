@@ -2,7 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ipfsAddresses = exports.checkIPFS = void 0;
 async function checkIPFS(ipfs) {
-    await ipfs.id();
+    //await ipfs.id();
+    await ipfs.version();
     return true;
 }
 exports.checkIPFS = checkIPFS;

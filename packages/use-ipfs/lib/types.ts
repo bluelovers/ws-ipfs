@@ -20,6 +20,8 @@ export interface IOptionsExtra
 	skipCheck?: boolean,
 
 	serverAddr?: IIPFSClientAddresses,
+
+	skipClose?: boolean,
 }
 
 export interface IOptions extends Record<string, any>

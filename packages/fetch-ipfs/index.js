@@ -21,13 +21,14 @@ async function fetchIPFS(cid, useIPFS, timeout) {
                 cid = to_ipfs_url_1.toPath(cid);
             }
         }
-        return fetchIPFSCore(cid, useIPFS, timeout);
     }
-    try {
-        cid = new URL(cid).href;
-    }
-    catch (e) {
-        cid = to_ipfs_url_1.toLink(cid);
+    else {
+        try {
+            cid = new URL(cid).href;
+        }
+        catch (e) {
+            cid = to_ipfs_url_1.toLink(cid);
+        }
     }
     return fetchIPFSCore(cid, useIPFS, timeout);
 }

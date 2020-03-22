@@ -23,17 +23,17 @@ export async function fetchIPFS(cid: string, useIPFS?, timeout?: number)
 				cid = toPath(cid)
 			}
 		}
-
-		return fetchIPFSCore(cid, useIPFS, timeout)
 	}
-
-	try
+	else
 	{
-		cid = new URL(cid).href
-	}
-	catch (e)
-	{
-		cid = toLink(cid)
+		try
+		{
+			cid = new URL(cid).href
+		}
+		catch (e)
+		{
+			cid = toLink(cid)
+		}
 	}
 
 	return fetchIPFSCore(cid, useIPFS, timeout)

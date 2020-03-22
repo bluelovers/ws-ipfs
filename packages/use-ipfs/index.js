@@ -94,7 +94,7 @@ async function getIPFS(options, optionsExtra = {}) {
                     ipfsType = types_1.EnumIPFSType.Controller;
                 }
                 catch (e) {
-                    await stop();
+                    await stop(true);
                     if (fallbackServerArgvs && fallbackServerArgvs.length) {
                         ipfsd = undefined;
                         ipfs = await core_1.some(ipfs_http_client_2.default, [fallbackServerArgvs], true)
@@ -114,21 +114,24 @@ async function getIPFS(options, optionsExtra = {}) {
                 }
             }
         })();
-        async function stop() {
-            try {
-                ipfsd && await ipfsd.clean();
-            }
-            catch (e) {
-            }
-            try {
-                ipfsd && await ipfsd.stop();
-            }
-            catch (e) {
-            }
-            try {
-                ipfs && await ipfs.stop();
-            }
-            catch (e) {
+        let { skipClose } = optionsExtra;
+        async function stop(force) {
+            if (force || ipfsd && !skipClose) {
+                try {
+                    await ipfsd.clean();
+                }
+                catch (e) {
+                }
+                try {
+                    await ipfsd.stop();
+                }
+                catch (e) {
+                }
+                try {
+                    ipfs && await ipfs.stop();
+                }
+                catch (e) {
+                }
             }
         }
         process.once('SIGINT', (...argv) => {

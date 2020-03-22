@@ -1,7 +1,8 @@
 import { Buffer } from "buffer";
 import Bluebird from 'bluebird';
+import { IIPFSPromiseApi } from 'ipfs-types';
 
-export function refIPFS(cid: string, ipfs, timeout?: number)
+export function refIPFS(cid: string, ipfs: IIPFSPromiseApi, timeout?: number)
 {
 	timeout = timeout |= 0 || 20 * 1000;
 
@@ -10,7 +11,7 @@ export function refIPFS(cid: string, ipfs, timeout?: number)
 		{
 			for await (const ref of ipfs.refs(cid, {
 				timeout,
-				pin: false,
+				//pin: false,
 			}))
 			{
 				if (ref.err)
@@ -25,7 +26,7 @@ export function refIPFS(cid: string, ipfs, timeout?: number)
 		})
 }
 
-export function catIPFS(cid: string, ipfs, timeout?: number)
+export function catIPFS(cid: string, ipfs: IIPFSPromiseApi, timeout?: number)
 {
 	timeout = timeout |= 0 || 60 * 1000;
 
@@ -42,10 +43,10 @@ export function catIPFS(cid: string, ipfs, timeout?: number)
 			return Promise.reject(e)
 		})
 		.then(async () => {
-			const chunks = [];
+			const chunks: Buffer[] = [];
 			for await (const chunk of ipfs.cat(cid, {
 				timeout,
-				pin: false,
+				//pin: false,
 			})) {
 				chunks.push(chunk)
 			}

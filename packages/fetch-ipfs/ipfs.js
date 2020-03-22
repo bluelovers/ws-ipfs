@@ -12,7 +12,6 @@ function refIPFS(cid, ipfs, timeout) {
         .then(async () => {
         for await (const ref of ipfs.refs(cid, {
             timeout,
-            pin: false,
         })) {
             if (ref.err) {
                 return Promise.reject(ref.err);
@@ -38,7 +37,6 @@ function catIPFS(cid, ipfs, timeout) {
         const chunks = [];
         for await (const chunk of ipfs.cat(cid, {
             timeout,
-            pin: false,
         })) {
             chunks.push(chunk);
         }

@@ -116,7 +116,8 @@ export async function getIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, opti
 				if (optionsExtra.useFallbackFirst && fallbackServerArgvs && fallbackServerArgvs.length)
 				{
 					ipfs = await some(_ipfsHttpModule, [fallbackServerArgvs], true)
-						.then(ipfs => {
+						.then(ipfs =>
+						{
 							//checkIPFS(ipfs);
 							ipfsType = EnumIPFSType.ClientFallback;
 							return ipfs;
@@ -140,14 +141,15 @@ export async function getIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, opti
 				}
 				catch (e)
 				{
-					await stop();
+					await stop(true);
 
 					if (fallbackServerArgvs && fallbackServerArgvs.length)
 					{
 						ipfsd = undefined;
 
 						ipfs = await some(_ipfsHttpModule, [fallbackServerArgvs], true)
-							.then(ipfs => {
+							.then(ipfs =>
+							{
 								//checkIPFS(ipfs);
 								ipfsType = EnumIPFSType.ClientFallback;
 								return ipfs;
@@ -169,33 +171,37 @@ export async function getIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, opti
 			}
 		})();
 
-		async function stop()
+		let { skipClose } = optionsExtra;
+
+		async function stop(force?: boolean)
 		{
-			try
+			if (force || ipfsd && !skipClose)
 			{
-				ipfsd && await ipfsd.clean();
-			}
-			catch (e)
-			{
+				try
+				{
+					await ipfsd.clean();
+				}
+				catch (e)
+				{
 
-			}
+				}
+				try
+				{
+					await ipfsd.stop();
+				}
+				catch (e)
+				{
 
-			try
-			{
-				ipfsd && await ipfsd.stop();
-			}
-			catch (e)
-			{
+				}
 
-			}
+				try
+				{
+					ipfs && await ipfs.stop();
+				}
+				catch (e)
+				{
 
-			try
-			{
-				ipfs && await ipfs.stop();
-			}
-			catch (e)
-			{
-
+				}
 			}
 		}
 
