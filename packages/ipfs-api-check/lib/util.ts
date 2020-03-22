@@ -15,10 +15,10 @@ export async function runSubCheck<T, E extends Error = Error>(fn: () => T)
 
 	const success = await Promise.resolve()
 		.then(fn)
-		.then(success => !!success)
 		.catch(e => {
 			error = e
 		})
+		.then(success => !!success)
 	;
 
 	return {

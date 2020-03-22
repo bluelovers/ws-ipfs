@@ -23,6 +23,12 @@ function getIpfsServerList() {
                 ls: false,
             },
         },
+        /**
+         * https://developers.cloudflare.com/distributed-web/ipfs-gateway/
+         */
+        'cloudflare': {
+            Gateway: 'https://cloudflare-ipfs.com/ipfs/',
+        },
     };
     data;
     return data;

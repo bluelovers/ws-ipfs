@@ -12,15 +12,15 @@ export async function dag(ipfs: IIPFSDagApi)
 		b: [1, 2, 3],
 		c: {
 			ca: [5, 6, 7],
-			cb: 'foo'
-		}
-	}
+			cb: 'foo',
+		},
+	} as const
 
 	const expected = 'bafyriqh7xeacdjivmpfzvskv3mxzok3mrlbqgbmorbmyaypnilifgpd3fexfrrfy4pcfzkm2ypnr2v5bpscv7aqchw6kebavald4mqp2wgrne';
 
 	const put = await runSubCheck(async () =>
 	{
-		const cid = await ipfs.dag.put(obj, { format: 'dag-cbor', hashAlg: 'sha3-512', timeout: 5000, })
+		const cid = await ipfs.dag.put(obj, { format: 'dag-cbor', hashAlg: 'sha3-512', timeout: 5000 })
 
 		//console.log(cid.toString())
 
@@ -35,9 +35,9 @@ export async function dag(ipfs: IIPFSDagApi)
 		let r4 = await getValue(`${expected}/c/ca/1`);
 
 		return obj.a === r1
-		|| r2.length === obj.b.length
-		|| r3.cb === obj.c.cb
-		|| r4 === obj.c.ca[1]
+			&& r2.length === obj.b.length
+			&& r3.cb === obj.c.cb
+			&& r4 === obj.c.ca[1]
 			;
 	});
 

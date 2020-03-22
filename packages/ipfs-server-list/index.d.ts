@@ -6,22 +6,22 @@ export declare type IIPFSAddressesLike = ITSRequireAtLeastOne<{
     "Gateway": string;
     limit?: ITSRequireAtLeastOne<ILimit>;
 }>;
-export declare function getIpfsServerList(): Record<"infura.io", ITSRequireAtLeastOne<{
+export declare function getIpfsServerList(): Record<"infura.io" | "cloudflare", ITSRequireAtLeastOne<{
     API: IIPFSClientAddresses;
     Gateway: string;
-    limit?: ITSRequireAtLeastOne<ITSPartialRecord<"id" | "config" | "ref", boolean>, "id" | "config" | "ref">;
+    limit?: ITSRequireAtLeastOne<ITSPartialRecord<"ref" | "id" | "config", boolean>, "ref" | "id" | "config">;
 }, "API" | "Gateway" | "limit">> & Record<string, ITSRequireAtLeastOne<{
     API: IIPFSClientAddresses;
     Gateway: string;
-    limit?: ITSRequireAtLeastOne<ITSPartialRecord<"id" | "config" | "ref", boolean>, "id" | "config" | "ref">;
+    limit?: ITSRequireAtLeastOne<ITSPartialRecord<"ref" | "id" | "config", boolean>, "ref" | "id" | "config">;
 }, "API" | "Gateway" | "limit">>;
-export declare const ipfsServerList: Record<"infura.io", ITSRequireAtLeastOne<{
+export declare const ipfsServerList: Record<"infura.io" | "cloudflare", ITSRequireAtLeastOne<{
     API: IIPFSClientAddresses;
     Gateway: string;
-    limit?: ITSRequireAtLeastOne<ITSPartialRecord<"id" | "config" | "ref", boolean>, "id" | "config" | "ref">;
+    limit?: ITSRequireAtLeastOne<ITSPartialRecord<"ref" | "id" | "config", boolean>, "ref" | "id" | "config">;
 }, "API" | "Gateway" | "limit">> & Record<string, ITSRequireAtLeastOne<{
     API: IIPFSClientAddresses;
     Gateway: string;
-    limit?: ITSRequireAtLeastOne<ITSPartialRecord<"id" | "config" | "ref", boolean>, "id" | "config" | "ref">;
+    limit?: ITSRequireAtLeastOne<ITSPartialRecord<"ref" | "id" | "config", boolean>, "ref" | "id" | "config">;
 }, "API" | "Gateway" | "limit">>;
 export default ipfsServerList;

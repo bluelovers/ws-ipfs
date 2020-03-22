@@ -22,4 +22,8 @@ var dag_1 = require("./check/dag");
 Object.defineProperty(exports, "dag", { enumerable: true, get: function () { return dag_1.dag; } });
 var config_1 = require("./check/config");
 Object.defineProperty(exports, "config", { enumerable: true, get: function () { return config_1.config; } });
+var name_1 = require("./check/name");
+Object.defineProperty(exports, "name", { enumerable: true, get: function () { return name_1.name; } });
+var key_1 = require("./check/key");
+Object.defineProperty(exports, "key", { enumerable: true, get: function () { return key_1.key; } });
 //# sourceMappingURL=index.js.map

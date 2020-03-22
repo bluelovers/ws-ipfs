@@ -9,10 +9,10 @@ async function runSubCheck(fn) {
     const startTime = Date.now();
     const success = await Promise.resolve()
         .then(fn)
-        .then(success => !!success)
         .catch(e => {
         error = e;
-    });
+    })
+        .then(success => !!success);
     return {
         success,
         spendTime: Date.now() - startTime,

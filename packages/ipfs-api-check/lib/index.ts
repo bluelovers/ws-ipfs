@@ -13,3 +13,5 @@ export { object } from './check/object';
 export { refs } from './check/refs';
 export { dag } from './check/dag';
 export { config } from './check/config';
+export { name } from './check/name';
+export { key } from './check/key';
