@@ -10,6 +10,7 @@ const index_1 = require("./index");
 const bluebird_1 = __importDefault(require("bluebird"));
 const ipfs_util_lib_1 = require("ipfs-util-lib");
 const ipfs_server_list_1 = __importDefault(require("ipfs-server-list"));
+const array_hyper_unique_1 = require("array-hyper-unique");
 function lazyRaceServerList() {
     return [
         ipfs_server_list_1.default['infura.io'].API,
@@ -50,21 +51,26 @@ function raceFetchIPFS(cid, useIPFS, timeout) {
         const ls = ps.map(ipfs => {
             return index_1.fetchIPFSCore(cid2, ipfs, timeout);
         });
-        ls.push(index_1.fetchIPFSCore(cid, null, timeout));
-        ls.push(index_1.fetchIPFSCore(index_1.handleCID(cid, null, {
-            prefix: {
-                ipfs: ipfs_server_list_1.default['infura.io'].Gateway,
-            }
-        }), null, timeout));
-        ls.push(index_1.fetchIPFSCore(index_1.handleCID(cid, null, {
-            prefix: {
-                ipfs: ipfs_server_list_1.default.cloudflare.Gateway,
-            }
-        }), null, timeout));
+        array_hyper_unique_1.array_unique([
+            index_1.handleCID(cid, null),
+            index_1.handleCID(cid, null, {
+                prefix: {
+                    ipfs: ipfs_server_list_1.default['infura.io'].Gateway,
+                },
+            }),
+            index_1.handleCID(cid, null, {
+                prefix: {
+                    ipfs: ipfs_server_list_1.default.cloudflare.Gateway,
+                },
+            }),
+        ])
+            .forEach(cid => {
+            ls.push(index_1.fetchIPFSCore(cid, null, timeout));
+        });
         return p_any_1.default(ls, {
             filter(buf) {
                 return (buf === null || buf === void 0 ? void 0 : buf.length) > 0;
-            }
+            },
         });
     });
 }

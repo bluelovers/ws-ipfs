@@ -9,6 +9,7 @@ import { ITSValueOrArray } from 'ts-type';
 import Bluebird from 'bluebird';
 import { checkIPFS } from 'ipfs-util-lib';
 import ipfsServerList from 'ipfs-server-list';
+import { array_unique } from 'array-hyper-unique';
 
 export function lazyRaceServerList(): IIPFSClientAddresses[]
 {
@@ -17,7 +18,10 @@ export function lazyRaceServerList(): IIPFSClientAddresses[]
 	]
 }
 
-export function raceFetchIPFS(cid: string, useIPFS: ITSValueOrArray<(string | IIPFSPromiseApi | IIPFSClientAddresses)>, timeout?: number)
+export function raceFetchIPFS(cid: string,
+	useIPFS: ITSValueOrArray<(string | IIPFSPromiseApi | IIPFSClientAddresses)>,
+	timeout?: number,
+)
 {
 	const cid2 = handleCID(cid, true);
 	timeout = handleTimeout(timeout);
@@ -28,7 +32,8 @@ export function raceFetchIPFS(cid: string, useIPFS: ITSValueOrArray<(string | II
 	}
 
 	return Bluebird
-		.map<any, IIPFSPromiseApi>(useIPFS, (ipfs) => {
+		.map<any, IIPFSPromiseApi>(useIPFS, (ipfs) =>
+		{
 			if (!ipfs)
 			{
 				return
@@ -54,37 +59,45 @@ export function raceFetchIPFS(cid: string, useIPFS: ITSValueOrArray<(string | II
 				return ipfs
 			}
 		})
-		.filter(ipfs => {
+		.filter(ipfs =>
+		{
 			return checkIPFS(ipfs).catch(e => false)
 		})
-		.then(ps => {
+		.then(ps =>
+		{
 
-			const ls = ps.map(ipfs => {
+			const ls = ps.map(ipfs =>
+			{
 				return fetchIPFSCore(cid2, ipfs, timeout)
-			})
+			});
 
-			ls.push(fetchIPFSCore(cid, null, timeout));
-
-			ls.push(fetchIPFSCore(handleCID(cid, null, {
-				prefix: {
-					ipfs: ipfsServerList['infura.io'].Gateway,
-				}
-			}), null, timeout));
-
-			ls.push(fetchIPFSCore(handleCID(cid, null, {
-				prefix: {
-					ipfs: ipfsServerList.cloudflare.Gateway,
-				}
-			}), null, timeout));
+			array_unique([
+				handleCID(cid, null),
+				handleCID(cid, null, {
+					prefix: {
+						ipfs: ipfsServerList['infura.io'].Gateway,
+					},
+				}),
+				handleCID(cid, null, {
+					prefix: {
+						ipfs: ipfsServerList.cloudflare.Gateway,
+					},
+				}),
+			])
+				.forEach(cid =>
+				{
+					ls.push(fetchIPFSCore(cid, null, timeout));
+				})
+			;
 
 			return pAny(ls, {
 				filter(buf)
 				{
 					return buf?.length > 0
-				}
+				},
 			})
 		})
-	;
+		;
 }
 
 export default raceFetchIPFS
