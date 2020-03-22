@@ -6,6 +6,7 @@ import AbortController from 'abort-controller';
 import catIPFS from './ipfs';
 import Bluebird from 'bluebird';
 import isErrorCode from 'is-error-code';
+import { newAbortController } from './util';
 
 export function handleCID(cid: string, useIPFS?, options: IOptionsInput = {})
 {
@@ -59,11 +60,7 @@ export async function fetchIPFSCore(cid: string, useIPFS?, timeout?: number)
 		return catIPFS(cid, useIPFS, timeout)
 	}
 
-	const controller = new AbortController();
-	const timer = setTimeout(
-		() => controller.abort(),
-		timeout,
-	);
+	const { controller, timer } = newAbortController(timeout);
 
 	return Bluebird.resolve(fetch(cid, {
 			redirect: 'follow',
@@ -72,7 +69,8 @@ export async function fetchIPFSCore(cid: string, useIPFS?, timeout?: number)
 			signal: controller.signal,
 		}) as ReturnType<typeof fetch>)
 		.finally(() => clearTimeout(timer))
-		.tap(v => {
+		.tap(v =>
+		{
 			if (isErrorCode(v.status))
 			{
 				let e = new Error(v.statusText);
@@ -83,7 +81,7 @@ export async function fetchIPFSCore(cid: string, useIPFS?, timeout?: number)
 		})
 		.then(v => v.arrayBuffer())
 		.then(buf => Buffer.from(buf))
-	;
+		;
 }
 
 export default fetchIPFS

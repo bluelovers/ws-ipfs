@@ -19,7 +19,7 @@ function lazyRaceServerList() {
 exports.lazyRaceServerList = lazyRaceServerList;
 function raceFetchIPFS(cid, useIPFS, timeout) {
     const cid2 = index_1.handleCID(cid, true);
-    timeout = index_1.handleTimeout(timeout);
+    timeout = index_1.handleTimeout(timeout || 10 * 1000);
     if (!Array.isArray(useIPFS)) {
         useIPFS = [useIPFS];
     }

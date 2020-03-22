@@ -24,7 +24,7 @@ export function raceFetchIPFS(cid: string,
 )
 {
 	const cid2 = handleCID(cid, true);
-	timeout = handleTimeout(timeout);
+	timeout = handleTimeout(timeout || 10 * 1000);
 
 	if (!Array.isArray(useIPFS))
 	{

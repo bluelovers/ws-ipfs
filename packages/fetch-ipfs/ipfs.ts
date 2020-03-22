@@ -1,16 +1,20 @@
 import { Buffer } from "buffer";
 import Bluebird from 'bluebird';
 import { IIPFSPromiseApi } from 'ipfs-types';
+import { newAbortController } from './util';
 
 export function refIPFS(cid: string, ipfs: IIPFSPromiseApi, timeout?: number)
 {
 	timeout = timeout |= 0 || 10 * 1000;
+
+	const { controller, timer } = newAbortController(timeout);
 
 	return Bluebird.resolve()
 		.then(async () =>
 		{
 			for await (const ref of ipfs.refs(cid, {
 				timeout,
+				signal: controller.signal,
 				//pin: false,
 			}))
 			{
@@ -24,11 +28,14 @@ export function refIPFS(cid: string, ipfs: IIPFSPromiseApi, timeout?: number)
 				}
 			}
 		})
+		.finally(() => clearTimeout(timer))
 }
 
 export function catIPFS(cid: string, ipfs: IIPFSPromiseApi, timeout?: number)
 {
 	timeout = timeout |= 0 || 60 * 1000;
+
+	const { controller, timer } = newAbortController(timeout);
 
 	return refIPFS(cid, ipfs)
 		.catch(Error, async (e: Error & {
@@ -46,12 +53,14 @@ export function catIPFS(cid: string, ipfs: IIPFSPromiseApi, timeout?: number)
 			const chunks: Buffer[] = [];
 			for await (const chunk of ipfs.cat(cid, {
 				timeout,
+				signal: controller.signal,
 				//pin: false,
 			})) {
 				chunks.push(chunk)
 			}
 			return Buffer.concat(chunks)
 		})
+		.finally(() => clearTimeout(timer))
 	;
 }
 

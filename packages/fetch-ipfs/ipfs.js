@@ -6,12 +6,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.catIPFS = exports.refIPFS = void 0;
 const buffer_1 = require("buffer");
 const bluebird_1 = __importDefault(require("bluebird"));
+const util_1 = require("./util");
 function refIPFS(cid, ipfs, timeout) {
     timeout = timeout |= 0 || 10 * 1000;
+    const { controller, timer } = util_1.newAbortController(timeout);
     return bluebird_1.default.resolve()
         .then(async () => {
         for await (const ref of ipfs.refs(cid, {
             timeout,
+            signal: controller.signal,
         })) {
             if (ref.err) {
                 return Promise.reject(ref.err);
@@ -20,11 +23,13 @@ function refIPFS(cid, ipfs, timeout) {
                 return ref;
             }
         }
-    });
+    })
+        .finally(() => clearTimeout(timer));
 }
 exports.refIPFS = refIPFS;
 function catIPFS(cid, ipfs, timeout) {
     timeout = timeout |= 0 || 60 * 1000;
+    const { controller, timer } = util_1.newAbortController(timeout);
     return refIPFS(cid, ipfs)
         .catch(Error, async (e) => {
         if (e.message && e.message.toLowerCase().includes('ipfs method not allowed')) {
@@ -37,11 +42,13 @@ function catIPFS(cid, ipfs, timeout) {
         const chunks = [];
         for await (const chunk of ipfs.cat(cid, {
             timeout,
+            signal: controller.signal,
         })) {
             chunks.push(chunk);
         }
         return buffer_1.Buffer.concat(chunks);
-    });
+    })
+        .finally(() => clearTimeout(timer));
 }
 exports.catIPFS = catIPFS;
 exports.default = catIPFS;
