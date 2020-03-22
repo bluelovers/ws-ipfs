@@ -1,7 +1,6 @@
-import { ICIDObject } from './types';
 import { INetworkOptionsBase } from '../options';
 import { ITSValueOrArray } from 'ts-type';
-import { ICIDValue } from '../types';
+import { ICIDObject, ICIDValue } from '../types';
 declare type IPinType = "recursive" | "direct" | "indirect";
 export interface IIPFSPinApiCore {
     add(hash: any, options?: {

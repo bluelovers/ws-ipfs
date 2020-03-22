@@ -7,7 +7,11 @@ export interface IIPFSOptions
 	config?: any;
 }
 
+export type IApiOptions<T = {}> = T & INetworkOptionsBase;
+
 export interface INetworkOptionsBase
 {
 	timeout?: number | string,
+	signal?,
 }
+

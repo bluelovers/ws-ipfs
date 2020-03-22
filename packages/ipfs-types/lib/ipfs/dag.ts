@@ -3,26 +3,44 @@
  */
 
 import { ICallback, ICIDValue, IDagHashAlg, IDagFormat, IDagNodeValue, ICIDObject } from '../types';
-import { INetworkOptionsBase } from '../options';
+import { INetworkOptionsBase, IApiOptions } from '../options';
+
+export type IIPFSDagReturnRemainderPath<T = {}> = T & ({
+	remainderPath: string | '',
+	remPath?: never,
+} | {
+	remainderPath?: never,
+	remPath: string | '',
+})
 
 export interface IIPFSDagApiCore
 {
-	put(dagNode: IDagNodeValue, options?: {
+	/**
+	 * @example
+	 * const obj = { simple: 'object' }
+	 * const cid = await ipfs.dag.put(obj, { format: 'dag-cbor', hashAlg: 'sha3-512' })
+	 * console.log(cid.toString())
+	 */
+	put(dagNode: IDagNodeValue, options?: IApiOptions<{
 		format?: IDagFormat,
 		hashAlg?: IDagHashAlg,
 		cid?,
 		pin?: boolean,
-	} & INetworkOptionsBase): Promise<ICIDObject>,
+	}>): Promise<ICIDObject>,
 
-	get<T>(cid: ICIDValue, path?, options?: {
+	get<T extends any = any>(cid: ICIDValue, path?: string, options?: IApiOptions<{
 		localResolve?: boolean,
-	} & INetworkOptionsBase): Promise<T>,
+	}>): Promise<IIPFSDagReturnRemainderPath<{
+		value: T,
+	}>>,
 
-	tree<T extends string[]>(cid: ICIDValue, path?, options?: {
+	tree<T extends string[]>(cid: ICIDValue, path?: string, options?: IApiOptions<{
 		recursive?: boolean,
-	} & INetworkOptionsBase): Promise<T>,
+	}>): Promise<T>,
 
-
+	resolve<T extends string[]>(cid: ICIDValue, path?: string, options?: IApiOptions): Promise<IIPFSDagReturnRemainderPath<{
+		cid: ICIDObject,
+	}>>,
 
 }
 
@@ -31,9 +49,12 @@ export interface IIPFSDagApi
 	/**
 	 * https://github.com/ipfs/js-ipfs/blob/master/packages/interface-ipfs-core/SPEC/DAG.md
 	 */
-	pin: IIPFSDagApiCore,
+	dag: IIPFSDagApiCore,
 }
 
+/**
+ * @deprecated
+ */
 export interface IDagAPI
 {
 	put(dagNode: any, options: any, callback: ICallback<any>): void;

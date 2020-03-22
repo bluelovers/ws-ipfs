@@ -38,6 +38,9 @@ export interface IId
 	protocolVersion: string;
 }
 
+/**
+ * @deprecated
+ */
 export interface IRepoAPI
 {
 	init(bits: number, empty: boolean, callback: ICallback<any>): void;
@@ -73,6 +76,9 @@ export interface IIPFSGetResult
 	type: 'file' | string;
 }
 
+/**
+ * @deprecated
+ */
 export interface IFilesAPI
 {
 	createAddStream(options: any, callback: ICallback<any>): void;
@@ -123,6 +129,9 @@ export interface IPeer
 	peer: IPeerInfo;
 }
 
+/**
+ * @deprecated
+ */
 export interface ISwarmAPI
 {
 	peers(options: IPeersOptions, callback: ICallback<IPeer[]>): void;

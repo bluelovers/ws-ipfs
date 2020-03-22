@@ -38,6 +38,9 @@ export interface IIPFSObjectApi
 	object: IIPFSObjectApiCore,
 }
 
+/**
+ * @deprecated
+ */
 export interface IObjectAPI
 {
 	"new"(template: 'unixfs-dir', callback: ICallback<IDAGNode>): void;

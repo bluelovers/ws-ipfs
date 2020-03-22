@@ -18,4 +18,6 @@ var object_1 = require("./check/object");
 Object.defineProperty(exports, "object", { enumerable: true, get: function () { return object_1.object; } });
 var refs_1 = require("./check/refs");
 Object.defineProperty(exports, "refs", { enumerable: true, get: function () { return refs_1.refs; } });
+var dag_1 = require("./check/dag");
+Object.defineProperty(exports, "dag", { enumerable: true, get: function () { return dag_1.dag; } });
 //# sourceMappingURL=index.js.map

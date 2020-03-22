@@ -2,9 +2,15 @@
  * Created by user on 2020/3/21.
  */
 
-export async function runSubCheck<T>(fn: () => T)
+export type IRunCheck<E extends Error = Error> = {
+	success: boolean;
+	spendTime: number;
+	error: E;
+}
+
+export async function runSubCheck<T, E extends Error = Error>(fn: () => T)
 {
-	let error: Error;
+	let error: E;
 	const startTime = Date.now();
 
 	const success = await Promise.resolve()
@@ -19,7 +25,7 @@ export async function runSubCheck<T>(fn: () => T)
 		success,
 		spendTime: Date.now() - startTime,
 		error,
-	}
+	} as IRunCheck<E>
 }
 
 export function isBufferMaybe(buf): buf is Buffer

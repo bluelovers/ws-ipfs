@@ -28,6 +28,9 @@ export interface IId {
     agentVersion: string;
     protocolVersion: string;
 }
+/**
+ * @deprecated
+ */
 export interface IRepoAPI {
     init(bits: number, empty: boolean, callback: ICallback<any>): void;
     version(options: any, callback: ICallback<any>): void;
@@ -52,6 +55,9 @@ export interface IIPFSGetResult {
     content: Buffer;
     type: 'file' | string;
 }
+/**
+ * @deprecated
+ */
 export interface IFilesAPI {
     createAddStream(options: any, callback: ICallback<any>): void;
     createAddStream(callback: ICallback<any>): void;
@@ -81,6 +87,9 @@ export interface IPeer {
     addr: IMultiaddr;
     peer: IPeerInfo;
 }
+/**
+ * @deprecated
+ */
 export interface ISwarmAPI {
     peers(options: IPeersOptions, callback: ICallback<IPeer[]>): void;
     peers(options: IPeersOptions): Promise<IPeer[]>;

@@ -1,4 +1,3 @@
-import { ICIDObject } from './types';
 import { INetworkOptionsBase } from '../options';
 import { ITSValueOrArray } from 'ts-type';
 import { ICIDObject, ICIDValue } from '../types';

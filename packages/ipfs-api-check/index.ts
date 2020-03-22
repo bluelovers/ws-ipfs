@@ -1,6 +1,14 @@
 import * as _allChecks from './lib';
 import { IIPFSApiUtils } from 'ipfs-types/lib/ipfs';
 import { IIPFSPromiseApi } from 'ipfs-types/lib/ipfs/index';
+import { IRunCheck } from './lib/util';
+import { ITSUnpackedPromiseLike } from 'ts-type';
+
+export type IAllTopKeys = keyof typeof _allChecks;
+
+export type ICheckAll = {
+	[key in IAllTopKeys]: ITSUnpackedPromiseLike<ReturnType<typeof _allChecks[key]>>
+}
 
 export async function checkAll(ipfs: IIPFSPromiseApi)
 {
@@ -8,7 +16,7 @@ export async function checkAll(ipfs: IIPFSPromiseApi)
 
 	keys.sort();
 
-	let map: Record<keyof typeof _allChecks, any> = {} as any;
+	let map: ICheckAll = {} as any;
 
 	for (let key of keys)
 	{

@@ -1,7 +1,3 @@
 import { IIPFSRefsApi } from 'ipfs-types/lib/ipfs/refs';
-export declare function refs(ipfs: IIPFSRefsApi): Promise<{
-    success: boolean | void;
-    spendTime: number;
-    error: Error;
-}>;
+export declare function refs(ipfs: IIPFSRefsApi): Promise<import("../util").IRunCheck<Error>>;
 export default refs;
