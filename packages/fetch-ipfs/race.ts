@@ -28,9 +28,10 @@ export function raceFetchIPFS(cid: string, useIPFS: ITSValueOrArray<(string | II
 			else if (typeof ipfs === 'string')
 			{
 				return ipfsClient(ipfs)
+					.catch(e => null)
 			}
 			// @ts-ignore
-			else if (typeof ipfs === 'object' && typeof ipfs.cat !== 'undefined')
+			else if (typeof ipfs === 'object' && typeof ipfs.cat === 'undefined')
 			{
 				if (!Object.keys(ipfs).length)
 				{
@@ -38,8 +39,9 @@ export function raceFetchIPFS(cid: string, useIPFS: ITSValueOrArray<(string | II
 				}
 
 				return ipfsClient(ipfs as IIPFSClientAddresses)
+					.catch(e => null)
 			}
-			else if (ipfs)
+			else if (typeof ipfs.cat === 'function')
 			{
 				return ipfs
 			}

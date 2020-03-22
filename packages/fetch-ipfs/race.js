@@ -21,16 +21,18 @@ function raceFetchIPFS(cid, useIPFS, timeout) {
             return;
         }
         else if (typeof ipfs === 'string') {
-            return ipfs_http_client_1.default(ipfs);
+            return ipfs_http_client_1.default(ipfs)
+                .catch(e => null);
         }
         // @ts-ignore
-        else if (typeof ipfs === 'object' && typeof ipfs.cat !== 'undefined') {
+        else if (typeof ipfs === 'object' && typeof ipfs.cat === 'undefined') {
             if (!Object.keys(ipfs).length) {
                 return;
             }
-            return ipfs_http_client_1.default(ipfs);
+            return ipfs_http_client_1.default(ipfs)
+                .catch(e => null);
         }
-        else if (ipfs) {
+        else if (typeof ipfs.cat === 'function') {
             return ipfs;
         }
     })

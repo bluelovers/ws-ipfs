@@ -36,6 +36,7 @@
   "dependencies": {
     "@bluelovers/ipfs-http-client": "^1.0.13",
     "abort-controller": "^3.0.0",
+    "array-hyper-unique": "^1.1.0",
     "bluebird": "^3.7.2",
     "buffer": "^5.5.0",
     "cross-fetch": "^3.0.4",
