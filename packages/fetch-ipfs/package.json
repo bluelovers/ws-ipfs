@@ -34,11 +34,16 @@
     "scramjet": "^4.28.3"
   },
   "dependencies": {
+    "@bluelovers/ipfs-http-client": "^1.0.13",
     "abort-controller": "^3.0.0",
     "bluebird": "^3.7.2",
     "buffer": "^5.5.0",
     "cross-fetch": "^3.0.4",
+    "ipfs-types": "^1.0.8",
+    "ipfs-util-lib": "^1.0.1",
     "is-error-code": "^1.0.0",
-    "to-ipfs-url": "^1.0.4"
+    "p-any": "^3.0.0",
+    "to-ipfs-url": "^1.0.4",
+    "ts-type": "^1.2.13"
   }
 }

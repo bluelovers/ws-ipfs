@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fetchIPFSCore = exports.fetchIPFS = void 0;
+exports.fetchIPFSCore = exports.fetchIPFS = exports.handleTimeout = exports.handleCID = void 0;
 const cross_fetch_1 = __importDefault(require("cross-fetch"));
 const to_ipfs_url_1 = require("to-ipfs-url");
 const buffer_1 = require("buffer");
@@ -11,8 +11,8 @@ const abort_controller_1 = __importDefault(require("abort-controller"));
 const ipfs_1 = __importDefault(require("./ipfs"));
 const bluebird_1 = __importDefault(require("bluebird"));
 const is_error_code_1 = __importDefault(require("is-error-code"));
-async function fetchIPFS(cid, useIPFS, timeout) {
-    if (useIPFS != null) {
+function handleCID(cid, useIPFS) {
+    if (useIPFS) {
         try {
             cid = new URL(cid).pathname;
         }
@@ -30,12 +30,21 @@ async function fetchIPFS(cid, useIPFS, timeout) {
             cid = to_ipfs_url_1.toLink(cid);
         }
     }
+    return cid;
+}
+exports.handleCID = handleCID;
+function handleTimeout(timeout) {
+    return timeout |= 0 > 0 ? timeout : 60 * 1000;
+}
+exports.handleTimeout = handleTimeout;
+async function fetchIPFS(cid, useIPFS, timeout) {
+    cid = handleCID(cid, useIPFS);
     return fetchIPFSCore(cid, useIPFS, timeout);
 }
 exports.fetchIPFS = fetchIPFS;
 async function fetchIPFSCore(cid, useIPFS, timeout) {
-    timeout = timeout |= 0 || 60 * 1000;
-    if (useIPFS != null) {
+    timeout = handleTimeout(timeout);
+    if (useIPFS) {
         return ipfs_1.default(cid, useIPFS, timeout);
     }
     const controller = new abort_controller_1.default();

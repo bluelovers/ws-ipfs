@@ -7,10 +7,9 @@ import catIPFS from './ipfs';
 import Bluebird from 'bluebird';
 import isErrorCode from 'is-error-code';
 
-
-export async function fetchIPFS(cid: string, useIPFS?, timeout?: number)
+export function handleCID(cid: string, useIPFS?)
 {
-	if (useIPFS != null)
+	if (useIPFS)
 	{
 		try
 		{
@@ -36,14 +35,26 @@ export async function fetchIPFS(cid: string, useIPFS?, timeout?: number)
 		}
 	}
 
+	return cid
+}
+
+export function handleTimeout(timeout: number)
+{
+	return timeout |= 0 > 0 ? timeout : 60 * 1000;
+}
+
+export async function fetchIPFS(cid: string, useIPFS?, timeout?: number)
+{
+	cid = handleCID(cid, useIPFS)
+
 	return fetchIPFSCore(cid, useIPFS, timeout)
 }
 
 export async function fetchIPFSCore(cid: string, useIPFS?, timeout?: number)
 {
-	timeout = timeout |= 0 || 60 * 1000;
+	timeout = handleTimeout(timeout);
 
-	if (useIPFS != null)
+	if (useIPFS)
 	{
 		return catIPFS(cid, useIPFS, timeout)
 	}
