@@ -1,7 +1,7 @@
 import TypedArray = NodeJS.TypedArray;
-import { INetworkOptionsBase } from '../options';
+import { INetworkOptionsBase, IApiOptions } from '../options';
 import BufferList from 'bl';
-import { IMtime, IUnixTime, IAsyncIterableAbleOrValue, IAsyncIterableAble, ICIDObject } from '../types';
+import { IMtime, IUnixTime, IAsyncIterableAbleOrValue, IAsyncIterableAble, ICIDObject, IDagHashAlg } from '../types';
 
 export type IBytes = number[]
 	| Buffer
@@ -38,29 +38,49 @@ export type IFileData = IAsyncIterableAbleOrValue<IFileObject>
 	| Iterable<number>
 	;
 
+export interface IIPFSFileApiAddOptions extends IApiOptions<{
+	chunker?: string | 'size-262144' | 'rabin',
+	cidVersion?: number,
+	enableShardingExperiment?,
+	hashAlg?: IDagHashAlg,
+	onlyHash?: boolean,
+	pin?: boolean,
+	progress?,
+	rawLeaves?: boolean,
+	shardSplitThreshold?: number,
+	trickle?: boolean,
+	wrapWithDirectory?: boolean,
+}>
+{
+
+}
+
+export interface IIPFSFileApiAddReturnEntry
+{
+	path: string;
+	cid: ICIDObject;
+	mode: number;
+	mtime: IMtime;
+	size: number;
+}
+
 export interface IIPFSFileApi
 {
-	add(data: IFileData, options?): AsyncIterable<{
-		path: string,
-		cid: ICIDObject,
-		mode: number,
-		mtime: IMtime,
-		size: number
-	}>
+	add(data: IFileData, options?: IIPFSFileApiAddOptions): AsyncIterable<IIPFSFileApiAddReturnEntry>
 
-	cat(ipfsPath, options?: {
+	cat(ipfsPath, options?: IApiOptions<{
 		offset?: number,
 		length?: number,
-	} & INetworkOptionsBase): AsyncIterable<Buffer>
+	}>): AsyncIterable<Buffer>
 
-	get(ipfsPath, options?: {} & INetworkOptionsBase): AsyncIterable<{
+	get(ipfsPath, options?: IApiOptions<{}>): AsyncIterable<{
 		path: string,
 		content: AsyncIterable<IBufferList>,
 		mode: number,
 		mtime: IMtime
 	}>
 
-	ls(ipfsPath, options?: {} & INetworkOptionsBase): AsyncIterable<{
+	ls(ipfsPath, options?: IApiOptions<{}>): AsyncIterable<{
 		depth: number,
 		name: string,
 		path: string,

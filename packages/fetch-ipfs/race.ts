@@ -3,20 +3,13 @@
  */
 import { IIPFSPromiseApi } from 'ipfs-types';
 import pAny from 'p-any';
-import ipfsClient, { IIPFSClientAddresses } from '@bluelovers/ipfs-http-client';
-import { handleCID, fetchIPFSCore, handleTimeout } from './index';
-import { ITSValueOrArray, ITSResolvable } from 'ts-type';
-import Bluebird from 'bluebird';
-import { checkIPFS } from 'ipfs-util-lib';
-import ipfsServerList from 'ipfs-server-list';
+import { IIPFSClientAddresses } from '@bluelovers/ipfs-http-client';
+import { fetchIPFSCore } from './index';
+import { ITSValueOrArray } from 'ts-type';
+import { filterList } from 'ipfs-server-list';
 import { array_unique } from 'array-hyper-unique';
-
-export function lazyRaceServerList(): IIPFSClientAddresses[]
-{
-	return [
-		ipfsServerList['infura.io'].API,
-	]
-}
+import { handleClientList } from './lib/handleClientList';
+import { handleTimeout, handleCID } from './util';
 
 export function raceFetchIPFS(cid: string,
 	useIPFS: ITSValueOrArray<(string | IIPFSPromiseApi | IIPFSClientAddresses)>,
@@ -29,43 +22,7 @@ export function raceFetchIPFS(cid: string,
 	const cid2 = handleCID(cid, true);
 	timeout = handleTimeout(timeout || 10 * 1000);
 
-	if (!Array.isArray(useIPFS))
-	{
-		useIPFS = [useIPFS];
-	}
-
-	return Bluebird
-		.map<any, IIPFSPromiseApi>(useIPFS, (ipfs) =>
-		{
-			if (!ipfs)
-			{
-				return
-			}
-			else if (typeof ipfs === 'string')
-			{
-				return ipfsClient(ipfs)
-					.catch(e => null)
-			}
-			// @ts-ignore
-			else if (typeof ipfs === 'object' && typeof ipfs.cat === 'undefined')
-			{
-				if (!Object.keys(ipfs).length)
-				{
-					return
-				}
-
-				return ipfsClient(ipfs as IIPFSClientAddresses)
-					.catch(e => null)
-			}
-			else if (typeof ipfs.cat === 'function')
-			{
-				return ipfs
-			}
-		})
-		.filter(ipfs =>
-		{
-			return checkIPFS(ipfs).catch(e => false)
-		})
+	return handleClientList(useIPFS, (ipfs => typeof ipfs?.cat === 'function'))
 		.then(ps =>
 		{
 
@@ -76,16 +33,11 @@ export function raceFetchIPFS(cid: string,
 
 			array_unique([
 				handleCID(cid, null),
-				handleCID(cid, null, {
+				...filterList('Gateway').map(gateway => handleCID(cid, null, {
 					prefix: {
-						ipfs: ipfsServerList['infura.io'].Gateway,
+						ipfs: gateway,
 					},
-				}),
-				handleCID(cid, null, {
-					prefix: {
-						ipfs: ipfsServerList.cloudflare.Gateway,
-					},
-				}),
+				})),
 			])
 				.forEach(cid =>
 				{

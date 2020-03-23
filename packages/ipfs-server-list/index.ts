@@ -56,6 +56,20 @@ export function getIpfsServerList()
 	return data as Record<keyof typeof data, IIPFSAddressesLike> & Record<string, IIPFSAddressesLike>
 }
 
+export function filterList<K extends keyof IIPFSAddressesLike>(key: K, serverList: Record<string, IIPFSAddressesLike> = ipfsServerList)
+{
+	return Object.keys(serverList)
+		.reduce((a, b) => {
+
+			if (serverList[b][key] != null)
+			{
+				a.push(serverList[b][key])
+			}
+
+			return a
+		}, [] as IIPFSAddressesLike[K][])
+}
+
 export const ipfsServerList = getIpfsServerList();
 
 export default ipfsServerList

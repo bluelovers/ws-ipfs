@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ipfsServerList = exports.getIpfsServerList = void 0;
+exports.ipfsServerList = exports.filterList = exports.getIpfsServerList = void 0;
 function getIpfsServerList() {
     let data = {
         /**
@@ -39,6 +39,16 @@ function getIpfsServerList() {
     return data;
 }
 exports.getIpfsServerList = getIpfsServerList;
+function filterList(key, serverList = exports.ipfsServerList) {
+    return Object.keys(serverList)
+        .reduce((a, b) => {
+        if (serverList[b][key] != null) {
+            a.push(serverList[b][key]);
+        }
+        return a;
+    }, []);
+}
+exports.filterList = filterList;
 exports.ipfsServerList = getIpfsServerList();
 exports.default = exports.ipfsServerList;
 //# sourceMappingURL=index.js.map
