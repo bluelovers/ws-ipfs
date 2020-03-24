@@ -10,10 +10,7 @@ export declare type ICIDObject = CID;
 export declare type ICIDValue = ICIDObject | string;
 export declare type IAsyncIterableAble<T> = Iterable<T> | AsyncIterable<T>;
 export declare type IAsyncIterableAbleOrValue<T> = T | IAsyncIterableAble<T>;
-export declare type IUnixTime = Date | {
-    secs: number;
-    nsecs?: number;
-} | number[];
+export declare type IMtimeInput = Date | IMtime | number[] | [number, number];
 export interface IMtime {
     secs: number;
     nsecs: number;

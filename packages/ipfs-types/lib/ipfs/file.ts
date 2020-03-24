@@ -1,7 +1,7 @@
 import TypedArray = NodeJS.TypedArray;
 import { INetworkOptionsBase, IApiOptions } from '../options';
 import BufferList from 'bl';
-import { IMtime, IUnixTime, IAsyncIterableAbleOrValue, IAsyncIterableAble, ICIDObject, IDagHashAlg } from '../types';
+import { IMtime, IMtimeInput, IAsyncIterableAbleOrValue, IAsyncIterableAble, ICIDObject, IDagHashAlg } from '../types';
 
 export type IBytes = number[]
 	| Buffer
@@ -28,7 +28,7 @@ export interface IFileObject
 	// File mode to store the entry with (see https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation)
 	mode?: number | string
 	// The modification time of the entry (see below for definition)
-	mtime?: IUnixTime
+	mtime?: IMtimeInput
 }
 
 export type IFileData = IAsyncIterableAbleOrValue<IFileObject>

@@ -2,7 +2,7 @@
 import TypedArray = NodeJS.TypedArray;
 import { IApiOptions } from '../options';
 import BufferList from 'bl';
-import { IMtime, IUnixTime, IAsyncIterableAbleOrValue, IAsyncIterableAble, ICIDObject, IDagHashAlg } from '../types';
+import { IMtime, IMtimeInput, IAsyncIterableAbleOrValue, IAsyncIterableAble, ICIDObject, IDagHashAlg } from '../types';
 export declare type IBytes = number[] | Buffer | ArrayBuffer | TypedArray;
 export declare type IBloby = Blob | File;
 export declare type IBufferList = BufferList;
@@ -11,7 +11,7 @@ export interface IFileObject {
     path?: string;
     content?: IFileContent;
     mode?: number | string;
-    mtime?: IUnixTime;
+    mtime?: IMtimeInput;
 }
 export declare type IFileData = IAsyncIterableAbleOrValue<IFileObject> | IAsyncIterableAbleOrValue<IBloby> | IAsyncIterableAbleOrValue<IBytes> | IAsyncIterableAbleOrValue<string> | Iterable<number>;
 export interface IIPFSFileApiAddOptions extends IApiOptions<{

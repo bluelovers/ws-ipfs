@@ -16,7 +16,8 @@ export type ICIDObject = CID;
 export type ICIDValue = ICIDObject | string;
 export type IAsyncIterableAble<T> = Iterable<T> | AsyncIterable<T>
 export type IAsyncIterableAbleOrValue<T> = T | IAsyncIterableAble<T>;
-export type IUnixTime = Date | { secs: number, nsecs?: number } | number[];
+
+export type IMtimeInput = Date | IMtime | number[] | [number, number];
 
 export interface IMtime
 {
