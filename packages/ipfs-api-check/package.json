@@ -36,12 +36,12 @@
     "@types/bluebird": "^3.5.30",
     "@types/node": "^13.9.2",
     "ipfs": "^0.41.2",
-    "ipfs-http-client": "^42.0.0",
-    "use-ipfs": "^1.0.17"
+    "ipfs-http-client": "^42.0.0"
   },
   "dependencies": {
     "@bluelovers/ipfs-http-client": "^1.0.14",
     "bluebird": "^3.7.2",
-    "ipfs-types": "^1.0.9"
+    "ipfs-types": "^1.0.9",
+    "use-ipfs": "^1.0.17"
   }
 }

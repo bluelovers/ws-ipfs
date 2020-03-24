@@ -1,19 +1,19 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) __createBinding(exports, m, p);
+}
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ipfsAddresses = exports.checkIPFS = exports.isBufferMaybe = void 0;
+exports.isBufferMaybe = void 0;
+__exportStar(require("./api"), exports);
 function isBufferMaybe(buf) {
     return (buf === null || buf === void 0 ? void 0 : buf.length) && typeof (buf === null || buf === void 0 ? void 0 : buf[0]) === 'number';
 }
 exports.isBufferMaybe = isBufferMaybe;
-async function checkIPFS(ipfs) {
-    //await ipfs.id();
-    const ret = await ipfs
-        .version();
-    return !!ret.version;
-}
-exports.checkIPFS = checkIPFS;
-async function ipfsAddresses(ipfs) {
-    return ipfs.config.get('Addresses');
-}
-exports.ipfsAddresses = ipfsAddresses;
 //# sourceMappingURL=index.js.map

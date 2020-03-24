@@ -12,6 +12,7 @@ export async function add(ipfs: IIPFSFileApi)
 	{
 		for await (const result of ipfs.add(file, {
 			timeout: 5000,
+			pin: false,
 		}))
 		{
 			if (result.path === file.path && result.size)

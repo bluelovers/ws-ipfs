@@ -10,6 +10,7 @@ async function add(ipfs) {
     return util_1.runSubCheck(async () => {
         for await (const result of ipfs.add(file, {
             timeout: 5000,
+            pin: false,
         })) {
             if (result.path === file.path && result.size) {
                 return true;
