@@ -1,8 +1,8 @@
 {
-  "name": "ipfs-server-list",
-  "version": "1.0.11",
+  "name": "fix-local-ipfs",
+  "version": "1.0.1",
   "description": "",
-  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-server-list#readme",
+  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/fix-local-ipfs#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-ipfs/issues"
   },
@@ -27,12 +27,19 @@
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
+  "dependencies": {
+    "@bluelovers/ipfs-http-client": "^1.0.15",
+    "bluebird": "^3.7.2",
+    "ipfs-types": "^1.0.10",
+    "use-ipfs": "^1.0.18"
+  },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19",
-    "@types/node": "^13.9.2"
+    "@types/bluebird": "^3.5.30",
+    "@types/node": "^13.9.2",
+    "ipfs-http-client": "^42.0.0"
   },
-  "dependencies": {
-    "ipfs-types": "^1.0.10",
-    "ts-type": "^1.2.13"
+  "peerDependencies": {
+    "ipfs-http-client": "^42.0.0"
   }
 }
