@@ -4,7 +4,7 @@
  */
 import { IIPFSFileApi, IIPFSFileApiAddReturnEntry, IIPFSFileApiAddOptions } from 'ipfs-types/lib/ipfs/file';
 import { StatsBase } from 'fs';
-export declare function addDirectoryToIPFS(ipfs: IIPFSFileApi, targetDirPath: string, { options, globSourceOptions, }: {
+export declare function addDirectoryToIPFS(ipfs: IIPFSFileApi, targetDirPath: string, { options, globSourceOptions, }?: {
     options?: IIPFSFileApiAddOptions;
     globSourceOptions?: {
         /**

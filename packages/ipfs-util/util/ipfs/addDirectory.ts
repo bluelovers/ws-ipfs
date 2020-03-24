@@ -44,7 +44,7 @@ export async function addDirectoryToIPFS(ipfs: IIPFSFileApi, targetDirPath: stri
 		 */
 		mtime?: StatsBase<any>["mtime"],
 	},
-})
+} = {})
 {
 	let files: IIPFSFileApiAddReturnEntry[] = [];
 
