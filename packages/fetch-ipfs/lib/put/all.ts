@@ -30,7 +30,7 @@ export function publishToIPFSAll(data: IFileData,
 	} & INetworkOptionsBase,
 )
 {
-	let { timeout, signal, addOptions } = options;
+	let { timeout, signal, addOptions } = options || {};
 
 	timeout = handleTimeout(timeout as any);
 

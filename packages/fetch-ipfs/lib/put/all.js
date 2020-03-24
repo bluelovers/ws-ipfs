@@ -5,7 +5,7 @@ exports.publishToIPFSAll = void 0;
 const handleClientList_1 = require("../handleClientList");
 const util_1 = require("../../util");
 function publishToIPFSAll(data, useIPFS, options) {
-    let { timeout, signal, addOptions } = options;
+    let { timeout, signal, addOptions } = options || {};
     timeout = util_1.handleTimeout(timeout);
     addOptions = {
         timeout,
