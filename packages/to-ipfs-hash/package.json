@@ -1,6 +1,6 @@
 {
   "name": "to-ipfs-hash",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/file-to-ipfs#readme",
   "bugs": {
@@ -48,6 +48,6 @@
     "bl": "^4.0.2",
     "fs-extra": "^9.0.0",
     "ipfs-only-hash": "^2.0.1",
-    "ipfs-utils": "^1.0.0"
+    "ipfs-utils": "^1.0.1"
   }
 }
