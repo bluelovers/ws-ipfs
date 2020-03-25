@@ -2,10 +2,16 @@ import { ITSRequireAtLeastOne, ITSPartialRecord } from 'ts-type';
 import { IIPFSClientAddresses } from '@bluelovers/ipfs-http-client';
 export declare type ILimit = ITSPartialRecord<'ref' | 'id' | 'config', boolean>;
 export declare type IIPFSAddressesLike = ITSRequireAtLeastOne<{
-    "API"?: IIPFSClientAddresses;
-    "Gateway"?: string;
+    API?: IIPFSClientAddresses;
+    Gateway?: string;
     IPLD?: string;
     IPNS?: string;
+    /**
+     * https://blog.cloudflare.com/continuing-to-improve-our-ipfs-gateway/
+     *
+     * base32.cf-ipfs.com
+     */
+    GatewayDomain?: string;
 }> & {
     /**
      * @deprecated

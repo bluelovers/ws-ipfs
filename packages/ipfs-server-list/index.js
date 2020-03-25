@@ -28,6 +28,7 @@ function getIpfsServerList() {
          */
         'cloudflare': {
             Gateway: 'https://cloudflare-ipfs.com/ipfs/',
+            GatewayDomain: '.cf-ipfs.com',
         },
         'ipfs': {
             Gateway: 'https://ipfs.io/ipfs/',

@@ -4,10 +4,16 @@ import { IIPFSClientAddresses } from '@bluelovers/ipfs-http-client';
 export type ILimit = ITSPartialRecord<'ref' | 'id' | 'config', boolean>;
 
 export type IIPFSAddressesLike = ITSRequireAtLeastOne<{
-	"API"?: IIPFSClientAddresses,
-	"Gateway"?: string,
+	API?: IIPFSClientAddresses,
+	Gateway?: string,
 	IPLD?: string,
 	IPNS?: string,
+	/**
+	 * https://blog.cloudflare.com/continuing-to-improve-our-ipfs-gateway/
+	 *
+	 * base32.cf-ipfs.com
+	 */
+	GatewayDomain?: string,
 }> & {
 	/**
 	 * @deprecated
@@ -43,6 +49,7 @@ export function getIpfsServerList()
 		 */
 		'cloudflare': {
 			Gateway: 'https://cloudflare-ipfs.com/ipfs/',
+			GatewayDomain: '.cf-ipfs.com',
 		},
 		'ipfs': {
 			Gateway: 'https://ipfs.io/ipfs/',
