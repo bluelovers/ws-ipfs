@@ -43,10 +43,12 @@ export interface IIPFSNameApiCore
 		allowOffline?: boolean
 	}>): Promise<{
 		/**
+		 * name: the name under which the content was published.
 		 * 'Qmf3ySkYqLET9xtAtDzvAr5Pp3egK1H3C5iJAZm1SpLEp6'
 		 */
 		name: string
 		/**
+		 * value: the "real" address to which Name points.
 		 * '/ipfs/Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a'
 		 */
 		value: string

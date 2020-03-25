@@ -8,6 +8,9 @@ import { IObjectAPI, IIPFSObjectApi } from './object';
 import { IIPFSConfigApi } from './config';
 import { IIPFSNameApi } from './name';
 import { IApiOptions } from '../options';
+import { IIPFSFilesApiCore, IIPFSFilesApi } from './files';
+import { IIPFSSwarmApi } from './swarm';
+import { IIPFSPubsubApi } from './pubsub';
 
 export interface IIPFSApiReturnType
 {
@@ -51,7 +54,7 @@ export interface IIPFSApiUtils
 
 }
 
-export interface IIPFSPromiseApi extends IIPFSAsyncIterableApi, IIPFSApiUtils, IIPFSDagApi, IIPFSRefsApi, IIPFSObjectApi, IIPFSConfigApi, IIPFSNameApi
+export interface IIPFSPromiseApi extends IIPFSAsyncIterableApi, IIPFSApiUtils, IIPFSDagApi, IIPFSRefsApi, IIPFSObjectApi, IIPFSConfigApi, IIPFSNameApi, IIPFSFilesApi, IIPFSSwarmApi, IIPFSPubsubApi
 {
 
 }

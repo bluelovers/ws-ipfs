@@ -9,6 +9,9 @@ import { IObjectAPI, IIPFSObjectApi } from './object';
 import { IIPFSConfigApi } from './config';
 import { IIPFSNameApi } from './name';
 import { IApiOptions } from '../options';
+import { IIPFSFilesApi } from './files';
+import { IIPFSSwarmApi } from './swarm';
+import { IIPFSPubsubApi } from './pubsub';
 export interface IIPFSApiReturnType {
     version: IVersion;
     id: IId;
@@ -37,7 +40,7 @@ export interface IIPFSApiUtils {
     version(options?: any): Promise<IIPFSApiReturnType['version']>;
     id(options?: any): Promise<IIPFSApiReturnType['id']>;
 }
-export interface IIPFSPromiseApi extends IIPFSAsyncIterableApi, IIPFSApiUtils, IIPFSDagApi, IIPFSRefsApi, IIPFSObjectApi, IIPFSConfigApi, IIPFSNameApi {
+export interface IIPFSPromiseApi extends IIPFSAsyncIterableApi, IIPFSApiUtils, IIPFSDagApi, IIPFSRefsApi, IIPFSObjectApi, IIPFSConfigApi, IIPFSNameApi, IIPFSFilesApi, IIPFSSwarmApi, IIPFSPubsubApi {
 }
 export interface IIPFSCallbackApi {
     version(...argv: IParametersWithCallbackWithMaybeArgv<IIPFSApiReturnType['version']>): void;
