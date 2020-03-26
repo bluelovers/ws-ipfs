@@ -3,8 +3,8 @@ export interface PromiseFulfilledResult<T> {
     status: "fulfilled";
     value: T;
 }
-export interface PromiseRejectedResult {
+export interface PromiseRejectedResult<E = any> {
     status: "rejected";
-    reason: any;
+    reason: E;
 }
-export declare type PromiseSettledResult<T> = PromiseFulfilledResult<T> | PromiseRejectedResult;
+export declare type PromiseSettledResult<T, E = any> = PromiseFulfilledResult<T> | PromiseRejectedResult<E>;
