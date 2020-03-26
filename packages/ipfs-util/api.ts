@@ -15,3 +15,8 @@ export async function ipfsAddresses(ipfs): Promise<IIPFSAddresses>
 {
 	return (ipfs as IIPFSConfigApi).config.get('Addresses')
 }
+
+export async function ipfsApiAddresses(ipfs): Promise<string>
+{
+	return (ipfs as IIPFSConfigApi).config.get('Addresses.API')
+}

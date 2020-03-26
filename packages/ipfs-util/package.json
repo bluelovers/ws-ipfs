@@ -29,9 +29,17 @@
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19",
+    "@types/micromatch": "^4.0.1",
     "@types/node": "^13.9.2"
   },
   "dependencies": {
-    "ipfs-types": "^1.0.10"
+    "@bluelovers/fast-glob": "^3.0.4",
+    "buffer": "^5.5.0",
+    "debug-color2": "^1.1.7",
+    "fast-glob": "^3.2.2",
+    "get-stream": "^5.1.0",
+    "ipfs-types": "^1.0.10",
+    "micromatch": "^4.0.2",
+    "multiaddr-to-uri": "^5.1.0"
   }
 }

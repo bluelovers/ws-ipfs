@@ -11,6 +11,7 @@ async function addDirectoryToIPFS(ipfs, targetDirPath, { options, globSourceOpti
         recursive: true,
         ...globSourceOptions,
     }), options)) {
+        console.log(file);
         files.push(file);
     }
     const root = files[files.length - 1];
@@ -22,4 +23,4 @@ async function addDirectoryToIPFS(ipfs, targetDirPath, { options, globSourceOpti
 }
 exports.addDirectoryToIPFS = addDirectoryToIPFS;
 exports.default = addDirectoryToIPFS;
-//# sourceMappingURL=addDirectory.js.map
+//# sourceMappingURL=v1.js.map
