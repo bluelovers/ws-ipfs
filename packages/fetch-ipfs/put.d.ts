@@ -3,4 +3,5 @@
  */
 export { publishToIPFSAll } from './lib/put/all';
 import { publishToIPFSAll } from './lib/put/all';
+export { publishToIPFSRace } from './lib/put/race';
 export default publishToIPFSAll;

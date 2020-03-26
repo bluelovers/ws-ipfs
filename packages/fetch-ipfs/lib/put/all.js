@@ -1,5 +1,4 @@
 "use strict";
-///<reference lib="es2020" />
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.publishToIPFSAll = void 0;
 const handleClientList_1 = require("../handleClientList");
@@ -14,7 +13,7 @@ function publishToIPFSAll(data, useIPFS, options) {
     };
     return handleClientList_1.handleClientList(useIPFS, (ipfs => typeof (ipfs === null || ipfs === void 0 ? void 0 : ipfs.add) === 'function'))
         .reduce(async (list, ipfs) => {
-        let value = [];
+        const value = [];
         await (async () => {
             for await (const result of ipfs.add(data, addOptions)) {
                 value.push(result);
@@ -39,4 +38,5 @@ function publishToIPFSAll(data, useIPFS, options) {
     }, []);
 }
 exports.publishToIPFSAll = publishToIPFSAll;
+exports.default = publishToIPFSAll;
 //# sourceMappingURL=all.js.map
