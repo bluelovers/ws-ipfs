@@ -1,6 +1,6 @@
 {
   "name": "ipfs-api-check",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "check ipfs api support",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-api-check#readme",
   "bugs": {
@@ -39,9 +39,9 @@
     "ipfs-http-client": "^42.0.0"
   },
   "dependencies": {
-    "@bluelovers/ipfs-http-client": "^1.0.15",
+    "@bluelovers/ipfs-http-client": "^1.0.16",
     "bluebird": "^3.7.2",
-    "ipfs-types": "^1.0.10",
-    "use-ipfs": "^1.0.18"
+    "ipfs-types": "^1.0.11",
+    "use-ipfs": "^1.0.19"
   }
 }
