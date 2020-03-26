@@ -1,8 +1,35 @@
 /// <reference types="node" />
-import { INetworkOptionsBase } from '../options';
-import { ICallback, IMultihash, IDagNode } from '../types';
+import { INetworkOptionsBase, IApiOptions } from '../options';
+import { ICallback, IMultihash, IDagNode, ICIDObject } from '../types';
 import { IDAGNode, IObj, IPutObjectOptions, IGetObjectOptions, IDAGLink, IObjectStat, IObjectPatchAPI } from './types';
+export interface IIPFSObjectApiCorePatch {
+    addLink(multihash: IMultihash, link: IDAGLink | {
+        name: string;
+        size: number;
+        cid: ICIDObject;
+    }, options?: {
+        enc?: any;
+    }): Promise<ICIDObject>;
+    rmLink(multihash: IMultihash, link: IDAGLink | {
+        name: string;
+    }, options?: {
+        enc?: any;
+    }): Promise<ICIDObject>;
+    appendData(multihash: IMultihash, data: Buffer, options?: {
+        enc?: any;
+    }): Promise<ICIDObject>;
+    setData(multihash: IMultihash, data: Buffer, options?: {
+        enc?: any;
+    }): Promise<ICIDObject>;
+}
 export interface IIPFSObjectApiCore {
+    "new"(template?: 'unixfs-dir' | string): Promise<ICIDObject>;
+    put(obj: IDagNode | Buffer | {
+        Data: any;
+        Links: any[];
+    }, options?: {
+        enc?: any;
+    }): Promise<ICIDObject>;
     /**
      * Fetch a MerkleDAG node
      */
@@ -12,9 +39,12 @@ export interface IIPFSObjectApiCore {
     /**
      * Returns the Data field of an object
      */
-    data(multihash: IMultihash, options?: {
+    data(multihash: IMultihash, options?: IApiOptions<{
         enc?: string;
-    } & INetworkOptionsBase): Promise<Buffer>;
+    }>): Promise<Buffer>;
+    links(multihash: IMultihash, options?: IApiOptions<{
+        enc?: string;
+    }>): Promise<IDAGLink>;
     /**
      * Returns stats about an Object
      */
@@ -26,6 +56,7 @@ export interface IIPFSObjectApiCore {
         DataSize: number;
         CumulativeSize: number;
     }>;
+    patch: IIPFSObjectApiCorePatch;
 }
 export interface IIPFSObjectApi {
     object: IIPFSObjectApiCore;

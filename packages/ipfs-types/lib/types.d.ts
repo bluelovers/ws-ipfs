@@ -1,6 +1,6 @@
 /// <reference types="node" />
 import CID from 'cids';
-import { DAGNode } from 'ipld-dag-pb';
+import { DAGNode, DAGLink } from 'ipld-dag-pb';
 export declare type ICallback<T, E = Error, R = void> = (error: E, result?: T) => R;
 export declare type IParametersWithCallbackWithMaybeArgv<T, Argv1 = any, E = Error> = [ICallback<T, E>] | [Argv1, ICallback<T, E>];
 export interface IErrorLike {
@@ -27,6 +27,11 @@ export declare type IDagNode = DAGNode & {
     toDAGLink(options: any): any;
     serialize(): Buffer;
     _invalidateCached(): any;
+};
+export declare type IDAGLink = DAGLink & {
+    Name: string;
+    Hash: ICIDObject;
+    Tsize: number;
 };
 export declare type IDagNodeCbor = Record<any, any>;
 export declare type IDagNodeValue = IDagNodeCbor | IDagNode | {

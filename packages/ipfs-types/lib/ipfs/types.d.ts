@@ -123,6 +123,9 @@ export interface IPutObjectOptions {
 export interface IGetObjectOptions {
     enc?: any;
 }
+/**
+ * @deprecated
+ */
 export interface IObjectPatchAPI {
     addLink(multihash: IMultihash, link: IDAGLink, options: IGetObjectOptions, callback: ICallback<any>): void;
     addLink(multihash: IMultihash, link: IDAGLink, options: IGetObjectOptions): Promise<any>;

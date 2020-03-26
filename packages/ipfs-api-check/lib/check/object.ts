@@ -36,6 +36,8 @@ export async function object(ipfs: IIPFSObjectApi)
 		return node.Hash
 	});
 
+	ipfs.object
+
 	return {
 		get,
 		data,

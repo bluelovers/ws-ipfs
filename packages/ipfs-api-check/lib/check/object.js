@@ -23,6 +23,7 @@ async function object(ipfs) {
         });
         return node.Hash;
     });
+    ipfs.object;
     return {
         get,
         data,

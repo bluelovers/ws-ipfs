@@ -1,5 +1,5 @@
 import CID from 'cids';
-import { DAGNode } from 'ipld-dag-pb';
+import { DAGNode, DAGLink } from 'ipld-dag-pb';
 
 export type ICallback<T, E = Error, R = void> = (error: E, result?: T) => R;
 
@@ -44,6 +44,12 @@ export type IDagNode = DAGNode & {
 	_invalidateCached(),
 
 };
+
+export type IDAGLink = DAGLink & {
+	Name: string,
+	Hash: ICIDObject,
+	Tsize: number,
+}
 
 export type IDagNodeCbor = Record<any, any>;
 
