@@ -1,0 +1,41 @@
+{
+  "name": "ipfs-zip-stream",
+  "version": "1.0.0",
+  "description": "get files from zip for ipfs.add",
+  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-zip-stream#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-ipfs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-ipfs.git"
+  },
+  "license": "ISC",
+  "author": "bluelovers",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "npx nyc yarn run test",
+    "lint": "npx eslint **/*.ts",
+    "ncu": "npx yarn-tool ncu -u",
+    "npm:publish": "npm publish",
+    "postpublish_": "git commit -m \"chore(release): publish\" .",
+    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
+    "sort-package-json": "npx yarn-tool sort",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "tsc:default": "tsc -p tsconfig.json",
+    "tsc:esm": "tsc -p tsconfig.esm.json"
+  },
+  "dependencies": {
+    "@types/jszip": "^3.1.7",
+    "jszip": "^3.2.2",
+    "ts-type": "^1.2.13"
+  },
+  "devDependencies": {
+    "@bluelovers/tsconfig": "^1.0.19",
+    "@types/bluebird": "^3.5.30",
+    "@types/node": "^13.9.2",
+    "bluebird": "^3.7.2"
+  }
+}
