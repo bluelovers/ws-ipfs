@@ -17,7 +17,7 @@ async function ipfsWebuiAddresses(ipfs, opts) {
     return api_1.ipfsApiAddresses(ipfs)
         .then(api => {
         const url = multiaddr_to_url_1.default(api, opts);
-        url.pathname += 'webui';
+        url.pathname = 'webui';
         return url.href;
     });
 }

@@ -16,7 +16,7 @@ export async function ipfsWebuiAddresses(ipfs, opts?: IMultiaddrToURLOptions): P
 		.then(api => {
 			const url = multiaddrToURL(api, opts) as URL;
 
-			url.pathname += 'webui';
+			url.pathname = 'webui';
 
 			return url.href;
 		})

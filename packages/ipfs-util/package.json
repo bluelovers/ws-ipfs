@@ -40,6 +40,7 @@
     "get-stream": "^5.1.0",
     "ipfs-types": "^1.0.11",
     "micromatch": "^4.0.2",
-    "multiaddr-to-uri": "^5.1.0"
+    "multiaddr-to-uri": "^5.1.0",
+    "multiaddr-to-url": "^1.0.1"
   }
 }
