@@ -9,6 +9,9 @@ export interface IFilesToStreams
 	size: number,
 }
 
+/**
+ * https://github.com/ipfs-shipyard/ipfs-webui/blob/master/src/lib/files.js
+ */
 export async function filesToStreams(files: IFile[])
 {
 	const streams: IFilesToStreams[] = []
