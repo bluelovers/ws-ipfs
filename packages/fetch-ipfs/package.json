@@ -1,6 +1,6 @@
 {
   "name": "fetch-ipfs",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/fetch-ipfs#readme",
   "bugs": {
@@ -41,7 +41,7 @@
     "buffer": "^5.5.0",
     "cross-fetch": "^3.0.4",
     "ipfs-types": "^1.0.11",
-    "ipfs-util-lib": "^1.0.7",
+    "ipfs-util-lib": "^1.0.8",
     "is-error-code": "^1.0.0",
     "p-any": "^3.0.0",
     "to-ipfs-url": "^1.0.5",
