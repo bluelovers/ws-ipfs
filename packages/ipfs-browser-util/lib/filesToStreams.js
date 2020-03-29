@@ -10,7 +10,6 @@ async function filesToStreams(files) {
     for (const file of files) {
         const stream = pull_file_reader2_1.default(file);
         streams.push({
-            // @ts-ignore
             path: file.filepath || file.webkitRelativePath || file.name,
             content: stream,
             size: file.size,

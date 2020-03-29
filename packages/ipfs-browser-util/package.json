@@ -29,9 +29,9 @@
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19",
-    "@types/node": "^13.9.2"
+    "@types/node": "^13.9.5"
   },
   "dependencies": {
-    "pull-file-reader2": "^1.0.2"
+    "pull-file-reader2": "^1.0.4"
   }
 }
