@@ -29,6 +29,6 @@
   },
   "dependencies": {
     "ipfs-types": "^1.0.12",
-    "ts-type": "^1.2.13"
+    "ts-type": "^1.2.15"
   }
 }
