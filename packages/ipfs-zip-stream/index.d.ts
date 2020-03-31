@@ -10,20 +10,20 @@ export interface IOptions {
 }
 export declare function fromBuffer(buf: ITSResolvable<Buffer>, options?: IOptions): AsyncGenerator<{
     path: string;
-    content: any;
+    content: number[];
     mode: any;
-    mtime: any;
+    mtime: Date;
 }, void, unknown>;
 export declare function fromString(base64: ITSResolvable<string>, options?: IOptions): AsyncGenerator<{
     path: string;
-    content: any;
+    content: number[];
     mode: any;
-    mtime: any;
+    mtime: Date;
 }, void, unknown>;
 export declare function fromJSZip(zip: ITSResolvable<JSZip>, options?: IOptions): AsyncGenerator<{
     path: string;
-    content: any;
+    content: number[];
     mode: any;
-    mtime: any;
+    mtime: Date;
 }, void, unknown>;
 export default fromBuffer;
