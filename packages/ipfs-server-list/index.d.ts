@@ -18,7 +18,7 @@ export declare type IIPFSAddressesLike = ITSRequireAtLeastOne<{
      */
     limit?: ITSRequireAtLeastOne<ILimit>;
 };
-export declare function getIpfsServerList(): Record<"ipfs" | "infura.io" | "cloudflare", IIPFSAddressesLike> & Record<string, IIPFSAddressesLike>;
-export declare function filterList<K extends keyof IIPFSAddressesLike>(key: K, serverList?: Record<string, IIPFSAddressesLike>): IIPFSAddressesLike[K][];
-export declare const ipfsServerList: Record<"ipfs" | "infura.io" | "cloudflare", IIPFSAddressesLike> & Record<string, IIPFSAddressesLike>;
+export declare function getIpfsServerList(): Record<"ipfs" | "infura.io" | "cloudflare", any> & Record<string, any>;
+export declare function filterList<K extends keyof IIPFSAddressesLike>(key: K, serverList?: Record<string, IIPFSAddressesLike>): any[];
+export declare const ipfsServerList: Record<"ipfs" | "infura.io" | "cloudflare", any> & Record<string, any>;
 export default ipfsServerList;

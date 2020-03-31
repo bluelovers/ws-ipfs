@@ -28,8 +28,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.19",
-    "@types/node": "^13.9.2"
+    "@bluelovers/tsconfig": "^1.0.19"
   },
   "dependencies": {
     "multiaddr-to-uri": "^5.1.0"

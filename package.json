@@ -9,21 +9,21 @@
     "lerna:publish": "npx lerna publish",
     "lerna:publish:yes": "npx lerna publish --yes --cd-version patch",
     "prepublish:lockfile": "npx sync-lockfile .",
-    "ncu": "npx yarn-tool ws exec yarn-tool ncu -- -u",
+    "ncu": "yarn-tool ncu -u && npx yarn-tool ws exec yarn-tool ncu -- -u",
     "sort-package-json": "npx yarn-tool sort",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "*",
+    "@bluelovers/tsconfig": "^1.0.19",
     "@types/jest": "^25.1.4",
-    "@types/node": "*"
+    "@types/node": "^13.9.8"
   },
   "peerDependencies": {
     "lerna": "^3"
   },
   "resolutions": {},
   "dependencies": {
-    "jest": "^25.2.3",
-    "ts-jest": "^25.2.1"
+    "jest": "^25.2.4",
+    "ts-jest": "^25.3.0"
   }
 }

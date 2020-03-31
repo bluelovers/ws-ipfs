@@ -28,9 +28,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.19",
-    "@types/micromatch": "^4.0.1",
-    "@types/node": "^13.9.2"
+    "@types/micromatch": "^4.0.1"
   },
   "dependencies": {
     "@bluelovers/fast-glob": "^3.0.4",

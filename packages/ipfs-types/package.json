@@ -32,7 +32,6 @@
     "ts-type": "^1.2.13"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.19",
-    "@types/node": "^13.9.2"
+    "@bluelovers/tsconfig": "^1.0.19"
   }
 }
