@@ -30,7 +30,7 @@
   "dependencies": {
     "@types/jszip": "^3.1.7",
     "jszip": "^3.2.2",
-    "ts-type": "^1.2.13"
+    "ts-type": "^1.2.15"
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19",
