@@ -1,5 +1,6 @@
 import { IIPFSClientFnWrap, IIPFSClientFn, IIPFSClientReturn, IIPFSClientParameters, IIPFSClientAddressesURL, IIPFSClientAddresses } from './lib/types';
 import { checkIPFS } from 'ipfs-util-lib';
+import ipfsEnv from 'ipfs-env';
 
 export { IIPFSClientFnWrap, IIPFSClientFn, IIPFSClientReturn, IIPFSClientParameters, IIPFSClientAddressesURL, IIPFSClientAddresses }
 
@@ -30,15 +31,16 @@ export function use(ipfsHttpModule: IIPFSClientFn): IIPFSClientFnWrap
 {
 	return async function ipfsClient(...argvs: IIPFSClientParameters): Promise<IIPFSClientReturn>
 	{
-		let [config, ...argv] = argvs;
+		const [config, ...argv] = argvs;
 
 		if (typeof config === 'undefined' || config === null)
 		{
-			let configs: IIPFSClientParameters[] = [];
+			const configs: IIPFSClientParameters[] = [];
+			const { IPFS_ADDRESSES_API } = ipfsEnv();
 
-			if (typeof process !== 'undefined' && typeof process.env.IPFS_ADDRESSES_API === 'string')
+			if (typeof IPFS_ADDRESSES_API === 'string' && IPFS_ADDRESSES_API.length)
 			{
-				configs.push([process.env.IPFS_ADDRESSES_API, ...argv]);
+				configs.push([IPFS_ADDRESSES_API, ...argv]);
 			}
 
 			configs.push([{ port: '5001' }, ...argv]);

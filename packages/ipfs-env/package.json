@@ -1,15 +1,8 @@
 {
-  "name": "@bluelovers/ipfs-http-client",
-  "version": "1.0.17",
-  "description": "ipfs-http-client with auto search go-ipfs, js-ipfs",
-  "keywords": [
-    "ipfs",
-    "go-ipfs",
-    "js-ipfs",
-    "promise",
-    "async"
-  ],
-  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-http-client#readme",
+  "name": "ipfs-env",
+  "version": "1.0.0",
+  "description": "get ipfs environment variable",
+  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-env#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-ipfs/issues"
   },
@@ -18,11 +11,8 @@
     "url": "git+https://github.com/bluelovers/ws-ipfs.git"
   },
   "license": "ISC",
-  "author": "",
+  "author": "bluelovers",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
@@ -30,7 +20,6 @@
     "npm:publish": "npm publish",
     "postpublish_": "git commit -m \"chore(release): publish\" .",
     "prepublish:lockfile": "npx sync-lockfile .",
-    "prepublishOnly": "yarn run ncu && yarn run sort-package-json",
     "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
     "sort-package-json": "npx yarn-tool sort",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -38,20 +27,6 @@
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
-  "dependencies": {
-    "ipfs-env": "^1.0.0",
-    "ipfs-types": "^1.0.12",
-    "ts-type": "^1.2.13"
-  },
   "devDependencies": {
-    "@types/bl": "^2.1.0",
-    "bl": "^4.0.2",
-    "ipfs-http-client": "^43.0.0"
-  },
-  "peerDependencies": {
-    "ipfs-http-client": "^43.0.0"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
