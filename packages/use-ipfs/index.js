@@ -11,6 +11,7 @@ const cloneDeep_1 = __importDefault(require("lodash/cloneDeep"));
 const types_1 = require("./lib/types");
 const ipfs_http_client_2 = __importDefault(require("ipfs-http-client"));
 const ipfs_util_lib_1 = require("ipfs-util-lib");
+const cors_1 = __importDefault(require("ipfs-util-lib/lib/ipfs/config/cors"));
 let _cached;
 /**
  * get IPFS, if not exists, create or connect it
@@ -47,6 +48,7 @@ async function useIPFS(options, optionsExtra = {}) {
             ...ret,
             stop,
         });
+        await cors_1.default(ipfs);
         ret = void 0;
     }
     return _cached;
