@@ -29,7 +29,10 @@ function getDefaultServerList(options = {}) {
         ipfsServerList.push(IPFS_ADDRESSES_API);
     }
     const { urlObject = {
-        hostname: typeof window === 'undefined' ? void 0 : 'localhost',
+        /**
+         * https://github.com/ipfs/js-ipfs/blob/master/packages/ipfs-http-client/src/lib/core.js
+         */
+        host: typeof window === 'undefined' ? void 0 : 'localhost',
     } } = options;
     ipfsServerList.push({
         ...urlObject,
