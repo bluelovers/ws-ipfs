@@ -2,7 +2,7 @@
  * Created by user on 2020/2/27.
  */
 import _ipfsHttpModule from 'ipfs-http-client'
-import ITB from 'ts-type/ts-toolbelt';
+import ITB from 'ts-toolbelt';
 import { ITSRequireAtLeastOne } from 'ts-type';
 import { IIPFSAddressesURL } from 'ipfs-types';
 import { IIPFSPromiseApi } from 'ipfs-types/lib/ipfs/index';
