@@ -1,6 +1,6 @@
 {
   "name": "fetch-ipfs",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/fetch-ipfs#readme",
   "bugs": {
@@ -33,7 +33,7 @@
     "scramjet": "^4.28.3"
   },
   "dependencies": {
-    "@bluelovers/ipfs-http-client": "^1.0.17",
+    "@bluelovers/ipfs-http-client": "^1.0.18",
     "abort-controller": "^3.0.0",
     "array-hyper-unique": "^1.1.0",
     "bluebird": "^3.7.2",

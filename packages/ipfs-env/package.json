@@ -1,6 +1,6 @@
 {
   "name": "ipfs-env",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "get ipfs environment variable",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-env#readme",
   "bugs": {
@@ -26,7 +26,5 @@
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
-  },
-  "devDependencies": {
   }
 }
