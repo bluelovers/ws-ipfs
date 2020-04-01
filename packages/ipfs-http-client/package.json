@@ -41,6 +41,7 @@
   "dependencies": {
     "ipfs-env": "^1.0.1",
     "ipfs-types": "^1.0.13",
+    "ipfs-util-lib": "^1.0.10",
     "ts-type": "^1.2.15"
   },
   "devDependencies": {

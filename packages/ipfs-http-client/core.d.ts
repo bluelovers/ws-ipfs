@@ -5,6 +5,6 @@ export declare function getDefaultServerList(): IIPFSClientAddresses[];
 export declare function find(ipfsHttpModule: IIPFSClientFn): (ipfsServerList: IIPFSClientAddresses[], options?: {
     skipCheck?: boolean;
     clientArgvs?: any[];
-}) => Promise<any>;
+}) => Promise<IIPFSClientReturn>;
 export declare function use(ipfsHttpModule: IIPFSClientFn): IIPFSClientFnWrap;
 export default use;

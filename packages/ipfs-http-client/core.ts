@@ -43,12 +43,15 @@ export function getDefaultServerList()
 	return ipfsServerList
 }
 
-export function find(ipfsHttpModule: IIPFSClientFn)
+export function find(ipfsHttpModule: IIPFSClientFn): (ipfsServerList: IIPFSClientAddresses[], options?: {
+	skipCheck?: boolean,
+	clientArgvs?: any[],
+}) => Promise<IIPFSClientReturn>
 {
 	return async function findIpfsClient(ipfsServerList: IIPFSClientAddresses[], options: {
 		skipCheck?: boolean,
 		clientArgvs?: any[],
-	} = {})
+	} = {}): Promise<IIPFSClientReturn>
 	{
 		return some(ipfsHttpModule, ipfsServerList
 			.map(address => {

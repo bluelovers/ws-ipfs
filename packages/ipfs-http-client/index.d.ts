@@ -5,6 +5,6 @@ export type { IIPFSClientFnWrap, IIPFSClientFn, IIPFSClientReturn, IIPFSClientPa
 export declare const ipfsClient: import("./core").IIPFSClientFnWrap;
 export declare const findIpfsClient: (ipfsServerList: import("./core").IIPFSClientAddresses[], options?: {
     skipCheck?: boolean;
-    clientOptions?: any[];
+    clientArgvs?: any[];
 }) => Promise<any>;
 export default ipfsClient;
