@@ -27,6 +27,20 @@ export async function some(ipfsClient: IIPFSClientFn, configs: IIPFSClientParame
 	return ipfs
 }
 
+export function find(ipfsHttpModule: IIPFSClientFn)
+{
+	return async function findIpfsClient(ipfsServerList: IIPFSClientAddresses[], options: {
+		skipCheck?: boolean,
+		clientOptions?: any[],
+	} = {})
+	{
+		return some(ipfsHttpModule, ipfsServerList
+			.map(address => {
+				return [address, ...options.clientOptions]
+			}), options.skipCheck)
+	}
+}
+
 export function use(ipfsHttpModule: IIPFSClientFn): IIPFSClientFnWrap
 {
 	return async function ipfsClient(...argvs: IIPFSClientParameters): Promise<IIPFSClientReturn>

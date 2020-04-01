@@ -9,6 +9,10 @@ export interface IIPFSEnv {
      * @see https://github.com/ipfs/js-ipfsd-ctl#ipfs_js_exec-and-ipfs_go_exec
      */
     IPFS_GO_EXEC?: string;
+    /**
+     * @see https://github.com/ipfs/js-ipfs/blob/master/packages/ipfs/src/cli/daemon.js
+     */
+    IPFS_MONITORING?: string;
 }
 export interface IIPFSEnvRuntime extends IIPFSEnv {
     [key: string]: string;
