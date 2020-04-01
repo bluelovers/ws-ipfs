@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ipfsServerList = exports.filterList = exports.getIpfsServerList = void 0;
+exports.ipfsServerList = exports.filterList = exports.getIpfsLocalList = exports.getIpfsServerList = void 0;
 function getIpfsServerList() {
     let data = {
         /**
@@ -40,6 +40,23 @@ function getIpfsServerList() {
     return data;
 }
 exports.getIpfsServerList = getIpfsServerList;
+function getIpfsLocalList() {
+    let data = {
+        'go-ipfs': {
+            API: {
+                port: 5001,
+            },
+        },
+        'js-ipfs': {
+            API: {
+                port: 5002,
+            },
+        },
+    };
+    data;
+    return data;
+}
+exports.getIpfsLocalList = getIpfsLocalList;
 function filterList(key, serverList = exports.ipfsServerList) {
     return Object.keys(serverList)
         .reduce((a, b) => {

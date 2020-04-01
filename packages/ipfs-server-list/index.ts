@@ -63,6 +63,26 @@ export function getIpfsServerList()
 	return data as Record<keyof typeof data, IIPFSAddressesLike> & Record<string, IIPFSAddressesLike>
 }
 
+export function getIpfsLocalList()
+{
+	let data = {
+		'go-ipfs': {
+			API: {
+				port: 5001,
+			},
+		},
+		'js-ipfs': {
+			API: {
+				port: 5002,
+			},
+		},
+	} as const;
+
+	(<Record<string, IIPFSAddressesLike>>data);
+
+	return data as Record<keyof typeof data, IIPFSAddressesLike> & Record<string, IIPFSAddressesLike>
+}
+
 export function filterList<K extends keyof IIPFSAddressesLike>(key: K, serverList: Record<string, IIPFSAddressesLike> = ipfsServerList)
 {
 	return Object.keys(serverList)
