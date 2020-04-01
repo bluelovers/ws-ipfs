@@ -27,16 +27,32 @@ export async function some(ipfsClient: IIPFSClientFn, configs: IIPFSClientParame
 	return ipfs
 }
 
+export function getDefaultServerList()
+{
+	const ipfsServerList: IIPFSClientAddresses[] = [];
+	const { IPFS_ADDRESSES_API } = ipfsEnv();
+
+	if (typeof IPFS_ADDRESSES_API === 'string' && IPFS_ADDRESSES_API.length)
+	{
+		ipfsServerList.push(IPFS_ADDRESSES_API);
+	}
+
+	ipfsServerList.push({ port: '5001' });
+	ipfsServerList.push({ port: '5002' });
+
+	return ipfsServerList
+}
+
 export function find(ipfsHttpModule: IIPFSClientFn)
 {
 	return async function findIpfsClient(ipfsServerList: IIPFSClientAddresses[], options: {
 		skipCheck?: boolean,
-		clientOptions?: any[],
+		clientArgvs?: any[],
 	} = {})
 	{
 		return some(ipfsHttpModule, ipfsServerList
 			.map(address => {
-				return [address, ...options.clientOptions]
+				return [address, ...options.clientArgvs]
 			}), options.skipCheck)
 	}
 }
@@ -49,18 +65,9 @@ export function use(ipfsHttpModule: IIPFSClientFn): IIPFSClientFnWrap
 
 		if (typeof config === 'undefined' || config === null)
 		{
-			const configs: IIPFSClientParameters[] = [];
-			const { IPFS_ADDRESSES_API } = ipfsEnv();
-
-			if (typeof IPFS_ADDRESSES_API === 'string' && IPFS_ADDRESSES_API.length)
-			{
-				configs.push([IPFS_ADDRESSES_API, ...argv]);
-			}
-
-			configs.push([{ port: '5001' }, ...argv]);
-			configs.push([{ port: '5002' }, ...argv]);
-
-			return some(ipfsHttpModule, configs)
+			return find(ipfsHttpModule)(getDefaultServerList(), {
+				clientArgvs: argv,
+			})
 		}
 
 		return ipfsHttpModule(config, ...argv)
