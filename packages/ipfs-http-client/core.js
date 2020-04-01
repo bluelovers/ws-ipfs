@@ -22,22 +22,32 @@ async function some(ipfsClient, configs, skipCheck) {
     return ipfs;
 }
 exports.some = some;
-function getDefaultServerList() {
+function getDefaultServerList(options = {}) {
     const ipfsServerList = [];
     const { IPFS_ADDRESSES_API } = ipfs_env_1.default();
     if (typeof IPFS_ADDRESSES_API === 'string' && IPFS_ADDRESSES_API.length) {
         ipfsServerList.push(IPFS_ADDRESSES_API);
     }
-    ipfsServerList.push({ port: '5001' });
-    ipfsServerList.push({ port: '5002' });
+    const { urlObject = {
+        hostname: typeof window === 'undefined' ? void 0 : 'localhost',
+    } } = options;
+    ipfsServerList.push({
+        ...urlObject,
+        port: '5001',
+    });
+    ipfsServerList.push({
+        ...urlObject,
+        port: '5002',
+    });
     return ipfsServerList;
 }
 exports.getDefaultServerList = getDefaultServerList;
 function find(ipfsHttpModule) {
     return async function findIpfsClient(ipfsServerList, options = {}) {
+        let { clientArgvs = [] } = options;
         return some(ipfsHttpModule, ipfsServerList
             .map(address => {
-            return [address, ...options.clientArgvs];
+            return [address, ...clientArgvs];
         }), options.skipCheck);
     };
 }

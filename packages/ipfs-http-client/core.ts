@@ -27,7 +27,9 @@ export async function some(ipfsClient: IIPFSClientFn, configs: IIPFSClientParame
 	return ipfs
 }
 
-export function getDefaultServerList()
+export function getDefaultServerList(options: {
+	urlObject?: Partial<URL>,
+} = {})
 {
 	const ipfsServerList: IIPFSClientAddresses[] = [];
 	const { IPFS_ADDRESSES_API } = ipfsEnv();
@@ -37,8 +39,18 @@ export function getDefaultServerList()
 		ipfsServerList.push(IPFS_ADDRESSES_API);
 	}
 
-	ipfsServerList.push({ port: '5001' });
-	ipfsServerList.push({ port: '5002' });
+	const { urlObject = {
+		hostname: typeof window === 'undefined' ? void 0 : 'localhost',
+	} } = options;
+
+	ipfsServerList.push({
+		...urlObject,
+		port: '5001',
+	});
+	ipfsServerList.push({
+		...urlObject,
+		port: '5002',
+	});
 
 	return ipfsServerList
 }
@@ -53,9 +65,11 @@ export function find(ipfsHttpModule: IIPFSClientFn): (ipfsServerList: IIPFSClien
 		clientArgvs?: any[],
 	} = {}): Promise<IIPFSClientReturn>
 	{
+		let { clientArgvs = [] } = options;
+
 		return some(ipfsHttpModule, ipfsServerList
 			.map(address => {
-				return [address, ...options.clientArgvs]
+				return [address, ...clientArgvs]
 			}), options.skipCheck)
 	}
 }
