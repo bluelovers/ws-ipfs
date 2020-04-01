@@ -49,6 +49,11 @@ export function handleCID(cid: string, useIPFS?, options: IOptionsInput = {})
 
 export function handleTimeout(timeout: number | string): number
 {
+	if (timeout === 0)
+	{
+		return void 0
+	}
+
 	return (timeout as number) |= 0 > 0 ? timeout as number : 60 * 1000;
 }
 

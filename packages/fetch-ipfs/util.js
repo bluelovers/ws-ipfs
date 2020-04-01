@@ -39,6 +39,9 @@ function handleCID(cid, useIPFS, options = {}) {
 }
 exports.handleCID = handleCID;
 function handleTimeout(timeout) {
+    if (timeout === 0) {
+        return void 0;
+    }
     return timeout |= 0 > 0 ? timeout : 60 * 1000;
 }
 exports.handleTimeout = handleTimeout;
