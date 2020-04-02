@@ -41,5 +41,6 @@
     "bluebird": "^3.7.2",
     "ipfs-types": "^1.0.13",
     "use-ipfs": "^1.0.30"
-  }
+  },
+  "gitHead": "936a31e7a92cdb3641d2445a506eb6bb27540098"
 }

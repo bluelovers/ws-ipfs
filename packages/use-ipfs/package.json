@@ -27,6 +27,11 @@
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
+  "dependencies": {
+    "@bluelovers/ipfs-http-client": "^1.0.27",
+    "lodash": "^4.17.15",
+    "ts-type": "^1.2.15"
+  },
   "devDependencies": {
     "@types/fs-extra": "^8.1.0",
     "@types/lodash": "^4.14.149",
@@ -34,14 +39,10 @@
     "ipfs": "^0.42.0",
     "ipfsd-ctl": "^3.0.0"
   },
-  "dependencies": {
-    "@bluelovers/ipfs-http-client": "^1.0.27",
-    "lodash": "^4.17.15",
-    "ts-type": "^1.2.15"
-  },
   "peerDependencies": {
     "ipfs": "^0.42.0",
     "ipfs-http-client": "^43.0.0",
     "ipfsd-ctl": "^3.0.0"
-  }
+  },
+  "gitHead": "936a31e7a92cdb3641d2445a506eb6bb27540098"
 }

@@ -1,5 +1,5 @@
 {
-  "name": "start-ipfs-daemon",
+  "name": "start-ipfs-daemon-lazy",
   "version": "1.0.1",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/start-ipfs-daemon#readme",
@@ -30,5 +30,6 @@
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19",
     "@types/node": "^13.9.8"
-  }
+  },
+  "gitHead": "936a31e7a92cdb3641d2445a506eb6bb27540098"
 }

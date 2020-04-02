@@ -27,11 +27,6 @@
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
-  "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.19",
-    "@types/bluebird": "^3.5.30",
-    "scramjet": "^4.28.3"
-  },
   "dependencies": {
     "@bluelovers/ipfs-http-client": "^1.0.27",
     "abort-controller": "^3.0.0",
@@ -45,5 +40,11 @@
     "p-any": "^3.0.0",
     "to-ipfs-url": "^1.0.6",
     "ts-type": "^1.2.15"
-  }
+  },
+  "devDependencies": {
+    "@bluelovers/tsconfig": "^1.0.19",
+    "@types/bluebird": "^3.5.30",
+    "scramjet": "^4.28.3"
+  },
+  "gitHead": "936a31e7a92cdb3641d2445a506eb6bb27540098"
 }
