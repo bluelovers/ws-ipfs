@@ -1,40 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.configApiCors = exports._setIfNotExists = void 0;
-async function _setIfNotExists(ipfs, key, value) {
-    let v;
-    let bool;
-    try {
-        v = await ipfs.config.get(key);
-        bool = false;
-    }
-    catch (e) {
-    }
-    finally {
-        try {
-            if (v == null) {
-                await ipfs.config.set(key, value);
-                bool = true;
-            }
-        }
-        catch (e) {
-        }
-    }
-    return bool;
-}
-exports._setIfNotExists = _setIfNotExists;
+exports.configApiCors = void 0;
+const setConfigIfNotExists_1 = require("../../util/setConfigIfNotExists");
 async function configApiCors(ipfs) {
     let ls = [];
     let bool;
-    bool = await _setIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Origin', ["*"]);
+    bool = await setConfigIfNotExists_1.setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Origin', ["*"]);
     ls.push(bool);
-    bool = await _setIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Methods', ["GET", "POST"]);
+    bool = await setConfigIfNotExists_1.setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Methods', ["GET", "POST"]);
     ls.push(bool);
-    bool = await _setIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Headers', ["Authorization"]);
+    bool = await setConfigIfNotExists_1.setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Headers', ["Authorization"]);
     ls.push(bool);
-    bool = await _setIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Expose-Headers', ["Location"]);
+    bool = await setConfigIfNotExists_1.setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Expose-Headers', ["Location"]);
     ls.push(bool);
-    bool = await _setIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Credentials', ["true"]);
+    bool = await setConfigIfNotExists_1.setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Credentials', ["true"]);
     ls.push(bool);
     return ls;
 }

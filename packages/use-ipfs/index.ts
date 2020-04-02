@@ -12,6 +12,7 @@ import { IIPFSAddresses } from 'ipfs-types';
 import { IIPFSPromiseApi } from 'ipfs-types/lib/ipfs/index';
 import { ipfsAddresses, checkIPFS } from 'ipfs-util-lib';
 import configApiCors from 'ipfs-util-lib/lib/ipfs/config/cors';
+import configApiSwarm from 'ipfs-util-lib/lib/ipfs/config/swarm';
 
 export type ICachedObject<IPFS = IIPFSClientReturn> = Readonly<{
 	ipfs: IPFS,
@@ -76,6 +77,7 @@ export async function useIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, opti
 		});
 
 		await configApiCors(ipfs);
+		await configApiSwarm(ipfs);
 
 		ret = void 0;
 	}
