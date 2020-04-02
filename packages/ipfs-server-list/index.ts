@@ -24,6 +24,11 @@ export type IIPFSAddressesLike = ITSRequireAtLeastOne<{
 export function getIpfsServerList()
 {
 	let data = {
+		'ipfs': {
+			Gateway: 'https://ipfs.io/ipfs/',
+			IPLD: 'https://explore.ipld.io/#/explore/',
+			IPNS: 'https://ipfs.io/ipns/',
+		},
 		/**
 		 * http://blog.hubwiz.com/2019/09/11/infura-dev-manual/
 		 * http://cw.hubwiz.com/card/c/infura-api/1/4/3/
@@ -50,11 +55,6 @@ export function getIpfsServerList()
 		'cloudflare': {
 			Gateway: 'https://cloudflare-ipfs.com/ipfs/',
 			GatewayDomain: '.cf-ipfs.com',
-		},
-		'ipfs': {
-			Gateway: 'https://ipfs.io/ipfs/',
-			IPLD: 'https://explore.ipld.io/#/explore/',
-			IPNS: 'https://ipfs.io/ipns/',
 		},
 		'ipfs.gateway': {
 			Gateway: 'https://gateway.ipfs.io/ipfs/',
