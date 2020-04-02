@@ -26,7 +26,7 @@ async function ipfsGatewayAddressesLink(ipfs, opts) {
     return api_1.ipfsGatewayAddresses(ipfs)
         .then(api => {
         const url = multiaddr_to_url_1.default(api, opts);
-        url.pathname = 'ipfs';
+        url.pathname = 'ipfs/';
         return url.href;
     });
 }

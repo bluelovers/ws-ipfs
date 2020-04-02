@@ -1,0 +1,34 @@
+{
+  "name": "start-ipfs-daemon",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/start-ipfs-daemon#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-ipfs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-ipfs.git"
+  },
+  "license": "ISC",
+  "author": "bluelovers",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "npx nyc yarn run test",
+    "lint": "npx eslint **/*.ts",
+    "ncu": "npx yarn-tool ncu -u",
+    "npm:publish": "npm publish",
+    "postpublish_": "git commit -m \"chore(release): publish\" .",
+    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
+    "sort-package-json": "npx yarn-tool sort",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "tsc:default": "tsc -p tsconfig.json",
+    "tsc:esm": "tsc -p tsconfig.esm.json"
+  },
+  "devDependencies": {
+    "@bluelovers/tsconfig": "^1.0.19",
+    "@types/node": "^13.9.8"
+  }
+}

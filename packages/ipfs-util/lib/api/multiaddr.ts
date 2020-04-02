@@ -28,7 +28,7 @@ export async function ipfsGatewayAddressesLink(ipfs, opts?: IMultiaddrToURLOptio
 		.then(api => {
 			const url = multiaddrToURL(api, opts) as URL;
 
-			url.pathname = 'ipfs';
+			url.pathname = 'ipfs/';
 
 			return url.href;
 		})
