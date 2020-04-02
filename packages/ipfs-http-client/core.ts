@@ -72,6 +72,7 @@ export function find(ipfsHttpModule: IIPFSClientFn): (ipfsServerList: IIPFSClien
 		let { clientArgvs = [] } = options;
 
 		return some(ipfsHttpModule, ipfsServerList
+			.filter(address => address)
 			.map(address => {
 				return [address, ...clientArgvs]
 			}), options.skipCheck)

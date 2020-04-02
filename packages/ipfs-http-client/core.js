@@ -50,6 +50,7 @@ function find(ipfsHttpModule) {
     return async function findIpfsClient(ipfsServerList, options = {}) {
         let { clientArgvs = [] } = options;
         return some(ipfsHttpModule, ipfsServerList
+            .filter(address => address)
             .map(address => {
             return [address, ...clientArgvs];
         }), options.skipCheck);
