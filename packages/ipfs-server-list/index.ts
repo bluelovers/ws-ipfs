@@ -56,6 +56,12 @@ export function getIpfsServerList()
 			IPLD: 'https://explore.ipld.io/#/explore/',
 			IPNS: 'https://ipfs.io/ipns/',
 		},
+		'ipfs.gateway': {
+			Gateway: 'https://gateway.ipfs.io/ipfs/',
+		},
+		'bdaily': {
+			Gateway: 'https://gateway.bdaily.club/ipfs/',
+		},
 	} as const;
 
 	(<Record<string, IIPFSAddressesLike>>data);
