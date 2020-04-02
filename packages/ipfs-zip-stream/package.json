@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@types/jszip": "^3.1.7",
-    "jszip": "^3.2.2",
+    "jszip": "^3.3.0",
     "ts-type": "^1.2.15"
   },
   "devDependencies": {

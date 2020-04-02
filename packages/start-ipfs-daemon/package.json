@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19",
-    "@types/node": "^13.9.8"
+    "@types/node": "^13.11.0"
   },
   "gitHead": "936a31e7a92cdb3641d2445a506eb6bb27540098"
 }
