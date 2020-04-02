@@ -18,8 +18,8 @@ export declare type IIPFSAddressesLike = ITSRequireAtLeastOne<{
      */
     limit?: ITSRequireAtLeastOne<ILimit>;
 };
-export declare function getIpfsServerList(): Record<"ipfs" | "infura.io" | "cloudflare" | "ipfs.gateway" | "bdaily", IIPFSAddressesLike> & Record<string, IIPFSAddressesLike>;
+export declare function getIpfsServerList(): Record<"ipfs" | "infura.io" | "cloudflare" | "ipfs.gateway" | "bdaily" | "globalupload" | "pinata" | "hardbin" | "eternum" | "temporal" | "sloppyta" | "dweb" | "greyh" | "jorropo" | "jeroendeneef" | "2read" | "runfission" | "best-practice" | "privacytools" | "trusti" | "stibarc", IIPFSAddressesLike> & Record<string, IIPFSAddressesLike>;
 export declare function getIpfsLocalList(): Record<"go-ipfs" | "js-ipfs", IIPFSAddressesLike> & Record<string, IIPFSAddressesLike>;
 export declare function filterList<K extends keyof IIPFSAddressesLike>(key: K, serverList?: Record<string, IIPFSAddressesLike>): IIPFSAddressesLike[K][];
-export declare const ipfsServerList: Record<"ipfs" | "infura.io" | "cloudflare" | "ipfs.gateway" | "bdaily", IIPFSAddressesLike> & Record<string, IIPFSAddressesLike>;
+export declare const ipfsServerList: Record<"ipfs" | "infura.io" | "cloudflare" | "ipfs.gateway" | "bdaily" | "globalupload" | "pinata" | "hardbin" | "eternum" | "temporal" | "sloppyta" | "dweb" | "greyh" | "jorropo" | "jeroendeneef" | "2read" | "runfission" | "best-practice" | "privacytools" | "trusti" | "stibarc", IIPFSAddressesLike> & Record<string, IIPFSAddressesLike>;
 export default ipfsServerList;

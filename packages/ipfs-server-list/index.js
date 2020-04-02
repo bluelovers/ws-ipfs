@@ -2,6 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ipfsServerList = exports.filterList = exports.getIpfsLocalList = exports.getIpfsServerList = void 0;
 function getIpfsServerList() {
+    /**
+     * @see https://ipfs.github.io/public-gateway-checker/
+     */
     let data = {
         'ipfs': {
             Gateway: 'https://ipfs.io/ipfs/',
@@ -40,6 +43,55 @@ function getIpfsServerList() {
         },
         'bdaily': {
             Gateway: 'https://gateway.bdaily.club/ipfs/',
+        },
+        'globalupload': {
+            Gateway: 'https://ipfs.globalupload.io/',
+        },
+        'pinata': {
+            Gateway: 'https://gateway.pinata.cloud/ipfs/',
+        },
+        'hardbin': {
+            Gateway: 'https://hardbin.com/ipfs/',
+        },
+        'eternum': {
+            Gateway: 'https://ipfs.eternum.io/ipfs/',
+        },
+        'temporal': {
+            Gateway: 'https://gateway.temporal.cloud/ipfs/',
+        },
+        'sloppyta': {
+            Gateway: 'https://ipfs.sloppyta.co/ipfs/',
+        },
+        'dweb': {
+            GatewayDomain: '.ipfs.dweb.link',
+        },
+        'greyh': {
+            Gateway: 'https://ipfs.greyh.at/ipfs/',
+        },
+        'jorropo': {
+            Gateway: 'https://jorropo.ovh/ipfs/',
+        },
+        'jeroendeneef': {
+            Gateway: 'https://ipfs.jeroendeneef.com/ipfs/',
+        },
+        '2read': {
+            GatewayDomain: '.ipfs.2read.net',
+            Gateway: 'https://ipfs.2read.net/ipfs/',
+        },
+        'runfission': {
+            Gateway: 'https://ipfs.runfission.com/ipfs/',
+        },
+        'best-practice': {
+            Gateway: 'https://ipfs.best-practice.se/ipfs/',
+        },
+        'privacytools': {
+            Gateway: 'https://ipfs.privacytools.io/ipfs/',
+        },
+        'trusti': {
+            Gateway: 'https://trusti.id/ipfs/',
+        },
+        'stibarc': {
+            Gateway: 'https://ipfs.stibarc.com/ipfs/',
         },
     };
     data;
