@@ -1,6 +1,6 @@
 {
   "name": "@bluelovers/ipfs-http-client",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "ipfs-http-client with auto search go-ipfs, js-ipfs",
   "keywords": [
     "ipfs",
@@ -41,7 +41,7 @@
   "dependencies": {
     "ipfs-env": "^1.0.1",
     "ipfs-types": "^1.0.13",
-    "ipfs-util-lib": "^1.0.13",
+    "ipfs-util-lib": "^1.0.14",
     "ts-type": "^1.2.15"
   },
   "devDependencies": {
