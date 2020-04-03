@@ -39,7 +39,12 @@ export function corsURL(url: URL | string, cors?: boolean)
 		url = new URL(url.toString());
 	}
 
-	if (['localhost', '127.0.0.1'].includes(url.hostname) || IP_TESTER_RE.test(url.hostname))
+	if (cors !== false && ([
+		'localhost',
+		'127.0.0.1',
+		'::',
+		'::1',
+	].includes(url.hostname) || IP_TESTER_RE.test(url.hostname)))
 	{
 		cors = false;
 	}

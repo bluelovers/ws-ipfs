@@ -33,7 +33,12 @@ function corsURL(url, cors) {
     if (typeof url === 'string') {
         url = new URL(url.toString());
     }
-    if (['localhost', '127.0.0.1'].includes(url.hostname) || IP_TESTER_RE.test(url.hostname)) {
+    if (cors !== false && ([
+        'localhost',
+        '127.0.0.1',
+        '::',
+        '::1',
+    ].includes(url.hostname) || IP_TESTER_RE.test(url.hostname))) {
         cors = false;
     }
     if (typeof window !== 'undefined') {
