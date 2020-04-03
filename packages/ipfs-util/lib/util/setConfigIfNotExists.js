@@ -3,14 +3,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.setConfigIfNotExists = exports.setConfigIfNotExistsLazy = void 0;
 async function setConfigIfNotExistsLazy(ipfs, entries) {
     const ls = [];
-    for (const [key, value] of entries) {
-        const bool = await setConfigIfNotExists(ipfs, key, value);
+    for (const [key, value, filter] of entries) {
+        const bool = await setConfigIfNotExists(ipfs, key, value, filter);
         ls.push(bool);
     }
     return ls;
 }
 exports.setConfigIfNotExistsLazy = setConfigIfNotExistsLazy;
-async function setConfigIfNotExists(ipfs, key, value) {
+async function setConfigIfNotExists(ipfs, key, value, filter) {
     let v;
     let bool;
     try {
@@ -21,7 +21,7 @@ async function setConfigIfNotExists(ipfs, key, value) {
     }
     finally {
         try {
-            if (v == null) {
+            if (v === null || typeof v === 'undefined' || await (filter === null || filter === void 0 ? void 0 : filter(v, key, ipfs))) {
                 await ipfs.config.set(key, value);
                 bool = true;
             }

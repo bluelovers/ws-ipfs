@@ -26,6 +26,34 @@ function fixIPFSOptions(options) {
                 hop: {
                     enabled: true,
                 },
+                Pubsub: {
+                    Enabled: true,
+                },
+            },
+            "Swarm": {
+                "EnableAutoNATService": true,
+                "EnableAutoRelay": true,
+                "EnableRelayHop": true
+            },
+            "API": {
+                "HTTPHeaders": {
+                    "Access-Control-Allow-Credentials": [
+                        "true"
+                    ],
+                    "Access-Control-Allow-Headers": [
+                        "Authorization"
+                    ],
+                    "Access-Control-Allow-Methods": [
+                        "GET",
+                        "POST"
+                    ],
+                    "Access-Control-Allow-Origin": [
+                        "*"
+                    ],
+                    "Access-Control-Expose-Headers": [
+                        "Location"
+                    ]
+                }
             },
         },
         disposable: false,
