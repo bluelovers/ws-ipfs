@@ -17,7 +17,19 @@ export function pokeURL(ipfsURL: URL | string, options?: IPokeOptions)
 		{
 			const { headers, status, statusText } = res;
 
-			let xIpfsPath = headers.get?.('x-ipfs-path') || headers.get?.['X-Ipfs-Path'] || headers?.['x-ipfs-path'] || headers?.['x-ipfs-path'];
+			let xIpfsPath = headers.get?.('x-ipfs-path') || headers.get?.['X-Ipfs-Path'] || headers['x-ipfs-path'] || headers['X-Ipfs-Path'];
+
+			if (!xIpfsPath)
+			{
+				Object.entries(headers)
+					.some(([key, value]) => {
+						if (key.toLowerCase() === 'x-ipfs-path')
+						{
+							xIpfsPath = value;
+							return true
+						}
+					})
+			}
 
 			if (xIpfsPath)
 			{
