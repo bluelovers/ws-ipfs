@@ -1,5 +1,9 @@
-import { ICallback, IMultihash, ICIDObject } from '../types';
+import { ICallback, IMultihash, ICIDObject, IErrorLike, IParametersWithCallbackWithMaybeArgv } from '../types';
 import { IFileContent } from './file';
+import { IObjectAPI } from './object';
+import { IDagAPI } from './dag';
+import { EventEmitter } from "events";
+import { IIPFSPromiseApi, IIPFSApiReturnType } from './index';
 
 export interface IInitOptions
 {
@@ -223,3 +227,64 @@ export interface IObjectPatchAPI
 	setData(multihash: IMultihash, data: any): Promise<any>;
 }
 
+export interface IIPFSEventEmitterApi
+{
+
+	on(event: 'error', callback: (error: IErrorLike) => void): IIPFSInstance;
+
+	on(event: string, callback: (...argv: any[]) => void): IIPFSInstance;
+
+	once(event: string, callback: (...argv: any[]) => void): IIPFSInstance;
+
+}
+
+export type IIPFSInstanceWithEventEmitter = IIPFSEventEmitterApi & EventEmitter & IIPFSInstance
+
+export interface IIPFSCallbackApi
+{
+
+	version(...argv: IParametersWithCallbackWithMaybeArgv<IIPFSApiReturnType['version']>): void;
+
+	id(...argv: IParametersWithCallbackWithMaybeArgv<IIPFSApiReturnType['id']>): void;
+
+}
+
+export type IIPFSInstanceCoreApi = IIPFSCallbackApi & IIPFSPromiseApi & {}
+/**
+ * @todo update this
+ * @deprecated
+ */
+export type IIPFSInstance = IIPFSInstanceCoreApi & {
+
+	types: ITypes;
+
+	init(options: IInitOptions, callback: ICallback<boolean>): void;
+
+	init(callback: ICallback<boolean>): void;
+
+	preStart(callback: ICallback<any>): void;
+
+	start(callback?: ICallback<any>): void;
+
+	stop(callback?: (error?: Error) => void): void;
+
+	isOnline(): boolean;
+
+	repo: IRepoAPI;
+	bootstrap: any;
+	config: any;
+	block: any;
+	object: IObjectAPI;
+	dag: IDagAPI;
+	libp2p: any;
+	swarm: ISwarmAPI;
+	files: IFilesAPI;
+	bitswap: any;
+
+	ping(callback: (error: Error) => void): void;
+
+	ping(): Promise<void>;
+
+	pubsub: any;
+
+}

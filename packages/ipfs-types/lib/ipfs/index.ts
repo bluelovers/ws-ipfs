@@ -1,14 +1,12 @@
-import { EventEmitter } from "events";
-import { ITypes, IInitOptions, IVersion, IId, IRepoAPI, ISwarmAPI, IFilesAPI } from './types';
-import { ICallback, IParametersWithCallbackWithMaybeArgv, IErrorLike } from '../types';
+import { IVersion, IId } from './types';
 import { IIPFSFileApi } from './file';
-import { IDagAPI, IIPFSDagApi } from './dag';
+import { IIPFSDagApi } from './dag';
 import { IIPFSRefsApi } from './refs';
-import { IObjectAPI, IIPFSObjectApi } from './object';
+import { IIPFSObjectApi } from './object';
 import { IIPFSConfigApi } from './config';
 import { IIPFSNameApi } from './name';
 import { IApiOptions } from '../options';
-import { IIPFSFilesApiCore, IIPFSFilesApi } from './files';
+import { IIPFSFilesApi } from './files';
 import { IIPFSSwarmApi } from './swarm';
 import { IIPFSPubsubApi } from './pubsub';
 
@@ -59,67 +57,3 @@ export interface IIPFSPromiseApi extends IIPFSAsyncIterableApi, IIPFSApiUtils, I
 
 }
 
-export interface IIPFSCallbackApi
-{
-
-	version(...argv: IParametersWithCallbackWithMaybeArgv<IIPFSApiReturnType['version']>): void;
-
-	id(...argv: IParametersWithCallbackWithMaybeArgv<IIPFSApiReturnType['id']>): void;
-
-}
-
-export interface IIPFSEventEmitterApi
-{
-
-	on(event: 'error', callback: (error: IErrorLike) => void): IIPFSInstance;
-
-	on(event: string, callback: (...argv: any[]) => void): IIPFSInstance;
-
-	once(event: string, callback: (...argv: any[]) => void): IIPFSInstance;
-
-}
-
-export type IIPFSInstanceWithEventEmitter = IIPFSEventEmitterApi & EventEmitter & IIPFSInstance
-
-export type IIPFSInstanceCoreApi = IIPFSCallbackApi & IIPFSPromiseApi & {
-
-}
-
-/**
- * @todo update this
- * @deprecated
- */
-export type IIPFSInstance = IIPFSInstanceCoreApi & {
-
-	types: ITypes;
-
-	init(options: IInitOptions, callback: ICallback<boolean>): void;
-
-	init(callback: ICallback<boolean>): void;
-
-	preStart(callback: ICallback<any>): void;
-
-	start(callback?: ICallback<any>): void;
-
-	stop(callback?: (error?: Error) => void): void;
-
-	isOnline(): boolean;
-
-	repo: IRepoAPI;
-	bootstrap: any;
-	config: any;
-	block: any;
-	object: IObjectAPI;
-	dag: IDagAPI;
-	libp2p: any;
-	swarm: ISwarmAPI;
-	files: IFilesAPI;
-	bitswap: any;
-
-	ping(callback: (error: Error) => void): void;
-
-	ping(): Promise<void>;
-
-	pubsub: any;
-
-}
