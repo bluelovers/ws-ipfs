@@ -11,7 +11,7 @@ export declare function addDirectoryToIPFS(ipfs: IIPFSFilesApi & IIPFSFilesApi, 
         cid: any;
     };
     files: {
-        length: number;
-    };
+        path: string;
+    }[];
 }>;
 export default addDirectoryToIPFS;

@@ -1,4 +1,5 @@
 import { ICallback, IMultihash, ICIDObject } from '../types';
+import { IFileContent } from './file';
 
 export interface IInitOptions
 {
@@ -53,8 +54,6 @@ export interface IRepoAPI
 
 	path(): string;
 }
-
-export type IFileContent = Object | Blob | string;
 
 /** old version? */
 export interface IIPFSFile

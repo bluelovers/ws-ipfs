@@ -1,5 +1,6 @@
 /// <reference types="node" />
 import { ICallback, IMultihash, ICIDObject } from '../types';
+import { IFileContent } from './file';
 export interface IInitOptions {
     emptyRepo?: boolean;
     bits?: number;
@@ -38,7 +39,6 @@ export interface IRepoAPI {
     gc(): void;
     path(): string;
 }
-export declare type IFileContent = Object | Blob | string;
 /** old version? */
 export interface IIPFSFile {
     path: string;

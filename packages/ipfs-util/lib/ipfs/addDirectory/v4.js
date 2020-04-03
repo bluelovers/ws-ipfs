@@ -14,6 +14,7 @@ async function addDirectoryToIPFS(ipfs, targetDirPath, { options, globSourceOpti
     let cid;
     ignoreExists = !!ignoreExists;
     const rootPath = '/' + path_1.default.basename(targetDirPath) + '/';
+    const files = [];
     for await (let filename of fast_glob_1.default.stream([
         '**/*',
     ], {
@@ -41,6 +42,9 @@ async function addDirectoryToIPFS(ipfs, targetDirPath, { options, globSourceOpti
             mode: entry.mode,
             mtime: entry.mtime,
         });
+        files.push({
+            path: entry.path,
+        });
         i++;
         if ((i % 100) === 0) {
             const cid = await ipfs.files.flush();
@@ -53,9 +57,7 @@ async function addDirectoryToIPFS(ipfs, targetDirPath, { options, globSourceOpti
         root: {
             cid,
         },
-        files: {
-            length: i,
-        },
+        files,
     };
 }
 exports.addDirectoryToIPFS = addDirectoryToIPFS;

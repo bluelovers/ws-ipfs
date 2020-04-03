@@ -27,6 +27,10 @@ export async function addDirectoryToIPFS(ipfs: IIPFSFilesApi & IIPFSFilesApi, ta
 
 	const rootPath = '/' + path.basename(targetDirPath) + '/';
 
+	const files: {
+		path: string,
+	}[] = [];
+
 	for await (let filename of FastGlob.stream([
 		'**/*',
 		//'**/*.txt',
@@ -65,6 +69,10 @@ export async function addDirectoryToIPFS(ipfs: IIPFSFilesApi & IIPFSFilesApi, ta
 			mtime: entry.mtime,
 		})
 
+		files.push({
+			path: entry.path,
+		})
+
 		i++;
 
 		if ((i % 100) === 0)
@@ -83,9 +91,7 @@ export async function addDirectoryToIPFS(ipfs: IIPFSFilesApi & IIPFSFilesApi, ta
 		root: {
 			cid,
 		},
-		files: {
-			length: i,
-		},
+		files,
 	}
 }
 

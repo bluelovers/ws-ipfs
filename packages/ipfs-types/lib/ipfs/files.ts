@@ -3,6 +3,7 @@
  */
 import { ICIDValue, ICIDObject, IMtime } from '../types';
 import { IApiOptions } from '../options';
+import { IFileContent } from './file';
 
 export const enum EnumMutableFileSystemType
 {
@@ -58,7 +59,17 @@ export interface IIPFSFilesApiCore
 
 	touch(path, options?),
 
-	write(path, content, options?),
+	write(path: string, content: IFileContent, options?: {
+		offset?: number,
+		create?: boolean,
+		truncate?: boolean,
+		parents?: boolean,
+		length?: number,
+		rawLeaves?: boolean,
+		cidVersion?: number,
+		mode?: number;
+		mtime?: IMtime;
+	}): Promise<void>,
 
 	mv(from, to, options?),
 
