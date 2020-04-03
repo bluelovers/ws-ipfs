@@ -49,7 +49,7 @@ export function corsURL(url: URL | string, cors?: boolean)
 		cors = false;
 	}
 
-	if (typeof window !== 'undefined')
+	if (cors !== false && typeof window !== 'undefined')
 	{
 		cors = cors ?? window.location.host === url.host;
 		protocol = window.location.protocol || protocol;

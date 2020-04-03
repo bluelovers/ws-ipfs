@@ -41,7 +41,7 @@ function corsURL(url, cors) {
     ].includes(url.hostname) || IP_TESTER_RE.test(url.hostname))) {
         cors = false;
     }
-    if (typeof window !== 'undefined') {
+    if (cors !== false && typeof window !== 'undefined') {
         cors = cors !== null && cors !== void 0 ? cors : window.location.host === url.host;
         protocol = window.location.protocol || protocol;
     }
