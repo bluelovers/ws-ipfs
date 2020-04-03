@@ -31,10 +31,10 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
+    "@types/node-fetch": "*",
     "ipfs-types": "^1.0.13"
   },
   "devDependencies": {
-    "@types/node-fetch": "^2.5.5",
     "cross-fetch": "^3.0.4"
   },
   "peerDependencies": {
