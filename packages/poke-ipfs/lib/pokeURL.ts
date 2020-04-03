@@ -4,7 +4,7 @@
 import { ICIDValue } from 'ipfs-types/lib/types';
 import fetch from 'cross-fetch';
 
-export function pokeURL(ipfsURL: URL | string): Promise<boolean>
+export function pokeURL(ipfsURL: URL | string)
 {
 	let url = new URL(ipfsURL.toString());
 
@@ -13,22 +13,39 @@ export function pokeURL(ipfsURL: URL | string): Promise<boolean>
 	})
 		.then(async (res) =>
 		{
-			const headers = res.headers;
+			const { headers, status, statusText } = res;
+
 
 			let xIpfsPath = headers.get?.('x-ipfs-path') || headers.get?.['X-Ipfs-Path'] || headers?.['x-ipfs-path'] || headers?.['x-ipfs-path'];
 
 			if (xIpfsPath)
 			{
-				return xIpfsPath
+				return {
+					value: xIpfsPath as string,
+					status,
+					statusText,
+				}
 			}
-			else if (res.status < 200 || res.status >= 400)
+			else if (status < 200 || status >= 400)
 			{
-				return false
+				return {
+					value: false as false,
+					status,
+					statusText,
+				}
 			}
 
-			return null
+			return {
+				//value: null as void,
+				status,
+				statusText,
+			}
 		})
-		.catch(e => null)
+		.catch((error: Error) => {
+			return {
+				error,
+			}
+		})
 }
 
 export default pokeURL

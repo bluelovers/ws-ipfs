@@ -12,17 +12,33 @@ function pokeURL(ipfsURL) {
     })
         .then(async (res) => {
         var _a, _b;
-        const headers = res.headers;
+        const { headers, status, statusText } = res;
         let xIpfsPath = ((_a = headers.get) === null || _a === void 0 ? void 0 : _a.call(headers, 'x-ipfs-path')) || ((_b = headers.get) === null || _b === void 0 ? void 0 : _b['X-Ipfs-Path']) || (headers === null || headers === void 0 ? void 0 : headers['x-ipfs-path']) || (headers === null || headers === void 0 ? void 0 : headers['x-ipfs-path']);
         if (xIpfsPath) {
-            return xIpfsPath;
+            return {
+                value: xIpfsPath,
+                status,
+                statusText,
+            };
         }
-        else if (res.status < 200 || res.status >= 400) {
-            return false;
+        else if (status < 200 || status >= 400) {
+            return {
+                value: false,
+                status,
+                statusText,
+            };
         }
-        return null;
+        return {
+            //value: null as void,
+            status,
+            statusText,
+        };
     })
-        .catch(e => null);
+        .catch((error) => {
+        return {
+            error,
+        };
+    });
 }
 exports.pokeURL = pokeURL;
 exports.default = pokeURL;

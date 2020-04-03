@@ -11,15 +11,35 @@ function pokeIPLD(cid) {
     url.searchParams.set('r', 'true');
     url.searchParams.set('arg', cid.toString());
     return cross_fetch_1.default(url.href)
-        .then(async (r) => {
-        for await (const chunk of ndjson_1.ndjson(r.body)) {
+        .then(async (res) => {
+        const { status, statusText } = res;
+        for await (const chunk of ndjson_1.ndjson(res.body)) {
             if (chunk === null || chunk === void 0 ? void 0 : chunk.Ref) {
-                return true;
+                return {
+                    value: true,
+                    status,
+                    statusText,
+                };
             }
         }
-        return false;
+        if (status < 200 || status >= 400) {
+            return {
+                value: false,
+                status,
+                statusText,
+            };
+        }
+        return {
+            //value: null as void,
+            status,
+            statusText,
+        };
     })
-        .catch(e => null);
+        .catch((error) => {
+        return {
+            error,
+        };
+    });
 }
 exports.pokeIPLD = pokeIPLD;
 exports.default = pokeIPLD;

@@ -7,7 +7,7 @@ import { ndjson } from './ndjson';
 
 export type IAsyncIteratorAble<T> = AsyncGenerator<T, void> | ReadableStream<T>;
 
-export function pokeIPLD(cid: ICIDValue): Promise<boolean>
+export function pokeIPLD(cid: ICIDValue)
 {
 	let url = new URL('https://node0.preload.ipfs.io/api/v0/refs');
 
@@ -15,22 +15,46 @@ export function pokeIPLD(cid: ICIDValue): Promise<boolean>
 	url.searchParams.set('arg', cid.toString());
 
 	return fetch(url.href)
-		.then(async (r) =>
+		.then(async (res) =>
 		{
+			const { status, statusText } = res;
+
 			for await (const chunk of ndjson<{
 				Ref: string,
 				Err: string,
-			}>(r.body as any))
+			}>(res.body as any))
 			{
 				if (chunk?.Ref)
 				{
-					return true
+					return {
+						value: true as true,
+						status,
+						statusText,
+					}
 				}
 			}
 
-			return false
+			if (status < 200 || status >= 400)
+			{
+				return {
+					value: false as false,
+					status,
+					statusText,
+				}
+			}
+
+			return {
+				//value: null as void,
+				status,
+				statusText,
+			}
 		})
-		.catch(e => null)
+		.catch((error: Error) =>
+		{
+			return {
+				error,
+			}
+		})
 }
 
 export default pokeIPLD
