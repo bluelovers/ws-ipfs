@@ -1,9 +1,10 @@
 import { IIPFSPubsubApi } from 'ipfs-types/lib/ipfs/pubsub';
 import Bluebird from 'bluebird';
 
-export function unsubscribeAll(ipfs: IIPFSPubsubApi)
+export async function unsubscribeAll(ipfs: IIPFSPubsubApi)
 {
-	return Bluebird.mapSeries(ipfs.pubsub.ls(), (topic) => {
-		return ipfs.pubsub.unsubscribe(topic)
-	})
+	for (const topic of await ipfs.pubsub.ls())
+	{
+		await ipfs.pubsub.unsubscribe(topic).catch(e => null);
+	}
 }

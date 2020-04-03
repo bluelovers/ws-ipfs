@@ -67,6 +67,13 @@ async function getIPFS(options, optionsExtra = {}) {
         let ipfsd;
         let ipfsType = types_1.EnumIPFSType.Unknown;
         await (async () => {
+            if (options === null || options === void 0 ? void 0 : options.disposable) {
+                ipfsd = await ctl_1.default(options);
+                ipfs = ipfsd.api;
+                await ipfs_util_lib_1.checkIPFS(ipfs);
+                ipfsType = types_1.EnumIPFSType.Controller;
+                return;
+            }
             let fallbackServerArgvs;
             if (typeof optionsExtra.fallbackServer !== 'undefined') {
                 let fallbackServer = optionsExtra.fallbackServer;

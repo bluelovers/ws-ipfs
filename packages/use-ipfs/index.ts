@@ -103,6 +103,15 @@ export async function getIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, opti
 
 		await (async () =>
 		{
+			if (options?.disposable)
+			{
+				ipfsd = await startIPFS(options);
+				ipfs = ipfsd.api;
+				await checkIPFS(ipfs);
+				ipfsType = EnumIPFSType.Controller;
+				return;
+			}
+
 			let fallbackServerArgvs: IIPFSClientParameters;
 
 			if (typeof optionsExtra.fallbackServer !== 'undefined')
