@@ -12,6 +12,7 @@ const types_1 = require("./lib/types");
 const ipfs_http_client_2 = __importDefault(require("ipfs-http-client"));
 const ipfs_util_lib_1 = require("ipfs-util-lib");
 const default_1 = __importDefault(require("ipfs-util-lib/lib/ipfs/config/default"));
+const unsubscribe_1 = require("ipfs-util-lib/lib/ipfs/pubsub/unsubscribe");
 let _cached;
 /**
  * get IPFS, if not exists, create or connect it
@@ -33,15 +34,18 @@ async function useIPFS(options, optionsExtra = {}) {
         });
         let bool = true;
         const stop = (...argv) => {
-            return bool && closeFnOld(...argv)
-                .then(() => {
-                bool = void 0;
-                if (_cached && _cached.ipfs === ipfs) {
-                    _cached = void 0;
-                }
-                ipfs = void 0;
-                closeFnOld = void 0;
-                //console.debug(`reset _cached => null`)
+            return unsubscribe_1.unsubscribeAll(ipfs)
+                .catch(e => null)
+                .then(e => {
+                return bool && (closeFnOld === null || closeFnOld === void 0 ? void 0 : closeFnOld(...argv).then(() => {
+                    bool = void 0;
+                    if ((_cached === null || _cached === void 0 ? void 0 : _cached.ipfs) === ipfs) {
+                        _cached = void 0;
+                    }
+                    ipfs = void 0;
+                    closeFnOld = void 0;
+                    //console.debug(`reset _cached => null`)
+                }));
             });
         };
         _cached = Object.freeze({
@@ -76,7 +80,7 @@ async function getIPFS(options, optionsExtra = {}) {
                 ipfsType = types_1.EnumIPFSType.Client;
             }
             catch (e) {
-                if (optionsExtra.useFallbackFirst && fallbackServerArgvs && fallbackServerArgvs.length) {
+                if (optionsExtra.useFallbackFirst && (fallbackServerArgvs === null || fallbackServerArgvs === void 0 ? void 0 : fallbackServerArgvs.length)) {
                     ipfs = await core_1.some(ipfs_http_client_2.default, [fallbackServerArgvs], true)
                         .then(ipfs => {
                         //checkIPFS(ipfs);
@@ -118,19 +122,20 @@ async function getIPFS(options, optionsExtra = {}) {
         })();
         let { skipClose } = optionsExtra;
         async function stop(force) {
+            var _a, _b, _c;
             if (force || ipfsd && !skipClose) {
                 try {
-                    await ipfsd.clean();
+                    await ((_a = ipfsd === null || ipfsd === void 0 ? void 0 : ipfsd.clean) === null || _a === void 0 ? void 0 : _a.call(ipfsd));
                 }
                 catch (e) {
                 }
                 try {
-                    await ipfsd.stop();
+                    await ((_b = ipfsd === null || ipfsd === void 0 ? void 0 : ipfsd.stop) === null || _b === void 0 ? void 0 : _b.call(ipfsd));
                 }
                 catch (e) {
                 }
                 try {
-                    ipfs && await ipfs.stop();
+                    await ((_c = ipfs === null || ipfs === void 0 ? void 0 : ipfs.stop) === null || _c === void 0 ? void 0 : _c.call(ipfs));
                 }
                 catch (e) {
                 }

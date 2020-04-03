@@ -14,6 +14,7 @@ import { ipfsAddresses, checkIPFS } from 'ipfs-util-lib';
 import configApiCors from 'ipfs-util-lib/lib/ipfs/config/cors';
 import configApiSwarm from 'ipfs-util-lib/lib/ipfs/config/swarm';
 import configDefaultAll from 'ipfs-util-lib/lib/ipfs/config/default';
+import { unsubscribeAll } from 'ipfs-util-lib/lib/ipfs/pubsub/unsubscribe';
 
 export type ICachedObject<IPFS = IIPFSClientReturn> = Readonly<{
 	ipfs: IPFS,
@@ -58,17 +59,21 @@ export async function useIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, opti
 
 		const stop = (...argv) =>
 		{
-			return bool && closeFnOld(...argv)
-				.then(() =>
-				{
-					bool = void 0;
-					if (_cached && _cached.ipfs === ipfs)
-					{
-						_cached = void 0;
-					}
-					ipfs = void 0;
-					closeFnOld = void 0;
-					//console.debug(`reset _cached => null`)
+			return unsubscribeAll(ipfs)
+				.catch(e => null)
+				.then(e => {
+					return bool && closeFnOld?.(...argv)
+						.then(() =>
+						{
+							bool = void 0;
+							if (_cached?.ipfs === ipfs)
+							{
+								_cached = void 0;
+							}
+							ipfs = void 0;
+							closeFnOld = void 0;
+							//console.debug(`reset _cached => null`)
+						})
 				})
 		};
 
@@ -118,7 +123,7 @@ export async function getIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, opti
 			}
 			catch (e)
 			{
-				if (optionsExtra.useFallbackFirst && fallbackServerArgvs && fallbackServerArgvs.length)
+				if (optionsExtra.useFallbackFirst && fallbackServerArgvs?.length)
 				{
 					ipfs = await some(_ipfsHttpModule, [fallbackServerArgvs], true)
 						.then(ipfs =>
@@ -184,7 +189,7 @@ export async function getIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, opti
 			{
 				try
 				{
-					await ipfsd.clean();
+					await ipfsd?.clean?.();
 				}
 				catch (e)
 				{
@@ -192,7 +197,7 @@ export async function getIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, opti
 				}
 				try
 				{
-					await ipfsd.stop();
+					await ipfsd?.stop?.();
 				}
 				catch (e)
 				{
@@ -201,7 +206,7 @@ export async function getIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, opti
 
 				try
 				{
-					ipfs && await ipfs.stop();
+					await ipfs?.stop?.();
 				}
 				catch (e)
 				{
