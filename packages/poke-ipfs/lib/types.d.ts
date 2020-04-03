@@ -7,5 +7,6 @@ export declare type IPokeReturnBase = {
     status?: number;
     statusText?: string;
     error?: Error;
+    headers?: Headers;
 };
 export declare type IPokeReturn<T extends Record<string, any> = never> = T extends never ? IPokeReturnBase : Omit<IPokeReturnBase, keyof T> & T;

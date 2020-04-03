@@ -3,11 +3,11 @@
  */
 import { ICIDValue } from 'ipfs-types/lib/types';
 import { IPokeReturnBase } from './types';
-export declare function pokeIPLD(cid: ICIDValue): Promise<(Pick<IPokeReturnBase, "status" | "statusText" | "error"> & {
+export declare function pokeIPLD(cid: ICIDValue): Promise<(Pick<IPokeReturnBase, "error" | "headers" | "status" | "statusText"> & {
     value: true;
-}) | (Pick<IPokeReturnBase, "status" | "statusText" | "error"> & {
+}) | (Pick<IPokeReturnBase, "error" | "headers" | "status" | "statusText"> & {
     value: false;
-}) | (Pick<IPokeReturnBase, "value" | "status" | "statusText"> & {
+}) | (Pick<IPokeReturnBase, "headers" | "value" | "status" | "statusText"> & {
     error: Error;
 })>;
 export default pokeIPLD;

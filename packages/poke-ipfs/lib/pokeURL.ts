@@ -16,7 +16,6 @@ export function pokeURL(ipfsURL: URL | string)
 		{
 			const { headers, status, statusText } = res;
 
-
 			let xIpfsPath = headers.get?.('x-ipfs-path') || headers.get?.['X-Ipfs-Path'] || headers?.['x-ipfs-path'] || headers?.['x-ipfs-path'];
 
 			if (xIpfsPath)
