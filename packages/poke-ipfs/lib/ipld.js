@@ -6,8 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.pokeIPLD = void 0;
 const cross_fetch_1 = __importDefault(require("cross-fetch"));
 const ndjson_1 = require("./ndjson");
-function pokeIPLD(cid) {
-    let url = new URL('https://node0.preload.ipfs.io/api/v0/refs');
+const util_1 = require("./util");
+function pokeIPLD(cid, options) {
+    let url = util_1.corsURL('https://node0.preload.ipfs.io/api/v0/refs', options === null || options === void 0 ? void 0 : options.cors);
     url.searchParams.set('r', 'true');
     url.searchParams.set('arg', cid.toString());
     return cross_fetch_1.default(url.href)

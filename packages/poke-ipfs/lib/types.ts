@@ -13,3 +13,8 @@ export type IPokeReturnBase = {
 }
 
 export type IPokeReturn<T extends Record<string, any> = never> = T extends never ? IPokeReturnBase : Omit<IPokeReturnBase , keyof T> & T
+
+export interface IPokeOptions
+{
+	cors?: boolean
+}

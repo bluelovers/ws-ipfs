@@ -1,5 +1,5 @@
-import { IPokeReturnBase } from './types';
-export declare function pokeURL(ipfsURL: URL | string): Promise<(Pick<IPokeReturnBase, "status" | "statusText" | "error" | "headers"> & {
+import { IPokeReturnBase, IPokeOptions } from './types';
+export declare function pokeURL(ipfsURL: URL | string, options?: IPokeOptions): Promise<(Pick<IPokeReturnBase, "status" | "statusText" | "error" | "headers"> & {
     value: string;
 }) | (Pick<IPokeReturnBase, "status" | "statusText" | "error" | "headers"> & {
     value: false;

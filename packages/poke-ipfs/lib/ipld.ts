@@ -4,11 +4,12 @@
 import { ICIDValue } from 'ipfs-types/lib/types';
 import fetch from 'cross-fetch';
 import { ndjson } from './ndjson';
-import { IPokeReturn, IPokeReturnBase } from './types';
+import { IPokeReturn, IPokeReturnBase, IPokeOptions } from './types';
+import { corsURL } from './util';
 
-export function pokeIPLD(cid: ICIDValue)
+export function pokeIPLD(cid: ICIDValue, options?: IPokeOptions)
 {
-	let url = new URL('https://node0.preload.ipfs.io/api/v0/refs');
+	let url = corsURL('https://node0.preload.ipfs.io/api/v0/refs', options?.cors);
 
 	url.searchParams.set('r', 'true');
 	url.searchParams.set('arg', cid.toString());

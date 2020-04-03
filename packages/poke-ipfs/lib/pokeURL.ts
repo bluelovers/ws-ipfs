@@ -3,11 +3,12 @@
  */
 import { ICIDValue } from 'ipfs-types/lib/types';
 import fetch from 'cross-fetch';
-import { IPokeReturn, IPokeReturnBase } from './types';
+import { IPokeReturn, IPokeReturnBase, IPokeOptions } from './types';
+import { corsURL } from './util';
 
-export function pokeURL(ipfsURL: URL | string)
+export function pokeURL(ipfsURL: URL | string, options?: IPokeOptions)
 {
-	let url = new URL(ipfsURL.toString());
+	let url = corsURL(ipfsURL.toString(), options?.cors);
 
 	return fetch(url.href, {
 		method: 'HEAD',
