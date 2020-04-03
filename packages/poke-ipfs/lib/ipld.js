@@ -13,13 +13,14 @@ function pokeIPLD(cid, options) {
     url.searchParams.set('arg', cid.toString());
     return cross_fetch_1.default(url.href)
         .then(async (res) => {
-        const { status, statusText } = res;
+        const { headers, status, statusText } = res;
         for await (const chunk of ndjson_1.ndjson(res.body)) {
             if (chunk === null || chunk === void 0 ? void 0 : chunk.Ref) {
                 return {
                     value: true,
                     status,
                     statusText,
+                    headers,
                 };
             }
         }
@@ -28,12 +29,14 @@ function pokeIPLD(cid, options) {
                 value: false,
                 status,
                 statusText,
+                headers,
             };
         }
         return {
             //value: null as void,
             status,
             statusText,
+            headers,
         };
     })
         .catch((error) => {

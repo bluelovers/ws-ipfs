@@ -20,6 +20,7 @@ function pokeURL(ipfsURL, options) {
                 value: xIpfsPath,
                 status,
                 statusText,
+                headers,
             };
         }
         else if (status < 200 || status >= 400) {
@@ -27,12 +28,14 @@ function pokeURL(ipfsURL, options) {
                 value: false,
                 status,
                 statusText,
+                headers,
             };
         }
         return {
             value: null,
             status,
             statusText,
+            headers,
         };
     })
         .catch((error) => {

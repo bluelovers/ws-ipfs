@@ -25,6 +25,7 @@ export function pokeURL(ipfsURL: URL | string, options?: IPokeOptions)
 					value: xIpfsPath as string,
 					status,
 					statusText,
+					headers,
 				} as IPokeReturn<{
 					value: string,
 				}>
@@ -35,6 +36,7 @@ export function pokeURL(ipfsURL: URL | string, options?: IPokeOptions)
 					value: false as false,
 					status,
 					statusText,
+					headers,
 				} as IPokeReturn<{
 					value: false,
 				}>
@@ -44,6 +46,7 @@ export function pokeURL(ipfsURL: URL | string, options?: IPokeOptions)
 				value: null as void,
 				status,
 				statusText,
+				headers,
 			} as IPokeReturn
 		})
 		.catch((error: Error) => {

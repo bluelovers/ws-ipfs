@@ -17,7 +17,7 @@ export function pokeIPLD(cid: ICIDValue, options?: IPokeOptions)
 	return fetch(url.href)
 		.then(async (res) =>
 		{
-			const { status, statusText } = res;
+			const { headers, status, statusText } = res;
 
 			for await (const chunk of ndjson<{
 				Ref: string,
@@ -30,6 +30,7 @@ export function pokeIPLD(cid: ICIDValue, options?: IPokeOptions)
 						value: true as true,
 						status,
 						statusText,
+						headers,
 					} as IPokeReturn<{
 						value: true,
 					}>
@@ -42,6 +43,7 @@ export function pokeIPLD(cid: ICIDValue, options?: IPokeOptions)
 					value: false as false,
 					status,
 					statusText,
+					headers,
 				} as IPokeReturn<{
 					value: false,
 				}>
@@ -51,6 +53,7 @@ export function pokeIPLD(cid: ICIDValue, options?: IPokeOptions)
 				//value: null as void,
 				status,
 				statusText,
+				headers,
 			} as IPokeReturn
 		})
 		.catch((error: Error) =>
