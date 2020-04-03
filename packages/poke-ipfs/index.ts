@@ -3,7 +3,9 @@
  */
 
 import { pokeIPLD } from './lib/ipld';
+import { pokeURL } from './lib/pokeURL';
 
 export { pokeIPLD }
+export { pokeURL }
 
 export default pokeIPLD
