@@ -29,7 +29,7 @@ function pokeURL(ipfsURL) {
             };
         }
         return {
-            //value: null as void,
+            value: null,
             status,
             statusText,
         };

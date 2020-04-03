@@ -1,4 +1,4 @@
-import { IAsyncIteratorAble } from './ipld';
+import { IAsyncIteratorAble } from './types';
 /**
  * Parses NDJSON chunks from an iterator
  */

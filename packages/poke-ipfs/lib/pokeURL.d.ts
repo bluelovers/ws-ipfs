@@ -1,16 +1,9 @@
-export declare function pokeURL(ipfsURL: URL | string): Promise<{
+import { IPokeReturnBase } from './types';
+export declare function pokeURL(ipfsURL: URL | string): Promise<(Pick<IPokeReturnBase, "status" | "statusText" | "error"> & {
     value: string;
-    status: number;
-    statusText: string;
-} | {
+}) | (Pick<IPokeReturnBase, "status" | "statusText" | "error"> & {
     value: false;
-    status: number;
-    statusText: string;
-} | {
-    status: number;
-    statusText: string;
-    value?: undefined;
-} | {
+}) | (Pick<IPokeReturnBase, "value" | "status" | "statusText"> & {
     error: Error;
-}>;
+})>;
 export default pokeURL;

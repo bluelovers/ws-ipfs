@@ -4,8 +4,7 @@
 import { ICIDValue } from 'ipfs-types/lib/types';
 import fetch from 'cross-fetch';
 import { ndjson } from './ndjson';
-
-export type IAsyncIteratorAble<T> = AsyncGenerator<T, void> | ReadableStream<T>;
+import { IPokeReturn, IPokeReturnBase } from './types';
 
 export function pokeIPLD(cid: ICIDValue)
 {
@@ -30,7 +29,9 @@ export function pokeIPLD(cid: ICIDValue)
 						value: true as true,
 						status,
 						statusText,
-					}
+					} as IPokeReturn<{
+						value: true,
+					}>
 				}
 			}
 
@@ -40,20 +41,24 @@ export function pokeIPLD(cid: ICIDValue)
 					value: false as false,
 					status,
 					statusText,
-				}
+				} as IPokeReturn<{
+					value: false,
+				}>
 			}
 
 			return {
 				//value: null as void,
 				status,
 				statusText,
-			}
+			} as IPokeReturn
 		})
 		.catch((error: Error) =>
 		{
 			return {
 				error,
-			}
+			} as IPokeReturn<{
+				error: Error;
+			}>
 		})
 }
 
