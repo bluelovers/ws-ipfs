@@ -1,6 +1,6 @@
 {
   "name": "fix-local-ipfs",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/fix-local-ipfs#readme",
   "bugs": {
@@ -31,7 +31,7 @@
     "@bluelovers/ipfs-http-client": "^1.0.35",
     "bluebird": "^3.7.2",
     "ipfs-types": "^1.0.16",
-    "use-ipfs": "^1.0.40"
+    "use-ipfs": "^1.0.41"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.30",
