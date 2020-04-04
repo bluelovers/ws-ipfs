@@ -4,7 +4,8 @@
 
 import { IOptions } from '../types';
 import defaultsDeep from 'lodash/defaultsDeep';
-import { mergeDefaultConfig, mergeDefaultOptions } from 'ipfs-defaults';
+import { createDefaultAddresses, mergeDefaultConfig, mergeDefaultOptions } from 'ipfs-defaults';
+import { merge, uniq } from 'lodash'
 
 export function fixIPFSOptions(options?: IOptions)
 {
@@ -18,6 +19,15 @@ export function fixIPFSOptions(options?: IOptions)
 		}),
 		disposable: false,
 	});
+
+	if (!options.disposable)
+	{
+		options.ipfsOptions.config = defaultsDeep(options.ipfsOptions.config, {
+			Addresses: {
+				...createDefaultAddresses({}, options.type),
+			},
+		})
+	}
 
 	if (options.type === 'js' || options.type === 'proc')
 	{

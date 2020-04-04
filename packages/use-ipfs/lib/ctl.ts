@@ -5,10 +5,30 @@ import { unlinkIPFSApi } from './util/fs';
 import { IOptions } from './types';
 import { fixIPFSOptions } from './util/ipfsd';
 import { checkIPFS } from 'ipfs-util-lib';
+import createDefaultAddresses, { getDefaultAddressesPorts } from 'ipfs-defaults/addresses';
+import getPort from 'get-port';
+import defaultsDeep from 'lodash/defaultsDeep';
 
 export async function startIPFS(options?: IOptions)
 {
-	let ipfsd = await createController(fixIPFSOptions(options));
+	options = fixIPFSOptions(options);
+
+	if (options?.disposable)
+	{
+		let ports = getDefaultAddressesPorts({}, options.type);
+
+		ports.Swarm = await getPort({port: ports.Swarm as number});
+		ports.API = await getPort({port: ports.API as number});
+		ports.Gateway = await getPort({port: ports.Gateway as number});
+
+		options.ipfsOptions.config = defaultsDeep(options.ipfsOptions.config, {
+			Addresses: {
+				...createDefaultAddresses(ports, options.type),
+			},
+		})
+	}
+
+	let ipfsd = await createController(options);
 
 	let addr = await checkForRunningApi(ipfsd.path);
 	if (addr)

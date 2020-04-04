@@ -34,7 +34,7 @@ function mergeDefaultConfig(config = {}) {
             },
         },
         Gateway: {
-            'HTTPHeaders': {
+            HTTPHeaders: {
                 'Access-Control-Allow-Methods': [
                     'HEAD',
                     'GET'
@@ -56,10 +56,23 @@ function mergeDefaultConfig(config = {}) {
             EnableAutoRelay: true,
             EnableRelayHop: true,
         },
-        'Routing': {
-            'Type': 'dht'
+        Routing: {
+            Type: 'dht'
+        },
+        relay: {
+            enabled: true,
+            hop: {
+                enabled: true,
+                active: true,
+            },
+            Pubsub: {
+                Enabled: true,
+            },
         },
     }, lodash_1.defaultsDeep(config, {
+        Addresses: {
+            Delegates: [],
+        },
         API: {
             HTTPHeaders: {
                 'Access-Control-Allow-Credentials': [
@@ -83,7 +96,7 @@ function mergeDefaultConfig(config = {}) {
             },
         },
         Gateway: {
-            'HTTPHeaders': {
+            HTTPHeaders: {
                 'Access-Control-Allow-Headers': [
                     'X-Requested-With',
                     'Range',

@@ -30,7 +30,7 @@ export function mergeDefaultConfig(config = {})
 			},
 		},
 		Gateway: {
-			'HTTPHeaders': {
+			HTTPHeaders: {
 				'Access-Control-Allow-Methods': [
 					'HEAD',
 					'GET'
@@ -52,10 +52,23 @@ export function mergeDefaultConfig(config = {})
 			EnableAutoRelay: true,
 			EnableRelayHop: true,
 		},
-		'Routing': {
-			'Type': 'dht'
+		Routing: {
+			Type: 'dht'
+		},
+		relay: {
+			enabled: true,
+			hop: {
+				enabled: true,
+				active: true,
+			},
+			Pubsub: {
+				Enabled: true,
+			},
 		},
 	}, defaultsDeep(config, {
+		Addresses: {
+			Delegates: [],
+		},
 		API: {
 			HTTPHeaders: {
 				'Access-Control-Allow-Credentials': [
@@ -79,7 +92,7 @@ export function mergeDefaultConfig(config = {})
 			},
 		},
 		Gateway: {
-			'HTTPHeaders': {
+			HTTPHeaders: {
 				'Access-Control-Allow-Headers': [
 					'X-Requested-With',
 					'Range',

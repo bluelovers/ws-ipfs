@@ -21,6 +21,13 @@ function fixIPFSOptions(options) {
         }),
         disposable: false,
     });
+    if (!options.disposable) {
+        options.ipfsOptions.config = defaultsDeep_1.default(options.ipfsOptions.config, {
+            Addresses: {
+                ...ipfs_defaults_1.createDefaultAddresses({}, options.type),
+            },
+        });
+    }
     if (options.type === 'js' || options.type === 'proc') {
         if (typeof options.ipfsModule === 'undefined') {
             options.ipfsModule = require('ipfs');
