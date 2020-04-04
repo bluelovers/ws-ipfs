@@ -1,6 +1,6 @@
 {
   "name": "ipfs-defaults",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-defaults#readme",
   "bugs": {
@@ -31,7 +31,7 @@
     "@types/lodash": "^4.14.149"
   },
   "dependencies": {
-    "ipfs-server-list": "^1.0.26",
+    "ipfs-server-list": "^1.0.27",
     "lodash": "^4.17.15"
   },
   "gitHead": "a2d0de6a4977f06253639f05892e96b52609d3eb"

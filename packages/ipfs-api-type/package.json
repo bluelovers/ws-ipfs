@@ -1,6 +1,6 @@
 {
   "name": "ipfs-api-type",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-api-type#readme",
   "bugs": {
@@ -32,6 +32,6 @@
     "cross-fetch": "^3.0.4"
   },
   "dependencies": {
-    "ipfs-types": "^1.0.18"
+    "ipfs-types": "^1.0.19"
   }
 }
