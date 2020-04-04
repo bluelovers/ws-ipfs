@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@bluelovers/ipfs-http-client": "^1.0.35",
+    "find-free-port-sync-fixed": "^1.0.0",
     "get-port": "^5.1.1",
     "ipfs-defaults": "^1.0.4",
     "lodash": "^4.17.15",

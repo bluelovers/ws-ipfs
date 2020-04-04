@@ -22,7 +22,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.startIPFS = void 0;
+exports.startIPFS = exports.getPort2 = void 0;
 const ipfsd_ctl_1 = require("ipfsd-ctl");
 const utils_1 = require("ipfsd-ctl/src/utils");
 const ipfs_http_client_1 = __importDefault(require("ipfs-http-client"));
@@ -30,16 +30,48 @@ const fs_1 = require("./util/fs");
 const ipfsd_1 = require("./util/ipfsd");
 const ipfs_util_lib_1 = require("ipfs-util-lib");
 const addresses_1 = __importStar(require("ipfs-defaults/addresses"));
-const get_port_1 = __importDefault(require("get-port"));
 const defaultsDeep_1 = __importDefault(require("lodash/defaultsDeep"));
+// @ts-ignore
+const find_free_port_sync_fixed_1 = __importDefault(require("find-free-port-sync-fixed"));
+const usedPort = new Set();
+async function getPort2(options) {
+    let port = await find_free_port_sync_fixed_1.default({
+        start: options.port,
+    });
+    let start = port;
+    while (usedPort.has(port)) {
+        start += 100;
+        port = await find_free_port_sync_fixed_1.default({
+            start,
+        });
+    }
+    usedPort.add(port);
+    return port;
+}
+exports.getPort2 = getPort2;
 async function startIPFS(options) {
     options = ipfsd_1.fixIPFSOptions(options);
     if (options === null || options === void 0 ? void 0 : options.disposable) {
         let ports = addresses_1.getDefaultAddressesPorts({}, options.type);
-        ports.Swarm = await get_port_1.default({ port: ports.Swarm });
-        ports.Swarm2 = await get_port_1.default({ port: ports.Swarm2 });
-        ports.API = await get_port_1.default({ port: ports.API });
-        ports.Gateway = await get_port_1.default({ port: ports.Gateway });
+        let Swarm2 = 0;
+        /*
+        Swarm2 = await getPort2({ port: ports.Swarm2 as number });
+
+        if (Swarm2 != ports.Swarm2)
+        {
+            Swarm2 = 10000;
+        }
+        else
+        {
+            Swarm2 = 0;
+        }
+
+         */
+        ports.Swarm = await getPort2({ port: ports.Swarm + Swarm2 });
+        ports.Swarm2 = await getPort2({ port: ports.Swarm2 + Swarm2 });
+        ports.API = await getPort2({ port: ports.API + Swarm2 });
+        ports.Gateway = await getPort2({ port: ports.Gateway + Swarm2 });
+        //console.dir(ports)
         options.ipfsOptions.config = defaultsDeep_1.default(options.ipfsOptions.config, {
             Addresses: {
                 ...addresses_1.default(ports, options.type),

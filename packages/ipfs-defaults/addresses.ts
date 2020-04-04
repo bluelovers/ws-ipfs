@@ -13,31 +13,31 @@ export function getDefaultAddressesPorts(ports?: {
 }, type: IType | string = 'js')
 {
 	let config: {
-		Swarm: IPort,
-		Swarm2?: IPort,
-		API: IPort,
-		Gateway: IPort,
+		Swarm: number,
+		Swarm2?: number,
+		API: number,
+		Gateway: number,
 	};
 
 	if (type === 'go')
 	{
 		config = {
-			Swarm: ports?.Swarm || 4001,
-			Swarm2: ports?.Swarm2 || 4001,
-			API: ports?.API || 5001,
-			Gateway: ports?.Gateway || 8080,
+			Swarm: ports?.Swarm as number | 0 || 4001,
+			Swarm2: ports?.Swarm2 as number | 0 || 4001,
+			API: ports?.API as number | 0 || 5001,
+			Gateway: ports?.Gateway as number | 0 || 8080,
 		}
 	}
 	else
 	{
-		const Swarm: number = ports?.Swarm as number || 4002;
-		const Swarm2: number = ports?.Swarm2 as number || Swarm + 1;
+		const Swarm: number = ports?.Swarm as number | 0 || 4002;
+		const Swarm2: number = ports?.Swarm2 as number | 0 || Swarm + 1;
 
 		config = {
 			Swarm,
 			Swarm2,
-			API: ports?.API || 5002,
-			Gateway: ports?.Gateway || 9090,
+			API: ports?.API as number | 0 || 5002,
+			Gateway: ports?.Gateway as number | 0 || 9090,
 		}
 	}
 

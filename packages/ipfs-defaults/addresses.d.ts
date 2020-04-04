@@ -9,10 +9,10 @@ export declare function getDefaultAddressesPorts(ports?: {
     API?: IPort;
     Gateway?: IPort;
 }, type?: IType | string): {
-    Swarm: IPort;
-    Swarm2?: IPort;
-    API: IPort;
-    Gateway: IPort;
+    Swarm: number;
+    Swarm2?: number;
+    API: number;
+    Gateway: number;
 };
 export declare function createDefaultAddresses(ports?: {
     Swarm?: IPort;

@@ -5,9 +5,36 @@ import { unlinkIPFSApi } from './util/fs';
 import { IOptions } from './types';
 import { fixIPFSOptions } from './util/ipfsd';
 import { checkIPFS } from 'ipfs-util-lib';
-import createDefaultAddresses, { getDefaultAddressesPorts } from 'ipfs-defaults/addresses';
+import createDefaultAddresses, { getDefaultAddressesPorts, IPort } from 'ipfs-defaults/addresses';
 import getPort from 'get-port';
 import defaultsDeep from 'lodash/defaultsDeep';
+// @ts-ignore
+import findFreePort from 'find-free-port-sync-fixed';
+
+const usedPort = new Set<number>();
+
+export async function getPort2(options: {
+	port: number
+})
+{
+	let port: number = await findFreePort({
+		start: options.port,
+	});
+
+	let start = port;
+
+	while (usedPort.has(port))
+	{
+		start += 100;
+		port = await findFreePort({
+			start,
+		})
+	}
+
+	usedPort.add(port);
+
+	return port
+}
 
 export async function startIPFS(options?: IOptions)
 {
@@ -17,10 +44,30 @@ export async function startIPFS(options?: IOptions)
 	{
 		let ports = getDefaultAddressesPorts({}, options.type);
 
-		ports.Swarm = await getPort({port: ports.Swarm as number});
-		ports.Swarm2 = await getPort({port: ports.Swarm2 as number});
-		ports.API = await getPort({port: ports.API as number});
-		ports.Gateway = await getPort({port: ports.Gateway as number});
+		let Swarm2 = 0;
+
+		/*
+		Swarm2 = await getPort2({ port: ports.Swarm2 as number });
+
+		if (Swarm2 != ports.Swarm2)
+		{
+			Swarm2 = 10000;
+		}
+		else
+		{
+			Swarm2 = 0;
+		}
+
+		 */
+
+		ports.Swarm = await getPort2({ port: ports.Swarm as number + Swarm2 });
+
+		ports.Swarm2 = await getPort2({ port: ports.Swarm2 as number + Swarm2 });
+
+		ports.API = await getPort2({ port: ports.API as number + Swarm2 });
+		ports.Gateway = await getPort2({ port: ports.Gateway as number + Swarm2 });
+
+		//console.dir(ports)
 
 		options.ipfsOptions.config = defaultsDeep(options.ipfsOptions.config, {
 			Addresses: {
