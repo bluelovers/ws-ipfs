@@ -37,6 +37,7 @@ async function startIPFS(options) {
     if (options === null || options === void 0 ? void 0 : options.disposable) {
         let ports = addresses_1.getDefaultAddressesPorts({}, options.type);
         ports.Swarm = await get_port_1.default({ port: ports.Swarm });
+        ports.Swarm2 = await get_port_1.default({ port: ports.Swarm2 });
         ports.API = await get_port_1.default({ port: ports.API });
         ports.Gateway = await get_port_1.default({ port: ports.Gateway });
         options.ipfsOptions.config = defaultsDeep_1.default(options.ipfsOptions.config, {

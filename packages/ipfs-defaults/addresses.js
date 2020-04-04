@@ -9,14 +9,17 @@ function getDefaultAddressesPorts(ports, type = 'js') {
     if (type === 'go') {
         config = {
             Swarm: (ports === null || ports === void 0 ? void 0 : ports.Swarm) || 4001,
+            Swarm2: (ports === null || ports === void 0 ? void 0 : ports.Swarm2) || 4001,
             API: (ports === null || ports === void 0 ? void 0 : ports.API) || 5001,
             Gateway: (ports === null || ports === void 0 ? void 0 : ports.Gateway) || 8080,
         };
     }
     else {
-        const s = (ports === null || ports === void 0 ? void 0 : ports.Swarm) || 4002;
+        const Swarm = (ports === null || ports === void 0 ? void 0 : ports.Swarm) || 4002;
+        const Swarm2 = (ports === null || ports === void 0 ? void 0 : ports.Swarm2) || Swarm + 1;
         config = {
-            Swarm: s,
+            Swarm,
+            Swarm2,
             API: (ports === null || ports === void 0 ? void 0 : ports.API) || 5002,
             Gateway: (ports === null || ports === void 0 ? void 0 : ports.Gateway) || 9090,
         };
@@ -31,18 +34,17 @@ function createDefaultAddresses(ports, type = 'js') {
         config = {
             Swarm: [
                 `/ip4/0.0.0.0/tcp/${ports.Swarm}`,
-                `/ip6/::/tcp/${ports.Swarm}`,
+                `/ip6/::/tcp/${ports.Swarm2}`,
             ],
             API: `/ip4/127.0.0.1/tcp/${ports.API}`,
             Gateway: `/ip4/127.0.0.1/tcp/${ports.Gateway}`,
         };
     }
     else {
-        let s = ports.Swarm;
         config = {
             Swarm: [
-                `/ip4/0.0.0.0/tcp/${s}`,
-                `/ip4/127.0.0.1/tcp/${s + 1}/ws`,
+                `/ip4/0.0.0.0/tcp/${ports.Swarm}`,
+                `/ip4/127.0.0.1/tcp/${ports.Swarm2}/ws`,
             ],
             API: `/ip4/127.0.0.1/tcp/${ports.API}`,
             Gateway: `/ip4/127.0.0.1/tcp/${ports.Gateway}`,

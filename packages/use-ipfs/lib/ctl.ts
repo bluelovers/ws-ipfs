@@ -18,6 +18,7 @@ export async function startIPFS(options?: IOptions)
 		let ports = getDefaultAddressesPorts({}, options.type);
 
 		ports.Swarm = await getPort({port: ports.Swarm as number});
+		ports.Swarm2 = await getPort({port: ports.Swarm2 as number});
 		ports.API = await getPort({port: ports.API as number});
 		ports.Gateway = await getPort({port: ports.Gateway as number});
 
