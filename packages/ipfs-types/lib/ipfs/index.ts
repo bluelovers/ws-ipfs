@@ -1,4 +1,4 @@
-import { IVersion, IId } from './types';
+
 import { IIPFSFileApi } from './file';
 import { IIPFSDagApi } from './dag';
 import { IIPFSRefsApi } from './refs';
@@ -9,6 +9,7 @@ import { IApiOptions } from '../options';
 import { IIPFSFilesApi } from './files';
 import { IIPFSSwarmApi } from './swarm';
 import { IIPFSPubsubApi } from './pubsub';
+import { IId, IVersion } from '../types';
 
 export interface IIPFSApiReturnType
 {

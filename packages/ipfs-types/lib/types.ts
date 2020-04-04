@@ -1,5 +1,6 @@
 import CID from 'cids';
 import { DAGNode, DAGLink } from 'ipld-dag-pb';
+import { IMultiaddr } from './ipfs/types';
 
 export type ICallback<T, E = Error, R = void> = (error: E, result?: T) => R;
 
@@ -61,3 +62,19 @@ export type IDagNodeValue = IDagNodeCbor | IDagNode | {
 
 export type IDagFormat = string | 'dag-pb' | 'dag-cbor';
 export type IDagHashAlg = string | 'sha2-256' | 'sha3-512';
+
+export interface IVersion
+{
+	version: string;
+	repo: string;
+	commit: string;
+}
+
+export interface IId
+{
+	id: string;
+	publicKey: string;
+	addresses: IMultiaddr[];
+	agentVersion: string;
+	protocolVersion: string;
+}

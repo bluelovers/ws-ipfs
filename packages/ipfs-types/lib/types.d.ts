@@ -1,6 +1,7 @@
 /// <reference types="node" />
 import CID from 'cids';
 import { DAGNode, DAGLink } from 'ipld-dag-pb';
+import { IMultiaddr } from './ipfs/types';
 export declare type ICallback<T, E = Error, R = void> = (error: E, result?: T) => R;
 export declare type IParametersWithCallbackWithMaybeArgv<T, Argv1 = any, E = Error> = [ICallback<T, E>] | [Argv1, ICallback<T, E>];
 export interface IErrorLike {
@@ -41,3 +42,15 @@ export declare type IDagNodeValue = IDagNodeCbor | IDagNode | {
 };
 export declare type IDagFormat = string | 'dag-pb' | 'dag-cbor';
 export declare type IDagHashAlg = string | 'sha2-256' | 'sha3-512';
+export interface IVersion {
+    version: string;
+    repo: string;
+    commit: string;
+}
+export interface IId {
+    id: string;
+    publicKey: string;
+    addresses: IMultiaddr[];
+    agentVersion: string;
+    protocolVersion: string;
+}

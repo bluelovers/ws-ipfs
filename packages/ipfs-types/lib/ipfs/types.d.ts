@@ -21,18 +21,6 @@ export interface ITypes {
     multihash: IMultihash;
     CID: ICIDObject;
 }
-export interface IVersion {
-    version: string;
-    repo: string;
-    commit: string;
-}
-export interface IId {
-    id: string;
-    publicKey: string;
-    addresses: IMultiaddr[];
-    agentVersion: string;
-    protocolVersion: string;
-}
 /**
  * @deprecated
  */
