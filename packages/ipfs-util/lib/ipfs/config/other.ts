@@ -3,6 +3,7 @@ import { setConfigIfNotExistsLazy } from '../../util/setConfigIfNotExists';
 import ipfsBootstrapList from 'ipfs-server-list/bootstrap';
 import { array_unique } from 'array-hyper-unique';
 import { IIPFSPromiseApi } from 'ipfs-types';
+import ipfsApiType from 'ipfs-api-type';
 
 export function configOthers(ipfs: IIPFSConfigApi)
 {
@@ -15,12 +16,9 @@ export function configOthers(ipfs: IIPFSConfigApi)
 		[
 			'Addresses.Swarm', async (oldValue: string[], key, ipfs: IIPFSPromiseApi) =>
 		{
-			let bool = await ipfs.version()
-				.then((data: any) => !data?.Golang)
-				.catch(e => null)
-			;
+			const apiType = await ipfsApiType(ipfs)
 
-			if (bool)
+			if (apiType === 'js')
 			{
 				oldValue = oldValue ?? [];
 

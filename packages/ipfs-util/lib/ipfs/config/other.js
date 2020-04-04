@@ -7,6 +7,7 @@ exports.configOthers = void 0;
 const setConfigIfNotExists_1 = require("../../util/setConfigIfNotExists");
 const bootstrap_1 = __importDefault(require("ipfs-server-list/bootstrap"));
 const array_hyper_unique_1 = require("array-hyper-unique");
+const ipfs_api_type_1 = __importDefault(require("ipfs-api-type"));
 function configOthers(ipfs) {
     const wss = '/dns4/ws-star.discovery.libp2p.io/tcp/443/wss/p2p-websocket-star';
     const bs = array_hyper_unique_1.array_unique(bootstrap_1.default);
@@ -16,10 +17,8 @@ function configOthers(ipfs) {
         [
             'Addresses.Swarm',
             async (oldValue, key, ipfs) => {
-                let bool = await ipfs.version()
-                    .then((data) => !(data === null || data === void 0 ? void 0 : data.Golang))
-                    .catch(e => null);
-                if (bool) {
+                const apiType = await ipfs_api_type_1.default(ipfs);
+                if (apiType === 'js') {
                     oldValue = oldValue !== null && oldValue !== void 0 ? oldValue : [];
                     if (!oldValue.includes(wss)) {
                         oldValue.push(wss);

@@ -46,11 +46,13 @@ export interface IVersion {
     version: string;
     repo: string;
     commit: string;
+    system?: string | 'amd64/windows';
+    golang?: string;
 }
 export interface IId {
     id: string;
     publicKey: string;
     addresses: IMultiaddr[];
     agentVersion: string;
-    protocolVersion: string;
+    protocolVersion: string | '9000' | 'ipfs/0.1.0';
 }

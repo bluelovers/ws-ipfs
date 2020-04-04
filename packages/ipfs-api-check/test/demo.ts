@@ -3,12 +3,13 @@ import ipfsServerList from 'ipfs-server-list';
 import { IIPFSPromiseApi } from 'ipfs-types/lib/ipfs/index';
 import checkAll from '../index';
 import { inspect } from 'util';
+import ipfsApiType from 'ipfs-api-type';
 
 inspect.defaultOptions.colors = true;
 inspect.defaultOptions.depth = 5;
 
 useIPFS({
-	disposable: true,
+	//disposable: true,
 }, {
 	//serverAddr: ipfsServerList['infura.io'].API,
 	//skipCheck: true,
@@ -22,6 +23,8 @@ useIPFS({
 
 		console.log(`[ipfsType]`, ipfsType)
 		console.log(`[ipfsd.path]`, ipfsd?.path)
+
+		console.log(await ipfsApiType(ipfs))
 
 		console.dir(await checkAll(ipfs))
 

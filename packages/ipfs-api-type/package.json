@@ -1,8 +1,8 @@
 {
-  "name": "ipfs-util-lib",
-  "version": "1.0.25",
+  "name": "ipfs-api-type",
+  "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-util#readme",
+  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-api-type#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-ipfs/issues"
   },
@@ -27,23 +27,11 @@
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
-  "dependencies": {
-    "array-hyper-unique": "^1.1.0",
-    "debug-color2": "^1.1.7",
-    "get-stream": "^5.1.0",
-    "ipfs-api-type": "^1.0.0",
-    "ipfs-server-list": "^1.0.26",
-    "ipfs-types": "^1.0.18",
-    "micromatch": "^4.0.2",
-    "multiaddr-to-uri": "^5.1.0",
-    "multiaddr-to-url": "^1.0.2"
-  },
   "devDependencies": {
-    "@types/micromatch": "^4.0.1"
+    "@types/node-fetch": "*",
+    "cross-fetch": "^3.0.4"
   },
-  "peerDependencies": {
-    "@bluelovers/fast-glob": "^3.0.4",
-    "fast-glob": "^3.2.2"
-  },
-  "gitHead": "c95462e3df4ad248947758bd378950eb658cc02a"
+  "dependencies": {
+    "ipfs-types": "^1.0.18"
+  }
 }
