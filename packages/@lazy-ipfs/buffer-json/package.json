@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/buffer-json",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/@lazy-ipfs/buffer-json#readme",
   "bugs": {
@@ -27,7 +27,6 @@
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
-  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   }
