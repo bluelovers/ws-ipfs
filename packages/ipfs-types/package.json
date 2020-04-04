@@ -33,5 +33,6 @@
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19"
-  }
+  },
+  "gitHead": "a2d0de6a4977f06253639f05892e96b52609d3eb"
 }
