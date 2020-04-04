@@ -25,6 +25,9 @@ function configOthers(ipfs) {
                         oldValue.push(wss);
                     }
                 }
+                else {
+                    return Promise.reject(oldValue);
+                }
                 return oldValue;
             },
             {

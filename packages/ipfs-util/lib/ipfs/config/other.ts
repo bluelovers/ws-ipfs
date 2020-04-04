@@ -29,6 +29,10 @@ export function configOthers(ipfs: IIPFSConfigApi)
 					oldValue.push(wss)
 				}
 			}
+			else
+			{
+				return Promise.reject(oldValue)
+			}
 
 			return oldValue
 		},
