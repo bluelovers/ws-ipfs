@@ -3,27 +3,28 @@ import { Buffer } from "buffer";
 import catIPFS from './ipfs';
 import Bluebird from 'bluebird';
 import isErrorCode from 'is-error-code';
-import { newAbortController, handleTimeout, handleCID } from './util';
+import { newAbortController, handleTimeout, handleCID, IFetchOptions } from './util';
+import { IOptionsInput } from 'to-ipfs-url';
 
-export async function fetchIPFS(cid: string, useIPFS?, timeout?: number)
+export async function fetchIPFS(cid: string, useIPFS?, timeout?: number, options: IFetchOptions = {})
 {
-	cid = handleCID(cid, useIPFS)
+	cid = handleCID(cid, useIPFS, options)
 
 	return fetchIPFSCore(cid, useIPFS, timeout)
 }
 
-export async function fetchIPFSCore(cid: string, useIPFS?, timeout?: number)
+export async function fetchIPFSCore(cidLink: string, useIPFS?, timeout?: number, options: IFetchOptions = {})
 {
 	timeout = handleTimeout(timeout);
 
 	if (useIPFS)
 	{
-		return catIPFS(cid, useIPFS, timeout)
+		return catIPFS(cidLink, useIPFS, timeout)
 	}
 
 	const { controller, timer } = newAbortController(timeout);
 
-	return Bluebird.resolve(fetch(cid, {
+	return Bluebird.resolve(fetch(cidLink, {
 			redirect: 'follow',
 			// @ts-ignore
 			timeout,

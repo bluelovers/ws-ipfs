@@ -6,7 +6,8 @@
 import { IIPFSPromiseApi } from 'ipfs-types';
 import { IIPFSClientAddresses } from '@bluelovers/ipfs-http-client';
 import { ITSValueOrArray } from 'ts-type';
+import { IFetchOptions } from './util';
 export declare function raceFetchIPFS(cid: string, useIPFS: ITSValueOrArray<(string | IIPFSPromiseApi | IIPFSClientAddresses)>, timeout?: number, options?: {
     filter?(buf: Buffer): boolean;
-}): import("bluebird")<Buffer>;
+} & IFetchOptions): import("bluebird")<Buffer>;
 export default raceFetchIPFS;

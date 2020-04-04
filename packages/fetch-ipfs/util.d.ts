@@ -2,6 +2,7 @@
 import AbortController from 'abort-controller';
 import { IOptionsInput } from 'to-ipfs-url';
 import { IIPFSClientAddresses } from '@bluelovers/ipfs-http-client';
+export declare type IFetchOptions = Exclude<IOptionsInput, string>;
 export declare function newAbortController(timeout: number): {
     controller: AbortController;
     timer: NodeJS.Timeout;

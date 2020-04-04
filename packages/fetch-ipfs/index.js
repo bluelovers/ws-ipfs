@@ -10,18 +10,18 @@ const ipfs_1 = __importDefault(require("./ipfs"));
 const bluebird_1 = __importDefault(require("bluebird"));
 const is_error_code_1 = __importDefault(require("is-error-code"));
 const util_1 = require("./util");
-async function fetchIPFS(cid, useIPFS, timeout) {
-    cid = util_1.handleCID(cid, useIPFS);
+async function fetchIPFS(cid, useIPFS, timeout, options = {}) {
+    cid = util_1.handleCID(cid, useIPFS, options);
     return fetchIPFSCore(cid, useIPFS, timeout);
 }
 exports.fetchIPFS = fetchIPFS;
-async function fetchIPFSCore(cid, useIPFS, timeout) {
+async function fetchIPFSCore(cidLink, useIPFS, timeout, options = {}) {
     timeout = util_1.handleTimeout(timeout);
     if (useIPFS) {
-        return ipfs_1.default(cid, useIPFS, timeout);
+        return ipfs_1.default(cidLink, useIPFS, timeout);
     }
     const { controller, timer } = util_1.newAbortController(timeout);
-    return bluebird_1.default.resolve(cross_fetch_1.default(cid, {
+    return bluebird_1.default.resolve(cross_fetch_1.default(cidLink, {
         redirect: 'follow',
         // @ts-ignore
         timeout,

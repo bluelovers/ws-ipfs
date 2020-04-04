@@ -11,12 +11,12 @@ const array_hyper_unique_1 = require("array-hyper-unique");
 const handleClientList_1 = require("./lib/handleClientList");
 const util_1 = require("./util");
 function raceFetchIPFS(cid, useIPFS, timeout, options) {
-    const cid2 = util_1.handleCID(cid, true);
+    const cid2 = util_1.handleCID(cid, true, options);
     timeout = util_1.handleTimeout(timeout || 10 * 1000);
     return handleClientList_1.handleClientList(useIPFS, (ipfs => typeof (ipfs === null || ipfs === void 0 ? void 0 : ipfs.cat) === 'function'))
         .then(ps => {
         const ls = ps.map(ipfs => {
-            return index_1.fetchIPFSCore(cid2, ipfs, timeout);
+            return index_1.fetchIPFSCore(cid2, ipfs, timeout, options);
         });
         array_hyper_unique_1.array_unique([
             util_1.handleCID(cid, null),
@@ -27,7 +27,7 @@ function raceFetchIPFS(cid, useIPFS, timeout, options) {
             })),
         ])
             .forEach(cid => {
-            ls.push(index_1.fetchIPFSCore(cid, null, timeout));
+            ls.push(index_1.fetchIPFSCore(cid, null, timeout, options));
         });
         return p_any_1.default(ls, {
             filter(buf) {

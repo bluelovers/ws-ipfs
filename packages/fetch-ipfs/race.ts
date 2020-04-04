@@ -9,17 +9,17 @@ import { ITSValueOrArray } from 'ts-type';
 import { filterList } from 'ipfs-server-list';
 import { array_unique } from 'array-hyper-unique';
 import { handleClientList } from './lib/handleClientList';
-import { handleTimeout, handleCID } from './util';
+import { handleTimeout, handleCID, IFetchOptions } from './util';
 
 export function raceFetchIPFS(cid: string,
 	useIPFS: ITSValueOrArray<(string | IIPFSPromiseApi | IIPFSClientAddresses)>,
 	timeout?: number,
 	options?: {
 	filter?(buf: Buffer): boolean,
-	}
+	} & IFetchOptions
 )
 {
-	const cid2 = handleCID(cid, true);
+	const cid2 = handleCID(cid, true, options);
 	timeout = handleTimeout(timeout || 10 * 1000);
 
 	return handleClientList(useIPFS, (ipfs => typeof ipfs?.cat === 'function'))
@@ -28,7 +28,7 @@ export function raceFetchIPFS(cid: string,
 
 			const ls = ps.map(ipfs =>
 			{
-				return fetchIPFSCore(cid2, ipfs, timeout)
+				return fetchIPFSCore(cid2, ipfs, timeout, options)
 			});
 
 			array_unique([
@@ -41,7 +41,7 @@ export function raceFetchIPFS(cid: string,
 			])
 				.forEach(cid =>
 				{
-					ls.push(fetchIPFSCore(cid, null, timeout));
+					ls.push(fetchIPFSCore(cid, null, timeout, options));
 				})
 			;
 
