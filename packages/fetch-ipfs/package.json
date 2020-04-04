@@ -1,6 +1,6 @@
 {
   "name": "fetch-ipfs",
-  "version": "1.0.40",
+  "version": "1.0.41",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/fetch-ipfs#readme",
   "bugs": {
@@ -28,14 +28,14 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@bluelovers/ipfs-http-client": "^1.0.35",
+    "@bluelovers/ipfs-http-client": "^1.0.36",
     "abort-controller": "^3.0.0",
     "array-hyper-unique": "^1.1.0",
     "bluebird": "^3.7.2",
     "buffer": "^5.5.0",
     "cross-fetch": "^3.0.4",
-    "ipfs-types": "^1.0.16",
-    "ipfs-util-lib": "^1.0.21",
+    "ipfs-types": "^1.0.17",
+    "ipfs-util-lib": "^1.0.22",
     "is-error-code": "^1.0.0",
     "p-any": "^3.0.0",
     "to-ipfs-url": "^1.0.6",
