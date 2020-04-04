@@ -2,6 +2,7 @@ import { IIPFSConfigApi } from 'ipfs-types/lib/ipfs/config';
 import { setConfigIfNotExistsLazy } from '../../util/setConfigIfNotExists';
 import ipfsBootstrapList from 'ipfs-server-list/bootstrap';
 import { array_unique } from 'array-hyper-unique';
+import { IIPFSPromiseApi } from 'ipfs-types';
 
 export function configOthers(ipfs: IIPFSConfigApi)
 {
@@ -12,13 +13,21 @@ export function configOthers(ipfs: IIPFSConfigApi)
 		['Discovery.MDNS.Enabled', true],
 		['Discovery.webRTCStar.Enabled', true],
 		[
-			'Addresses.Swarm', (oldValue: string[]) =>
+			'Addresses.Swarm', async (oldValue: string[], key, ipfs: IIPFSPromiseApi) =>
 		{
-			oldValue = oldValue ?? [];
+			let bool = await ipfs.version()
+				.then((data: any) => !data?.Golang)
+				.catch(e => null)
+			;
 
-			if (!oldValue.includes(wss))
+			if (bool)
 			{
-				oldValue.push(wss)
+				oldValue = oldValue ?? [];
+
+				if (!oldValue.includes(wss))
+				{
+					oldValue.push(wss)
+				}
 			}
 
 			return oldValue

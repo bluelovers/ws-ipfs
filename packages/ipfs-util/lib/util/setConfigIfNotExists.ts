@@ -1,4 +1,5 @@
 import { IIPFSConfigApi } from 'ipfs-types/lib/ipfs/config';
+import { IIPFSPromiseApi } from 'ipfs-types';
 
 export type IConfigEntry = [string, IConfigEntryValue, IConfigEntryOptions?]
 
@@ -10,7 +11,7 @@ export type IConfigEntryOptions = {
 
 export type IConfigEntryFilter = (oldValue: any, key: string, ipfs: IIPFSConfigApi) => boolean | PromiseLike<boolean>;
 
-export type IConfigEntryValueFn = <T>(oldValue: T | unknown, key: string, ipfs: IIPFSConfigApi) => T | PromiseLike<T>;
+export type IConfigEntryValueFn = <T>(oldValue: T | unknown, key: string, ipfs: IIPFSPromiseApi) => T | PromiseLike<T>;
 
 export async function setConfigIfNotExistsLazy(ipfs: IIPFSConfigApi,
 	entries: IConfigEntry[],

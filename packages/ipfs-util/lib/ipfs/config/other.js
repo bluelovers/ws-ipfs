@@ -15,10 +15,15 @@ function configOthers(ipfs) {
         ['Discovery.webRTCStar.Enabled', true],
         [
             'Addresses.Swarm',
-            (oldValue) => {
-                oldValue = oldValue !== null && oldValue !== void 0 ? oldValue : [];
-                if (!oldValue.includes(wss)) {
-                    oldValue.push(wss);
+            async (oldValue, key, ipfs) => {
+                let bool = await ipfs.version()
+                    .then((data) => !(data === null || data === void 0 ? void 0 : data.Golang))
+                    .catch(e => null);
+                if (bool) {
+                    oldValue = oldValue !== null && oldValue !== void 0 ? oldValue : [];
+                    if (!oldValue.includes(wss)) {
+                        oldValue.push(wss);
+                    }
                 }
                 return oldValue;
             },
