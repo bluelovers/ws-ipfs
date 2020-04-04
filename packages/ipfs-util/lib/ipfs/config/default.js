@@ -7,6 +7,7 @@ exports.configDefaultAll = void 0;
 const pubsub_1 = __importDefault(require("./pubsub"));
 const cors_1 = __importDefault(require("./cors"));
 const swarm_1 = __importDefault(require("./swarm"));
+const other_1 = __importDefault(require("./other"));
 async function configDefaultAll(ipfs, skipCheck) {
     /**
      * skip all config if can't pass
@@ -23,6 +24,7 @@ async function configDefaultAll(ipfs, skipCheck) {
     }
     const ls = [];
     const fns = [
+        other_1.default,
         pubsub_1.default,
         cors_1.default,
         swarm_1.default,

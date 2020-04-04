@@ -8,54 +8,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fixIPFSOptions = void 0;
 const defaultsDeep_1 = __importDefault(require("lodash/defaultsDeep"));
+const ipfs_defaults_1 = require("ipfs-defaults");
 function fixIPFSOptions(options) {
+    var _a;
     options = defaultsDeep_1.default({}, options, {
         type: 'js',
         //ipfsModule: require('ipfs'),
         //ipfsHttpModule: require('ipfs-http-client'),
         //ipfsBin: require.resolve('ipfs/src/cli/bin.js'),
-        ipfsOptions: {
-            EXPERIMENTAL: {
-                pubsub: true,
-                ipnsPubsub: true,
-                sharding: true,
-                dht: true,
-            },
-            relay: {
-                enabled: true,
-                hop: {
-                    enabled: true,
-                },
-                Pubsub: {
-                    Enabled: true,
-                },
-            },
-            "Swarm": {
-                "EnableAutoNATService": true,
-                "EnableAutoRelay": true,
-                "EnableRelayHop": true
-            },
-            "API": {
-                "HTTPHeaders": {
-                    "Access-Control-Allow-Credentials": [
-                        "true"
-                    ],
-                    "Access-Control-Allow-Headers": [
-                        "Authorization"
-                    ],
-                    "Access-Control-Allow-Methods": [
-                        "GET",
-                        "POST"
-                    ],
-                    "Access-Control-Allow-Origin": [
-                        "*"
-                    ],
-                    "Access-Control-Expose-Headers": [
-                        "Location"
-                    ]
-                }
-            },
-        },
+        ipfsOptions: ipfs_defaults_1.mergeDefaultOptions({
+            config: ipfs_defaults_1.mergeDefaultConfig((_a = options === null || options === void 0 ? void 0 : options.ipfsOptions) === null || _a === void 0 ? void 0 : _a.config),
+        }),
         disposable: false,
     });
     if (options.type === 'js' || options.type === 'proc') {

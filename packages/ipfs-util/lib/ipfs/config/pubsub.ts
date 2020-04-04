@@ -3,10 +3,14 @@ import { setConfigIfNotExistsLazy } from '../../util/setConfigIfNotExists';
 
 export function configPubsub(ipfs: IIPFSConfigApi)
 {
+	const options = {
+		filter: (oldValue: any) => !oldValue
+	}
+
 	return setConfigIfNotExistsLazy(ipfs, [
-		['Pubsub.Router', 'gossipsub', (oldValue: any) => !oldValue],
-		['Pubsub.Enabled', true, (oldValue: any) => !oldValue],
-		['relay.Pubsub.Enabled', true, (oldValue: any) => !oldValue],
+		['Pubsub.Router', 'gossipsub', options],
+		['Pubsub.Enabled', true, options],
+		['relay.Pubsub.Enabled', true, options],
 	])
 }
 

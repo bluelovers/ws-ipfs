@@ -3,6 +3,7 @@ import configPubsub from './pubsub';
 import { setConfigIfNotExists } from '../../util/setConfigIfNotExists';
 import configApiCors from './cors';
 import configApiSwarm from './swarm';
+import configOthers from './other';
 
 export async function configDefaultAll(ipfs: IIPFSConfigApi, skipCheck?: boolean)
 {
@@ -27,6 +28,7 @@ export async function configDefaultAll(ipfs: IIPFSConfigApi, skipCheck?: boolean
 
 	const ls: boolean[][] = [];
 	const fns = [
+		configOthers,
 		configPubsub,
 		configApiCors,
 		configApiSwarm,

@@ -30,7 +30,8 @@
   "dependencies": {
     "@bluelovers/ipfs-http-client": "^1.0.34",
     "lodash": "^4.17.15",
-    "ts-type": "^1.2.15"
+    "ts-type": "^1.2.15",
+    "ipfs-defaults": "^1.0.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^8.1.0",

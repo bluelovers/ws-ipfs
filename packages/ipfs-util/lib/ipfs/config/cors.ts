@@ -5,19 +5,24 @@ export async function configApiCors(ipfs: IIPFSConfigApi)
 {
 	let ls: boolean[] = [];
 	let bool: boolean;
-	bool = await setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Origin', ["*"])
+	bool = await setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Origin', ['*'])
 	ls.push(bool);
 
-	bool = await setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Methods', ["GET", "POST"])
+	bool = await setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Methods', [
+		'HEAD',
+		'PUT',
+		'GET',
+		'POST',
+	])
 	ls.push(bool);
 
-	bool = await setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Headers', ["Authorization"])
+	bool = await setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Headers', ['Authorization'])
 	ls.push(bool);
 
-	bool = await setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Expose-Headers', ["Location"])
+	bool = await setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Expose-Headers', ['Location'])
 	ls.push(bool);
 
-	bool = await setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Credentials', ["true"])
+	bool = await setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Credentials', ['true'])
 	ls.push(bool);
 
 	return ls

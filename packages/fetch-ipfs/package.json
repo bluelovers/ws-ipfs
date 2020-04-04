@@ -44,7 +44,7 @@
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19",
     "@types/bluebird": "^3.5.30",
-    "scramjet": "^4.28.3"
+    "scramjet": "^4.28.4"
   },
   "gitHead": "aca769342bf1b38a4a848fa3d48681fccdcce79c"
 }

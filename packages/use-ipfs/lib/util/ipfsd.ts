@@ -4,6 +4,7 @@
 
 import { IOptions } from '../types';
 import defaultsDeep from 'lodash/defaultsDeep';
+import { mergeDefaultConfig, mergeDefaultOptions } from 'ipfs-defaults';
 
 export function fixIPFSOptions(options?: IOptions)
 {
@@ -12,48 +13,9 @@ export function fixIPFSOptions(options?: IOptions)
 		//ipfsModule: require('ipfs'),
 		//ipfsHttpModule: require('ipfs-http-client'),
 		//ipfsBin: require.resolve('ipfs/src/cli/bin.js'),
-		ipfsOptions: {
-			EXPERIMENTAL: {
-				pubsub: true,
-				ipnsPubsub: true,
-				sharding: true,
-				dht: true,
-			},
-			relay: {
-				enabled: true,
-				hop: {
-					enabled: true,
-				},
-				Pubsub: {
-					Enabled: true,
-				},
-			},
-			"Swarm": {
-				"EnableAutoNATService": true,
-				"EnableAutoRelay": true,
-				"EnableRelayHop": true
-			},
-			"API": {
-				"HTTPHeaders": {
-					"Access-Control-Allow-Credentials": [
-						"true"
-					],
-					"Access-Control-Allow-Headers": [
-						"Authorization"
-					],
-					"Access-Control-Allow-Methods": [
-						"GET",
-						"POST"
-					],
-					"Access-Control-Allow-Origin": [
-						"*"
-					],
-					"Access-Control-Expose-Headers": [
-						"Location"
-					]
-				}
-			},
-		},
+		ipfsOptions: mergeDefaultOptions({
+			config: mergeDefaultConfig(options?.ipfsOptions?.config),
+		}),
 		disposable: false,
 	});
 
