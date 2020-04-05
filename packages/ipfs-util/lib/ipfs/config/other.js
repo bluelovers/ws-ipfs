@@ -8,16 +8,16 @@ const setConfigIfNotExists_1 = require("../../util/setConfigIfNotExists");
 const bootstrap_1 = __importDefault(require("ipfs-server-list/bootstrap"));
 const array_hyper_unique_1 = require("array-hyper-unique");
 const ipfs_api_type_1 = __importDefault(require("ipfs-api-type"));
-function configOthers(ipfs) {
+async function configOthers(ipfs) {
     const wss = '/dns4/ws-star.discovery.libp2p.io/tcp/443/wss/p2p-websocket-star';
     const bs = array_hyper_unique_1.array_unique(bootstrap_1.default);
+    const apiType = await ipfs_api_type_1.default(ipfs);
     return setConfigIfNotExists_1.setConfigIfNotExistsLazy(ipfs, [
         ['Discovery.MDNS.Enabled', true],
         ['Discovery.webRTCStar.Enabled', true],
         [
             'Addresses.Swarm',
             async (oldValue, key, ipfs) => {
-                const apiType = await ipfs_api_type_1.default(ipfs);
                 if (apiType === 'js') {
                     oldValue = oldValue !== null && oldValue !== void 0 ? oldValue : [];
                     if (!oldValue.includes(wss)) {
@@ -41,6 +41,9 @@ function configOthers(ipfs) {
                 oldValue = oldValue !== null && oldValue !== void 0 ? oldValue : [];
                 bs.forEach(addr => {
                     if (!oldValue.includes(addr)) {
+                        if (apiType !== 'js' && addr.includes('/wss/')) {
+                            return;
+                        }
                         oldValue.push(addr);
                     }
                 });

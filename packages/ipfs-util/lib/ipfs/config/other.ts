@@ -5,10 +5,12 @@ import { array_unique } from 'array-hyper-unique';
 import { IIPFSPromiseApi } from 'ipfs-types';
 import ipfsApiType from 'ipfs-api-type';
 
-export function configOthers(ipfs: IIPFSConfigApi)
+export async function configOthers(ipfs: IIPFSConfigApi)
 {
 	const wss = '/dns4/ws-star.discovery.libp2p.io/tcp/443/wss/p2p-websocket-star';
 	const bs = array_unique(ipfsBootstrapList);
+
+	const apiType = await ipfsApiType(ipfs as any)
 
 	return setConfigIfNotExistsLazy(ipfs, [
 		['Discovery.MDNS.Enabled', true],
@@ -16,8 +18,6 @@ export function configOthers(ipfs: IIPFSConfigApi)
 		[
 			'Addresses.Swarm', async (oldValue: string[], key, ipfs: IIPFSPromiseApi) =>
 		{
-			const apiType = await ipfsApiType(ipfs)
-
 			if (apiType === 'js')
 			{
 				oldValue = oldValue ?? [];
@@ -49,6 +49,11 @@ export function configOthers(ipfs: IIPFSConfigApi)
 			bs.forEach(addr => {
 				if (!oldValue.includes(addr))
 				{
+					if (apiType !== 'js' && addr.includes('/wss/'))
+					{
+						return;
+					}
+
 					oldValue.push(addr)
 				}
 			});
