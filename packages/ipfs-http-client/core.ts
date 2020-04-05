@@ -1,8 +1,17 @@
-import { IIPFSClientFnWrap, IIPFSClientFn, IIPFSClientReturn, IIPFSClientParameters, IIPFSClientAddressesURL, IIPFSClientAddresses } from './lib/types';
+import {
+	IIPFSClientFnWrap,
+	IIPFSClientFn,
+	IIPFSClientReturn,
+	IIPFSClientParameters,
+	IIPFSClientAddressesURL,
+	IIPFSClientAddresses,
+} from './lib/types';
 import { checkIPFS } from 'ipfs-util-lib';
-import ipfsEnv from 'ipfs-env';
+import { getDefaultServerList } from './util';
 
 export { IIPFSClientFnWrap, IIPFSClientFn, IIPFSClientReturn, IIPFSClientParameters, IIPFSClientAddressesURL, IIPFSClientAddresses }
+
+export { getDefaultServerList }
 
 export async function some(ipfsClient: IIPFSClientFn, configs: IIPFSClientParameters[], skipCheck?: boolean): Promise<IIPFSClientReturn>
 {
@@ -25,38 +34,6 @@ export async function some(ipfsClient: IIPFSClientFn, configs: IIPFSClientParame
 	}
 
 	return ipfs
-}
-
-export function getDefaultServerList(options: {
-	urlObject?: Partial<URL>,
-} = {})
-{
-	const ipfsServerList: IIPFSClientAddresses[] = [];
-	const { IPFS_ADDRESSES_API } = ipfsEnv();
-
-	if (typeof IPFS_ADDRESSES_API === 'string' && IPFS_ADDRESSES_API.length)
-	{
-		ipfsServerList.push(IPFS_ADDRESSES_API);
-	}
-
-	const { urlObject = {
-		/**
-		 * https://github.com/ipfs/js-ipfs/blob/master/packages/ipfs-http-client/src/lib/core.js
-		 */
-		host: typeof window === 'undefined' ? void 0 : '127.0.0.1',
-		protocol: typeof window === 'undefined' ? void 0 : 'http',
-	} } = options;
-
-	ipfsServerList.push({
-		...urlObject,
-		port: '5001',
-	});
-	ipfsServerList.push({
-		...urlObject,
-		port: '5002',
-	});
-
-	return ipfsServerList
 }
 
 export function find(ipfsHttpModule: IIPFSClientFn): (ipfsServerList: IIPFSClientAddresses[], options?: {
