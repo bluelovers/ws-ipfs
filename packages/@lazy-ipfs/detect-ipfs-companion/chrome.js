@@ -7,8 +7,8 @@ exports.detectIpfsCompanion = exports.detectIpfsCompanionSync = void 0;
  */
 function detectIpfsCompanionSync(opts) {
     var _a, _b, _c, _d, _e, _f;
-    const win = (_a = opts === null || opts === void 0 ? void 0 : opts.window) !== null && _a !== void 0 ? _a : ((typeof window !== 'undefined') && window);
     try {
+        const win = (_a = opts === null || opts === void 0 ? void 0 : opts.window) !== null && _a !== void 0 ? _a : ((typeof window !== 'undefined') && window);
         const ipfs = (_f = (_e = (_d = (_c = (_b = win === null || win === void 0 ? void 0 : win.chrome) === null || _b === void 0 ? void 0 : _b.extension) === null || _c === void 0 ? void 0 : _c.getBackgroundPage) === null || _d === void 0 ? void 0 : _d.call(_c)) === null || _e === void 0 ? void 0 : _e.ipfsCompanion) === null || _f === void 0 ? void 0 : _f.ipfs;
         if (ipfs === null || ipfs === void 0) {
             return;

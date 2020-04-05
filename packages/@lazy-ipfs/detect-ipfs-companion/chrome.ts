@@ -8,10 +8,10 @@ import { IWindow, IDetectIpfsCompanionSyncParams } from './types';
  */
 export function detectIpfsCompanionSync(opts?: IDetectIpfsCompanionSyncParams)
 {
-	const win: IWindow = opts?.window ?? ((typeof window !== 'undefined') && window);
-
 	try
 	{
+		const win: IWindow = opts?.window ?? ((typeof window !== 'undefined') && window);
+
 		const ipfs: IIPFSPromiseApi = win?.chrome?.extension?.getBackgroundPage?.()?.ipfsCompanion?.ipfs;
 
 		if (ipfs === null || ipfs === void 0)
