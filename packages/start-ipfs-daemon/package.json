@@ -1,6 +1,6 @@
 {
   "name": "start-ipfs-daemon-lazy",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/start-ipfs-daemon#readme",
   "bugs": {
