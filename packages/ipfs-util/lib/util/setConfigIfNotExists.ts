@@ -28,6 +28,50 @@ export async function setConfigIfNotExistsLazy(ipfs: IIPFSConfigApi,
 	return ls
 }
 
+export function fillEntryIfNotExists<T extends any>(newValue: T[], opts?: {
+	includesFn?: (value: T,
+		index: string,
+		oldValue: (T | unknown)[],
+		key: string,
+		ipfs: IIPFSConfigApi,
+	) => boolean | PromiseLike<boolean>
+})
+{
+	return <IConfigEntryValueFn>(async (oldValue: T[], key: string, ipfs: IIPFSConfigApi) =>
+	{
+		if (typeof oldValue === 'undefined' || oldValue === null)
+		{
+			return newValue
+		}
+
+		oldValue = oldValue || [];
+
+		for (let index in newValue)
+		{
+			const value = newValue[index];
+
+			if (opts?.includesFn)
+			{
+				if (!await opts.includesFn(value, index, oldValue, key, ipfs))
+				{
+					oldValue.push(value)
+				}
+			}
+			else if (!await oldValue.includes(value))
+			{
+				oldValue.push(value)
+			}
+		}
+
+		if (!oldValue.length)
+		{
+			return Promise.reject()
+		}
+
+		return oldValue
+	})
+}
+
 export async function setConfigIfNotExists(ipfs: IIPFSConfigApi,
 	key: string,
 	value: IConfigEntryValue,

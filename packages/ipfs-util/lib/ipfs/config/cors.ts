@@ -1,5 +1,5 @@
 import { IIPFSConfigApi } from 'ipfs-types/lib/ipfs/config';
-import { setConfigIfNotExists } from '../../util/setConfigIfNotExists';
+import { setConfigIfNotExists, fillEntryIfNotExists } from '../../util/setConfigIfNotExists';
 
 export async function configApiCors(ipfs: IIPFSConfigApi)
 {
@@ -8,12 +8,13 @@ export async function configApiCors(ipfs: IIPFSConfigApi)
 	bool = await setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Origin', ['*'])
 	ls.push(bool);
 
-	bool = await setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Methods', [
+	bool = await setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Methods', fillEntryIfNotExists([
 		'HEAD',
 		'PUT',
 		'GET',
 		'POST',
-	])
+		'OPTIONS',
+	]))
 	ls.push(bool);
 
 	bool = await setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Headers', ['Authorization'])

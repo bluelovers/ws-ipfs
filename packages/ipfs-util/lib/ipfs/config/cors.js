@@ -7,12 +7,13 @@ async function configApiCors(ipfs) {
     let bool;
     bool = await setConfigIfNotExists_1.setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Origin', ['*']);
     ls.push(bool);
-    bool = await setConfigIfNotExists_1.setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Methods', [
+    bool = await setConfigIfNotExists_1.setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Methods', setConfigIfNotExists_1.fillEntryIfNotExists([
         'HEAD',
         'PUT',
         'GET',
         'POST',
-    ]);
+        'OPTIONS',
+    ]));
     ls.push(bool);
     bool = await setConfigIfNotExists_1.setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Headers', ['Authorization']);
     ls.push(bool);

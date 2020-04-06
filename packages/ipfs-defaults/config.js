@@ -16,6 +16,7 @@ function mergeDefaultConfig(config = {}) {
                     'PUT',
                     'GET',
                     'POST',
+                    'OPTIONS',
                 ],
             },
         },
