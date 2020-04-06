@@ -14,6 +14,12 @@ export interface IIPFSEnv {
      */
     IPFS_MONITORING?: string;
 }
+declare global {
+    namespace NodeJS {
+        interface ProcessEnv extends IIPFSEnv {
+        }
+    }
+}
 export interface IIPFSEnvRuntime extends IIPFSEnv {
     [key: string]: string;
 }
