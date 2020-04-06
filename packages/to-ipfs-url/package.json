@@ -2,10 +2,6 @@
   "name": "to-ipfs-url",
   "version": "1.0.6",
   "description": "create ipfs link",
-  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/to-ipfs-url#readme",
-  "bugs": {
-    "url": "https://github.com/bluelovers/ws-ipfs/issues"
-  },
   "keywords": [
     "ipfs",
     "link",
@@ -13,6 +9,10 @@
     "href",
     "ipld"
   ],
+  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/to-ipfs-url#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-ipfs/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bluelovers/ws-ipfs.git"
@@ -23,21 +23,21 @@
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
-    "ncu": "npx yarn-tool ncu -u",
-    "npm:publish": "npm publish",
-    "postpublish_": "git commit -m \"chore(release): publish\" .",
-    "prepublish:lockfile": "npx sync-lockfile .",
-    "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn test",
-    "sort-package-json": "npx yarn-tool sort",
     "test": "ts-node test/demo",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "npm:publish": "npm publish",
+    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn test",
+    "postpublish_": "git commit -m \"chore(release): publish\" .",
+    "ncu": "npx yarn-tool ncu -u",
+    "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
+  "dependencies": {
+    "is-ipfs": "^1.0.0"
+  },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19"
-  },
-  "dependencies": {
-    "is-ipfs": "^0.6.3"
   }
 }

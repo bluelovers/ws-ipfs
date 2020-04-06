@@ -16,31 +16,31 @@
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
-    "ncu": "npx yarn-tool ncu -u",
-    "npm:publish": "npm publish",
-    "postpublish_": "git commit -m \"chore(release): publish\" .",
-    "prepublish:lockfile": "npx sync-lockfile .",
-    "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
-    "sort-package-json": "npx yarn-tool sort",
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "npm:publish": "npm publish",
+    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
+    "postpublish_": "git commit -m \"chore(release): publish\" .",
+    "ncu": "npx yarn-tool ncu -u",
+    "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
-  },
-  "peerDependencies": {
-    "ipfs": "^0.42.0",
-    "ipfs-http-client": "^43.0.0"
-  },
-  "devDependencies": {
-    "@types/bluebird": "^3.5.30",
-    "ipfs": "^0.42.0",
-    "ipfs-http-client": "^43.0.0"
   },
   "dependencies": {
     "@bluelovers/ipfs-http-client": "^1.0.42",
     "bluebird": "^3.7.2",
     "ipfs-types": "^1.0.19",
     "use-ipfs": "^1.0.49"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.30",
+    "ipfs": "^0.42.0",
+    "ipfs-http-client": "^43.0.0"
+  },
+  "peerDependencies": {
+    "ipfs": "^0.42.0",
+    "ipfs-http-client": "^43.0.0"
   },
   "gitHead": "c95462e3df4ad248947758bd378950eb658cc02a"
 }
