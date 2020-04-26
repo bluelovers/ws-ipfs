@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`describe toLink:ipfs 1`] = `"https://ipfs.io/ipfs/Qmdbkxdh8tUA7zcnmcU6Nu7B7bNtubYTBjUHes799tgu83"`;
+
+exports[`describe toURL 1`] = `"https://ipfs.io/ipfs/Qmdbkxdh8tUA7zcnmcU6Nu7B7bNtubYTBjUHes799tgu83?filename=001.png"`;
