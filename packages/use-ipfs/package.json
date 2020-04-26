@@ -37,15 +37,15 @@
   },
   "devDependencies": {
     "@types/fs-extra": "^8.1.0",
-    "@types/lodash": "^4.14.149",
+    "@types/lodash": "^4.14.150",
     "fs-extra": "^9.0.0",
-    "ipfs": "^0.42.0",
-    "ipfsd-ctl": "^3.0.0"
+    "ipfs": "^0.43.0",
+    "ipfsd-ctl": "^4.0.1"
   },
   "peerDependencies": {
-    "ipfs": "^0.42.0",
-    "ipfs-http-client": "^43.0.0",
-    "ipfsd-ctl": "^3.0.0"
+    "ipfs": "^0.43.0",
+    "ipfs-http-client": "^44.0.0",
+    "ipfsd-ctl": "^4.0.1"
   },
   "gitHead": "c95462e3df4ad248947758bd378950eb658cc02a"
 }

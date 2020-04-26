@@ -32,7 +32,6 @@
     "abort-controller": "^3.0.0",
     "array-hyper-unique": "^1.1.0",
     "bluebird": "^3.7.2",
-    "buffer": "^5.5.0",
     "cross-fetch": "^3.0.4",
     "ipfs-types": "^1.0.20",
     "ipfs-util-lib": "^1.0.28",
@@ -44,7 +43,10 @@
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19",
     "@types/bluebird": "^3.5.30",
-    "scramjet": "^4.28.5"
+    "scramjet": "^4.28.7"
+  },
+  "peerDependencies": {
+    "buffer": "^5.6.0"
   },
   "gitHead": "c95462e3df4ad248947758bd378950eb658cc02a"
 }

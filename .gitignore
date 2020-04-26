@@ -85,3 +85,4 @@ jest.config.d.ts
 jest.config.js.map
 *.map
 
+!/yarn.lock

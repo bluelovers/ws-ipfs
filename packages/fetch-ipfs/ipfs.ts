@@ -1,4 +1,4 @@
-import { Buffer } from "buffer";
+//import { Buffer } from "buffer";
 import Bluebird from 'bluebird';
 import { IIPFSPromiseApi } from 'ipfs-types';
 import { newAbortController } from './util';

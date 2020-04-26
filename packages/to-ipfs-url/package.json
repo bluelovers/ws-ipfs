@@ -35,7 +35,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "is-ipfs": "^1.0.0"
+    "is-ipfs": "^1.0.3"
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19"

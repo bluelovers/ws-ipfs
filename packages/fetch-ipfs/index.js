@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fetchIPFSCore = exports.fetchIPFS = void 0;
 const cross_fetch_1 = __importDefault(require("cross-fetch"));
-const buffer_1 = require("buffer");
+//import { Buffer } from "buffer";
 const ipfs_1 = __importDefault(require("./ipfs"));
 const bluebird_1 = __importDefault(require("bluebird"));
 const is_error_code_1 = __importDefault(require("is-error-code"));
@@ -37,7 +37,7 @@ async function fetchIPFSCore(cidLink, useIPFS, timeout, options = {}) {
         }
     })
         .then(v => v.arrayBuffer())
-        .then(buf => buffer_1.Buffer.from(buf));
+        .then(buf => Buffer.from(buf));
 }
 exports.fetchIPFSCore = fetchIPFSCore;
 exports.default = fetchIPFS;

@@ -1,5 +1,5 @@
 import fetch from 'cross-fetch';
-import { Buffer } from "buffer";
+//import { Buffer } from "buffer";
 import catIPFS from './ipfs';
 import Bluebird from 'bluebird';
 import isErrorCode from 'is-error-code';

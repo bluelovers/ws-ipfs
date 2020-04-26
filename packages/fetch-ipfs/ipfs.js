@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.catIPFS = exports.refIPFS = void 0;
-const buffer_1 = require("buffer");
+//import { Buffer } from "buffer";
 const bluebird_1 = __importDefault(require("bluebird"));
 const util_1 = require("./util");
 function refIPFS(cid, ipfs, timeout) {
@@ -46,7 +46,7 @@ function catIPFS(cid, ipfs, timeout) {
         })) {
             chunks.push(chunk);
         }
-        return buffer_1.Buffer.concat(chunks);
+        return Buffer.concat(chunks);
     })
         .finally(() => clearTimeout(timer));
 }

@@ -1,7 +1,7 @@
 'use strict'
 
 import globalThis from 'ipfs-utils/src//globalthis';
-import { Buffer } from 'buffer';
+//import { Buffer } from 'buffer';
 import errCode from 'err-code';
 import { isFileObject, isBloby, isBytes} from '../util/type-check';
 import { toBuffer } from '../util/type-convert';

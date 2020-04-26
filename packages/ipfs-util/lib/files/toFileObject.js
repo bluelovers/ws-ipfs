@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.readBlob = exports.browserStreamToIt = exports.blobToAsyncGenerator = exports.toAsyncIterable = exports.toFileObject = exports.normaliseInput = void 0;
 const globalthis_1 = __importDefault(require("ipfs-utils/src//globalthis"));
-const buffer_1 = require("buffer");
+//import { Buffer } from 'buffer';
 const err_code_1 = __importDefault(require("err-code"));
 const type_check_1 = require("../util/type-check");
 const type_convert_1 = require("../util/type-convert");
@@ -253,7 +253,7 @@ async function* readBlob(blob, options) {
         if (data == null) {
             return;
         }
-        yield buffer_1.Buffer.from(data);
+        yield Buffer.from(data);
     }
 }
 exports.readBlob = readBlob;
