@@ -1,6 +1,6 @@
 {
   "name": "start-ipfs-daemon-lazy",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/start-ipfs-daemon#readme",
   "bugs": {
@@ -27,6 +27,5 @@
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
-  "devDependencies": {},
   "gitHead": "936a31e7a92cdb3641d2445a506eb6bb27540098"
 }
