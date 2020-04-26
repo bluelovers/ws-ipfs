@@ -1,9 +1,0 @@
-node_modules/
-dist/*.js.map
-keystore/
-keystore-test/
-test
-.circleci
-conf
-examples
-Makefile
