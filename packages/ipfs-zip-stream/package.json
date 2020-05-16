@@ -28,13 +28,13 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@types/jszip": "^3.1.7",
+    "@types/jszip": "^3.4.1",
     "jszip": "^3.4.0",
-    "ts-type": "^1.2.15"
+    "ts-type": "^1.2.16"
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19",
-    "@types/bluebird": "^3.5.30",
+    "@types/bluebird": "^3.5.31",
     "bluebird": "^3.7.2"
   }
 }

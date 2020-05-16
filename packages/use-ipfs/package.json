@@ -33,19 +33,19 @@
     "get-port": "^5.1.1",
     "ipfs-defaults": "^1.0.10",
     "lodash": "^4.17.15",
-    "ts-type": "^1.2.15"
+    "ts-type": "^1.2.16"
   },
   "devDependencies": {
-    "@types/fs-extra": "^8.1.0",
-    "@types/lodash": "^4.14.150",
+    "@types/fs-extra": "^9.0.0",
+    "@types/lodash": "^4.14.151",
     "fs-extra": "^9.0.0",
-    "ipfs": "^0.43.0",
-    "ipfsd-ctl": "^4.0.1"
+    "ipfs": "^0.43.3",
+    "ipfsd-ctl": "^4.1.1"
   },
   "peerDependencies": {
-    "ipfs": "^0.43.0",
-    "ipfs-http-client": "^44.0.0",
-    "ipfsd-ctl": "^4.0.1"
+    "ipfs": "^0.43.3",
+    "ipfs-http-client": "^44.0.3",
+    "ipfsd-ctl": "^4.1.1"
   },
   "gitHead": "c95462e3df4ad248947758bd378950eb658cc02a"
 }

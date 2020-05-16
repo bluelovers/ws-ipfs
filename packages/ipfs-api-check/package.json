@@ -34,13 +34,13 @@
     "use-ipfs": "^1.0.51"
   },
   "devDependencies": {
-    "@types/bluebird": "^3.5.30",
-    "ipfs": "^0.43.0",
-    "ipfs-http-client": "^44.0.0"
+    "@types/bluebird": "^3.5.31",
+    "ipfs": "^0.43.3",
+    "ipfs-http-client": "^44.0.3"
   },
   "peerDependencies": {
-    "ipfs": "^0.43.0",
-    "ipfs-http-client": "^44.0.0"
+    "ipfs": "^0.43.3",
+    "ipfs-http-client": "^44.0.3"
   },
   "gitHead": "c95462e3df4ad248947758bd378950eb658cc02a"
 }

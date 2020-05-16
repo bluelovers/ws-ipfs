@@ -38,12 +38,12 @@
     "is-error-code": "^1.0.0",
     "p-any": "^3.0.0",
     "to-ipfs-url": "^1.0.9",
-    "ts-type": "^1.2.15"
+    "ts-type": "^1.2.16"
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19",
-    "@types/bluebird": "^3.5.30",
-    "scramjet": "^4.28.7"
+    "@types/bluebird": "^3.5.31",
+    "scramjet": "^4.29.1"
   },
   "peerDependencies": {
     "buffer": "^5.6.0"

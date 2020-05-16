@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@types/bl": "^2.1.0",
-    "ts-type": "^1.2.15"
+    "ts-type": "^1.2.16"
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19"

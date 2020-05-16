@@ -22,13 +22,13 @@
     "is-ipfs": ">= 0.6.3"
   },
   "dependencies": {
-    "jest": "^25.4.0",
-    "ts-jest": "^25.4.0"
+    "jest": "^26.0.1",
+    "ts-jest": "^26.0.0"
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19",
-    "@types/jest": "^25.2.1",
-    "@types/node": "^13.13.2"
+    "@types/jest": "^25.2.2",
+    "@types/node": "^14.0.1"
   },
   "peerDependencies": {
     "lerna": "^3"

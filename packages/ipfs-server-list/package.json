@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "ipfs-types": "^1.0.20",
-    "ts-type": "^1.2.15"
+    "ts-type": "^1.2.16"
   },
   "gitHead": "a2d0de6a4977f06253639f05892e96b52609d3eb"
 }
