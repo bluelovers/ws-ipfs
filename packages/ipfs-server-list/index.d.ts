@@ -12,14 +12,17 @@ export declare type IIPFSAddressesLike = ITSRequireAtLeastOne<{
      * base32.cf-ipfs.com
      */
     GatewayDomain?: string;
+    btfsGateway?: string;
 }> & {
     /**
      * @deprecated
      */
     limit?: ITSRequireAtLeastOne<ILimit>;
+    name?: string;
+    description?: string;
 };
-export declare function getIpfsServerList(): Record<"ipfs" | "infura.io" | "cloudflare" | "ipfs.gateway" | "bdaily" | "globalupload" | "pinata" | "hardbin" | "eternum" | "temporal" | "sloppyta" | "dweb" | "greyh" | "jorropo" | "jeroendeneef" | "2read" | "runfission" | "best-practice" | "privacytools" | "trusti" | "stibarc", IIPFSAddressesLike> & Record<string, IIPFSAddressesLike>;
+export declare function getIpfsServerList(): Record<"ipfs" | "infura.io" | "cloudflare" | "ipfs.gateway" | "bdaily" | "globalupload" | "pinata" | "hardbin" | "eternum" | "temporal" | "sloppyta" | "dweb" | "greyh" | "jorropo" | "jeroendeneef" | "2read" | "runfission" | "best-practice" | "privacytools" | "trusti" | "stibarc" | "fleek" | "d.tube" | "d.tube2", IIPFSAddressesLike> & Record<string, IIPFSAddressesLike>;
 export declare function getIpfsLocalList(): Record<"go-ipfs" | "js-ipfs", IIPFSAddressesLike> & Record<string, IIPFSAddressesLike>;
 export declare function filterList<K extends keyof IIPFSAddressesLike>(key: K, serverList?: Record<string, IIPFSAddressesLike>): IIPFSAddressesLike[K][];
-export declare const ipfsServerList: Record<"ipfs" | "infura.io" | "cloudflare" | "ipfs.gateway" | "bdaily" | "globalupload" | "pinata" | "hardbin" | "eternum" | "temporal" | "sloppyta" | "dweb" | "greyh" | "jorropo" | "jeroendeneef" | "2read" | "runfission" | "best-practice" | "privacytools" | "trusti" | "stibarc", IIPFSAddressesLike> & Record<string, IIPFSAddressesLike>;
+export declare const ipfsServerList: Record<"ipfs" | "infura.io" | "cloudflare" | "ipfs.gateway" | "bdaily" | "globalupload" | "pinata" | "hardbin" | "eternum" | "temporal" | "sloppyta" | "dweb" | "greyh" | "jorropo" | "jeroendeneef" | "2read" | "runfission" | "best-practice" | "privacytools" | "trusti" | "stibarc" | "fleek" | "d.tube" | "d.tube2", IIPFSAddressesLike> & Record<string, IIPFSAddressesLike>;
 export default ipfsServerList;

@@ -14,11 +14,16 @@ export type IIPFSAddressesLike = ITSRequireAtLeastOne<{
 	 * base32.cf-ipfs.com
 	 */
 	GatewayDomain?: string,
+
+	btfsGateway?: string,
 }> & {
 	/**
 	 * @deprecated
 	 */
 	limit?: ITSRequireAtLeastOne<ILimit>,
+
+	name?: string,
+	description?: string,
 };
 
 export function getIpfsServerList()
@@ -113,6 +118,25 @@ export function getIpfsServerList()
 		},
 		'stibarc': {
 			Gateway: 'https://ipfs.stibarc.com/ipfs/',
+		},
+		/**
+		 * https://fleek.co/
+		 */
+		'fleek': {
+			Gateway: 'https://ipfs.fleek.co/ipfs/',
+			IPNS: 'https://ipfs.fleek.co/ipns/',
+			GatewayDomain: '.on.fleek.co',
+		},
+		'd.tube': {
+			name: 'DTube',
+
+			Gateway: 'https://snap1.d.tube/ipfs/',
+			btfsGateway: 'https://player.d.tube/btfs/',
+		},
+		'd.tube2': {
+			name: 'DTube',
+
+			btfsGateway: 'https://sprite.d.tube/btfs/',
 		},
 	} as const;
 
