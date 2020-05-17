@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.cidToBase32 = void 0;
-const cids_1 = __importDefault(require("cids"));
+const to_cid_1 = __importDefault(require("@lazy-ipfs/to-cid"));
 /**
  * https://blog.cloudflare.com/continuing-to-improve-our-ipfs-gateway/
  * @example
@@ -12,8 +12,7 @@ const cids_1 = __importDefault(require("cids"));
  * console.dir(cidToBase32('QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco'))
  */
 function cidToBase32(cid) {
-    cid = new cids_1.default(cid);
-    return cid.toV1().toBaseEncodedString('base32');
+    return to_cid_1.default(cid).toV1().toBaseEncodedString('base32');
 }
 exports.cidToBase32 = cidToBase32;
 //# sourceMappingURL=index.js.map

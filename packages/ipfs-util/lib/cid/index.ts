@@ -3,6 +3,7 @@
  */
 import { ICIDValue } from 'ipfs-types/lib/types';
 import CID from 'cids';
+import toCID, { ICIDValueInput } from '@lazy-ipfs/to-cid';
 
 /**
  * https://blog.cloudflare.com/continuing-to-improve-our-ipfs-gateway/
@@ -10,9 +11,7 @@ import CID from 'cids';
  * console.dir(cidToBase32(new CID('QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco')))
  * console.dir(cidToBase32('QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco'))
  */
-export function cidToBase32(cid: ICIDValue): string
+export function cidToBase32(cid: ICIDValueInput): string
 {
-	cid = new CID(cid as any);
-
-	return cid.toV1().toBaseEncodedString('base32')
+	return toCID(cid).toV1().toBaseEncodedString('base32')
 }
