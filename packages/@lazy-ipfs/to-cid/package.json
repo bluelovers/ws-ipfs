@@ -16,7 +16,7 @@
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "yarn run test:jest",
     "test:jest": "jest --coverage",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "npm:publish": "npm publish",
@@ -28,6 +28,9 @@
     "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
+  },
+  "dependencies": {
+    "ipfs-types": "^1.0.20"
   },
   "peerDependencies": {
     "cids": "^0.8.0"

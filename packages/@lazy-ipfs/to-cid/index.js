@@ -35,8 +35,8 @@ function assertRawCIDLike(cid) {
 }
 exports.assertRawCIDLike = assertRawCIDLike;
 function isRawCIDLike(cid) {
-    var _a, _b, _c;
-    return (!isUndefined(cid === null || cid === void 0 ? void 0 : cid.version) && ((_a = cid === null || cid === void 0 ? void 0 : cid.codec) === null || _a === void 0 ? void 0 : _a.length) && ((_b = cid === null || cid === void 0 ? void 0 : cid.multihash) === null || _b === void 0 ? void 0 : _b.length) && ((_c = cid === null || cid === void 0 ? void 0 : cid.multibaseName) === null || _c === void 0 ? void 0 : _c.length));
+    var _a, _b;
+    return (!isUndefined(cid === null || cid === void 0 ? void 0 : cid.version) && ((_a = cid === null || cid === void 0 ? void 0 : cid.codec) === null || _a === void 0 ? void 0 : _a.length) && ((_b = cid === null || cid === void 0 ? void 0 : cid.multihash) === null || _b === void 0 ? void 0 : _b.length));
 }
 exports.isRawCIDLike = isRawCIDLike;
 function toRawCID(cid) {

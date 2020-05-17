@@ -3,14 +3,16 @@
  */
 /// <reference types="node" />
 import CID from 'cids';
+import { ICIDValue } from 'ipfs-types/lib/types';
 export declare const SymbolCID: unique symbol;
 export declare type IRawCIDVersion = 0 | 1;
 export interface IRawCID {
     version: IRawCIDVersion;
     codec: string;
     multihash: Buffer;
-    multibaseName: string;
+    multibaseName?: string;
 }
+export declare type ICIDValueInput = ICIDValue | IRawCID | Buffer;
 export declare type IStaticCID<C extends CID = CID> = {
     new (version: 0 | 1, codec: string, multhash: Buffer, multibaseName?: string): C;
     new (cid: C): C;

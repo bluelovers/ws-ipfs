@@ -3,6 +3,7 @@
  */
 
 import CID from 'cids';
+import { ICIDValue } from 'ipfs-types/lib/types';
 
 const symbolName = '@ipld/js-cid/CID';
 export const SymbolCID = Symbol.for(symbolName);
@@ -14,8 +15,10 @@ export interface IRawCID
 	version: IRawCIDVersion;
 	codec: string;
 	multihash: Buffer;
-	multibaseName: string;
+	multibaseName?: string;
 }
+
+export type ICIDValueInput = ICIDValue | IRawCID | Buffer;
 
 export type IStaticCID<C extends CID = CID> = {
 	new(
@@ -65,7 +68,7 @@ export function assertRawCIDLike(cid: any): asserts cid is IRawCID
 
 export function isRawCIDLike(cid: any): cid is IRawCID
 {
-	return (!isUndefined(cid?.version) && cid?.codec?.length && cid?.multihash?.length && cid?.multibaseName?.length)
+	return (!isUndefined(cid?.version) && cid?.codec?.length && cid?.multihash?.length)
 }
 
 export function toRawCID<C extends CID = CID>(cid: CID | IRawCID): IRawCID
