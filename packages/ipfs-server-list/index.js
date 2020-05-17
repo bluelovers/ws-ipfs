@@ -44,6 +44,17 @@ function getIpfsServerList() {
         'ipfs.gateway': {
             Gateway: 'https://gateway.ipfs.io/ipfs/',
         },
+        'dweb': {
+            GatewayDomain: '.ipfs.dweb.link',
+        },
+        /**
+         * https://fleek.co/
+         */
+        'fleek': {
+            Gateway: 'https://ipfs.fleek.co/ipfs/',
+            IPNS: 'https://ipfs.fleek.co/ipns/',
+            GatewayDomain: '.on.fleek.co',
+        },
         'bdaily': {
             Gateway: 'https://gateway.bdaily.club/ipfs/',
         },
@@ -64,9 +75,6 @@ function getIpfsServerList() {
         },
         'sloppyta': {
             Gateway: 'https://ipfs.sloppyta.co/ipfs/',
-        },
-        'dweb': {
-            GatewayDomain: '.ipfs.dweb.link',
         },
         'greyh': {
             Gateway: 'https://ipfs.greyh.at/ipfs/',
@@ -95,14 +103,6 @@ function getIpfsServerList() {
         },
         'stibarc': {
             Gateway: 'https://ipfs.stibarc.com/ipfs/',
-        },
-        /**
-         * https://fleek.co/
-         */
-        'fleek': {
-            Gateway: 'https://ipfs.fleek.co/ipfs/',
-            IPNS: 'https://ipfs.fleek.co/ipns/',
-            GatewayDomain: '.on.fleek.co',
         },
         'dtube': {
             name: 'DTube',
