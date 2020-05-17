@@ -98752,6 +98752,66 @@ Object {
 }
 `;
 
+exports[`fetch-ipfs handleClientList 2`] = `
+Object {
+  "cid": Object {
+    "codec": "dag-pb",
+    "hash": Object {
+      "data": Array [
+        18,
+        32,
+        223,
+        132,
+        95,
+        120,
+        239,
+        37,
+        73,
+        105,
+        194,
+        216,
+        47,
+        210,
+        17,
+        220,
+        60,
+        70,
+        37,
+        120,
+        237,
+        137,
+        129,
+        233,
+        243,
+        67,
+        167,
+        8,
+        53,
+        32,
+        216,
+        26,
+        53,
+        116,
+      ],
+      "type": "Buffer",
+    },
+    "version": 0,
+  },
+  "path": "QmdPAhQRxrDKqkGPvQzBvjYe3kU8kiEEAd2J6ETEamKAD9",
+  "size": 98748,
+}
+`;
+
+exports[`fetch-ipfs handleClientList 3`] = `
+Object {
+  "commit": "1f0de1aaf",
+  "golang": "go1.12.13",
+  "repo": "7",
+  "system": "amd64/linux",
+  "version": "0.4.23",
+}
+`;
+
 exports[`fetch-ipfs publishToIPFSRace 1`] = `
 Array [
   Object {
