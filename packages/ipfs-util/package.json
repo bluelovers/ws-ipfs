@@ -1,6 +1,6 @@
 {
   "name": "ipfs-util-lib",
-  "version": "1.0.30",
+  "version": "1.0.31",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-util#readme",
   "bugs": {
@@ -33,7 +33,7 @@
     "debug-color2": "^1.1.7",
     "get-stream": "^5.1.0",
     "ipfs-api-type": "^1.0.3",
-    "ipfs-server-list": "^1.0.29",
+    "ipfs-server-list": "^1.0.30",
     "ipfs-types": "^1.0.21",
     "micromatch": "^4.0.2",
     "multiaddr-to-uri": "^5.1.0",
