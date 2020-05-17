@@ -28,6 +28,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
+    "@bluelovers/ipfs-http-client": "^1.0.45",
     "ipfs-types": "^1.0.21",
     "ts-type": "^1.2.16"
   },
