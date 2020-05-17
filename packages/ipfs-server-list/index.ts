@@ -64,9 +64,6 @@ export function getIpfsServerList()
 			Gateway: 'https://cloudflare-ipfs.com/ipfs/',
 			GatewayDomain: '.cf-ipfs.com',
 		},
-		'cloudflare.2': {
-			GatewayDomain: '.ipfs.cf-ipfs.com',
-		},
 		'ipfs.gateway': {
 			Gateway: 'https://gateway.ipfs.io/ipfs/',
 		},
