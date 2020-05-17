@@ -38,6 +38,9 @@ function getIpfsServerList() {
             Gateway: 'https://cloudflare-ipfs.com/ipfs/',
             GatewayDomain: '.cf-ipfs.com',
         },
+        'cloudflare.2': {
+            GatewayDomain: '.ipfs.cf-ipfs.com',
+        },
         'ipfs.gateway': {
             Gateway: 'https://gateway.ipfs.io/ipfs/',
         },
@@ -101,15 +104,37 @@ function getIpfsServerList() {
             IPNS: 'https://ipfs.fleek.co/ipns/',
             GatewayDomain: '.on.fleek.co',
         },
-        'd.tube': {
+        'dtube': {
             name: 'DTube',
             Gateway: 'https://snap1.d.tube/ipfs/',
             btfsGateway: 'https://player.d.tube/btfs/',
         },
-        'd.tube2': {
+        'dtube.2': {
             name: 'DTube',
             btfsGateway: 'https://sprite.d.tube/btfs/',
         },
+        'cosmos-ink': {
+            GatewayDomain: '.ipfs.cosmos-ink.net',
+        },
+        'storjipfs-gateway': {
+            Gateway: 'https://storjipfs-gateway.com/ipfs/',
+        },
+        'permaweb': {
+            Gateway: 'https://permaweb.io/ipfs/',
+        },
+        'cwinfo': {
+            Gateway: 'https://cdn.cwinfo.net/ipfs/',
+        },
+        'fooock': { Gateway: 'https://ipfs.fooock.com/ipfs/' },
+        'serph.network': { Gateway: 'https://gateway.serph.network/ipfs/' },
+        'busy.org': { Gateway: 'https://ipfs.busy.org/ipfs/' },
+        'doolta': { Gateway: 'https://ipfs.doolta.com/ipfs/' },
+        'originprotocol': { Gateway: 'https://gateway.originprotocol.com/ipfs/' },
+        'mrh.io': { Gateway: 'https://ipfs.mrh.io/ipfs/' },
+        'ipns.co': { Gateway: 'https://ipns.co/' },
+        'blocksec': { Gateway: 'https://gateway.blocksec.com/ipfs/' },
+        '10.via0.com': { Gateway: 'https://10.via0.com/ipfs/' },
+        'ninetailed.ninja': { Gateway: 'https://ninetailed.ninja/ipfs/' },
     };
     data;
     return data;
