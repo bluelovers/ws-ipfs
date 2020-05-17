@@ -1,6 +1,6 @@
 {
   "name": "ipfs-defaults",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-defaults#readme",
   "bugs": {
@@ -28,7 +28,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "ipfs-server-list": "^1.0.30",
+    "ipfs-server-list": "^1.0.31",
     "lodash": "^4.17.15"
   },
   "devDependencies": {
