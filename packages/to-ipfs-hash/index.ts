@@ -1,6 +1,9 @@
 import { of as hashOf } from 'ipfs-only-hash';
 
-export type IOptions = any;
+export interface IOptions
+{
+
+}
 
 export function ipfsHash(input: Buffer | string | AsyncIterable<Buffer>, options?: IOptions): Promise<string>
 {
