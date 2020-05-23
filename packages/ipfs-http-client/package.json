@@ -47,10 +47,10 @@
   "devDependencies": {
     "@types/bl": "^2.1.0",
     "bl": "^4.0.2",
-    "ipfs-http-client": "^44.0.3"
+    "ipfs-http-client": "^44.1.0"
   },
   "peerDependencies": {
-    "ipfs-http-client": "^44.0.3"
+    "ipfs-http-client": "^44.1.0"
   },
   "publishConfig": {
     "access": "public"

@@ -46,7 +46,7 @@
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19",
     "@types/bl": "^2.1.0",
-    "@types/fs-extra": "^9.0.0",
+    "@types/fs-extra": "^9.0.1",
     "ipfs-utils": "^2.2.2"
   },
   "peerDependencies": {

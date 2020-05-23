@@ -31,7 +31,7 @@
     "ipfs-types": "^1.0.21"
   },
   "devDependencies": {
-    "@types/chrome": "^0.0.112"
+    "@types/chrome": "^0.0.114"
   },
   "publishConfig": {
     "access": "public"

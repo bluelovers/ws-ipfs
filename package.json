@@ -27,8 +27,8 @@
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19",
-    "@types/jest": "^25.2.2",
-    "@types/node": "^14.0.1"
+    "@types/jest": "^25.2.3",
+    "@types/node": "^14.0.5"
   },
   "peerDependencies": {
     "lerna": "^3"

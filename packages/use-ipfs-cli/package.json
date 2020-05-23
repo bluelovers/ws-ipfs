@@ -31,8 +31,8 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "ipfs": "^0.43.3",
-    "ipfs-http-client": "^44.0.3",
+    "ipfs": "^0.44.0",
+    "ipfs-http-client": "^44.1.0",
     "ipfsd-ctl": "^4.1.1",
     "use-ipfs": "^1.0.55",
     "yargs": "^15.3.1"
