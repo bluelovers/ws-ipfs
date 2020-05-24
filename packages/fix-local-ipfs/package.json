@@ -1,6 +1,6 @@
 {
   "name": "fix-local-ipfs",
-  "version": "1.0.38",
+  "version": "1.0.39",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/fix-local-ipfs#readme",
   "bugs": {
@@ -28,10 +28,10 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@bluelovers/ipfs-http-client": "^1.0.48",
+    "@bluelovers/ipfs-http-client": "^1.0.49",
     "bluebird": "^3.7.2",
-    "ipfs-types": "^1.0.21",
-    "use-ipfs": "^1.0.55"
+    "ipfs-types": "^1.0.22",
+    "use-ipfs": "^1.0.56"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.32",

@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/ipfs-subdomain",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/@lazy-ipfs/ipfs-subdomain#readme",
   "bugs": {
@@ -30,9 +30,9 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@lazy-ipfs/to-cid": "^1.0.1",
-    "ipfs-server-list": "^1.0.32",
-    "ipfs-types": "^1.0.21"
+    "@lazy-ipfs/to-cid": "^1.0.2",
+    "ipfs-server-list": "^1.0.33",
+    "ipfs-types": "^1.0.22"
   },
   "peerDependencies": {
     "cids": "^0.8.1"
