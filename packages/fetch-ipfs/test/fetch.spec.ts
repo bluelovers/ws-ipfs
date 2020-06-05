@@ -10,8 +10,8 @@ describe(`fetch-ipfs`, () =>
 {
 
 	const testData = Object.freeze({
-		cid: `QmdPAhQRxrDKqkGPvQzBvjYe3kU8kiEEAd2J6ETEamKAD9`,
-		length: 98734,
+		cid: `Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a`,
+		length: 32,
 	})
 
 	const apis = filterList('API');
@@ -42,6 +42,7 @@ describe(`fetch-ipfs`, () =>
 	{
 
 		let data = await readFileSync(join(__dirname, 'res', 'demo.png'));
+		let cid = `QmdPAhQRxrDKqkGPvQzBvjYe3kU8kiEEAd2J6ETEamKAD9`;
 
 		let actual = await publishToIPFSRace(data, apis);
 
@@ -52,8 +53,8 @@ describe(`fetch-ipfs`, () =>
 		let target = actual[0].value[0];
 
 		expect(target).toMatchSnapshot();
-		expect(target.cid.toString()).toStrictEqual(testData.cid);
-		expect(target.path).toStrictEqual(testData.cid);
+		expect(target.cid.toString()).toStrictEqual(cid);
+		expect(target.path).toStrictEqual(cid);
 
 		done();
 	});
