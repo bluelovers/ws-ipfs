@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/bluelovers/ws-ipfs/compare/ipfs-zip-stream@1.0.10...ipfs-zip-stream@1.0.11) (2020-06-05)
+
+
+### Features
+
+* update deps ([a25ebd6](https://github.com/bluelovers/ws-ipfs/commit/a25ebd688ccfd54f164b3ff89cf6cdb2e7f6e478))
+
+
+
+
+
 ## [1.0.10](https://github.com/bluelovers/ws-ipfs/compare/ipfs-zip-stream@1.0.9...ipfs-zip-stream@1.0.10) (2020-06-05)
 
 
