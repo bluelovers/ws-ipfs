@@ -1,6 +1,6 @@
 {
   "name": "ipfs-zip-stream",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "get files from zip for ipfs.add",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-zip-stream#readme",
   "bugs": {
@@ -31,6 +31,5 @@
     "@types/jszip": "^3.4.1",
     "jszip": "^3.4.0",
     "ts-type": "^1.2.17"
-  },
-  "devDependencies": {}
+  }
 }

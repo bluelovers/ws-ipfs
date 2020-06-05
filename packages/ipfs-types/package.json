@@ -1,6 +1,6 @@
 {
   "name": "ipfs-types",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-types#readme",
   "bugs": {
@@ -31,6 +31,5 @@
     "@types/bl": "^2.1.0",
     "ts-type": "^1.2.17"
   },
-  "devDependencies": {},
   "gitHead": "a2d0de6a4977f06253639f05892e96b52609d3eb"
 }

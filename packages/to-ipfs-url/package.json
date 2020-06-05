@@ -1,6 +1,6 @@
 {
   "name": "to-ipfs-url",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "create ipfs link",
   "keywords": [
     "ipfs",
@@ -36,6 +36,5 @@
   },
   "dependencies": {
     "is-ipfs": "^1.0.3"
-  },
-  "devDependencies": {}
+  }
 }
