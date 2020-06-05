@@ -31,14 +31,12 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "ipfs": "^0.44.0",
-    "ipfs-http-client": "^44.1.0",
+    "ipfs": "^0.46.0",
+    "ipfs-http-client": "^44.2.0",
     "ipfsd-ctl": "^4.1.1",
     "use-ipfs": "^1.0.56",
     "yargs": "^15.3.1"
   },
-  "devDependencies": {
-    "@types/yargs": "^15.0.5"
-  },
+  "devDependencies": {},
   "gitHead": "c95462e3df4ad248947758bd378950eb658cc02a"
 }

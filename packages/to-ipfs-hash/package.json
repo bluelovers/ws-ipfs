@@ -40,14 +40,11 @@
   },
   "dependencies": {
     "bl": "^4.0.2",
-    "fs-extra": "^9.0.0",
+    "fs-extra": "^9.0.1",
     "ipfs-only-hash": "^2.0.1"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.19",
-    "@types/bl": "^2.1.0",
-    "@types/fs-extra": "^9.0.1",
-    "ipfs-utils": "^2.2.2"
+    "@types/bl": "^2.1.0"
   },
   "peerDependencies": {
     "ipfs-utils": "^2.2.2"

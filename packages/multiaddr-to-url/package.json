@@ -30,7 +30,5 @@
   "dependencies": {
     "multiaddr-to-uri": "^5.1.0"
   },
-  "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.19"
-  }
+  "devDependencies": {}
 }

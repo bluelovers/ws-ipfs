@@ -43,8 +43,7 @@
     "@types/micromatch": "^4.0.1"
   },
   "peerDependencies": {
-    "@bluelovers/fast-glob": "^3.0.4",
-    "fast-glob": "^3.2.2"
+    "@bluelovers/fast-glob": "^3.0.4"
   },
   "gitHead": "c95462e3df4ad248947758bd378950eb658cc02a"
 }

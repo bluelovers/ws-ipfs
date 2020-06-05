@@ -11,7 +11,7 @@ export declare function toFileObject(input: any): {
     mtime: any;
     content: any;
 };
-export declare function toAsyncIterable(input: any): AsyncGenerator<any, void, unknown> | AsyncGenerator<Buffer | ArrayBuffer | ArrayBufferView, any, unknown>;
+export declare function toAsyncIterable(input: any): AsyncGenerator<any, void, unknown> | AsyncGenerator<ArrayBuffer | ArrayBufferView | Buffer, any, unknown>;
 export declare function blobToAsyncGenerator(blob: any): AsyncGenerator<any, void, unknown>;
 export declare function browserStreamToIt(stream: any): AsyncGenerator<any, void, unknown>;
 export declare function readBlob(blob: any, options?: any): AsyncGenerator<Buffer, void, unknown>;

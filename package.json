@@ -23,12 +23,22 @@
   },
   "dependencies": {
     "jest": "^26.0.1",
-    "ts-jest": "^26.0.0"
+    "ts-jest": "^26.1.0"
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19",
+    "@types/bluebird": "^3.5.32",
+    "@types/fs-extra": "^9.0.1",
     "@types/jest": "^25.2.3",
-    "@types/node": "^14.0.5"
+    "@types/lodash": "^4.14.155",
+    "@types/node": "^14.0.11",
+    "@types/yargs": "^15.0.5",
+    "bluebird": "^3.7.2",
+    "fs-extra": "^9.0.1",
+    "ipfs": "^0.46.0",
+    "ipfs-http-client": "^44.2.0",
+    "ipfs-utils": "^2.2.2",
+    "ipfsd-ctl": "^4.1.1"
   },
   "peerDependencies": {
     "lerna": "^3"

@@ -3,7 +3,9 @@ import CID from 'cids';
 import { DAGNode, DAGLink } from 'ipld-dag-pb';
 import { IMultiaddr } from './ipfs/types';
 export declare type ICallback<T, E = Error, R = void> = (error: E, result?: T) => R;
-export declare type IParametersWithCallbackWithMaybeArgv<T, Argv1 = any, E = Error> = [ICallback<T, E>] | [Argv1, ICallback<T, E>];
+export declare type IParametersWithCallbackWithMaybeArgv<T, Argv1 = any, E = Error> = [
+    ICallback<T, E>
+] | [Argv1, ICallback<T, E>];
 export interface IErrorLike {
     message: any;
 }

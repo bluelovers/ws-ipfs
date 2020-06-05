@@ -37,7 +37,5 @@
   "dependencies": {
     "is-ipfs": "^1.0.3"
   },
-  "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.19"
-  }
+  "devDependencies": {}
 }

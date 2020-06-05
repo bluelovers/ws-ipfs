@@ -31,8 +31,6 @@
     "ipfs-server-list": "^1.0.33",
     "lodash": "^4.17.15"
   },
-  "devDependencies": {
-    "@types/lodash": "^4.14.152"
-  },
+  "devDependencies": {},
   "gitHead": "a2d0de6a4977f06253639f05892e96b52609d3eb"
 }

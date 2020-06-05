@@ -27,7 +27,5 @@
   "dependencies": {
     "pull-file-reader2": "^1.0.4"
   },
-  "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.19"
-  }
+  "devDependencies": {}
 }
