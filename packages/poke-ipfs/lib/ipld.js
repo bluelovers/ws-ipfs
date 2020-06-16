@@ -13,8 +13,8 @@ function pokeIPLD(cid, options) {
     url.searchParams.set('r', 'true');
     url.searchParams.set('arg', cid.toString());
     let fetchOptions = {};
-    let ctrl = new abort_controller_timer_1.AbortControllerTimer((options === null || options === void 0 ? void 0 : options.timeout) || 1000);
-    fetchOptions.signal = ctrl.signal;
+    let controller = new abort_controller_timer_1.AbortControllerTimer((options === null || options === void 0 ? void 0 : options.timeout) || 1000);
+    fetchOptions.signal = controller.signal;
     return cross_fetch_1.default(url.href, fetchOptions)
         .then(async (res) => {
         const { headers, status, statusText } = res;
@@ -47,7 +47,8 @@ function pokeIPLD(cid, options) {
         return {
             error,
         };
-    });
+    })
+        .finally(() => controller.clear());
 }
 exports.pokeIPLD = pokeIPLD;
 exports.default = pokeIPLD;

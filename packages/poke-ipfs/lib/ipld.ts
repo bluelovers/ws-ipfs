@@ -17,8 +17,8 @@ export function pokeIPLD(cid: ICIDValue, options?: IPokeOptions)
 
 	let fetchOptions: RequestInit = {};
 
-	let ctrl = new AbortControllerTimer(options?.timeout || 1000)
-	fetchOptions.signal = ctrl.signal;
+	let controller = new AbortControllerTimer(options?.timeout || 1000)
+	fetchOptions.signal = controller.signal;
 
 	return fetch(url.href, fetchOptions)
 		.then(async (res) =>
@@ -70,6 +70,7 @@ export function pokeIPLD(cid: ICIDValue, options?: IPokeOptions)
 				error: Error;
 			}>
 		})
+		.finally(() => controller.clear())
 }
 
 export default pokeIPLD

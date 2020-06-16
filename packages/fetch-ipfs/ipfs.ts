@@ -28,7 +28,7 @@ export function refIPFS(cid: string, ipfs: IIPFSPromiseApi, timeout?: number)
 				}
 			}
 		})
-		.finally(() => clearTimeout(timer))
+		.finally(() => controller.clear())
 }
 
 export function catIPFS(cid: string, ipfs: IIPFSPromiseApi, timeout?: number)
@@ -60,7 +60,7 @@ export function catIPFS(cid: string, ipfs: IIPFSPromiseApi, timeout?: number)
 			}
 			return Buffer.concat(chunks)
 		})
-		.finally(() => clearTimeout(timer))
+		.finally(() => controller.clear())
 	;
 }
 

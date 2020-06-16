@@ -1,18 +1,14 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.lazyRaceServerList = exports.handleTimeout = exports.handleCID = exports.newAbortController = void 0;
-const abort_controller_1 = __importDefault(require("abort-controller"));
 const to_ipfs_url_1 = require("to-ipfs-url");
 const ipfs_server_list_1 = require("ipfs-server-list");
+const abort_controller_timer_1 = require("abort-controller-timer");
 function newAbortController(timeout) {
-    const controller = new abort_controller_1.default();
-    const timer = setTimeout(() => controller.abort(), timeout);
+    const controller = new abort_controller_timer_1.AbortControllerTimer(timeout);
     return {
         controller,
-        timer,
+        timer: controller.timer,
     };
 }
 exports.newAbortController = newAbortController;

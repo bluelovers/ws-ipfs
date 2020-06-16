@@ -12,8 +12,8 @@ function pokeURL(ipfsURL, options) {
     let fetchOptions = {
         method: 'HEAD',
     };
-    let ctrl = new abort_controller_timer_1.AbortControllerTimer((options === null || options === void 0 ? void 0 : options.timeout) || 1000);
-    fetchOptions.signal = ctrl.signal;
+    let controller = new abort_controller_timer_1.AbortControllerTimer((options === null || options === void 0 ? void 0 : options.timeout) || 1000);
+    fetchOptions.signal = controller.signal;
     return cross_fetch_1.default(url.href, fetchOptions)
         .then(async (res) => {
         var _a, _b;
@@ -55,7 +55,8 @@ function pokeURL(ipfsURL, options) {
         return {
             error,
         };
-    });
+    })
+        .finally(() => controller.clear());
 }
 exports.pokeURL = pokeURL;
 exports.default = pokeURL;

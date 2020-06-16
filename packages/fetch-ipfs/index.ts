@@ -30,7 +30,7 @@ export async function fetchIPFSCore(cidLink: string, useIPFS?, timeout?: number,
 			timeout,
 			signal: controller.signal,
 		}) as ReturnType<typeof fetch>)
-		.finally(() => clearTimeout(timer))
+		.finally(() => controller.clear())
 		.tap(v =>
 		{
 			if (isErrorCode(v.status))

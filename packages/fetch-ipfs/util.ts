@@ -2,19 +2,16 @@ import AbortController from 'abort-controller';
 import { IOptionsInput, isCidOrPath, toPath, toLink } from 'to-ipfs-url';
 import { IIPFSClientAddresses } from '@bluelovers/ipfs-http-client';
 import { filterList } from 'ipfs-server-list';
+import { AbortControllerTimer } from 'abort-controller-timer';
 
 export type IFetchOptions = Exclude<IOptionsInput, string>
 
 export function newAbortController(timeout: number)
 {
-	const controller = new AbortController();
-	const timer = setTimeout(
-		() => controller.abort(),
-		timeout,
-	);
+	const controller = new AbortControllerTimer(timeout);
 	return {
 		controller,
-		timer,
+		timer: controller.timer,
 	}
 }
 

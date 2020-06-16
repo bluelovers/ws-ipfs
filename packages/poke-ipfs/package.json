@@ -32,14 +32,15 @@
   },
   "dependencies": {
     "@types/node-fetch": "*",
-    "abort-controller-timer": "^1.0.5",
+    "abort-controller": "^3.0.0",
+    "abort-controller-timer": "^1.0.6",
     "ipfs-types": "^1.0.24"
   },
   "devDependencies": {
-    "cross-fetch": "^3.0.4"
+    "cross-fetch": "^3.0.5"
   },
   "peerDependencies": {
-    "cross-fetch": "^3.0.4"
+    "cross-fetch": "^3.0.5"
   },
   "gitHead": "7b640bda29421c315348cc4be080308575f6720e"
 }

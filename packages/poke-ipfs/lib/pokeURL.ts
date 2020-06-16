@@ -15,8 +15,8 @@ export function pokeURL(ipfsURL: URL | string, options?: IPokeOptions)
 		method: 'HEAD',
 	};
 
-	let ctrl = new AbortControllerTimer(options?.timeout || 1000)
-	fetchOptions.signal = ctrl.signal;
+	let controller = new AbortControllerTimer(options?.timeout || 1000)
+	fetchOptions.signal = controller.signal;
 
 	return fetch(url.href, fetchOptions)
 		.then(async (res) =>
@@ -74,6 +74,7 @@ export function pokeURL(ipfsURL: URL | string, options?: IPokeOptions)
 				error: Error;
 			}>
 		})
+		.finally(() => controller.clear())
 }
 
 export default pokeURL

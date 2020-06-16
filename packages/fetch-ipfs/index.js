@@ -27,7 +27,7 @@ async function fetchIPFSCore(cidLink, useIPFS, timeout, options = {}) {
         timeout,
         signal: controller.signal,
     }))
-        .finally(() => clearTimeout(timer))
+        .finally(() => controller.clear())
         .tap(v => {
         if (is_error_code_1.default(v.status)) {
             let e = new Error(v.statusText);

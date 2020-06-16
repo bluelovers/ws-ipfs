@@ -24,7 +24,7 @@ function refIPFS(cid, ipfs, timeout) {
             }
         }
     })
-        .finally(() => clearTimeout(timer));
+        .finally(() => controller.clear());
 }
 exports.refIPFS = refIPFS;
 function catIPFS(cid, ipfs, timeout) {
@@ -48,7 +48,7 @@ function catIPFS(cid, ipfs, timeout) {
         }
         return Buffer.concat(chunks);
     })
-        .finally(() => clearTimeout(timer));
+        .finally(() => controller.clear());
 }
 exports.catIPFS = catIPFS;
 exports.default = catIPFS;
