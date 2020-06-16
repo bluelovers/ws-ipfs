@@ -6,11 +6,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.pokeURL = void 0;
 const cross_fetch_1 = __importDefault(require("cross-fetch"));
 const util_1 = require("./util");
+const abort_controller_timer_1 = require("abort-controller-timer");
 function pokeURL(ipfsURL, options) {
     let url = util_1.corsURL(ipfsURL.toString(), options === null || options === void 0 ? void 0 : options.cors);
-    return cross_fetch_1.default(url.href, {
+    let fetchOptions = {
         method: 'HEAD',
-    })
+    };
+    let ctrl = new abort_controller_timer_1.AbortControllerTimer((options === null || options === void 0 ? void 0 : options.timeout) || 1000);
+    fetchOptions.signal = ctrl.signal;
+    return cross_fetch_1.default(url.href, fetchOptions)
         .then(async (res) => {
         var _a, _b;
         const { headers, status, statusText } = res;

@@ -6,6 +6,7 @@ import fetch from 'cross-fetch';
 import { ndjson } from './ndjson';
 import { IPokeReturn, IPokeReturnBase, IPokeOptions } from './types';
 import { corsURL } from './util';
+import { AbortControllerTimer } from 'abort-controller-timer';
 
 export function pokeIPLD(cid: ICIDValue, options?: IPokeOptions)
 {
@@ -14,7 +15,12 @@ export function pokeIPLD(cid: ICIDValue, options?: IPokeOptions)
 	url.searchParams.set('r', 'true');
 	url.searchParams.set('arg', cid.toString());
 
-	return fetch(url.href)
+	let fetchOptions: RequestInit = {};
+
+	let ctrl = new AbortControllerTimer(options?.timeout || 1000)
+	fetchOptions.signal = ctrl.signal;
+
+	return fetch(url.href, fetchOptions)
 		.then(async (res) =>
 		{
 			const { headers, status, statusText } = res;

@@ -17,4 +17,8 @@ export type IPokeReturn<T extends Record<string, any> = never> = T extends never
 export interface IPokeOptions
 {
 	cors?: boolean
+	/**
+	 * @default 1000
+	 */
+	timeout?: number
 }
