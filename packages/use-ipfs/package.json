@@ -33,7 +33,7 @@
     "get-port": "^5.1.1",
     "ipfs-defaults": "^1.0.17",
     "lodash": "^4.17.15",
-    "ts-type": "^1.2.17"
+    "ts-type": "^1.2.23"
   },
   "peerDependencies": {
     "ipfs": "^0.46.0",

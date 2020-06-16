@@ -28,9 +28,9 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@types/jszip": "^3.4.1",
-    "jszip": "^3.4.0",
-    "ts-type": "^1.2.17"
+    "@types/jszip": "*",
+    "jszip": "^3.5.0",
+    "ts-type": "^1.2.23"
   },
   "gitHead": "7b640bda29421c315348cc4be080308575f6720e"
 }

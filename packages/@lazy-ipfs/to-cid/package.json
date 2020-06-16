@@ -33,7 +33,7 @@
     "ipfs-types": "^1.0.24"
   },
   "peerDependencies": {
-    "cids": "^0.8.1"
+    "cids": "*"
   },
   "publishConfig": {
     "access": "public"

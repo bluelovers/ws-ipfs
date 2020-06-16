@@ -47,7 +47,7 @@
     "@types/bl": "^2.1.0"
   },
   "peerDependencies": {
-    "ipfs-utils": "^2.2.2"
+    "ipfs-utils": "*"
   },
   "gitHead": "7b640bda29421c315348cc4be080308575f6720e"
 }

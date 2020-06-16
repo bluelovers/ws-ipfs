@@ -30,9 +30,7 @@
   "dependencies": {
     "ipfs-types": "^1.0.24"
   },
-  "devDependencies": {
-    "@types/chrome": "^0.0.114"
-  },
+  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   },

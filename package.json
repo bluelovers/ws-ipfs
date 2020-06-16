@@ -22,23 +22,26 @@
     "is-ipfs": ">= 0.6.3"
   },
   "dependencies": {
+    "bluebird": "^3.7.2",
+    "cross-fetch": "^3.0.5",
+    "fs-extra": "^9.0.1",
+    "ipfs": "^0.46.0",
+    "ipfs-http-client": "^44.2.0",
+    "ipfs-utils": "^2.3.0",
+    "ipfsd-ctl": "^4.1.1",
     "jest": "^26.0.1",
     "ts-jest": "^26.1.0"
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19",
     "@types/bluebird": "^3.5.32",
+    "@types/chrome": "^0.0.115",
     "@types/fs-extra": "^9.0.1",
     "@types/jest": "^26.0.0",
     "@types/lodash": "^4.14.155",
     "@types/node": "^14.0.13",
-    "@types/yargs": "^15.0.5",
-    "bluebird": "^3.7.2",
-    "fs-extra": "^9.0.1",
-    "ipfs": "^0.46.0",
-    "ipfs-http-client": "^44.2.0",
-    "ipfs-utils": "^2.2.2",
-    "ipfsd-ctl": "^4.1.1"
+    "@types/node-fetch": "*",
+    "@types/yargs": "^15.0.5"
   },
   "peerDependencies": {
     "lerna": "^3"
