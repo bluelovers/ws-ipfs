@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@lazy-ipfs/to-cid": "^1.0.4",
-    "array-hyper-unique": "^1.1.0",
+    "array-hyper-unique": "^1.1.2",
     "debug-color2": "^1.1.7",
     "get-stream": "^5.1.0",
     "ipfs-api-type": "^1.0.6",

@@ -30,7 +30,7 @@
   "dependencies": {
     "@bluelovers/ipfs-http-client": "^1.0.51",
     "abort-controller": "^3.0.0",
-    "array-hyper-unique": "^1.1.0",
+    "array-hyper-unique": "^1.1.2",
     "bluebird": "^3.7.2",
     "cross-fetch": "^3.0.4",
     "ipfs-types": "^1.0.24",
