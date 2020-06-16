@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/to-cid@1.0.4...@lazy-ipfs/to-cid@1.0.5) (2020-06-16)
+
+
+### ♻️　Chores
+
+* **deps:**  update deps ([754a4c4](https://github.com/bluelovers/ws-ipfs/commit/754a4c4a714d3d256500b319473ce610f876b442))
+
+
+
+
+
 ## [1.0.4](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/to-cid@1.0.3...@lazy-ipfs/to-cid@1.0.4) (2020-06-05)
 
 

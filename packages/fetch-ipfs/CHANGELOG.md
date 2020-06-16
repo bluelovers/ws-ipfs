@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.59](https://github.com/bluelovers/ws-ipfs/compare/fetch-ipfs@1.0.58...fetch-ipfs@1.0.59) (2020-06-16)
+
+
+### 📦　Code Refactoring
+
+*  update use AbortControllerTimer ([9845e68](https://github.com/bluelovers/ws-ipfs/commit/9845e68d382229ebeed3763a0d8a506755323c3f))
+
+
+### ♻️　Chores
+
+*  update deps ([ea4126e](https://github.com/bluelovers/ws-ipfs/commit/ea4126e575a360c39426c59cb96646eac5f45757))
+
+
+
+
+
 ## [1.0.58](https://github.com/bluelovers/ws-ipfs/compare/fetch-ipfs@1.0.57...fetch-ipfs@1.0.58) (2020-06-05)
 
 
