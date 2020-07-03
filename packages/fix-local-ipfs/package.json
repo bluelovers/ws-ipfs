@@ -36,5 +36,5 @@
   "peerDependencies": {
     "ipfs-http-client": "^44.3.0"
   },
-  "gitHead": "7b640bda29421c315348cc4be080308575f6720e"
+  "gitHead": "56c7a1d53a16f8556a8630c7ad88371e157bf0df"
 }
