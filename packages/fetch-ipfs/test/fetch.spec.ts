@@ -5,6 +5,9 @@ import publishToIPFSRace from '../lib/put/race';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import { handleClientList } from '../lib/handleClientList';
+import { jest } from '@jest/globals';
+
+jest.setTimeout(1000 * 60 * 20);
 
 describe(`fetch-ipfs`, () =>
 {
