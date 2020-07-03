@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.43](https://github.com/bluelovers/ws-ipfs/compare/fix-local-ipfs@1.0.42...fix-local-ipfs@1.0.43) (2020-07-03)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([830a3f1](https://github.com/bluelovers/ws-ipfs/commit/830a3f1f306a3045fa421f023ae1f0024836ef6b))
+
+
+
+
+
 ## [1.0.42](https://github.com/bluelovers/ws-ipfs/compare/fix-local-ipfs@1.0.41...fix-local-ipfs@1.0.42) (2020-06-16)
 
 **Note:** Version bump only for package fix-local-ipfs
