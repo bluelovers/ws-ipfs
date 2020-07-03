@@ -15,26 +15,34 @@ async function configOthers(ipfs) {
     return setConfigIfNotExists_1.setConfigIfNotExistsLazy(ipfs, [
         ['Discovery.MDNS.Enabled', true],
         ['Discovery.webRTCStar.Enabled', true],
+        /*
         [
-            'Addresses.Swarm',
-            async (oldValue, key, ipfs) => {
-                if (apiType === 'js') {
-                    oldValue = oldValue !== null && oldValue !== void 0 ? oldValue : [];
-                    if (!oldValue.includes(wss)) {
-                        oldValue.push(wss);
-                    }
-                }
-                else {
-                    return Promise.reject(oldValue);
-                }
-                return oldValue;
-            },
+            'Addresses.Swarm', async (oldValue: string[], key, ipfs: IIPFSPromiseApi) =>
+        {
+            if (apiType === 'js')
             {
-                filter(oldValue) {
-                    return !(oldValue === null || oldValue === void 0 ? void 0 : oldValue.includes(wss));
+                oldValue = oldValue ?? [];
+
+                if (!oldValue.includes(wss))
+                {
+                    oldValue.push(wss)
+                }
+            }
+            else
+            {
+                return Promise.reject(oldValue)
+            }
+
+            return oldValue
+        },
+            {
+                filter(oldValue: string[])
+                {
+                    return !oldValue?.includes(wss)
                 },
             }
         ],
+         */
         [
             'Bootstrap',
             (oldValue) => {
@@ -58,7 +66,8 @@ async function configOthers(ipfs) {
         ['Routing.Type', 'dht'],
         ['Gateway.HTTPHeaders.Access-Control-Allow-Methods', [
                 'HEAD',
-                'GET'
+                'GET',
+                'POST',
             ]],
         ['Gateway.HTTPHeaders.Access-Control-Allow-Origin', [
                 '*'

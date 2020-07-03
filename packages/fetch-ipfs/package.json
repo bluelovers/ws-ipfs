@@ -31,7 +31,7 @@
     "@bluelovers/ipfs-http-client": "^1.0.52",
     "abort-controller": "^3.0.0",
     "abort-controller-timer": "^1.0.6",
-    "array-hyper-unique": "^1.1.2",
+    "array-hyper-unique": "^1.1.9",
     "bluebird": "^3.7.2",
     "cross-fetch": "^3.0.5",
     "ipfs-types": "^1.0.25",
@@ -42,7 +42,7 @@
     "ts-type": "^1.2.23"
   },
   "devDependencies": {
-    "scramjet": "^4.30.2"
+    "scramjet": "^4.33.4"
   },
   "peerDependencies": {
     "buffer": "^5.6.0"

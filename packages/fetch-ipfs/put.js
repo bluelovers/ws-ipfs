@@ -3,6 +3,7 @@
  * Created by user on 2020/3/23.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.publishToIPFSRace = exports.publishToIPFSAll = void 0;
 var all_1 = require("./lib/put/all");
 Object.defineProperty(exports, "publishToIPFSAll", { enumerable: true, get: function () { return all_1.publishToIPFSAll; } });
 const all_2 = require("./lib/put/all");

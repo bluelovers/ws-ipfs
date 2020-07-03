@@ -15,6 +15,7 @@ export async function configOthers(ipfs: IIPFSConfigApi)
 	return setConfigIfNotExistsLazy(ipfs, [
 		['Discovery.MDNS.Enabled', true],
 		['Discovery.webRTCStar.Enabled', true],
+		/*
 		[
 			'Addresses.Swarm', async (oldValue: string[], key, ipfs: IIPFSPromiseApi) =>
 		{
@@ -41,6 +42,7 @@ export async function configOthers(ipfs: IIPFSConfigApi)
 				},
 			}
 		],
+		 */
 		[
 			'Bootstrap', (oldValue: string[]) =>
 		{
@@ -70,7 +72,8 @@ export async function configOthers(ipfs: IIPFSConfigApi)
 		['Routing.Type', 'dht'],
 		['Gateway.HTTPHeaders.Access-Control-Allow-Methods', [
 			'HEAD',
-			'GET'
+			'GET',
+			'POST',
 		]],
 		['Gateway.HTTPHeaders.Access-Control-Allow-Origin', [
 			'*'

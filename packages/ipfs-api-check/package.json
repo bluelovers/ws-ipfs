@@ -16,7 +16,7 @@
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "npm:publish": "npm publish",
     "prepublish:lockfile": "npx sync-lockfile .",
@@ -34,8 +34,8 @@
     "use-ipfs": "^1.0.59"
   },
   "peerDependencies": {
-    "ipfs": "^0.46.0",
-    "ipfs-http-client": "^44.2.0"
+    "ipfs": "^0.47.0",
+    "ipfs-http-client": "^44.3.0"
   },
   "gitHead": "7b640bda29421c315348cc4be080308575f6720e"
 }

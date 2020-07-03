@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ping = exports.key = exports.name = exports.config = exports.dag = exports.refs = exports.object = exports.pin = exports.ls = exports.add = exports.get = exports.cat = exports.id = exports.version = void 0;
 var version_1 = require("./check/version");
 Object.defineProperty(exports, "version", { enumerable: true, get: function () { return version_1.version; } });
 var id_1 = require("./check/id");
