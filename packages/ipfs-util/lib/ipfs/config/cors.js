@@ -5,7 +5,11 @@ const setConfigIfNotExists_1 = require("../../util/setConfigIfNotExists");
 async function configApiCors(ipfs) {
     let ls = [];
     let bool;
-    bool = await setConfigIfNotExists_1.setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Origin', ['*']);
+    bool = await setConfigIfNotExists_1.setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Origin', [
+        'https://webui.ipfs.io',
+        'https://dev.webui.ipfs.io/',
+        '*',
+    ]);
     ls.push(bool);
     bool = await setConfigIfNotExists_1.setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Methods', setConfigIfNotExists_1.fillEntryIfNotExists([
         'HEAD',

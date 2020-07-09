@@ -72,10 +72,14 @@ export async function configOthers(ipfs: IIPFSConfigApi)
 		['Routing.Type', 'dht'],
 		['Gateway.HTTPHeaders.Access-Control-Allow-Methods', [
 			'HEAD',
+			'PUT',
 			'GET',
 			'POST',
+			'OPTIONS',
 		]],
 		['Gateway.HTTPHeaders.Access-Control-Allow-Origin', [
+			'https://webui.ipfs.io',
+			'https://dev.webui.ipfs.io/',
 			'*'
 		]],
 		['Gateway.HTTPHeaders.Access-Control-Allow-Headers', [

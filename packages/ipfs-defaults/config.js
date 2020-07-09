@@ -40,7 +40,10 @@ function mergeDefaultConfig(config = {}) {
             HTTPHeaders: {
                 'Access-Control-Allow-Methods': [
                     'HEAD',
-                    'GET'
+                    'PUT',
+                    'GET',
+                    'POST',
+                    'OPTIONS',
                 ],
             },
         },
@@ -89,8 +92,11 @@ function mergeDefaultConfig(config = {}) {
                     'PUT',
                     'GET',
                     'POST',
+                    'OPTIONS',
                 ],
                 'Access-Control-Allow-Origin': [
+                    'https://webui.ipfs.io',
+                    'https://dev.webui.ipfs.io/',
                     '*',
                 ],
                 'Access-Control-Expose-Headers': [
@@ -106,6 +112,8 @@ function mergeDefaultConfig(config = {}) {
                     'User-Agent'
                 ],
                 'Access-Control-Allow-Origin': [
+                    'https://webui.ipfs.io',
+                    'https://dev.webui.ipfs.io/',
                     '*'
                 ]
             },

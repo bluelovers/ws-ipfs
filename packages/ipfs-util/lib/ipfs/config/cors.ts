@@ -5,7 +5,11 @@ export async function configApiCors(ipfs: IIPFSConfigApi)
 {
 	let ls: boolean[] = [];
 	let bool: boolean;
-	bool = await setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Origin', ['*'])
+	bool = await setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Origin', [
+		'https://webui.ipfs.io',
+		'https://dev.webui.ipfs.io/',
+		'*',
+	])
 	ls.push(bool);
 
 	bool = await setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Methods', fillEntryIfNotExists([
