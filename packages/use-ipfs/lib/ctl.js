@@ -26,13 +26,13 @@ exports.startIPFS = exports.getPort2 = void 0;
 const ipfsd_ctl_1 = require("ipfsd-ctl");
 const utils_1 = require("ipfsd-ctl/src/utils");
 const ipfs_http_client_1 = __importDefault(require("ipfs-http-client"));
-const fs_1 = require("./util/fs");
 const ipfsd_1 = require("./util/ipfsd");
 const ipfs_util_lib_1 = require("ipfs-util-lib");
 const addresses_1 = __importStar(require("ipfs-defaults/addresses"));
 const defaultsDeep_1 = __importDefault(require("lodash/defaultsDeep"));
 // @ts-ignore
 const find_free_port_sync_fixed_1 = __importDefault(require("find-free-port-sync-fixed"));
+const unlinkIPFSApi_1 = require("fix-ipfs/lib/ipfsd-ctl/unlinkIPFSApi");
 const usedPort = new Set();
 async function getPort2(options) {
     let port = await find_free_port_sync_fixed_1.default({
@@ -91,7 +91,7 @@ async function startIPFS(options) {
                 await ipfs.stop();
             }
             catch (e) { }
-            await fs_1.unlinkIPFSApi(ipfsd.path);
+            await unlinkIPFSApi_1.unlinkIPFSApi(ipfsd.path);
         }
         finally {
             try {

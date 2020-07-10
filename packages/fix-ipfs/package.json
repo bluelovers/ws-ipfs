@@ -1,8 +1,8 @@
 {
-  "name": "fix-local-ipfs",
-  "version": "1.0.44",
+  "name": "fix-ipfs",
+  "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/fix-local-ipfs#readme",
+  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/fix-ipfs#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-ipfs/issues"
   },
@@ -16,7 +16,7 @@
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\"",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "npm:publish": "npm publish",
     "prepublish:lockfile": "npx sync-lockfile .",
@@ -28,13 +28,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@bluelovers/ipfs-http-client": "^1.0.54",
-    "bluebird": "^3.7.2",
-    "ipfs-types": "^1.0.25",
-    "use-ipfs": "^1.0.61"
-  },
-  "peerDependencies": {
-    "ipfs-http-client": "^44.3.0"
+    "ipfs-types": "^1.0.25"
   },
   "gitHead": "56c7a1d53a16f8556a8630c7ad88371e157bf0df"
 }

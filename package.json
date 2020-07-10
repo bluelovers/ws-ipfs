@@ -14,13 +14,7 @@
     "ncu": "npx yarn-tool ncu -u && npx yarn-tool ws exec yarn-tool ncu -- -u",
     "sort-package-json": "npx yarn-tool sort && npx yarn-tool ws exec yarn-tool sort"
   },
-  "resolutions": {
-    "ipfs-http-client": ">= 43.0.0",
-    "ipfs-repo": ">= 0.30.1",
-    "ipfs-unixfs-importer": ">= 0.44.1",
-    "ipfs-utils": ">= 0.7.2",
-    "is-ipfs": ">= 0.6.3"
-  },
+  "resolutions": {},
   "dependencies": {
     "bluebird": "^3.7.2",
     "cross-fetch": "^3.0.5",

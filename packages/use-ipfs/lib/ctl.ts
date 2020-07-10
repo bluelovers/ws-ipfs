@@ -1,7 +1,6 @@
 import { createController } from 'ipfsd-ctl';
 import { checkForRunningApi } from 'ipfsd-ctl/src/utils';
 import IpfsClient from 'ipfs-http-client';
-import { unlinkIPFSApi } from './util/fs';
 import { IOptions } from './types';
 import { fixIPFSOptions } from './util/ipfsd';
 import { checkIPFS } from 'ipfs-util-lib';
@@ -10,6 +9,7 @@ import getPort from 'get-port';
 import defaultsDeep from 'lodash/defaultsDeep';
 // @ts-ignore
 import findFreePort from 'find-free-port-sync-fixed';
+import { unlinkIPFSApi } from 'fix-ipfs/lib/ipfsd-ctl/unlinkIPFSApi';
 
 const usedPort = new Set<number>();
 

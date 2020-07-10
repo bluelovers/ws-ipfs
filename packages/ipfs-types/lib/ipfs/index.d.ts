@@ -37,5 +37,9 @@ export interface IIPFSApiUtils {
     version(options?: any): Promise<IIPFSApiReturnType['version']>;
     id(options?: any): Promise<IIPFSApiReturnType['id']>;
 }
-export interface IIPFSPromiseApi extends IIPFSAsyncIterableApi, IIPFSApiUtils, IIPFSDagApi, IIPFSRefsApi, IIPFSObjectApi, IIPFSConfigApi, IIPFSNameApi, IIPFSFilesApi, IIPFSSwarmApi, IIPFSPubsubApi {
+export interface IIPFSApiCtrl {
+    start(): any;
+    stop(): any;
+}
+export interface IIPFSPromiseApi extends IIPFSAsyncIterableApi, IIPFSApiUtils, IIPFSDagApi, IIPFSRefsApi, IIPFSObjectApi, IIPFSConfigApi, IIPFSNameApi, IIPFSFilesApi, IIPFSSwarmApi, IIPFSPubsubApi, IIPFSApiCtrl {
 }

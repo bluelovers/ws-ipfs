@@ -1,1 +1,2 @@
-export declare function unlinkIPFSApi(ipfsPath: string): void;
+import { unlinkIPFSApi } from 'fix-ipfs/lib/ipfsd-ctl/unlinkIPFSApi';
+export { unlinkIPFSApi };
