@@ -29,7 +29,7 @@
   "dependencies": {
     "@bluelovers/ipfs-http-client": "^1.0.54",
     "ipfs-types": "^1.0.25",
-    "ts-type": "^1.2.23"
+    "ts-type": "^1.2.25"
   },
   "gitHead": "56c7a1d53a16f8556a8630c7ad88371e157bf0df"
 }

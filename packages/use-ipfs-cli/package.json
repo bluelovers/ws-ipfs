@@ -31,11 +31,11 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "ipfs": ">= 0.46.0",
+    "ipfs": ">=0.46.0",
     "ipfs-http-client": "^44.3.0",
     "ipfsd-ctl": "^4.1.1",
     "use-ipfs": "^1.0.61",
-    "yargs": "^15.4.0"
+    "yargs": "^15.4.1"
   },
   "gitHead": "56c7a1d53a16f8556a8630c7ad88371e157bf0df"
 }

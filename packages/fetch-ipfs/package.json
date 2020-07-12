@@ -39,7 +39,7 @@
     "is-error-code": "^1.0.0",
     "p-any": "^3.0.0",
     "to-ipfs-url": "^1.0.14",
-    "ts-type": "^1.2.23"
+    "ts-type": "^1.2.25"
   },
   "devDependencies": {
     "scramjet": "^4.33.4"

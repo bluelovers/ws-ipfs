@@ -30,7 +30,7 @@
   "dependencies": {
     "@types/jszip": "*",
     "jszip": "^3.5.0",
-    "ts-type": "^1.2.23"
+    "ts-type": "^1.2.25"
   },
   "gitHead": "7b640bda29421c315348cc4be080308575f6720e"
 }
