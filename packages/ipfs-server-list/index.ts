@@ -160,6 +160,11 @@ export function getIpfsServerList()
 		'blocksec': { Gateway: 'https://gateway.blocksec.com/ipfs/' },
 		'10.via0.com': { Gateway: 'https://10.via0.com/ipfs/' },
 		'ninetailed.ninja': { Gateway: 'https://ninetailed.ninja/ipfs/' },
+		'geesome-node': {
+			description: `https://github.com/galtproject/geesome-node`,
+			Gateway: 'https://geesome-node.galtproject.io:7722/ipfs/',
+			IPNS: 'https://geesome-node.galtproject.io:7722/ipns/',
+		},
 	} as const;
 
 	(<Record<string, IIPFSAddressesLike>>data);
