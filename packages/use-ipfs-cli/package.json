@@ -32,8 +32,8 @@
   },
   "dependencies": {
     "ipfs": ">=0.46.0",
-    "ipfs-http-client": "^44.3.0",
-    "ipfsd-ctl": "^4.1.1",
+    "ipfs-http-client": "^45.0.0",
+    "ipfsd-ctl": "^5.0.0",
     "use-ipfs": "^1.0.62",
     "yargs": "^15.4.1"
   },
