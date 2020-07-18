@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.64](https://github.com/bluelovers/ws-ipfs/compare/fetch-ipfs@1.0.63...fetch-ipfs@1.0.64) (2020-07-18)
+
+
+### 📦　Code Refactoring
+
+* detect ipfs.addAll or ipfs.add ([52f9daa](https://github.com/bluelovers/ws-ipfs/commit/52f9daae85bb64eb83ad360a86ab2f5e571d7ed3))
+
+
+### ♻️　Chores
+
+* update deps ([f614d28](https://github.com/bluelovers/ws-ipfs/commit/f614d282b63f93b9d2a3f5755aee5d9073212bbf))
+
+
+
+
+
 ## [1.0.63](https://github.com/bluelovers/ws-ipfs/compare/fetch-ipfs@1.0.62...fetch-ipfs@1.0.63) (2020-07-18)
 
 **Note:** Version bump only for package fetch-ipfs
