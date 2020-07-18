@@ -1,5 +1,6 @@
 import { IIPFSFileApi } from 'ipfs-types/lib/ipfs/file';
 import { runSubCheck } from '../util';
+import _addAll from '@lazy-ipfs/compatible-add';
 
 export async function add(ipfs: IIPFSFileApi)
 {
@@ -10,7 +11,7 @@ export async function add(ipfs: IIPFSFileApi)
 
 	return runSubCheck(async () =>
 	{
-		for await (const result of ipfs.add(file, {
+		for await (const result of _addAll(ipfs, file, {
 			timeout: 5000,
 			pin: false,
 		}))

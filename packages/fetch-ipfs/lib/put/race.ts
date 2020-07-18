@@ -8,6 +8,7 @@ import { handleTimeout } from '../../util';
 import { PromiseSettledResult } from '../types';
 import Bluebird from 'bluebird';
 import { IPublishToIPFSReturn } from './types';
+import _addAll from '@lazy-ipfs/compatible-add';
 
 export function publishToIPFSRace(data: IFileData,
 	useIPFS: ITSValueOrArray<string | IIPFSPromiseApi | IIPFSClientAddresses | Pick<IIPFSFileApi, 'add'>>,
@@ -37,7 +38,7 @@ export function publishToIPFSRace(data: IFileData,
 
 				await (async () =>
 				{
-					for await (const result of ipfs.add(data, addOptions))
+					for await (const result of _addAll(ipfs, data, addOptions))
 					{
 						value.push(result)
 					}

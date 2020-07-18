@@ -4,6 +4,7 @@
 import { IIPFSFileApi, IIPFSFileApiAddReturnEntry, IIPFSFileApiAddOptions } from 'ipfs-types/lib/ipfs/file';
 import globSource from 'ipfs-utils/src/files/glob-source';
 import { IGlobSourceOptions } from './types';
+import _addAll from '@lazy-ipfs/compatible-add';
 
 export async function addDirectoryToIPFS(ipfs: IIPFSFileApi, targetDirPath: string, {
 	options,
@@ -15,7 +16,7 @@ export async function addDirectoryToIPFS(ipfs: IIPFSFileApi, targetDirPath: stri
 {
 	let files: IIPFSFileApiAddReturnEntry[] = [];
 
-	for await (const file of ipfs.add(globSource(targetDirPath, {
+	for await (const file of _addAll(ipfs, globSource(targetDirPath, {
 		recursive: true,
 		...globSourceOptions,
 	}), options))

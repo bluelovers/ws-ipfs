@@ -5,9 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.addDirectoryToIPFS = void 0;
 const glob_source_1 = __importDefault(require("ipfs-utils/src/files/glob-source"));
+const compatible_add_1 = __importDefault(require("@lazy-ipfs/compatible-add"));
 async function addDirectoryToIPFS(ipfs, targetDirPath, { options, globSourceOptions, } = {}) {
     let files = [];
-    for await (const file of ipfs.add(glob_source_1.default(targetDirPath, {
+    for await (const file of compatible_add_1.default(ipfs, glob_source_1.default(targetDirPath, {
         recursive: true,
         ...globSourceOptions,
     }), options)) {

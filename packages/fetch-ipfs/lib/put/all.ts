@@ -7,6 +7,7 @@ import { INetworkOptionsBase } from 'ipfs-types/lib/options';
 import { handleTimeout } from '../../util';
 import { IPublishToIPFSReturn } from './types';
 import Bluebird from 'bluebird';
+import _addAll from '@lazy-ipfs/compatible-add';
 
 export function publishToIPFSAll(data: IFileData,
 	useIPFS: ITSValueOrArray<string | IIPFSPromiseApi | IIPFSClientAddresses | Pick<IIPFSFileApi, 'add'>>,
@@ -32,7 +33,7 @@ export function publishToIPFSAll(data: IFileData,
 
 			await (async () =>
 			{
-				for await (const result of ipfs.add(data, addOptions))
+				for await (const result of _addAll(ipfs, data, addOptions))
 				{
 					value.push(result)
 				}

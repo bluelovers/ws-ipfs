@@ -7,6 +7,7 @@ exports.publishToIPFSRace = void 0;
 const handleClientList_1 = require("../handleClientList");
 const util_1 = require("../../util");
 const bluebird_1 = __importDefault(require("bluebird"));
+const compatible_add_1 = __importDefault(require("@lazy-ipfs/compatible-add"));
 function publishToIPFSRace(data, useIPFS, options) {
     let { timeout, signal, addOptions } = options || {};
     timeout = util_1.handleTimeout(timeout);
@@ -21,7 +22,7 @@ function publishToIPFSRace(data, useIPFS, options) {
             .each(async (ipfs) => {
             const value = [];
             await (async () => {
-                for await (const result of ipfs.add(data, addOptions)) {
+                for await (const result of compatible_add_1.default(ipfs, data, addOptions)) {
                     value.push(result);
                 }
             })()

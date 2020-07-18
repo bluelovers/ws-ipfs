@@ -7,7 +7,7 @@ import { filterList } from 'ipfs-server-list';
 import { inspect } from 'util';
 import publishToIPFSRace from '../lib/put/race';
 
-readFile(`D:\\Users\\Downloads\\下載圖\\Screenshots\\ShareX_2020-03-24-12-21-16-193.png`)
+readFile(`./res/demo.png`)
 	.then((data) => {
 		return publishToIPFSRace(data, [
 			...filterList('API'),
