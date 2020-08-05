@@ -42,7 +42,7 @@
     "ipfs-env": "^1.0.3",
     "ipfs-types": "^1.0.26",
     "ipfs-util-lib": "^1.0.42",
-    "ts-type": "^1.2.25"
+    "ts-type": "^1.2.32"
   },
   "devDependencies": {
     "@types/bl": "^2.1.0",
