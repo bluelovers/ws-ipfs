@@ -35,11 +35,9 @@ export interface IIPFSEnvRuntime extends IIPFSEnv
 	[key: string]: string
 }
 
-let process = void 0
-
 export function ipfsEnv(env?: Record<any, any>): IIPFSEnvRuntime
 {
-	env = env ?? (typeof process !== 'undefined' && process?.env) ?? {};
+	env ??= (typeof process !== 'undefined' && process?.env) ?? {};
 
 	return Object.entries(env as IIPFSEnvRuntime)
 		.reduce((a, [k, v]) =>
