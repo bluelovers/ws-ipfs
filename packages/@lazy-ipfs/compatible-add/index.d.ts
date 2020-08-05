@@ -1,2 +1,3 @@
-export declare function addAll(ipfs: any, ...argv: any[]): any;
+export declare function addAll<T>(ipfs: any, ...argv: any[]): Promise<T[]>;
+export declare function add<T>(ipfs: any, ...argv: any[]): Promise<T>;
 export default addAll;

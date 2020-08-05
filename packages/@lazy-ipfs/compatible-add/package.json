@@ -25,6 +25,9 @@
     "ncu": "yarn-tool ncu -u",
     "sort-package-json": "yarn-tool sort"
   },
+  "dependencies": {
+    "it-last": "^1.0.2"
+  },
   "peerDependencies": {
     "ipfs": "*",
     "ipfs-http-client": "*",
