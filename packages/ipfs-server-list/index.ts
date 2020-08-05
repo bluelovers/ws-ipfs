@@ -14,6 +14,7 @@ export type IIPFSAddressesLike = ITSRequireAtLeastOne<{
 	 * base32.cf-ipfs.com
 	 */
 	GatewayDomain?: string,
+	IPNSDomain?: string,
 
 	btfsGateway?: string,
 }> & {
