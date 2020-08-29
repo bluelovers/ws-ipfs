@@ -1,6 +1,6 @@
 {
   "name": "use-ipfs-cli",
-  "version": "1.0.60",
+  "version": "1.0.61",
   "description": "<description>",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/use-ipfs-cli#readme",
   "bugs": {
@@ -34,7 +34,7 @@
     "ipfs": ">=0.46.0",
     "ipfs-http-client": "^46",
     "ipfsd-ctl": "^7",
-    "use-ipfs": "^1.0.67",
+    "use-ipfs": "^1.0.68",
     "yargs": "^15.4.1"
   },
   "gitHead": "c2b2407d457b38c20825695eb9981b5c0ca20658"

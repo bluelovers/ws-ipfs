@@ -1,6 +1,6 @@
 {
   "name": "fix-ipfs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/fix-ipfs#readme",
   "bugs": {
@@ -28,7 +28,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "ipfs-types": "^1.0.29"
+    "ipfs-types": "^1.0.30"
   },
   "gitHead": "c2b2407d457b38c20825695eb9981b5c0ca20658"
 }

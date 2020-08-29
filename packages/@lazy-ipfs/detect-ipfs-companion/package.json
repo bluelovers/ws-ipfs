@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/detect-ipfs-companion",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/@lazy-ipfs/detect-ipfs-companion#readme",
   "bugs": {
@@ -28,7 +28,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "ipfs-types": "^1.0.29"
+    "ipfs-types": "^1.0.30"
   },
   "publishConfig": {
     "access": "public"

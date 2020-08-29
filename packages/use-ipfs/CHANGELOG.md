@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.68](https://github.com/bluelovers/ws-ipfs/compare/use-ipfs@1.0.67...use-ipfs@1.0.68) (2020-08-29)
+
+
+### 🔖　Miscellaneous
+
+* . ([4a550a5](https://github.com/bluelovers/ws-ipfs/commit/4a550a55ccd04d245d5935914d091a879986a8f2))
+
+
+
+
+
 ## [1.0.67](https://github.com/bluelovers/ws-ipfs/compare/use-ipfs@1.0.66...use-ipfs@1.0.67) (2020-08-29)
 
 
