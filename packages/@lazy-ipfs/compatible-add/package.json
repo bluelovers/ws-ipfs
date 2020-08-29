@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/compatible-add",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "detect ipfs.addAll or ipfs.add",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/@lazy-ipfs/compatible-add#readme",
   "bugs": {
