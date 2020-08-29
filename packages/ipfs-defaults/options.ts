@@ -1,7 +1,7 @@
 import { merge, uniq, defaultsDeep } from 'lodash';
 import mergeDefaultEXPERIMENTAL from './EXPERIMENTAL';
 
-export function mergeDefaultOptions(options = {})
+export function mergeDefaultOptions<T extends Record<any, any>>(options = {} as Partial<T>): T
 {
 	return merge({
 		EXPERIMENTAL: mergeDefaultEXPERIMENTAL(),
@@ -16,6 +16,7 @@ export function mergeDefaultOptions(options = {})
 			},
 		},
 		repoAutoMigrate: true,
+		migrate: true,
 	}, defaultsDeep(options, {}))
 }
 

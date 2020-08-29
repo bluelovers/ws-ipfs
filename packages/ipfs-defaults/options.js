@@ -20,6 +20,7 @@ function mergeDefaultOptions(options = {}) {
             },
         },
         repoAutoMigrate: true,
+        migrate: true,
     }, lodash_1.defaultsDeep(options, {}));
 }
 exports.mergeDefaultOptions = mergeDefaultOptions;
