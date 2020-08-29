@@ -19,6 +19,7 @@ function publishToIPFSAll(data, useIPFS, options) {
         .reduce(async (list, ipfs) => {
         const value = [];
         await (async () => {
+            // @ts-ignore
             for await (const result of compatible_add_1.default(ipfs, data, addOptions)) {
                 value.push(result);
             }

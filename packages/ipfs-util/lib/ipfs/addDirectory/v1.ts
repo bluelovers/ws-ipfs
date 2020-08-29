@@ -16,6 +16,7 @@ export async function addDirectoryToIPFS(ipfs: IIPFSFileApi, targetDirPath: stri
 {
 	let files: IIPFSFileApiAddReturnEntry[] = [];
 
+	// @ts-ignore
 	for await (const file of _addAll(ipfs, globSource(targetDirPath, {
 		recursive: true,
 		...globSourceOptions,

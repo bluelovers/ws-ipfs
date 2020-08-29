@@ -8,6 +8,7 @@ const glob_source_1 = __importDefault(require("ipfs-utils/src/files/glob-source"
 const compatible_add_1 = __importDefault(require("@lazy-ipfs/compatible-add"));
 async function addDirectoryToIPFS(ipfs, targetDirPath, { options, globSourceOptions, } = {}) {
     let files = [];
+    // @ts-ignore
     for await (const file of compatible_add_1.default(ipfs, glob_source_1.default(targetDirPath, {
         recursive: true,
         ...globSourceOptions,

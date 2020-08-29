@@ -12,6 +12,7 @@ async function add(ipfs) {
         content: 'ABC',
     };
     return util_1.runSubCheck(async () => {
+        // @ts-ignore
         for await (const result of compatible_add_1.default(ipfs, file, {
             timeout: 5000,
             pin: false,

@@ -22,6 +22,7 @@ function publishToIPFSRace(data, useIPFS, options) {
             .each(async (ipfs) => {
             const value = [];
             await (async () => {
+                // @ts-ignore
                 for await (const result of compatible_add_1.default(ipfs, data, addOptions)) {
                     value.push(result);
                 }

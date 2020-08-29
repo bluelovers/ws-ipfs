@@ -33,6 +33,7 @@ export function publishToIPFSAll(data: IFileData,
 
 			await (async () =>
 			{
+				// @ts-ignore
 				for await (const result of _addAll(ipfs, data, addOptions))
 				{
 					value.push(result)

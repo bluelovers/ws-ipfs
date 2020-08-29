@@ -11,6 +11,7 @@ export async function add(ipfs: IIPFSFileApi)
 
 	return runSubCheck(async () =>
 	{
+		// @ts-ignore
 		for await (const result of _addAll(ipfs, file, {
 			timeout: 5000,
 			pin: false,
