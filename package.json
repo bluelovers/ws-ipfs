@@ -19,7 +19,7 @@
     "prepublishOnly": "echo prepublishOnly",
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
     "prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",
-    "prepublishOnly:root": "yarn run prepublishOnly:check-bin && yarn run prepare:fix-ws-links",
+    "prepublishOnly:root": "yarn run prepublishOnly:check-bin",
     "postpublishOnly": "echo postpublishOnly",
     "ncu": "yarn run ncu:root && yarn run ncu:ws",
     "ncu:root": "yarn-tool ncu -u",
