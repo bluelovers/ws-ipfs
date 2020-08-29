@@ -10,7 +10,7 @@ exports.fixIPFSOptions = void 0;
 const defaultsDeep_1 = __importDefault(require("lodash/defaultsDeep"));
 const ipfs_defaults_1 = require("ipfs-defaults");
 function fixIPFSOptions(options) {
-    var _a;
+    var _a, _b, _c, _d, _e;
     options = defaultsDeep_1.default({}, options, {
         type: 'js',
         //ipfsModule: require('ipfs'),
@@ -39,6 +39,8 @@ function fixIPFSOptions(options) {
             options.ipfsBin = require.resolve('ipfs/src/cli/bin.js');
         }
     }
+    // @ts-ignore
+    options.ipfsOptions.repoAutoMigrate = options.ipfsOptions.migrate = options.repoAutoMigrate = options.migrate = (_e = (_d = (_c = (_b = options.migrate) !== null && _b !== void 0 ? _b : options.repoAutoMigrate) !== null && _c !== void 0 ? _c : options.ipfsOptions.migrate) !== null && _d !== void 0 ? _d : options.ipfsOptions.repoAutoMigrate) !== null && _e !== void 0 ? _e : true;
     return options;
 }
 exports.fixIPFSOptions = fixIPFSOptions;

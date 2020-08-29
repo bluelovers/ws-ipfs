@@ -45,5 +45,8 @@ export function fixIPFSOptions(options?: IOptions)
 		}
 	}
 
+	// @ts-ignore
+	options.ipfsOptions.repoAutoMigrate = options.ipfsOptions.migrate = options.repoAutoMigrate = options.migrate = options.migrate ?? options.repoAutoMigrate ?? options.ipfsOptions.migrate ?? options.ipfsOptions.repoAutoMigrate ?? true;
+
 	return options;
 }
