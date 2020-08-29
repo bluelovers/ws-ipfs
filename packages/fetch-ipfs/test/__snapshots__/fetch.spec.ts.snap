@@ -40,16 +40,6 @@ Object {
 }
 `;
 
-exports[`fetch-ipfs handleClientList 1`] = `
-Object {
-  "commit": "1f0de1aaf",
-  "golang": "go1.12.13",
-  "repo": "7",
-  "system": "amd64/linux",
-  "version": "0.4.23",
-}
-`;
-
 exports[`fetch-ipfs publishToIPFSRace 1`] = `
 Array [
   Object {

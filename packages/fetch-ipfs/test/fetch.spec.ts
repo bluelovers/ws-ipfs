@@ -71,7 +71,7 @@ describe(`fetch-ipfs`, () =>
 		expect(typeof actual[0].cat).toStrictEqual('function');
 		expect(typeof actual[0].get).toStrictEqual('function');
 
-		expect(await actual[0].version()).toMatchSnapshot();
+		expect(await actual[0].version()).toHaveProperty('version');
 
 		done();
 	});
