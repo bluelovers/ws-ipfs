@@ -28,7 +28,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "multiaddr-to-uri": "^5.1.0"
+    "multiaddr-to-uri": "^6.0.0"
   },
   "gitHead": "7b640bda29421c315348cc4be080308575f6720e"
 }

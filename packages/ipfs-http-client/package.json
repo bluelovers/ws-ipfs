@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@types/bl": "^2.1.0",
-    "bl": "^4.0.2"
+    "bl": "^4.0.3"
   },
   "peerDependencies": {
     "ipfs-http-client": "*"

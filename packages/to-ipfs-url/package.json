@@ -35,7 +35,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "is-ipfs": "^1.0.3"
+    "is-ipfs": "^2.0.0"
   },
   "gitHead": "56c7a1d53a16f8556a8630c7ad88371e157bf0df"
 }

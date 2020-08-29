@@ -39,7 +39,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "bl": "^4.0.2",
+    "bl": "^4.0.3",
     "fs-extra": "^9.0.1",
     "ipfs-only-hash": "^2.0.1"
   },
