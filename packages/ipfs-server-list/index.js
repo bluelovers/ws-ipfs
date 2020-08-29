@@ -69,6 +69,7 @@ function getIpfsServerList() {
         },
         'temporal': {
             Gateway: 'https://gateway.temporal.cloud/ipfs/',
+            IPNS: 'https://gateway.temporal.cloud/ipns/',
         },
         'sloppyta': {
             Gateway: 'https://ipfs.sloppyta.co/ipfs/',
