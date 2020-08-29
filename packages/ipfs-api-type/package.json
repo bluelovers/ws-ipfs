@@ -1,6 +1,6 @@
 {
   "name": "ipfs-api-type",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-api-type#readme",
   "bugs": {
@@ -28,7 +28,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "ipfs-types": "^1.0.30"
+    "ipfs-types": "^1.0.31"
   },
   "gitHead": "0de896d58ae13387db38242fe99d2796016c550c"
 }

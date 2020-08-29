@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.20](https://github.com/bluelovers/ws-ipfs/compare/to-ipfs-hash@1.0.19...to-ipfs-hash@1.0.20) (2020-08-29)
+
+
+### 🔖　Miscellaneous
+
+* . ([a89ec77](https://github.com/bluelovers/ws-ipfs/commit/a89ec77c79a26768acfede82c769a6a792eee25b))
+
+
+
+
+
 ## [1.0.19](https://github.com/bluelovers/ws-ipfs/compare/to-ipfs-hash@1.0.18...to-ipfs-hash@1.0.19) (2020-08-29)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/bluelovers/ws-ipfs/compare/ipfs-env@1.0.7...ipfs-env@1.0.8) (2020-08-29)
+
+
+### 🔖　Miscellaneous
+
+* . ([a89ec77](https://github.com/bluelovers/ws-ipfs/commit/a89ec77c79a26768acfede82c769a6a792eee25b))
+
+
+
+
+
 ## [1.0.7](https://github.com/bluelovers/ws-ipfs/compare/ipfs-env@1.0.6...ipfs-env@1.0.7) (2020-08-29)
 
 
