@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.12](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/detect-ipfs-companion@1.0.11...@lazy-ipfs/detect-ipfs-companion@1.0.12) (2020-08-29)
+
+
+### 🔖　Miscellaneous
+
+* . ([bf70f29](https://github.com/bluelovers/ws-ipfs/commit/bf70f298426c11645d5343255656fa72e0cae844))
+
+
+
+
+
 ## [1.0.11](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/detect-ipfs-companion@1.0.10...@lazy-ipfs/detect-ipfs-companion@1.0.11) (2020-08-29)
 
 **Note:** Version bump only for package @lazy-ipfs/detect-ipfs-companion
