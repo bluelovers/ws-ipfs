@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.42](https://github.com/bluelovers/ws-ipfs/compare/ipfs-server-list@1.0.41...ipfs-server-list@1.0.42) (2020-08-29)
+
+
+### ✨　Features
+
+* add IPNS of temporal.cloud ([5e8160c](https://github.com/bluelovers/ws-ipfs/commit/5e8160c344ba5f5e9b36fce31055fce5f74a4155))
+* localServerInfo ([8fda90e](https://github.com/bluelovers/ws-ipfs/commit/8fda90eb995c382f154a411a0ffd135d6e4ce063))
+
+
+### ♻️　Chores
+
+* update deps ([7d13ceb](https://github.com/bluelovers/ws-ipfs/commit/7d13cebfde55dff62632755bfbec0af492495dc7))
+
+
+
+
+
 ## [1.0.41](https://github.com/bluelovers/ws-ipfs/compare/ipfs-server-list@1.0.40...ipfs-server-list@1.0.41) (2020-07-18)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "to-ipfs-url",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "create ipfs link",
   "keywords": [
     "ipfs",

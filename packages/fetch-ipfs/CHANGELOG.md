@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.65](https://github.com/bluelovers/ws-ipfs/compare/fetch-ipfs@1.0.64...fetch-ipfs@1.0.65) (2020-08-29)
+
+
+### ♻️　Chores
+
+* update deps ([7d13ceb](https://github.com/bluelovers/ws-ipfs/commit/7d13cebfde55dff62632755bfbec0af492495dc7))
+
+
+### 🔖　Miscellaneous
+
+* . ([1d171c8](https://github.com/bluelovers/ws-ipfs/commit/1d171c855d06868e21c1178169ff153f0ac998dc))
+
+
+
+
+
 ## [1.0.64](https://github.com/bluelovers/ws-ipfs/compare/fetch-ipfs@1.0.63...fetch-ipfs@1.0.64) (2020-07-18)
 
 

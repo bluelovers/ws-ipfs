@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.58](https://github.com/bluelovers/ws-ipfs/compare/@bluelovers/ipfs-http-client@1.0.57...@bluelovers/ipfs-http-client@1.0.58) (2020-08-29)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([0e7daa3](https://github.com/bluelovers/ws-ipfs/commit/0e7daa377053512cbdae9752a96ee6d9abf0b9dd))
+* update deps ([7d13ceb](https://github.com/bluelovers/ws-ipfs/commit/7d13cebfde55dff62632755bfbec0af492495dc7))
+
+
+
+
+
 ## [1.0.57](https://github.com/bluelovers/ws-ipfs/compare/@bluelovers/ipfs-http-client@1.0.56...@bluelovers/ipfs-http-client@1.0.57) (2020-07-18)
 
 
