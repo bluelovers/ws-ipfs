@@ -93,6 +93,7 @@ export function getIpfsServerList()
 		},
 		'eternum': {
 			Gateway: 'https://ipfs.eternum.io/ipfs/',
+			IPNS: 'https://ipfs.eternum.io/ipns/',
 		},
 		'temporal': {
 			Gateway: 'https://gateway.temporal.cloud/ipfs/',
