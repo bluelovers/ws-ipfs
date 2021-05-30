@@ -1,7 +1,6 @@
 /**
  * Created by user on 2020/4/3.
  */
-import { ICIDValue } from 'ipfs-types/lib/types';
 import fetch from 'cross-fetch';
 import { IPokeReturn, IPokeReturnBase, IPokeOptions } from './types';
 import { corsURL } from './util';

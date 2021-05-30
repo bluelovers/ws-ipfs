@@ -2,6 +2,9 @@
  * Created by user on 2020/4/3.
  */
 
+import CID from 'cids';
+export type ICIDValue = CID | string;
+
 export type IAsyncIteratorAble<T> = AsyncGenerator<T, void> | ReadableStream<T>;
 
 export type IPokeReturnBase = {

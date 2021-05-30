@@ -1,10 +1,9 @@
 /**
  * Created by user on 2020/4/3.
  */
-import { ICIDValue } from 'ipfs-types/lib/types';
 import fetch from 'cross-fetch';
 import { ndjson } from './ndjson';
-import { IPokeReturn, IPokeReturnBase, IPokeOptions } from './types';
+import { IPokeReturn, IPokeReturnBase, IPokeOptions, ICIDValue } from './types';
 import { corsURL } from './util';
 import { AbortControllerTimer } from 'abort-controller-timer';
 

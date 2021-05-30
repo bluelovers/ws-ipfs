@@ -4,6 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.pokeURL = void 0;
+/**
+ * Created by user on 2020/4/3.
+ */
 const cross_fetch_1 = __importDefault(require("cross-fetch"));
 const util_1 = require("./util");
 const abort_controller_timer_1 = require("abort-controller-timer");

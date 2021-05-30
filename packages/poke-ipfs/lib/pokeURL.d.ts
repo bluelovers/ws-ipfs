@@ -1,9 +1,9 @@
 import { IPokeReturnBase, IPokeOptions } from './types';
-export declare function pokeURL(ipfsURL: URL | string, options?: IPokeOptions): Promise<(Pick<IPokeReturnBase, "error" | "headers" | "status" | "statusText"> & {
+export declare function pokeURL(ipfsURL: URL | string, options?: IPokeOptions): Promise<(Omit<IPokeReturnBase, "value"> & {
     value: string;
-}) | (Pick<IPokeReturnBase, "error" | "headers" | "status" | "statusText"> & {
+}) | (Omit<IPokeReturnBase, "value"> & {
     value: false;
-}) | (Pick<IPokeReturnBase, "headers" | "value" | "status" | "statusText"> & {
+}) | (Omit<IPokeReturnBase, "error"> & {
     error: Error;
 })>;
 export default pokeURL;
