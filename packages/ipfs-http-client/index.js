@@ -28,7 +28,7 @@ const core_1 = __importStar(require("./core"));
 /**
  * auto detect go-ipfs and js-ipfs
  */
-exports.ipfsClient = core_1.default(ipfs_http_client_1.default);
-exports.findIpfsClient = core_1.find(ipfs_http_client_1.default);
+exports.ipfsClient = (0, core_1.default)(ipfs_http_client_1.default);
+exports.findIpfsClient = (0, core_1.find)(ipfs_http_client_1.default);
 exports.default = exports.ipfsClient;
 //# sourceMappingURL=index.js.map

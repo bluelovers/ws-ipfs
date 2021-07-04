@@ -2,10 +2,22 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ipfsGatewayAddresses = exports.ipfsApiAddresses = exports.ipfsAddresses = exports.checkIPFS = void 0;
 async function checkIPFS(ipfs) {
+    let bool;
+    const timeout = 2000;
     //await ipfs.id();
-    const ret = await ipfs
-        .version();
-    return !!ret.version;
+    bool = await ipfs
+        .version({
+        timeout,
+    })
+        .then(v => !!v);
+    if (!bool) {
+        bool = await ipfs
+            .id({
+            timeout,
+        })
+            .then(v => !!v);
+    }
+    return bool;
 }
 exports.checkIPFS = checkIPFS;
 async function ipfsAddresses(ipfs) {

@@ -1,19 +1,24 @@
 /**
  * Created by user on 2020/2/27.
  */
-import _ipfsHttpModule from 'ipfs-http-client'
-import ITB from 'ts-toolbelt';
+import _ipfsHttpModule, { Options } from 'ipfs-http-client'
 import { ITSRequireAtLeastOne } from 'ts-type';
 import { IIPFSAddressesURL } from 'ipfs-types';
 import { IIPFSPromiseApi } from 'ipfs-types/lib/ipfs/index';
+import { IPFS } from 'ipfs-core-types';
 
 export type IIPFSClientAddressesURL = ITSRequireAtLeastOne<IIPFSAddressesURL, 'host' | 'port'>
 export type IIPFSClientAddresses = string | IIPFSClientAddressesURL
 
-export type IIPFSClientParametersRest = ITB.T.Drop<Parameters<typeof _ipfsHttpModule>, '0', '->'>
+export type IArrayShift<T extends any[]> = T extends [any, ...infer U] ? U : never;
 
-export type IIPFSClientParameters = [IIPFSClientAddresses?, ...IIPFSClientParametersRest] | [IIPFSClientAddresses?, ...any[]]
-export type IIPFSClientReturn = ReturnType<typeof _ipfsHttpModule> & IIPFSPromiseApi
+export type IIPFSClientParametersRest = IArrayShift<Parameters<typeof _ipfsHttpModule extends ((...any) => any) ? typeof _ipfsHttpModule : typeof _ipfsHttpModule["create"]>>
+
+export type IIPFSClientParametersFirst = (IIPFSClientAddresses | Options);
+
+export type IIPFSClientParameters = [IIPFSClientParametersFirst?, ...IIPFSClientParametersRest] | [IIPFSClientParametersFirst?, ...any[]]
+export type IIPFSClientReturn = ReturnType<typeof _ipfsHttpModule extends ((...any) => any) ? typeof _ipfsHttpModule : typeof _ipfsHttpModule["create"]>
 
 export type IIPFSClientFn = (...argvs: IIPFSClientParameters) => IIPFSClientReturn
+
 export type IIPFSClientFnWrap = (...argvs: IIPFSClientParameters) => Promise<IIPFSClientReturn>

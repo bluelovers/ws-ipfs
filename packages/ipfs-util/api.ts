@@ -3,12 +3,28 @@ import { IIPFSConfigApi } from 'ipfs-types/lib/ipfs/config';
 
 export async function checkIPFS(ipfs)
 {
+	let bool: boolean;
+	const timeout = 2000;
+
 	//await ipfs.id();
-	const ret = await (ipfs as IIPFSPromiseApi)
-		.version()
+	bool = await (ipfs as IIPFSPromiseApi)
+		.version({
+			timeout,
+		})
+		.then(v => !!v)
 	;
 
-	return !!ret.version
+	if (!bool)
+	{
+		bool = await (ipfs as IIPFSPromiseApi)
+			.id({
+				timeout,
+			})
+			.then(v => !!v)
+		;
+	}
+
+	return bool
 }
 
 export async function ipfsAddresses(ipfs): Promise<IIPFSAddresses>
