@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.10](https://github.com/bluelovers/ws-ipfs/compare/bl-to-buffer@1.0.9...bl-to-buffer@1.0.10) (2021-07-04)
+
+
+### 📦　Code Refactoring
+
+* update deps and build ([a542d92](https://github.com/bluelovers/ws-ipfs/commit/a542d92420faef55f6879fedc07d563f21db03a7))
+
+
+
+
+
 ## [1.0.9](https://github.com/bluelovers/ws-ipfs/compare/bl-to-buffer@1.0.8...bl-to-buffer@1.0.9) (2020-06-05)
 
 

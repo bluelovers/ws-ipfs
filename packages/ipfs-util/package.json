@@ -1,6 +1,6 @@
 {
   "name": "ipfs-util-lib",
-  "version": "1.0.47",
+  "version": "1.0.48",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-util#readme",
   "bugs": {
@@ -28,16 +28,16 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@lazy-ipfs/to-cid": "^1.0.11",
+    "@lazy-ipfs/to-cid": "^1.0.12",
     "array-hyper-unique": "^1.1.9",
     "debug-color2": "^1.2.3",
     "get-stream": "^6.0.1",
-    "ipfs-api-type": "^1.0.13",
-    "ipfs-server-list": "^1.0.46",
-    "ipfs-types": "^1.0.31",
+    "ipfs-api-type": "^1.0.14",
+    "ipfs-server-list": "^1.0.47",
+    "ipfs-types": "^1.0.32",
     "micromatch": "^4.0.4",
     "multiaddr-to-uri": "^7.0.0",
-    "multiaddr-to-url": "^1.0.11",
+    "multiaddr-to-url": "^1.0.12",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

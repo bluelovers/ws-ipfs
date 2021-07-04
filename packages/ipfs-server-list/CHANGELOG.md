@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.47](https://github.com/bluelovers/ws-ipfs/compare/ipfs-server-list@1.0.46...ipfs-server-list@1.0.47) (2021-07-04)
+
+
+### ✨　Features
+
+* add https://ipfs.eternum.io/ipns/ ([4494bb4](https://github.com/bluelovers/ws-ipfs/commit/4494bb499cd9f22f2b836cfc41693c5c00ac0faf))
+
+
+### 📦　Code Refactoring
+
+* update deps and build ([a542d92](https://github.com/bluelovers/ws-ipfs/commit/a542d92420faef55f6879fedc07d563f21db03a7))
+
+
+
+
+
 ## [1.0.46](https://github.com/bluelovers/ws-ipfs/compare/ipfs-server-list@1.0.45...ipfs-server-list@1.0.46) (2020-08-29)
 
 

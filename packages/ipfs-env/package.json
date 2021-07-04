@@ -1,6 +1,6 @@
 {
   "name": "ipfs-env",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "get ipfs environment variable",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-env#readme",
   "bugs": {

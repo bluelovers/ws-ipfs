@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.70](https://github.com/bluelovers/ws-ipfs/compare/use-ipfs@1.0.69...use-ipfs@1.0.70) (2021-07-04)
+
+
+### 🐛　Bug Fixes
+
+* use import { getCreateClientFn } from '@bluelovers/ipfs-http-client/core'; ([9250e5f](https://github.com/bluelovers/ws-ipfs/commit/9250e5ff82937e80bd533521138a03d45ee9a816))
+
+
+### 📦　Code Refactoring
+
+* update deps and build ([a542d92](https://github.com/bluelovers/ws-ipfs/commit/a542d92420faef55f6879fedc07d563f21db03a7))
+
+
+
+
+
 ## [1.0.69](https://github.com/bluelovers/ws-ipfs/compare/use-ipfs@1.0.68...use-ipfs@1.0.69) (2020-08-29)
 
 

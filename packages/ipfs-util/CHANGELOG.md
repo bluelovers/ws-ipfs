@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.48](https://github.com/bluelovers/ws-ipfs/compare/ipfs-util-lib@1.0.47...ipfs-util-lib@1.0.48) (2021-07-04)
+
+
+### 🐛　Bug Fixes
+
+* 同時相容於新舊版 `ipfs` 與 `ipfs-http-client` ([e90f583](https://github.com/bluelovers/ws-ipfs/commit/e90f583772b3908a8b2b9530cc9c60c10b570af8))
+
+
+### 📦　Code Refactoring
+
+* update deps and build ([a542d92](https://github.com/bluelovers/ws-ipfs/commit/a542d92420faef55f6879fedc07d563f21db03a7))
+
+
+
+
+
 ## [1.0.47](https://github.com/bluelovers/ws-ipfs/compare/ipfs-util-lib@1.0.46...ipfs-util-lib@1.0.47) (2020-08-29)
 
 

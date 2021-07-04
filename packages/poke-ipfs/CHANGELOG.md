@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.8](https://github.com/bluelovers/ws-ipfs/compare/poke-ipfs@1.1.7...poke-ipfs@1.1.8) (2021-07-04)
+
+
+### 📦　Code Refactoring
+
+* update deps and build ([a542d92](https://github.com/bluelovers/ws-ipfs/commit/a542d92420faef55f6879fedc07d563f21db03a7))
+* remove ipfs-types ([57ca84e](https://github.com/bluelovers/ws-ipfs/commit/57ca84e88a4f6dccee3533a5220c7a820ad2d363))
+
+
+
+
+
 ## [1.1.7](https://github.com/bluelovers/ws-ipfs/compare/poke-ipfs@1.1.6...poke-ipfs@1.1.7) (2020-08-29)
 
 
