@@ -10,7 +10,7 @@ test(`toCID:string`, () =>
 	expect(actual.toV0().toString()).toStrictEqual(cid);
 
 	expect(actual).toMatchSnapshot({
-		multihash: expect.any(Buffer),
+		multihash: expect.any(Uint8Array),
 	});
 
 	expect(actual.toV0().toString()).toMatchSnapshot();
@@ -42,7 +42,7 @@ test(`toCID:raw`, () =>
 		"version": 0,
 		"codec": "dag-pb",
 		"multibaseName": "base58btc",
-		multihash: Buffer.from([
+		multihash: Uint8Array.from([
 			18,  32, 183, 254,   8,  30, 244,  17,
 			96, 165, 123,  89,  19,  86,  24,  96,
 			118, 229, 238, 199, 116,   2,  56,  83,
@@ -67,7 +67,7 @@ test(`toCID:raw without multibaseName`, () =>
 	let actual = toCID({
 		"version": 0,
 		"codec": "dag-pb",
-		multihash: Buffer.from([
+		multihash: Uint8Array.from([
 			18,  32, 183, 254,   8,  30, 244,  17,
 			96, 165, 123,  89,  19,  86,  24,  96,
 			118, 229, 238, 199, 116,   2,  56,  83,

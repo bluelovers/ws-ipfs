@@ -46,7 +46,7 @@ Object {
 
 exports[`toCID:CID 2`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
 
-exports[`toCID:CID 3`] = `"bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m"`;
+exports[`toCID:CID 3`] = `"zdj7Whp8MXSDAgmwiv8f7UBseBzjYfTXiNm7Nk9m4GpZzoHCW"`;
 
 exports[`toCID:raw 1`] = `
 Object {
@@ -94,7 +94,7 @@ Object {
 
 exports[`toCID:raw 2`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
 
-exports[`toCID:raw 3`] = `"bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m"`;
+exports[`toCID:raw 3`] = `"zdj7Whp8MXSDAgmwiv8f7UBseBzjYfTXiNm7Nk9m4GpZzoHCW"`;
 
 exports[`toCID:raw without multibaseName 1`] = `
 Object {
@@ -142,17 +142,17 @@ Object {
 
 exports[`toCID:raw without multibaseName 2`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
 
-exports[`toCID:raw without multibaseName 3`] = `"bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m"`;
+exports[`toCID:raw without multibaseName 3`] = `"zdj7Whp8MXSDAgmwiv8f7UBseBzjYfTXiNm7Nk9m4GpZzoHCW"`;
 
 exports[`toCID:string 1`] = `
 Object {
   "codec": "dag-pb",
   "multibaseName": "base58btc",
-  "multihash": Any<Buffer>,
+  "multihash": Any<Uint8Array>,
   "version": 0,
 }
 `;
 
 exports[`toCID:string 2`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
 
-exports[`toCID:string 3`] = `"bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m"`;
+exports[`toCID:string 3`] = `"zdj7Whp8MXSDAgmwiv8f7UBseBzjYfTXiNm7Nk9m4GpZzoHCW"`;
