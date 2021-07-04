@@ -43,16 +43,17 @@ export async function some(ipfsClient: IIPFSClientFn | typeof _ipfsHttpModule, c
 	{
 		try
 		{
-			ipfs = create(...argv);
+			ipfs = await create(...argv);
 			if (!skipCheck)
 			{
-				//await ipfs.id();
-				if (await checkIPFSFn(ipfs))
+				// @ts-ignore
+				if (await checkIPFSFn(ipfs)?.catch(e => null))
 				{
-					return ipfs
+					break;
 				}
+
+				ipfs = null
 			}
-			break;
 		}
 		catch (e)
 		{}

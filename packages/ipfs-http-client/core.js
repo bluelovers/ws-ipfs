@@ -15,20 +15,21 @@ function getCreateClientFn(ipfsClient) {
 }
 exports.getCreateClientFn = getCreateClientFn;
 async function some(ipfsClient, configs, skipCheck, checkIPFSFn) {
+    var _a;
     let ipfs;
     const create = getCreateClientFn(ipfsClient);
     // @ts-ignore
     checkIPFSFn !== null && checkIPFSFn !== void 0 ? checkIPFSFn : (checkIPFSFn = ipfs_util_lib_1.checkIPFS);
     for (let argv of configs) {
         try {
-            ipfs = create(...argv);
+            ipfs = await create(...argv);
             if (!skipCheck) {
-                //await ipfs.id();
-                if (await checkIPFSFn(ipfs)) {
-                    return ipfs;
+                // @ts-ignore
+                if (await ((_a = checkIPFSFn(ipfs)) === null || _a === void 0 ? void 0 : _a.catch(e => null))) {
+                    break;
                 }
+                ipfs = null;
             }
-            break;
         }
         catch (e) { }
     }
