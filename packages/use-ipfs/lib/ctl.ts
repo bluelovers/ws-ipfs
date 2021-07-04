@@ -10,6 +10,7 @@ import defaultsDeep from 'lodash/defaultsDeep';
 // @ts-ignore
 import findFreePort from 'find-free-port-sync-fixed';
 import { unlinkIPFSApi } from 'fix-ipfs/lib/ipfsd-ctl/unlinkIPFSApi';
+import { getCreateClientFn } from '@bluelovers/ipfs-http-client/core';
 
 const usedPort = new Set<number>();
 
@@ -84,7 +85,7 @@ export async function startIPFS(options?: IOptions)
 		let ipfs;
 		try
 		{
-			ipfs = await IpfsClient(addr);
+			ipfs = await getCreateClientFn(IpfsClient)(addr);
 			await checkIPFS(ipfs);
 		}
 		catch (e)

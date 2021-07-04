@@ -3,7 +3,7 @@ import IpfsClient, {
 	IIPFSClientParameters,
 	IIPFSClientReturn,
 } from '@bluelovers/ipfs-http-client';
-import { some } from '@bluelovers/ipfs-http-client/core';
+import { getCreateClientFn, some } from '@bluelovers/ipfs-http-client/core';
 import startIPFS from './lib/ctl';
 import cloneDeep from 'lodash/cloneDeep';
 import { EnumIPFSType, IOptions, IOptionsExtra } from './lib/types';
@@ -59,7 +59,7 @@ export async function useIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, opti
 
 		const stop = (...argv) =>
 		{
-			return unsubscribeAll(ipfs)
+			return unsubscribeAll(ipfs as any)
 				.catch(e => null)
 				.then(e => {
 					return bool && closeFnOld?.(...argv)
@@ -82,11 +82,12 @@ export async function useIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, opti
 			stop,
 		});
 
-		await configDefaultAll(ipfs).catch(e => null);
+		await configDefaultAll(ipfs as any).catch(e => null);
 
 		ret = void 0;
 	}
 
+	// @ts-ignore
 	return _cached as ICachedObject<IPFS>
 }
 
@@ -123,7 +124,7 @@ export async function getIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, opti
 
 			try
 			{
-				ipfs = await IpfsClient(optionsExtra?.serverAddr);
+				ipfs = await getCreateClientFn(IpfsClient)(optionsExtra?.serverAddr);
 				if (!(optionsExtra?.skipCheck && optionsExtra?.serverAddr))
 				{
 					await checkIPFS(ipfs)
@@ -243,6 +244,7 @@ export async function getIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, opti
 		});
 
 		resolve({
+			// @ts-ignore
 			ipfs,
 			ipfsType,
 			stop,

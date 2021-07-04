@@ -33,15 +33,16 @@ const defaultsDeep_1 = __importDefault(require("lodash/defaultsDeep"));
 // @ts-ignore
 const find_free_port_sync_fixed_1 = __importDefault(require("find-free-port-sync-fixed"));
 const unlinkIPFSApi_1 = require("fix-ipfs/lib/ipfsd-ctl/unlinkIPFSApi");
+const core_1 = require("@bluelovers/ipfs-http-client/core");
 const usedPort = new Set();
 async function getPort2(options) {
-    let port = await find_free_port_sync_fixed_1.default({
+    let port = await (0, find_free_port_sync_fixed_1.default)({
         start: options.port,
     });
     let start = port;
     while (usedPort.has(port)) {
         start += 100;
-        port = await find_free_port_sync_fixed_1.default({
+        port = await (0, find_free_port_sync_fixed_1.default)({
             start,
         });
     }
@@ -50,9 +51,9 @@ async function getPort2(options) {
 }
 exports.getPort2 = getPort2;
 async function startIPFS(options) {
-    options = ipfsd_1.fixIPFSOptions(options);
+    options = (0, ipfsd_1.fixIPFSOptions)(options);
     if (options === null || options === void 0 ? void 0 : options.disposable) {
-        let ports = addresses_1.getDefaultAddressesPorts({}, options.type);
+        let ports = (0, addresses_1.getDefaultAddressesPorts)({}, options.type);
         let Swarm2 = 0;
         /*
         Swarm2 = await getPort2({ port: ports.Swarm2 as number });
@@ -72,26 +73,26 @@ async function startIPFS(options) {
         ports.API = await getPort2({ port: ports.API + Swarm2 });
         ports.Gateway = await getPort2({ port: ports.Gateway + Swarm2 });
         //console.dir(ports)
-        options.ipfsOptions.config = defaultsDeep_1.default(options.ipfsOptions.config, {
+        options.ipfsOptions.config = (0, defaultsDeep_1.default)(options.ipfsOptions.config, {
             Addresses: {
-                ...addresses_1.default(ports, options.type),
+                ...(0, addresses_1.default)(ports, options.type),
             },
         });
     }
-    let ipfsd = await ipfsd_ctl_1.createController(options);
-    let addr = await utils_1.checkForRunningApi(ipfsd.path);
+    let ipfsd = await (0, ipfsd_ctl_1.createController)(options);
+    let addr = await (0, utils_1.checkForRunningApi)(ipfsd.path);
     if (addr) {
         let ipfs;
         try {
-            ipfs = await ipfs_http_client_1.default(addr);
-            await ipfs_util_lib_1.checkIPFS(ipfs);
+            ipfs = await (0, core_1.getCreateClientFn)(ipfs_http_client_1.default)(addr);
+            await (0, ipfs_util_lib_1.checkIPFS)(ipfs);
         }
         catch (e) {
             try {
                 await ipfs.stop();
             }
             catch (e) { }
-            await unlinkIPFSApi_1.unlinkIPFSApi(ipfsd.path);
+            await (0, unlinkIPFSApi_1.unlinkIPFSApi)(ipfsd.path);
         }
         finally {
             try {
@@ -103,7 +104,7 @@ async function startIPFS(options) {
     }
     !ipfsd.initialized && await ipfsd.init();
     !ipfsd.started && await ipfsd.start();
-    await ipfs_util_lib_1.checkIPFS(ipfsd.api);
+    await (0, ipfs_util_lib_1.checkIPFS)(ipfsd.api);
     return ipfsd;
 }
 exports.startIPFS = startIPFS;

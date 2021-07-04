@@ -22,7 +22,7 @@ async function useIPFS(options, optionsExtra = {}) {
         let ret = await getIPFS(options, optionsExtra);
         //console.dir({ ipfs, ipfsType })
         let { stop: closeFnOld, ipfs } = ret;
-        await ipfs_util_lib_1.checkIPFS(ipfs)
+        await (0, ipfs_util_lib_1.checkIPFS)(ipfs)
             .catch(async (e) => {
             if (optionsExtra === null || optionsExtra === void 0 ? void 0 : optionsExtra.skipCheck) {
                 e && console.warn(`[checkIPFS]`, String(e));
@@ -34,7 +34,7 @@ async function useIPFS(options, optionsExtra = {}) {
         });
         let bool = true;
         const stop = (...argv) => {
-            return unsubscribe_1.unsubscribeAll(ipfs)
+            return (0, unsubscribe_1.unsubscribeAll)(ipfs)
                 .catch(e => null)
                 .then(e => {
                 return bool && (closeFnOld === null || closeFnOld === void 0 ? void 0 : closeFnOld(...argv).then(() => {
@@ -52,9 +52,10 @@ async function useIPFS(options, optionsExtra = {}) {
             ...ret,
             stop,
         });
-        await default_1.default(ipfs).catch(e => null);
+        await (0, default_1.default)(ipfs).catch(e => null);
         ret = void 0;
     }
+    // @ts-ignore
     return _cached;
 }
 exports.useIPFS = useIPFS;
@@ -68,9 +69,9 @@ async function getIPFS(options, optionsExtra = {}) {
         let ipfsType = types_1.EnumIPFSType.Unknown;
         await (async () => {
             if (options === null || options === void 0 ? void 0 : options.disposable) {
-                ipfsd = await ctl_1.default(options);
+                ipfsd = await (0, ctl_1.default)(options);
                 ipfs = ipfsd.api;
-                await ipfs_util_lib_1.checkIPFS(ipfs);
+                await (0, ipfs_util_lib_1.checkIPFS)(ipfs);
                 ipfsType = types_1.EnumIPFSType.Controller;
                 return;
             }
@@ -80,15 +81,15 @@ async function getIPFS(options, optionsExtra = {}) {
                 fallbackServerArgvs = [fallbackServer];
             }
             try {
-                ipfs = await ipfs_http_client_1.default(optionsExtra === null || optionsExtra === void 0 ? void 0 : optionsExtra.serverAddr);
+                ipfs = await (0, core_1.getCreateClientFn)(ipfs_http_client_1.default)(optionsExtra === null || optionsExtra === void 0 ? void 0 : optionsExtra.serverAddr);
                 if (!((optionsExtra === null || optionsExtra === void 0 ? void 0 : optionsExtra.skipCheck) && (optionsExtra === null || optionsExtra === void 0 ? void 0 : optionsExtra.serverAddr))) {
-                    await ipfs_util_lib_1.checkIPFS(ipfs);
+                    await (0, ipfs_util_lib_1.checkIPFS)(ipfs);
                 }
                 ipfsType = types_1.EnumIPFSType.Client;
             }
             catch (e) {
                 if (optionsExtra.useFallbackFirst && (fallbackServerArgvs === null || fallbackServerArgvs === void 0 ? void 0 : fallbackServerArgvs.length)) {
-                    ipfs = await core_1.some(ipfs_http_client_2.default, [fallbackServerArgvs], true)
+                    ipfs = await (0, core_1.some)(ipfs_http_client_2.default, [fallbackServerArgvs], true)
                         .then(ipfs => {
                         //checkIPFS(ipfs);
                         ipfsType = types_1.EnumIPFSType.ClientFallback;
@@ -101,16 +102,16 @@ async function getIPFS(options, optionsExtra = {}) {
                 }
                 //console.error(e)
                 try {
-                    ipfsd = await ctl_1.default(options);
+                    ipfsd = await (0, ctl_1.default)(options);
                     ipfs = ipfsd.api;
-                    await ipfs_util_lib_1.checkIPFS(ipfs);
+                    await (0, ipfs_util_lib_1.checkIPFS)(ipfs);
                     ipfsType = types_1.EnumIPFSType.Controller;
                 }
                 catch (e) {
                     await stop(true);
                     if (fallbackServerArgvs && fallbackServerArgvs.length) {
                         ipfsd = undefined;
-                        ipfs = await core_1.some(ipfs_http_client_2.default, [fallbackServerArgvs], true)
+                        ipfs = await (0, core_1.some)(ipfs_http_client_2.default, [fallbackServerArgvs], true)
                             .then(ipfs => {
                             //checkIPFS(ipfs);
                             ipfsType = types_1.EnumIPFSType.ClientFallback;
@@ -161,12 +162,13 @@ async function getIPFS(options, optionsExtra = {}) {
             return stop();
         });
         resolve({
+            // @ts-ignore
             ipfs,
             ipfsType,
             stop,
             async address() {
-                let addr = await ipfs_util_lib_1.ipfsAddresses(ipfs);
-                return cloneDeep_1.default(addr);
+                let addr = await (0, ipfs_util_lib_1.ipfsAddresses)(ipfs);
+                return (0, cloneDeep_1.default)(addr);
             },
             get ipfsd() {
                 return ipfsd;
