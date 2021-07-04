@@ -26,7 +26,7 @@
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\"",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "npm:publish": "npm publish",
     "prepublish:lockfile": "npx sync-lockfile .",
@@ -42,11 +42,12 @@
     "ipfs-env": "^1.0.8",
     "ipfs-types": "^1.0.31",
     "ipfs-util-lib": "^1.0.47",
-    "ts-type": "^1.2.32"
+    "ts-type": "^1.2.35",
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@types/bl": "^2.1.0",
-    "bl": "^4.0.3"
+    "@types/bl": "^5.0.1",
+    "bl": "^5.0.0"
   },
   "peerDependencies": {
     "ipfs-http-client": "*"

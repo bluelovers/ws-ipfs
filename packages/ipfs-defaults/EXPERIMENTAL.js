@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.mergeDefaultEXPERIMENTAL = void 0;
 const lodash_1 = require("lodash");
 function mergeDefaultEXPERIMENTAL(EXPERIMENTAL = {}) {
-    return lodash_1.merge({
+    return (0, lodash_1.merge)({
         pubsub: true,
         ipnsPubsub: true,
         sharding: true,

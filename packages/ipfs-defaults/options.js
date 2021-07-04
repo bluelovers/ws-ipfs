@@ -7,8 +7,8 @@ exports.mergeDefaultOptions = void 0;
 const lodash_1 = require("lodash");
 const EXPERIMENTAL_1 = __importDefault(require("./EXPERIMENTAL"));
 function mergeDefaultOptions(options = {}) {
-    return lodash_1.merge({
-        EXPERIMENTAL: EXPERIMENTAL_1.default(),
+    return (0, lodash_1.merge)({
+        EXPERIMENTAL: (0, EXPERIMENTAL_1.default)(),
         relay: {
             enabled: true,
             hop: {
@@ -21,7 +21,7 @@ function mergeDefaultOptions(options = {}) {
         },
         repoAutoMigrate: true,
         migrate: true,
-    }, lodash_1.defaultsDeep(options, {}));
+    }, (0, lodash_1.defaultsDeep)(options, {}));
 }
 exports.mergeDefaultOptions = mergeDefaultOptions;
 exports.default = mergeDefaultOptions;

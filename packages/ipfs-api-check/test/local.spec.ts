@@ -21,6 +21,7 @@ it('check local', async (done) =>
 	await useIPFS({
 		disposable: true,
 	})
+		// @ts-ignore
 		.then(async ({
 			ipfs,
 			ipfsType,

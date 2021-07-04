@@ -14,7 +14,7 @@ function getIPFSDaemonOptions(options) {
     if (options.disposable) {
     }
     else {
-        repo = (_a = options.repoPath) !== null && _a !== void 0 ? _a : ipfs_env_1.default().IPFS_PATH;
+        repo = (_a = options.repoPath) !== null && _a !== void 0 ? _a : (0, ipfs_env_1.default)().IPFS_PATH;
     }
     daemonOptions = {
         preload: { enabled: (_b = options === null || options === void 0 ? void 0 : options.enablePreload) !== null && _b !== void 0 ? _b : true },

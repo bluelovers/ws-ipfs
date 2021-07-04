@@ -11,7 +11,7 @@ function addAll(ipfs, ...argv) {
 }
 exports.addAll = addAll;
 function add(ipfs, ...argv) {
-    return it_last_1.default(addAll(ipfs, ...argv));
+    return (0, it_last_1.default)(addAll(ipfs, ...argv));
 }
 exports.add = add;
 exports.default = addAll;

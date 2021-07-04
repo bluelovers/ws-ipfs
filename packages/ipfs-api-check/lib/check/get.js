@@ -9,7 +9,7 @@ const util_1 = require("../util");
 async function get(ipfs) {
     const cid = 'Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a';
     const expected = 'Hello from IPFS Gateway Checker\n';
-    return util_1.runSubCheck(async () => {
+    return (0, util_1.runSubCheck)(async () => {
         let success;
         for await (const file of ipfs.get(cid, {
             timeout: 5000,

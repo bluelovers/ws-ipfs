@@ -8,7 +8,7 @@ const lodash_1 = require("lodash");
 const bootstrap_1 = __importDefault(require("ipfs-server-list/bootstrap"));
 const EXPERIMENTAL_1 = __importDefault(require("./EXPERIMENTAL"));
 function mergeDefaultConfig(config = {}) {
-    return lodash_1.merge({
+    return (0, lodash_1.merge)({
         API: {
             HTTPHeaders: {
                 'Access-Control-Allow-Methods': [
@@ -47,8 +47,8 @@ function mergeDefaultConfig(config = {}) {
                 ],
             },
         },
-        EXPERIMENTAL: EXPERIMENTAL_1.default(),
-        Bootstrap: lodash_1.uniq(bootstrap_1.default),
+        EXPERIMENTAL: (0, EXPERIMENTAL_1.default)(),
+        Bootstrap: (0, lodash_1.uniq)(bootstrap_1.default),
         Pubsub: {
             Router: 'gossipsub',
             Enabled: true,
@@ -75,7 +75,7 @@ function mergeDefaultConfig(config = {}) {
                 Enabled: true,
             },
         },
-    }, lodash_1.defaultsDeep(config, {
+    }, (0, lodash_1.defaultsDeep)(config, {
         Addresses: {
             Delegates: [],
         },

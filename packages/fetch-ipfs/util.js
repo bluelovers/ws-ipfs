@@ -18,8 +18,8 @@ function handleCID(cid, useIPFS, options = {}) {
             cid = new URL(cid).pathname;
         }
         catch (e) {
-            if (!to_ipfs_url_1.isCidOrPath(cid)) {
-                cid = to_ipfs_url_1.toPath(cid, options);
+            if (!(0, to_ipfs_url_1.isCidOrPath)(cid)) {
+                cid = (0, to_ipfs_url_1.toPath)(cid, options);
             }
         }
     }
@@ -28,7 +28,7 @@ function handleCID(cid, useIPFS, options = {}) {
             cid = new URL(cid).href;
         }
         catch (e) {
-            cid = to_ipfs_url_1.toLink(cid, options);
+            cid = (0, to_ipfs_url_1.toLink)(cid, options);
         }
     }
     return cid;
@@ -42,7 +42,7 @@ function handleTimeout(timeout) {
 }
 exports.handleTimeout = handleTimeout;
 function lazyRaceServerList() {
-    return ipfs_server_list_1.filterList('API');
+    return (0, ipfs_server_list_1.filterList)('API');
 }
 exports.lazyRaceServerList = lazyRaceServerList;
 //# sourceMappingURL=util.js.map

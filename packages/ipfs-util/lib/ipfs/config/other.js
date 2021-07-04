@@ -10,9 +10,9 @@ const array_hyper_unique_1 = require("array-hyper-unique");
 const ipfs_api_type_1 = __importDefault(require("ipfs-api-type"));
 async function configOthers(ipfs) {
     const wss = '/dns4/ws-star.discovery.libp2p.io/tcp/443/wss/p2p-websocket-star';
-    const bs = array_hyper_unique_1.array_unique(bootstrap_1.default);
-    const apiType = await ipfs_api_type_1.default(ipfs);
-    return setConfigIfNotExists_1.setConfigIfNotExistsLazy(ipfs, [
+    const bs = (0, array_hyper_unique_1.array_unique)(bootstrap_1.default);
+    const apiType = await (0, ipfs_api_type_1.default)(ipfs);
+    return (0, setConfigIfNotExists_1.setConfigIfNotExistsLazy)(ipfs, [
         ['Discovery.MDNS.Enabled', true],
         ['Discovery.webRTCStar.Enabled', true],
         /*
@@ -44,8 +44,7 @@ async function configOthers(ipfs) {
         ],
          */
         [
-            'Bootstrap',
-            (oldValue) => {
+            'Bootstrap', (oldValue) => {
                 oldValue = oldValue !== null && oldValue !== void 0 ? oldValue : [];
                 bs.forEach(addr => {
                     if (!oldValue.includes(addr)) {

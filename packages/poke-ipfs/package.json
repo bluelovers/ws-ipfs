@@ -19,7 +19,7 @@
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\"",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "npm:publish": "npm publish",
     "prepublish:lockfile": "npx sync-lockfile .",
@@ -31,14 +31,15 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@types/node-fetch": "*",
     "abort-controller": "^3.0.0",
-    "abort-controller-timer": "^1.0.6"
+    "abort-controller-timer": "^1.0.6",
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
     "cross-fetch": "^3.1.4"
   },
   "peerDependencies": {
+    "@types/node-fetch": "*",
     "cross-fetch": "^3.1.4"
   },
   "gitHead": "0de896d58ae13387db38242fe99d2796016c550c"

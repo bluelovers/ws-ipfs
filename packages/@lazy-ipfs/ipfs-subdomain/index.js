@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ipfsSubdomain = exports.ipfsSubdomainURL = exports.getGatewayDomain = exports.assertGatewayDomain = exports.isIPFSAddressesLikeWithGatewayDomain = exports.assertIPFSAddressesLikeWithGatewayDomain = void 0;
 const to_cid_1 = __importDefault(require("@lazy-ipfs/to-cid"));
 const ipfs_server_list_1 = require("ipfs-server-list");
-const defaultGatewayDomain = ipfs_server_list_1.getIpfsServerList().cloudflare.GatewayDomain;
+const defaultGatewayDomain = (0, ipfs_server_list_1.getIpfsServerList)().cloudflare.GatewayDomain;
 function assertIPFSAddressesLikeWithGatewayDomain(gatewayDomain) {
     if (isIPFSAddressesLikeWithGatewayDomain(gatewayDomain)) {
         return;
@@ -33,7 +33,7 @@ function getGatewayDomain(gatewayDomain) {
 }
 exports.getGatewayDomain = getGatewayDomain;
 function ipfsSubdomainURL(cid, gatewayDomain = defaultGatewayDomain, protocol = 'https:') {
-    cid = to_cid_1.default(cid).toV1().toBaseEncodedString('base32');
+    cid = (0, to_cid_1.default)(cid).toV1().toBaseEncodedString('base32');
     gatewayDomain = getGatewayDomain(gatewayDomain);
     assertGatewayDomain(gatewayDomain);
     return new URL(`${protocol || 'https:'}//${cid}${gatewayDomain}`);

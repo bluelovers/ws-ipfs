@@ -9,12 +9,13 @@ const bluebird_1 = __importDefault(require("bluebird"));
 const util_1 = require("./util");
 function refIPFS(cid, ipfs, timeout) {
     timeout = timeout |= 0 || 10 * 1000;
-    const { controller, timer } = util_1.newAbortController(timeout);
+    const { controller, timer } = (0, util_1.newAbortController)(timeout);
     return bluebird_1.default.resolve()
         .then(async () => {
         for await (const ref of ipfs.refs(cid, {
             timeout,
             signal: controller.signal,
+            //pin: false,
         })) {
             if (ref.err) {
                 return Promise.reject(ref.err);
@@ -29,8 +30,8 @@ function refIPFS(cid, ipfs, timeout) {
 exports.refIPFS = refIPFS;
 function catIPFS(cid, ipfs, timeout) {
     timeout = timeout |= 0 || 60 * 1000;
-    const { controller, timer } = util_1.newAbortController(timeout);
-    return refIPFS(cid, ipfs)
+    const { controller, timer } = (0, util_1.newAbortController)(timeout);
+    return refIPFS(cid, ipfs, timeout)
         .catch(Error, async (e) => {
         if (e.message && e.message.toLowerCase().includes('ipfs method not allowed')) {
             //console.warn(String(e).replace(/\s+$/, ''), `\nurl: ${e.response.url}`, `\nwill ignore this error and trying fetch content`);
@@ -43,12 +44,16 @@ function catIPFS(cid, ipfs, timeout) {
         for await (const chunk of ipfs.cat(cid, {
             timeout,
             signal: controller.signal,
+            //pin: false,
         })) {
             chunks.push(chunk);
         }
         return Buffer.concat(chunks);
     })
-        .finally(() => controller.clear());
+        .finally(() => {
+        controller.abort();
+        controller.clear();
+    });
 }
 exports.catIPFS = catIPFS;
 exports.default = catIPFS;

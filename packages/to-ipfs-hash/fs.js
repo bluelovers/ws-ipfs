@@ -10,7 +10,7 @@ exports.fromFile = void 0;
 const fs_extra_1 = require("fs-extra");
 const index_1 = __importDefault(require("./index"));
 function fromFile(file, options) {
-    return fs_extra_1.readFile(file).then(buf => index_1.default(buf, options));
+    return (0, fs_extra_1.readFile)(file).then(buf => (0, index_1.default)(buf, options));
 }
 exports.fromFile = fromFile;
 exports.default = fromFile;

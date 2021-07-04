@@ -7,7 +7,7 @@ exports.getDefaultServerList = void 0;
 const ipfs_env_1 = __importDefault(require("ipfs-env"));
 function getDefaultServerList(options = {}) {
     const ipfsServerList = [];
-    const { IPFS_ADDRESSES_API } = ipfs_env_1.default();
+    const { IPFS_ADDRESSES_API } = (0, ipfs_env_1.default)();
     if (typeof IPFS_ADDRESSES_API === 'string' && IPFS_ADDRESSES_API.length) {
         ipfsServerList.push(IPFS_ADDRESSES_API);
     }

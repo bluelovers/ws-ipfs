@@ -21,7 +21,7 @@ function handleClientList(useIPFS, filter) {
             return;
         }
         else if (typeof ipfs === 'string') {
-            return ipfs_http_client_1.default(ipfs)
+            return (0, ipfs_http_client_1.default)(ipfs)
                 .catch(e => null);
         }
         else if (filter && await filter(ipfs)) {
@@ -29,7 +29,7 @@ function handleClientList(useIPFS, filter) {
         }
         // @ts-ignore
         else if (typeof ipfs === 'object' && (ipfs.port || ipfs.host)) {
-            return ipfs_http_client_1.default(ipfs)
+            return (0, ipfs_http_client_1.default)(ipfs)
                 .catch(e => null);
         }
         else if (ipfs) {

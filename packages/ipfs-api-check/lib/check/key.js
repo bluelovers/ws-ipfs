@@ -5,7 +5,7 @@ const util_1 = require("../util");
 async function key(ipfs) {
     const name = 'my-key';
     const name_new = name + '_new';
-    let gen = await util_1.runSubCheck(async () => {
+    let gen = await (0, util_1.runSubCheck)(async () => {
         const result = await ipfs.key.gen(name, {
             type: 'rsa',
             size: 2048,
@@ -13,28 +13,28 @@ async function key(ipfs) {
         //console.dir(result)
         return result.name === name;
     });
-    let list = await util_1.runSubCheck(async () => {
+    let list = await (0, util_1.runSubCheck)(async () => {
         const result = await ipfs.key.list();
         //console.dir(result)
         return typeof result.length === 'number';
     });
-    let rm = await util_1.runSubCheck(async () => {
+    let rm = await (0, util_1.runSubCheck)(async () => {
         const result = await ipfs.key.rm(name);
         //console.dir(result)
         return result.name === name;
     });
-    let rename = await util_1.runSubCheck(async () => {
+    let rename = await (0, util_1.runSubCheck)(async () => {
         const result = await ipfs.key.rename(name, name_new);
         //console.dir(result)
         return result.was === name
             && result.now === name_new;
     });
-    let keyExport = await util_1.runSubCheck(async () => {
+    let keyExport = await (0, util_1.runSubCheck)(async () => {
         const result = await ipfs.key.export(name, name_new);
         //console.dir(result)
         return result.length;
     });
-    let keyImport = await util_1.runSubCheck(async () => {
+    let keyImport = await (0, util_1.runSubCheck)(async () => {
         const result = await ipfs.key.import('clone', 'password');
         //console.dir(result)
         return result.name === 'clone';

@@ -13,7 +13,7 @@
   "scripts": {
     "lerna:publish": "yarn run prepublishOnly:root && lerna publish && yarn run postpublishOnly",
     "lerna:publish:yes": "yarn run prepublishOnly:root && lerna publish --yes --bump patch && yarn run postpublishOnly",
-    "preversion": "echo preversion",
+    "preversion": "yt ws run test",
     "prepare:fix-ws-links": "ynpx --quiet @yarn-tool/fix-ws-links",
     "prepublishOnly": "echo prepublishOnly",
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
@@ -30,28 +30,29 @@
   "resolutions": {},
   "dependencies": {
     "bluebird": "^3.7.2",
-    "cross-fetch": "^3.0.5",
-    "fs-extra": "^9.0.1",
-    "ipfs": "^0.49.1",
-    "ipfs-http-client": "^46.0.1",
-    "ipfs-utils": "^3.0.0",
-    "ipfsd-ctl": "^7.0.0",
-    "jest": "^26.4.2",
-    "scramjet": "^4.34.3",
-    "ts-jest": "^26.3.0"
+    "cross-fetch": "^3.1.4",
+    "fs-extra": "^10.0.0",
+    "ipfs": "^0.55.4",
+    "ipfs-http-client": "^50.1.2",
+    "ipfs-utils": "^8.1.3",
+    "ipfsd-ctl": "^8.0.2",
+    "jest": "^27.0.6",
+    "scramjet": "^4.35.20",
+    "ts-jest": "^27.0.3"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.20",
-    "@types/bluebird": "^3.5.32",
-    "@types/chrome": "^0.0.122",
-    "@types/fs-extra": "^9.0.1",
-    "@types/jest": "^26.0.10",
-    "@types/lodash": "^4.14.161",
-    "@types/node": "^14.6.2",
+    "@bluelovers/tsconfig": "^1.0.22",
+    "@types/bluebird": "^3.5.35",
+    "@types/chrome": "^0.0.145",
+    "@types/fs-extra": "^9.0.11",
+    "@types/jest": "^26.0.23",
+    "@types/lodash": "^4.14.170",
+    "@types/node": "^16.0.0",
     "@types/node-fetch": "*",
-    "@types/yargs": "^15.0.5"
+    "@types/yargs": "^17.0.1",
+    "tslib": "^2.3.0"
   },
   "peerDependencies": {
-    "lerna": "^3"
+    "lerna": "^4"
   }
 }

@@ -54,7 +54,7 @@ const type_convert_1 = require("../util/type-convert");
 function normaliseInput(input) {
     // must give us something
     if (input === null || input === undefined) {
-        throw err_code_1.default(new Error(`Unexpected input: ${input}`), 'ERR_UNEXPECTED_INPUT');
+        throw (0, err_code_1.default)(new Error(`Unexpected input: ${input}`), 'ERR_UNEXPECTED_INPUT');
     }
     // String
     if (typeof input === 'string' || input instanceof String) {
@@ -64,7 +64,7 @@ function normaliseInput(input) {
     }
     // Buffer|ArrayBuffer|TypedArray
     // Blob|File
-    if (type_check_1.isBytes(input) || type_check_1.isBloby(input)) {
+    if ((0, type_check_1.isBytes)(input) || (0, type_check_1.isBloby)(input)) {
         return (async function* () {
             yield toFileObject(input);
         })();
@@ -78,7 +78,7 @@ function normaliseInput(input) {
                 return iterator;
             // Iterable<Number>
             // Iterable<Bytes>
-            if (Number.isInteger(first.value) || type_check_1.isBytes(first.value)) {
+            if (Number.isInteger(first.value) || (0, type_check_1.isBytes)(first.value)) {
                 yield toFileObject((function* () {
                     yield first.value;
                     yield* iterator;
@@ -88,14 +88,14 @@ function normaliseInput(input) {
             // Iterable<Bloby>
             // Iterable<String>
             // Iterable<{ path, content }>
-            if (type_check_1.isFileObject(first.value) || type_check_1.isBloby(first.value) || typeof first.value === 'string') {
+            if ((0, type_check_1.isFileObject)(first.value) || (0, type_check_1.isBloby)(first.value) || typeof first.value === 'string') {
                 yield toFileObject(first.value);
                 for (const obj of iterator) {
                     yield toFileObject(obj);
                 }
                 return;
             }
-            throw err_code_1.default(new Error('Unexpected input: ' + typeof input), 'ERR_UNEXPECTED_INPUT');
+            throw (0, err_code_1.default)(new Error('Unexpected input: ' + typeof input), 'ERR_UNEXPECTED_INPUT');
         })();
     }
     // window.ReadableStream
@@ -114,7 +114,7 @@ function normaliseInput(input) {
             if (first.done)
                 return iterator;
             // AsyncIterable<Bytes>
-            if (type_check_1.isBytes(first.value)) {
+            if ((0, type_check_1.isBytes)(first.value)) {
                 yield toFileObject((async function* () {
                     yield first.value;
                     yield* iterator;
@@ -124,25 +124,25 @@ function normaliseInput(input) {
             // AsyncIterable<Bloby>
             // AsyncIterable<String>
             // AsyncIterable<{ path, content }>
-            if (type_check_1.isFileObject(first.value) || type_check_1.isBloby(first.value) || typeof first.value === 'string') {
+            if ((0, type_check_1.isFileObject)(first.value) || (0, type_check_1.isBloby)(first.value) || typeof first.value === 'string') {
                 yield toFileObject(first.value);
                 for await (const obj of iterator) {
                     yield toFileObject(obj);
                 }
                 return;
             }
-            throw err_code_1.default(new Error('Unexpected input: ' + typeof input), 'ERR_UNEXPECTED_INPUT');
+            throw (0, err_code_1.default)(new Error('Unexpected input: ' + typeof input), 'ERR_UNEXPECTED_INPUT');
         })();
     }
     // { path, content: ? }
     // Note: Detected _after_ AsyncIterable<?> because Node.js streams have a
     // `path` property that passes this check.
-    if (type_check_1.isFileObject(input)) {
+    if ((0, type_check_1.isFileObject)(input)) {
         return (async function* () {
             yield toFileObject(input);
         })();
     }
-    throw err_code_1.default(new Error('Unexpected input: ' + typeof input), 'ERR_UNEXPECTED_INPUT');
+    throw (0, err_code_1.default)(new Error('Unexpected input: ' + typeof input), 'ERR_UNEXPECTED_INPUT');
 }
 exports.normaliseInput = normaliseInput;
 function toFileObject(input) {
@@ -163,13 +163,13 @@ function toFileObject(input) {
 exports.toFileObject = toFileObject;
 function toAsyncIterable(input) {
     // Bytes | String
-    if (type_check_1.isBytes(input) || typeof input === 'string') {
+    if ((0, type_check_1.isBytes)(input) || typeof input === 'string') {
         return (async function* () {
-            yield type_convert_1.toBuffer(input);
+            yield (0, type_convert_1.toBuffer)(input);
         })();
     }
     // Bloby
-    if (type_check_1.isBloby(input)) {
+    if ((0, type_check_1.isBloby)(input)) {
         return blobToAsyncGenerator(input);
     }
     // Browser stream
@@ -185,32 +185,32 @@ function toAsyncIterable(input) {
                 return iterator;
             // Iterable<Number>
             if (Number.isInteger(first.value)) {
-                yield type_convert_1.toBuffer(Array.from((function* () {
+                yield (0, type_convert_1.toBuffer)(Array.from((function* () {
                     yield first.value;
                     yield* iterator;
                 })()));
                 return;
             }
             // Iterable<Bytes>
-            if (type_check_1.isBytes(first.value)) {
-                yield type_convert_1.toBuffer(first.value);
+            if ((0, type_check_1.isBytes)(first.value)) {
+                yield (0, type_convert_1.toBuffer)(first.value);
                 for (const chunk of iterator) {
-                    yield type_convert_1.toBuffer(chunk);
+                    yield (0, type_convert_1.toBuffer)(chunk);
                 }
                 return;
             }
-            throw err_code_1.default(new Error('Unexpected input: ' + typeof input), 'ERR_UNEXPECTED_INPUT');
+            throw (0, err_code_1.default)(new Error('Unexpected input: ' + typeof input), 'ERR_UNEXPECTED_INPUT');
         })();
     }
     // AsyncIterable<Bytes>
     if (input[Symbol.asyncIterator]) {
         return (async function* () {
             for await (const chunk of input) {
-                yield type_convert_1.toBuffer(chunk);
+                yield (0, type_convert_1.toBuffer)(chunk);
             }
         })();
     }
-    throw err_code_1.default(new Error(`Unexpected input: ${input}`), 'ERR_UNEXPECTED_INPUT');
+    throw (0, err_code_1.default)(new Error(`Unexpected input: ${input}`), 'ERR_UNEXPECTED_INPUT');
 }
 exports.toAsyncIterable = toAsyncIterable;
 function blobToAsyncGenerator(blob) {

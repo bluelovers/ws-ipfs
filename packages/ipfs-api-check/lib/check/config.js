@@ -7,13 +7,13 @@ exports.config = void 0;
 const util_1 = require("../util");
 const profiles_1 = __importDefault(require("./config/profiles"));
 async function config(ipfs) {
-    let get = await util_1.runSubCheck(async () => {
+    let get = await (0, util_1.runSubCheck)(async () => {
         const config = await ipfs.config.get('Addresses');
         return config;
     });
     return {
         get,
-        profiles: await profiles_1.default(ipfs),
+        profiles: await (0, profiles_1.default)(ipfs),
     };
 }
 exports.config = config;

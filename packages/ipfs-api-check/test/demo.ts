@@ -14,6 +14,7 @@ useIPFS({
 	//serverAddr: ipfsServerList['infura.io'].API,
 	//skipCheck: true,
 })
+	// @ts-ignore
 	.then(async ({
 		ipfs,
 		ipfsType,

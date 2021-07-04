@@ -17,7 +17,7 @@
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
     "test": "yarn run test:jest",
-    "test:jest": "jest --coverage",
+    "test:jest": "jest",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "npm:publish": "npm publish",
     "npm:publish:lerna": "lerna publish --yes",
@@ -32,7 +32,8 @@
   "dependencies": {
     "@lazy-ipfs/to-cid": "^1.0.11",
     "ipfs-server-list": "^1.0.46",
-    "ipfs-types": "^1.0.31"
+    "ipfs-types": "^1.0.31",
+    "tslib": "^2.3.0"
   },
   "peerDependencies": {
     "cids": "*"

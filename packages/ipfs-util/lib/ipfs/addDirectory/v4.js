@@ -17,9 +17,11 @@ async function addDirectoryToIPFS(ipfs, targetDirPath, { options, globSourceOpti
     const files = [];
     for await (let filename of fast_glob_1.default.stream([
         '**/*',
+        //'**/*.txt',
     ], {
         cwd: targetDirPath,
         onlyFiles: true,
+        //deep: Infinity,
     })) {
         filename = filename.toString();
         //console.dir(filename)
@@ -30,12 +32,12 @@ async function addDirectoryToIPFS(ipfs, targetDirPath, { options, globSourceOpti
             mode: undefined,
             mtime: undefined,
         };
-        if (ignoreExists === true && await list_1.ipfsFilesExists(ipfs, entry.path)) {
+        if (ignoreExists === true && await (0, list_1.ipfsFilesExists)(ipfs, entry.path)) {
             logger_1.default.gray.debug(entry.path);
             continue;
         }
         logger_1.default.debug(entry.path);
-        let buf = await fs_extra_1.readFile(path_1.default.join(targetDirPath, filename));
+        let buf = await (0, fs_extra_1.readFile)(path_1.default.join(targetDirPath, filename));
         await ipfs.files.write(entry.path, buf, {
             create: true,
             parents: true,

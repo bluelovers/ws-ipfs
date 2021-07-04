@@ -9,7 +9,7 @@ const get_stream_1 = __importDefault(require("get-stream"));
 const list_1 = require("../mfs/list");
 const logger_1 = __importDefault(require("debug-color2/logger"));
 async function addDirectoryToIPFS(ipfs, targetDirPath, { options, globSourceOptions, ignoreExists, } = {}) {
-    const stream = glob_source_1.default(targetDirPath, {
+    const stream = (0, glob_source_1.default)(targetDirPath, {
         recursive: true,
         ...globSourceOptions,
     });
@@ -18,7 +18,7 @@ async function addDirectoryToIPFS(ipfs, targetDirPath, { options, globSourceOpti
     ignoreExists = !!ignoreExists;
     for await (const entry of stream) {
         if (entry.content) {
-            if (ignoreExists === true && await list_1.ipfsFilesExists(ipfs, entry.path)) {
+            if (ignoreExists === true && await (0, list_1.ipfsFilesExists)(ipfs, entry.path)) {
                 logger_1.default.gray.debug(entry.path);
                 continue;
             }

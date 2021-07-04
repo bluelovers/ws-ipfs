@@ -11,25 +11,25 @@ const array_hyper_unique_1 = require("array-hyper-unique");
 const handleClientList_1 = require("./lib/handleClientList");
 const util_1 = require("./util");
 function raceFetchIPFS(cid, useIPFS, timeout, options) {
-    const cid2 = util_1.handleCID(cid, true, options);
-    timeout = util_1.handleTimeout(timeout || 10 * 1000);
-    return handleClientList_1.handleClientList(useIPFS, (ipfs => typeof (ipfs === null || ipfs === void 0 ? void 0 : ipfs.cat) === 'function'))
+    const cid2 = (0, util_1.handleCID)(cid, true, options);
+    timeout = (0, util_1.handleTimeout)(timeout || 10 * 1000);
+    return (0, handleClientList_1.handleClientList)(useIPFS, (ipfs => typeof (ipfs === null || ipfs === void 0 ? void 0 : ipfs.cat) === 'function'))
         .then(ps => {
         const ls = ps.map(ipfs => {
-            return index_1.fetchIPFSCore(cid2, ipfs, timeout, options);
+            return (0, index_1.fetchIPFSCore)(cid2, ipfs, timeout, options);
         });
-        array_hyper_unique_1.array_unique([
-            util_1.handleCID(cid, null),
-            ...ipfs_server_list_1.filterList('Gateway').map(gateway => util_1.handleCID(cid, null, {
+        (0, array_hyper_unique_1.array_unique)([
+            (0, util_1.handleCID)(cid, null),
+            ...(0, ipfs_server_list_1.filterList)('Gateway').map(gateway => (0, util_1.handleCID)(cid, null, {
                 prefix: {
                     ipfs: gateway,
                 },
             })),
         ])
             .forEach(cid => {
-            ls.push(index_1.fetchIPFSCore(cid, null, timeout, options));
+            ls.push((0, index_1.fetchIPFSCore)(cid, null, timeout, options));
         });
-        return p_any_1.default(ls, {
+        return (0, p_any_1.default)(ls, {
             filter(buf) {
                 var _a, _b;
                 return (buf === null || buf === void 0 ? void 0 : buf.length) > 0 && ((_b = (_a = options === null || options === void 0 ? void 0 : options.filter) === null || _a === void 0 ? void 0 : _a.call(options, buf)) !== null && _b !== void 0 ? _b : true);

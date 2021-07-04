@@ -25,7 +25,8 @@
     "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
-    "pull-file-reader2": "^1.0.4"
+    "pull-file-reader2": "^1.0.4",
+    "tslib": "^2.3.0"
   },
   "gitHead": "56c7a1d53a16f8556a8630c7ad88371e157bf0df"
 }

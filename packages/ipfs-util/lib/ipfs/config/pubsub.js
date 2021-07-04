@@ -6,7 +6,7 @@ function configPubsub(ipfs) {
     const options = {
         filter: (oldValue) => !oldValue
     };
-    return setConfigIfNotExists_1.setConfigIfNotExistsLazy(ipfs, [
+    return (0, setConfigIfNotExists_1.setConfigIfNotExistsLazy)(ipfs, [
         ['Pubsub.Router', 'gossipsub', options],
         ['Pubsub.Enabled', true, options],
         ['relay.Pubsub.Enabled', true, options],

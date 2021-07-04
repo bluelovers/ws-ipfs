@@ -1,7 +1,7 @@
 import fetch from 'cross-fetch';
 //import { Buffer } from "buffer";
 import catIPFS from './ipfs';
-import Bluebird from 'bluebird';
+import Bluebird, { TimeoutError } from 'bluebird';
 import isErrorCode from 'is-error-code';
 import { newAbortController, handleTimeout, handleCID, IFetchOptions } from './util';
 import { IOptionsInput } from 'to-ipfs-url';
@@ -30,6 +30,8 @@ export async function fetchIPFSCore(cidLink: string, useIPFS?, timeout?: number,
 			timeout,
 			signal: controller.signal,
 		}) as ReturnType<typeof fetch>)
+		.timeout(timeout)
+		.tapCatch(TimeoutError, () => controller.abort())
 		.finally(() => controller.clear())
 		.tap(v =>
 		{

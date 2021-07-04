@@ -16,7 +16,7 @@
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\"",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "npm:publish": "npm publish",
     "prepublish:lockfile": "npx sync-lockfile .",
@@ -27,5 +27,8 @@
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
-  "gitHead": "936a31e7a92cdb3641d2445a506eb6bb27540098"
+  "gitHead": "936a31e7a92cdb3641d2445a506eb6bb27540098",
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
 }

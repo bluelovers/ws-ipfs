@@ -16,7 +16,7 @@
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
-    "test": "jest",
+    "test": "echo test",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "npm:publish": "npm publish",
     "prepublish:lockfile": "npx sync-lockfile .",
@@ -34,16 +34,17 @@
     "abort-controller-timer": "^1.0.6",
     "array-hyper-unique": "^1.1.9",
     "bluebird": "^3.7.2",
-    "cross-fetch": "^3.0.5",
+    "cross-fetch": "^3.1.4",
     "ipfs-types": "^1.0.31",
     "ipfs-util-lib": "^1.0.47",
     "is-error-code": "^1.0.0",
-    "p-any": "^3.0.0",
+    "p-any": "<4 >=3",
     "to-ipfs-url": "^1.0.19",
-    "ts-type": "^1.2.32"
+    "ts-type": "^1.2.35",
+    "tslib": "^2.3.0"
   },
   "peerDependencies": {
-    "buffer": "^5.6.0"
+    "buffer": "^6.0.3"
   },
   "gitHead": "0de896d58ae13387db38242fe99d2796016c550c"
 }

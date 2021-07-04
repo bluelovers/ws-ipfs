@@ -12,7 +12,7 @@ const to_cid_1 = __importDefault(require("@lazy-ipfs/to-cid"));
  * console.dir(cidToBase32('QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco'))
  */
 function cidToBase32(cid) {
-    return to_cid_1.default(cid).toV1().toBaseEncodedString('base32');
+    return (0, to_cid_1.default)(cid).toV1().toBaseEncodedString('base32');
 }
 exports.cidToBase32 = cidToBase32;
 //# sourceMappingURL=index.js.map

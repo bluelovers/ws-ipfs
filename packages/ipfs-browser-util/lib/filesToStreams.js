@@ -11,7 +11,7 @@ const pull_file_reader2_1 = __importDefault(require("pull-file-reader2"));
 async function filesToStreams(files) {
     const streams = [];
     for (const file of files) {
-        const stream = pull_file_reader2_1.default(file);
+        const stream = (0, pull_file_reader2_1.default)(file);
         streams.push({
             path: file.filepath || file.webkitRelativePath || file.name,
             content: stream,

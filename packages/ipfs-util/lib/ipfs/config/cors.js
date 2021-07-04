@@ -5,13 +5,13 @@ const setConfigIfNotExists_1 = require("../../util/setConfigIfNotExists");
 async function configApiCors(ipfs) {
     let ls = [];
     let bool;
-    bool = await setConfigIfNotExists_1.setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Origin', [
+    bool = await (0, setConfigIfNotExists_1.setConfigIfNotExists)(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Origin', [
         'https://webui.ipfs.io',
         'https://dev.webui.ipfs.io/',
         '*',
     ]);
     ls.push(bool);
-    bool = await setConfigIfNotExists_1.setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Methods', setConfigIfNotExists_1.fillEntryIfNotExists([
+    bool = await (0, setConfigIfNotExists_1.setConfigIfNotExists)(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Methods', (0, setConfigIfNotExists_1.fillEntryIfNotExists)([
         'HEAD',
         'PUT',
         'GET',
@@ -19,11 +19,11 @@ async function configApiCors(ipfs) {
         'OPTIONS',
     ]));
     ls.push(bool);
-    bool = await setConfigIfNotExists_1.setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Headers', ['Authorization']);
+    bool = await (0, setConfigIfNotExists_1.setConfigIfNotExists)(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Headers', ['Authorization']);
     ls.push(bool);
-    bool = await setConfigIfNotExists_1.setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Expose-Headers', ['Location']);
+    bool = await (0, setConfigIfNotExists_1.setConfigIfNotExists)(ipfs, 'API.HTTPHeaders.Access-Control-Expose-Headers', ['Location']);
     ls.push(bool);
-    bool = await setConfigIfNotExists_1.setConfigIfNotExists(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Credentials', ['true']);
+    bool = await (0, setConfigIfNotExists_1.setConfigIfNotExists)(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Credentials', ['true']);
     ls.push(bool);
     return ls;
 }

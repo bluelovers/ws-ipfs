@@ -29,7 +29,7 @@ function localServerInfo(options) {
 }
 exports.localServerInfo = localServerInfo;
 function getLocalServerValue(key, options) {
-    return index_1.filterList(key, {
+    return (0, index_1.filterList)(key, {
         localhost: localServerInfo(options),
     })[0];
 }

@@ -16,7 +16,7 @@
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
-    "test": "ts-node test/temp",
+    "test:temp": "ts-node test/temp",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "npm:publish": "npm publish",
     "prepublish:lockfile": "npx sync-lockfile .",
@@ -33,8 +33,9 @@
     "fix-ipfs": "^1.0.6",
     "get-port": "^5.1.1",
     "ipfs-defaults": "^1.0.28",
-    "lodash": "^4.17.20",
-    "ts-type": "^1.2.32"
+    "lodash": "^4.17.21",
+    "ts-type": "^1.2.35",
+    "tslib": "^2.3.0"
   },
   "peerDependencies": {
     "ipfs": "*",

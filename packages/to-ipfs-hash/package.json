@@ -39,12 +39,13 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "bl": "^4.0.3",
-    "fs-extra": "^9.0.1",
-    "ipfs-only-hash": "^2.0.1"
+    "bl": "^5.0.0",
+    "fs-extra": "^10.0.0",
+    "ipfs-only-hash": "^4.0.0",
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@types/bl": "^2.1.0"
+    "@types/bl": "^5.0.1"
   },
   "peerDependencies": {
     "ipfs-utils": "*"

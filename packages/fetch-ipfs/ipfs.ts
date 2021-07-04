@@ -37,7 +37,7 @@ export function catIPFS(cid: string, ipfs: IIPFSPromiseApi, timeout?: number)
 
 	const { controller, timer } = newAbortController(timeout);
 
-	return refIPFS(cid, ipfs)
+	return refIPFS(cid, ipfs, timeout)
 		.catch(Error, async (e: Error & {
 			response?: Response
 		}) => {
@@ -60,7 +60,10 @@ export function catIPFS(cid: string, ipfs: IIPFSPromiseApi, timeout?: number)
 			}
 			return Buffer.concat(chunks)
 		})
-		.finally(() => controller.clear())
+		.finally(() => {
+			controller.abort();
+			controller.clear();
+		})
 	;
 }
 
