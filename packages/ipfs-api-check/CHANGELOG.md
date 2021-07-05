@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.63](https://github.com/bluelovers/ws-ipfs/compare/ipfs-api-check@1.0.62...ipfs-api-check@1.0.63) (2021-07-05)
+
+
+### 🛠　Build System
+
+* **typescript:** use tslib ([eb8dcc0](https://github.com/bluelovers/ws-ipfs/commit/eb8dcc03d5033b358cc14ba9ff51e35c1c547c22))
+
+
+
+
+
 ## [1.0.62](https://github.com/bluelovers/ws-ipfs/compare/ipfs-api-check@1.0.61...ipfs-api-check@1.0.62) (2021-07-04)
 
 

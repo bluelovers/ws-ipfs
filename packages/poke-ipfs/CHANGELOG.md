@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.9](https://github.com/bluelovers/ws-ipfs/compare/poke-ipfs@1.1.8...poke-ipfs@1.1.9) (2021-07-05)
+
+
+### ✨　Features
+
+* notAllowCors ([d9683e5](https://github.com/bluelovers/ws-ipfs/commit/d9683e5037cb14a10e2278db0e2ff21181691d50))
+
+
+### 🛠　Build System
+
+* **typescript:** use tslib ([eb8dcc0](https://github.com/bluelovers/ws-ipfs/commit/eb8dcc03d5033b358cc14ba9ff51e35c1c547c22))
+
+
+
+
+
 ## [1.1.8](https://github.com/bluelovers/ws-ipfs/compare/poke-ipfs@1.1.7...poke-ipfs@1.1.8) (2021-07-04)
 
 

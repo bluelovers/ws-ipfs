@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.71](https://github.com/bluelovers/ws-ipfs/compare/use-ipfs@1.0.70...use-ipfs@1.0.71) (2021-07-05)
+
+
+### 📦　Code Refactoring
+
+* use assertCheckIPFS ([8aba49f](https://github.com/bluelovers/ws-ipfs/commit/8aba49f79fb1a422a01f83f9e1f000cd268816c7))
+
+
+### 🛠　Build System
+
+* **typescript:** use tslib ([eb8dcc0](https://github.com/bluelovers/ws-ipfs/commit/eb8dcc03d5033b358cc14ba9ff51e35c1c547c22))
+
+
+
+
+
 ## [1.0.70](https://github.com/bluelovers/ws-ipfs/compare/use-ipfs@1.0.69...use-ipfs@1.0.70) (2021-07-04)
 
 

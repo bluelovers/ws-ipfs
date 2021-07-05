@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.71](https://github.com/bluelovers/ws-ipfs/compare/fetch-ipfs@1.0.70...fetch-ipfs@1.0.71) (2021-07-05)
+
+
+### 🛠　Build System
+
+* **typescript:** use tslib ([eb8dcc0](https://github.com/bluelovers/ws-ipfs/commit/eb8dcc03d5033b358cc14ba9ff51e35c1c547c22))
+
+
+
+
+
 ## [1.0.70](https://github.com/bluelovers/ws-ipfs/compare/fetch-ipfs@1.0.69...fetch-ipfs@1.0.70) (2021-07-04)
 
 

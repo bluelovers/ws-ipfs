@@ -1,6 +1,6 @@
 {
   "name": "multiaddr-to-url",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/multiaddr-to-url#readme",
   "bugs": {
