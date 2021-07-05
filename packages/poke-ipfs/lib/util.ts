@@ -30,6 +30,41 @@ const IP_TESTER_RE = new RegExp(
 	`^(${IP_RANGES.map(re => re.source).join('|')})$`,
 );
 
+export function isLocalHost(url: URL | string)
+{
+	if (typeof url === 'string')
+	{
+		url = new URL(url.toString());
+	}
+
+	return [
+		'localhost',
+		'127.0.0.1',
+		'::',
+		'::1',
+	].includes(url.hostname)
+}
+
+export function isLocalNetwork(url: URL | string)
+{
+	if (typeof url === 'string')
+	{
+		url = new URL(url.toString());
+	}
+
+	return IP_TESTER_RE.test(url.hostname)
+}
+
+export function notAllowCors(url: URL | string)
+{
+	if (typeof url === 'string')
+	{
+		url = new URL(url.toString());
+	}
+
+	return isLocalHost(url) || isLocalNetwork(url) || url.protocol === 'ipfs:'
+}
+
 export function corsURL(url: URL | string, cors?: boolean)
 {
 	let protocol = 'https:';
@@ -39,12 +74,7 @@ export function corsURL(url: URL | string, cors?: boolean)
 		url = new URL(url.toString());
 	}
 
-	if (cors !== false && ([
-		'localhost',
-		'127.0.0.1',
-		'::',
-		'::1',
-	].includes(url.hostname) || IP_TESTER_RE.test(url.hostname)))
+	if (cors !== false && notAllowCors(url))
 	{
 		cors = false;
 	}

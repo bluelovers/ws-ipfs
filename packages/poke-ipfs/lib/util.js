@@ -3,7 +3,7 @@
  * Created by user on 2020/4/3.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.corsURL = void 0;
+exports.corsURL = exports.notAllowCors = exports.isLocalNetwork = exports.isLocalHost = void 0;
 /**
  * Addresses reserved for private networks
  * @see {@link https://en.wikipedia.org/wiki/Private_network}
@@ -28,17 +28,38 @@ const IP_RANGES = [
 ];
 // Concat all RegExes from above into one
 const IP_TESTER_RE = new RegExp(`^(${IP_RANGES.map(re => re.source).join('|')})$`);
+function isLocalHost(url) {
+    if (typeof url === 'string') {
+        url = new URL(url.toString());
+    }
+    return [
+        'localhost',
+        '127.0.0.1',
+        '::',
+        '::1',
+    ].includes(url.hostname);
+}
+exports.isLocalHost = isLocalHost;
+function isLocalNetwork(url) {
+    if (typeof url === 'string') {
+        url = new URL(url.toString());
+    }
+    return IP_TESTER_RE.test(url.hostname);
+}
+exports.isLocalNetwork = isLocalNetwork;
+function notAllowCors(url) {
+    if (typeof url === 'string') {
+        url = new URL(url.toString());
+    }
+    return isLocalHost(url) || isLocalNetwork(url) || url.protocol === 'ipfs:';
+}
+exports.notAllowCors = notAllowCors;
 function corsURL(url, cors) {
     let protocol = 'https:';
     if (typeof url === 'string') {
         url = new URL(url.toString());
     }
-    if (cors !== false && ([
-        'localhost',
-        '127.0.0.1',
-        '::',
-        '::1',
-    ].includes(url.hostname) || IP_TESTER_RE.test(url.hostname))) {
+    if (cors !== false && notAllowCors(url)) {
         cors = false;
     }
     if (cors !== false && typeof window !== 'undefined') {
