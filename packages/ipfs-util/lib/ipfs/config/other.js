@@ -1,13 +1,11 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.configOthers = void 0;
+const tslib_1 = require("tslib");
 const setConfigIfNotExists_1 = require("../../util/setConfigIfNotExists");
-const bootstrap_1 = __importDefault(require("ipfs-server-list/bootstrap"));
+const bootstrap_1 = (0, tslib_1.__importDefault)(require("ipfs-server-list/bootstrap"));
 const array_hyper_unique_1 = require("array-hyper-unique");
-const ipfs_api_type_1 = __importDefault(require("ipfs-api-type"));
+const ipfs_api_type_1 = (0, tslib_1.__importDefault)(require("ipfs-api-type"));
 async function configOthers(ipfs) {
     const wss = '/dns4/ws-star.discovery.libp2p.io/tcp/443/wss/p2p-websocket-star';
     const bs = (0, array_hyper_unique_1.array_unique)(bootstrap_1.default);

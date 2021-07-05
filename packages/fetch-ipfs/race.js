@@ -1,10 +1,8 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.raceFetchIPFS = void 0;
-const p_any_1 = __importDefault(require("p-any"));
+const tslib_1 = require("tslib");
+const p_any_1 = (0, tslib_1.__importDefault)(require("p-any"));
 const index_1 = require("./index");
 const ipfs_server_list_1 = require("ipfs-server-list");
 const array_hyper_unique_1 = require("array-hyper-unique");

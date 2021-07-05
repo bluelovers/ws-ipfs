@@ -1,10 +1,8 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.add = exports.addAll = void 0;
-const it_last_1 = __importDefault(require("it-last"));
+const tslib_1 = require("tslib");
+const it_last_1 = (0, tslib_1.__importDefault)(require("it-last"));
 function addAll(ipfs, ...argv) {
     var _a;
     return ((_a = ipfs.addAll) !== null && _a !== void 0 ? _a : ipfs.add)(...argv);

@@ -1,11 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.addDirectoryToIPFS = void 0;
-const glob_source_1 = __importDefault(require("ipfs-utils/src/files/glob-source"));
-const compatible_add_1 = __importDefault(require("@lazy-ipfs/compatible-add"));
+const tslib_1 = require("tslib");
+const glob_source_1 = (0, tslib_1.__importDefault)(require("ipfs-utils/src/files/glob-source"));
+const compatible_add_1 = (0, tslib_1.__importDefault)(require("@lazy-ipfs/compatible-add"));
 async function addDirectoryToIPFS(ipfs, targetDirPath, { options, globSourceOptions, } = {}) {
     const stream = (0, glob_source_1.default)(targetDirPath, {
         recursive: true,

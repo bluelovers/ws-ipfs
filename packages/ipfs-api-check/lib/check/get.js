@@ -1,10 +1,8 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.get = void 0;
-const bl_1 = __importDefault(require("bl"));
+const tslib_1 = require("tslib");
+const bl_1 = (0, tslib_1.__importDefault)(require("bl"));
 const util_1 = require("../util");
 async function get(ipfs) {
     const cid = 'Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a';

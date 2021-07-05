@@ -1,11 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.mergeDefaultOptions = void 0;
+const tslib_1 = require("tslib");
 const lodash_1 = require("lodash");
-const EXPERIMENTAL_1 = __importDefault(require("./EXPERIMENTAL"));
+const EXPERIMENTAL_1 = (0, tslib_1.__importDefault)(require("./EXPERIMENTAL"));
 function mergeDefaultOptions(options = {}) {
     return (0, lodash_1.merge)({
         EXPERIMENTAL: (0, EXPERIMENTAL_1.default)(),

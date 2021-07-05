@@ -30,6 +30,7 @@
   "dependencies": {
     "@lazy-ipfs/to-cid": "^1.0.12",
     "array-hyper-unique": "^1.1.9",
+    "bluebird": "^3.7.2",
     "debug-color2": "^1.2.3",
     "get-stream": "^6.0.1",
     "ipfs-api-type": "^1.0.14",

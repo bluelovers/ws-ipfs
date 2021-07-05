@@ -1,11 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.startIPFSDaemon = exports.getIPFSDaemonOptions = void 0;
-const daemon_1 = __importDefault(require("ipfs/src/cli/daemon"));
-const ipfs_env_1 = __importDefault(require("ipfs-env"));
+const tslib_1 = require("tslib");
+const daemon_1 = (0, tslib_1.__importDefault)(require("ipfs/src/cli/daemon"));
+const ipfs_env_1 = (0, tslib_1.__importDefault)(require("ipfs-env"));
 function getIPFSDaemonOptions(options) {
     var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t;
     options = options || {};

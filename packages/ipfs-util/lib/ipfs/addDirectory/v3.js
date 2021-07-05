@@ -1,13 +1,11 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.addDirectoryToIPFS = void 0;
-const glob_source_1 = __importDefault(require("ipfs-utils/src/files/glob-source"));
-const get_stream_1 = __importDefault(require("get-stream"));
+const tslib_1 = require("tslib");
+const glob_source_1 = (0, tslib_1.__importDefault)(require("ipfs-utils/src/files/glob-source"));
+const get_stream_1 = (0, tslib_1.__importDefault)(require("get-stream"));
 const list_1 = require("../mfs/list");
-const logger_1 = __importDefault(require("debug-color2/logger"));
+const logger_1 = (0, tslib_1.__importDefault)(require("debug-color2/logger"));
 async function addDirectoryToIPFS(ipfs, targetDirPath, { options, globSourceOptions, ignoreExists, } = {}) {
     const stream = (0, glob_source_1.default)(targetDirPath, {
         recursive: true,

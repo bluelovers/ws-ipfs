@@ -2,12 +2,10 @@
 /**
  * Created by user on 2020/2/27.
  */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fixIPFSOptions = void 0;
-const defaultsDeep_1 = __importDefault(require("lodash/defaultsDeep"));
+const tslib_1 = require("tslib");
+const defaultsDeep_1 = (0, tslib_1.__importDefault)(require("lodash/defaultsDeep"));
 const ipfs_defaults_1 = require("ipfs-defaults");
 function fixIPFSOptions(options) {
     var _a, _b, _c, _d, _e;

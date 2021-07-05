@@ -2,12 +2,10 @@
 /**
  * Created by user on 2020/5/17.
  */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.toCID = exports.toRawCID = exports.isRawCIDLike = exports.assertRawCIDLike = exports.isCID = exports.hasCIDSymbol = exports.classCID = exports.getSymbolCID = exports.SymbolCID = void 0;
-const cids_1 = __importDefault(require("cids"));
+const tslib_1 = require("tslib");
+const cids_1 = (0, tslib_1.__importDefault)(require("cids"));
 const symbolName = '@ipld/js-cid/CID';
 exports.SymbolCID = Symbol.for(symbolName);
 function getSymbolCID() {

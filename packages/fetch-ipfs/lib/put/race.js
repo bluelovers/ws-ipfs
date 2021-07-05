@@ -1,13 +1,11 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.publishToIPFSRace = void 0;
+const tslib_1 = require("tslib");
 const handleClientList_1 = require("../handleClientList");
 const util_1 = require("../../util");
-const bluebird_1 = __importDefault(require("bluebird"));
-const compatible_add_1 = __importDefault(require("@lazy-ipfs/compatible-add"));
+const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
+const compatible_add_1 = (0, tslib_1.__importDefault)(require("@lazy-ipfs/compatible-add"));
 function publishToIPFSRace(data, useIPFS, options) {
     let { timeout, signal, addOptions } = options || {};
     timeout = (0, util_1.handleTimeout)(timeout);

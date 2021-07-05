@@ -1,12 +1,10 @@
 'use strict';
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.readBlob = exports.browserStreamToIt = exports.blobToAsyncGenerator = exports.toAsyncIterable = exports.toFileObject = exports.normaliseInput = void 0;
-const globalthis_1 = __importDefault(require("ipfs-utils/src//globalthis"));
+const tslib_1 = require("tslib");
+const globalthis_1 = (0, tslib_1.__importDefault)(require("ipfs-utils/src//globalthis"));
 //import { Buffer } from 'buffer';
-const err_code_1 = __importDefault(require("err-code"));
+const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
 const type_check_1 = require("../util/type-check");
 const type_convert_1 = require("../util/type-convert");
 /*

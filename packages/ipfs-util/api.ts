@@ -1,30 +1,50 @@
 import { IIPFSPromiseApi, IIPFSAddresses } from 'ipfs-types';
 import { IIPFSConfigApi } from 'ipfs-types/lib/ipfs/config';
+import Bluebird from 'bluebird';
+import { IPFS } from 'ipfs-core-types';
 
-export async function checkIPFS(ipfs)
+export function checkIPFS(ipfs)
 {
-	let bool: boolean;
-	const timeout = 2000;
+	return Bluebird.resolve(ipfs)
+		.then(async (ipfs) => {
+			let bool: boolean;
+			const timeout = 2000;
 
-	//await ipfs.id();
-	bool = await (ipfs as IIPFSPromiseApi)
-		.version({
-			timeout,
+			//await ipfs.id();
+			bool = await (ipfs as IIPFSPromiseApi)
+				.version({
+					timeout,
+				})
+				.then(v => !!v)
+			;
+
+			if (!bool)
+			{
+				bool = await (ipfs as IIPFSPromiseApi)
+					.id({
+						timeout,
+					})
+					.then(v => !!v)
+				;
+			}
+
+			return bool
 		})
-		.then(v => !!v)
 	;
+}
 
-	if (!bool)
-	{
-		bool = await (ipfs as IIPFSPromiseApi)
-			.id({
-				timeout,
-			})
-			.then(v => !!v)
-		;
-	}
+export function assertCheckIPFS(ipfs)
+{
+	return checkIPFS(ipfs)
+		.then(bool => {
 
-	return bool
+			if (!bool)
+			{
+				return Promise.reject(new TypeError('invalid ipfs'))
+			}
+
+			return bool
+		})
 }
 
 export async function ipfsAddresses(ipfs): Promise<IIPFSAddresses>

@@ -1,10 +1,8 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ipfsSubdomain = exports.ipfsSubdomainURL = exports.getGatewayDomain = exports.assertGatewayDomain = exports.isIPFSAddressesLikeWithGatewayDomain = exports.assertIPFSAddressesLikeWithGatewayDomain = void 0;
-const to_cid_1 = __importDefault(require("@lazy-ipfs/to-cid"));
+const tslib_1 = require("tslib");
+const to_cid_1 = (0, tslib_1.__importDefault)(require("@lazy-ipfs/to-cid"));
 const ipfs_server_list_1 = require("ipfs-server-list");
 const defaultGatewayDomain = (0, ipfs_server_list_1.getIpfsServerList)().cloudflare.GatewayDomain;
 function assertIPFSAddressesLikeWithGatewayDomain(gatewayDomain) {

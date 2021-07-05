@@ -1,11 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.toLink = exports.toPath = exports.toURL = exports.pathToCid = exports.isCidOrPath = exports.isPath = exports.EnumIPFSLinkType = void 0;
-const is_ipfs_1 = __importDefault(require("is-ipfs"));
-const ipfs_server_list_1 = __importDefault(require("ipfs-server-list"));
+const tslib_1 = require("tslib");
+const is_ipfs_1 = (0, tslib_1.__importDefault)(require("is-ipfs"));
+const ipfs_server_list_1 = (0, tslib_1.__importDefault)(require("ipfs-server-list"));
 var EnumIPFSLinkType;
 (function (EnumIPFSLinkType) {
     EnumIPFSLinkType["ipfs"] = "ipfs";

@@ -1,13 +1,11 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.configDefaultAll = void 0;
-const pubsub_1 = __importDefault(require("./pubsub"));
-const cors_1 = __importDefault(require("./cors"));
-const swarm_1 = __importDefault(require("./swarm"));
-const other_1 = __importDefault(require("./other"));
+const tslib_1 = require("tslib");
+const pubsub_1 = (0, tslib_1.__importDefault)(require("./pubsub"));
+const cors_1 = (0, tslib_1.__importDefault)(require("./cors"));
+const swarm_1 = (0, tslib_1.__importDefault)(require("./swarm"));
+const other_1 = (0, tslib_1.__importDefault)(require("./other"));
 async function configDefaultAll(ipfs, skipCheck) {
     /**
      * skip all config if can't pass

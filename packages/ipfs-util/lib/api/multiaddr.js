@@ -1,10 +1,8 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ipfsGatewayAddressesLink = exports.ipfsWebuiAddresses = exports.ipfsApiAddressesLink = void 0;
-const multiaddr_to_url_1 = __importDefault(require("multiaddr-to-url"));
+const tslib_1 = require("tslib");
+const multiaddr_to_url_1 = (0, tslib_1.__importDefault)(require("multiaddr-to-url"));
 const api_1 = require("../../api");
 async function ipfsApiAddressesLink(ipfs, opts) {
     return (0, api_1.ipfsApiAddresses)(ipfs)

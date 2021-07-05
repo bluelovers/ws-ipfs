@@ -2,12 +2,10 @@
 /**
  * Created by user on 2020/3/27.
  */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fromJSZip = exports.fromString = exports.fromBuffer = void 0;
-const jszip_1 = __importDefault(require("jszip"));
+const tslib_1 = require("tslib");
+const jszip_1 = (0, tslib_1.__importDefault)(require("jszip"));
 function fromBuffer(buf, options) {
     return fromJSZip(Promise.resolve(buf)
         .then(data => jszip_1.default.loadAsync(data, options === null || options === void 0 ? void 0 : options.jsZipLoadOptions)), options);

@@ -1,10 +1,8 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.cidToBase32 = void 0;
-const to_cid_1 = __importDefault(require("@lazy-ipfs/to-cid"));
+const tslib_1 = require("tslib");
+const to_cid_1 = (0, tslib_1.__importDefault)(require("@lazy-ipfs/to-cid"));
 /**
  * https://blog.cloudflare.com/continuing-to-improve-our-ipfs-gateway/
  * @example

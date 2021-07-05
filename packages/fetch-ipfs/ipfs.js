@@ -1,11 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.catIPFS = exports.refIPFS = void 0;
+const tslib_1 = require("tslib");
 //import { Buffer } from "buffer";
-const bluebird_1 = __importDefault(require("bluebird"));
+const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
 const util_1 = require("./util");
 function refIPFS(cid, ipfs, timeout) {
     timeout = timeout |= 0 || 10 * 1000;
