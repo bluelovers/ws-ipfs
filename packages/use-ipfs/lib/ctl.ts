@@ -3,7 +3,7 @@ import { checkForRunningApi } from 'ipfsd-ctl/src/utils';
 import IpfsClient from 'ipfs-http-client';
 import { IOptions } from './types';
 import { fixIPFSOptions } from './util/ipfsd';
-import { checkIPFS } from 'ipfs-util-lib';
+import { assertCheckIPFS } from 'ipfs-util-lib/api';
 import createDefaultAddresses, { getDefaultAddressesPorts, IPort } from 'ipfs-defaults/addresses';
 import getPort from 'get-port';
 import defaultsDeep from 'lodash/defaultsDeep';
@@ -86,7 +86,7 @@ export async function startIPFS(options?: IOptions)
 		try
 		{
 			ipfs = await getCreateClientFn(IpfsClient)(addr);
-			await checkIPFS(ipfs);
+			await assertCheckIPFS(ipfs);
 		}
 		catch (e)
 		{
@@ -115,7 +115,7 @@ export async function startIPFS(options?: IOptions)
 	!ipfsd.initialized && await ipfsd.init();
 	!ipfsd.started && await ipfsd.start();
 
-	await checkIPFS(ipfsd.api);
+	await assertCheckIPFS(ipfsd.api);
 
 	return ipfsd
 }

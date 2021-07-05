@@ -15,6 +15,7 @@ import configApiCors from 'ipfs-util-lib/lib/ipfs/config/cors';
 import configApiSwarm from 'ipfs-util-lib/lib/ipfs/config/swarm';
 import configDefaultAll from 'ipfs-util-lib/lib/ipfs/config/default';
 import { unsubscribeAll } from 'ipfs-util-lib/lib/ipfs/pubsub/unsubscribe';
+import { assertCheckIPFS } from 'ipfs-util-lib/api';
 
 export type ICachedObject<IPFS = IIPFSClientReturn> = Readonly<{
 	ipfs: IPFS,
@@ -40,7 +41,7 @@ export async function useIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, opti
 		//console.dir({ ipfs, ipfsType })
 		let { stop: closeFnOld, ipfs } = ret;
 
-		await checkIPFS(ipfs)
+		await assertCheckIPFS(ipfs)
 			.catch(async (e) =>
 			{
 				if (optionsExtra?.skipCheck)
@@ -108,7 +109,7 @@ export async function getIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, opti
 			{
 				ipfsd = await startIPFS(options);
 				ipfs = ipfsd.api;
-				await checkIPFS(ipfs);
+				await assertCheckIPFS(ipfs);
 				ipfsType = EnumIPFSType.Controller;
 				return;
 			}
@@ -127,7 +128,7 @@ export async function getIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, opti
 				ipfs = await getCreateClientFn(IpfsClient)(optionsExtra?.serverAddr);
 				if (!(optionsExtra?.skipCheck && optionsExtra?.serverAddr))
 				{
-					await checkIPFS(ipfs)
+					await assertCheckIPFS(ipfs)
 				}
 				ipfsType = EnumIPFSType.Client;
 			}
@@ -156,7 +157,7 @@ export async function getIPFS<IPFS = IIPFSClientReturn>(options?: IOptions, opti
 				{
 					ipfsd = await startIPFS(options);
 					ipfs = ipfsd.api;
-					await checkIPFS(ipfs);
+					await assertCheckIPFS(ipfs);
 					ipfsType = EnumIPFSType.Controller;
 				}
 				catch (e)

@@ -1,18 +1,17 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getIPFS = exports.useIPFS = void 0;
-const ipfs_http_client_1 = __importDefault(require("@bluelovers/ipfs-http-client"));
+const tslib_1 = require("tslib");
+const ipfs_http_client_1 = (0, tslib_1.__importDefault)(require("@bluelovers/ipfs-http-client"));
 const core_1 = require("@bluelovers/ipfs-http-client/core");
-const ctl_1 = __importDefault(require("./lib/ctl"));
-const cloneDeep_1 = __importDefault(require("lodash/cloneDeep"));
+const ctl_1 = (0, tslib_1.__importDefault)(require("./lib/ctl"));
+const cloneDeep_1 = (0, tslib_1.__importDefault)(require("lodash/cloneDeep"));
 const types_1 = require("./lib/types");
-const ipfs_http_client_2 = __importDefault(require("ipfs-http-client"));
+const ipfs_http_client_2 = (0, tslib_1.__importDefault)(require("ipfs-http-client"));
 const ipfs_util_lib_1 = require("ipfs-util-lib");
-const default_1 = __importDefault(require("ipfs-util-lib/lib/ipfs/config/default"));
+const default_1 = (0, tslib_1.__importDefault)(require("ipfs-util-lib/lib/ipfs/config/default"));
 const unsubscribe_1 = require("ipfs-util-lib/lib/ipfs/pubsub/unsubscribe");
+const api_1 = require("ipfs-util-lib/api");
 let _cached;
 /**
  * get IPFS, if not exists, create or connect it
@@ -22,7 +21,7 @@ async function useIPFS(options, optionsExtra = {}) {
         let ret = await getIPFS(options, optionsExtra);
         //console.dir({ ipfs, ipfsType })
         let { stop: closeFnOld, ipfs } = ret;
-        await (0, ipfs_util_lib_1.checkIPFS)(ipfs)
+        await (0, api_1.assertCheckIPFS)(ipfs)
             .catch(async (e) => {
             if (optionsExtra === null || optionsExtra === void 0 ? void 0 : optionsExtra.skipCheck) {
                 e && console.warn(`[checkIPFS]`, String(e));
@@ -71,7 +70,7 @@ async function getIPFS(options, optionsExtra = {}) {
             if (options === null || options === void 0 ? void 0 : options.disposable) {
                 ipfsd = await (0, ctl_1.default)(options);
                 ipfs = ipfsd.api;
-                await (0, ipfs_util_lib_1.checkIPFS)(ipfs);
+                await (0, api_1.assertCheckIPFS)(ipfs);
                 ipfsType = types_1.EnumIPFSType.Controller;
                 return;
             }
@@ -83,7 +82,7 @@ async function getIPFS(options, optionsExtra = {}) {
             try {
                 ipfs = await (0, core_1.getCreateClientFn)(ipfs_http_client_1.default)(optionsExtra === null || optionsExtra === void 0 ? void 0 : optionsExtra.serverAddr);
                 if (!((optionsExtra === null || optionsExtra === void 0 ? void 0 : optionsExtra.skipCheck) && (optionsExtra === null || optionsExtra === void 0 ? void 0 : optionsExtra.serverAddr))) {
-                    await (0, ipfs_util_lib_1.checkIPFS)(ipfs);
+                    await (0, api_1.assertCheckIPFS)(ipfs);
                 }
                 ipfsType = types_1.EnumIPFSType.Client;
             }
@@ -104,7 +103,7 @@ async function getIPFS(options, optionsExtra = {}) {
                 try {
                     ipfsd = await (0, ctl_1.default)(options);
                     ipfs = ipfsd.api;
-                    await (0, ipfs_util_lib_1.checkIPFS)(ipfs);
+                    await (0, api_1.assertCheckIPFS)(ipfs);
                     ipfsType = types_1.EnumIPFSType.Controller;
                 }
                 catch (e) {

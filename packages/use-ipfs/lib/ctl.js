@@ -1,37 +1,16 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.startIPFS = exports.getPort2 = void 0;
+const tslib_1 = require("tslib");
 const ipfsd_ctl_1 = require("ipfsd-ctl");
 const utils_1 = require("ipfsd-ctl/src/utils");
-const ipfs_http_client_1 = __importDefault(require("ipfs-http-client"));
+const ipfs_http_client_1 = (0, tslib_1.__importDefault)(require("ipfs-http-client"));
 const ipfsd_1 = require("./util/ipfsd");
-const ipfs_util_lib_1 = require("ipfs-util-lib");
-const addresses_1 = __importStar(require("ipfs-defaults/addresses"));
-const defaultsDeep_1 = __importDefault(require("lodash/defaultsDeep"));
+const api_1 = require("ipfs-util-lib/api");
+const addresses_1 = (0, tslib_1.__importStar)(require("ipfs-defaults/addresses"));
+const defaultsDeep_1 = (0, tslib_1.__importDefault)(require("lodash/defaultsDeep"));
 // @ts-ignore
-const find_free_port_sync_fixed_1 = __importDefault(require("find-free-port-sync-fixed"));
+const find_free_port_sync_fixed_1 = (0, tslib_1.__importDefault)(require("find-free-port-sync-fixed"));
 const unlinkIPFSApi_1 = require("fix-ipfs/lib/ipfsd-ctl/unlinkIPFSApi");
 const core_1 = require("@bluelovers/ipfs-http-client/core");
 const usedPort = new Set();
@@ -85,7 +64,7 @@ async function startIPFS(options) {
         let ipfs;
         try {
             ipfs = await (0, core_1.getCreateClientFn)(ipfs_http_client_1.default)(addr);
-            await (0, ipfs_util_lib_1.checkIPFS)(ipfs);
+            await (0, api_1.assertCheckIPFS)(ipfs);
         }
         catch (e) {
             try {
@@ -104,7 +83,7 @@ async function startIPFS(options) {
     }
     !ipfsd.initialized && await ipfsd.init();
     !ipfsd.started && await ipfsd.start();
-    await (0, ipfs_util_lib_1.checkIPFS)(ipfsd.api);
+    await (0, api_1.assertCheckIPFS)(ipfsd.api);
     return ipfsd;
 }
 exports.startIPFS = startIPFS;
