@@ -236,6 +236,21 @@ function getIpfsServerList() {
         'birds-are-nice.me': {
             Gateway: 'https://birds-are-nice.me/ipfs/',
         },
+        'smartholdem.io': {
+            Gateway: 'https://ipfs.smartholdem.io/ipfs/',
+        },
+        'astyanax.io': {
+            Gateway: 'https://astyanax.io/ipfs/',
+        },
+        'azurewebsites.net': {
+            Gateway: 'https://ipfs.azurewebsites.net/ipfs/',
+        },
+        'slang.cx': {
+            Gateway: 'https://ipfs.slang.cx/ipfs/',
+        },
+        'video.oneloveipfs.com': {
+            Gateway: 'https://video.oneloveipfs.com/ipfs/',
+        },
     };
     data;
     return data;
