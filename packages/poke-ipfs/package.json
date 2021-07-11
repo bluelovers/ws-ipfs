@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "abort-controller": "^3.0.0",
-    "abort-controller-timer": "^1.0.6",
+    "abort-controller-timer": "^1.0.10",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

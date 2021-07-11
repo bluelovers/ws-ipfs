@@ -29,20 +29,20 @@
   },
   "dependencies": {
     "@lazy-ipfs/to-cid": "^1.0.14",
-    "array-hyper-unique": "^1.1.9",
+    "array-hyper-unique": "^1.1.10",
     "bluebird": "^3.7.2",
-    "debug-color2": "^1.2.3",
+    "debug-color2": "^1.2.5",
     "get-stream": "^6.0.1",
     "ipfs-api-type": "^1.0.15",
     "ipfs-server-list": "^1.0.50",
     "ipfs-types": "^1.0.33",
     "micromatch": "^4.0.4",
-    "multiaddr-to-uri": "^7.0.0",
+    "multiaddr-to-uri": "^8.0.0",
     "multiaddr-to-url": "^1.0.13",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@types/micromatch": "^4.0.1"
+    "@types/micromatch": "^4.0.2"
   },
   "peerDependencies": {
     "@bluelovers/fast-glob": "^3.0.4"
