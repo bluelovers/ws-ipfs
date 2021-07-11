@@ -20,7 +20,10 @@ export interface IParsePathResultStrict<H extends string = string, P extends IPa
 /**
  * @see https://github.com/tableflip/dweb-path
  */
-export declare function parsePath<H extends string = string, P extends IParsePathResultPathInput = string, N extends EnumParsePathResultNs = EnumParsePathResultNs>(input: string | Buffer | CID): IParsePathResultStrict<H, P, N>;
+export declare function parsePathCore<H extends string = string, P extends IParsePathResultPathInput = string, N extends EnumParsePathResultNs = EnumParsePathResultNs>(input: string | Buffer | CID): IParsePathResultStrict<H, P, N>;
+export declare function parsePath<H extends string = string, P extends IParsePathResultPathInput = string, N extends EnumParsePathResultNs = EnumParsePathResultNs>(input: string | Buffer | CID, options?: {
+    noThrow?: boolean;
+}): IParsePathResultStrict<H, P, N>;
 export declare function assertToEnumNs<N extends IParsePathResultNsInput>(ns: N | unknown): asserts ns is IParsePathResultNsInputToEnum<N>;
 export declare function assertToParsePathResultPath<P extends IParsePathResultPathInput>(path: P | unknown): asserts path is IParsePathResultPath<P>;
 export declare function assertToParsePathResult<H extends string, P extends IParsePathResultPathInput, N extends IParsePathResultNsInput = EnumParsePathResultNs>(result: IParsePathResult<H, P | string, N | string>): asserts result is IParsePathResultStrict<H, IParsePathResultPath<P>, IParsePathResultNsInputToEnum<N>>;

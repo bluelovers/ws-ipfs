@@ -46,7 +46,7 @@ export interface IParsePathResultStrict<H extends string = string, P extends IPa
 /**
  * @see https://github.com/tableflip/dweb-path
  */
-export function parsePath<H extends string = string, P extends IParsePathResultPathInput = string, N extends EnumParsePathResultNs = EnumParsePathResultNs>(input: string | Buffer | CID): IParsePathResultStrict<H, P, N>
+export function parsePathCore<H extends string = string, P extends IParsePathResultPathInput = string, N extends EnumParsePathResultNs = EnumParsePathResultNs>(input: string | Buffer | CID): IParsePathResultStrict<H, P, N>
 {
 	let ns: EnumParsePathResultNs, hash: string, path: string
 
@@ -104,7 +104,7 @@ export function parsePath<H extends string = string, P extends IParsePathResultP
 			}
 			catch (err)
 			{
-				throw new Error(`Unknown namespace: ${parts[1]}`)
+				throw new TypeError(`Unknown namespace: ${parts[1]}`)
 			}
 
 			ns = EnumParsePathResultNs.ipfs
@@ -119,7 +119,7 @@ export function parsePath<H extends string = string, P extends IParsePathResultP
 	}
 	else
 	{
-		throw new Error('Invalid path') // What even is this?
+		throw new TypeError(`Invalid input: ${input}`) // What even is this?
 	}
 
 	return {
@@ -127,6 +127,23 @@ export function parsePath<H extends string = string, P extends IParsePathResultP
 		hash,
 		path,
 	} as null
+}
+
+export function parsePath<H extends string = string, P extends IParsePathResultPathInput = string, N extends EnumParsePathResultNs = EnumParsePathResultNs>(input: string | Buffer | CID, options?: {
+	noThrow?: boolean,
+}): IParsePathResultStrict<H, P, N>
+{
+	try
+	{
+		return parsePathCore(input)
+	}
+	catch (e)
+	{
+		if (!options?.noThrow)
+		{
+			throw e
+		}
+	}
 }
 
 export function assertToEnumNs<N extends IParsePathResultNsInput>(ns: N | unknown): asserts ns is IParsePathResultNsInputToEnum<N>

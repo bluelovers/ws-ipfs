@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.strToCidToStr = exports.resultToPath = exports.assertToParsePathResult = exports.assertToParsePathResultPath = exports.assertToEnumNs = exports.parsePath = exports.EnumParsePathResultNs = void 0;
+exports.strToCidToStr = exports.resultToPath = exports.assertToParsePathResult = exports.assertToParsePathResultPath = exports.assertToEnumNs = exports.parsePath = exports.parsePathCore = exports.EnumParsePathResultNs = void 0;
 const tslib_1 = require("tslib");
 const is_valid_domain_1 = (0, tslib_1.__importDefault)(require("is-valid-domain"));
 const to_cid_1 = require("@lazy-ipfs/to-cid");
@@ -12,7 +12,7 @@ var EnumParsePathResultNs;
 /**
  * @see https://github.com/tableflip/dweb-path
  */
-function parsePath(input) {
+function parsePathCore(input) {
     let ns, hash, path;
     if (Buffer.isBuffer(input) || (0, to_cid_1.isCID)(input)) {
         hash = (0, to_cid_1.toCID)(input).toString();
@@ -51,7 +51,7 @@ function parsePath(input) {
                 hash = strToCidToStr(parts[1]);
             }
             catch (err) {
-                throw new Error(`Unknown namespace: ${parts[1]}`);
+                throw new TypeError(`Unknown namespace: ${parts[1]}`);
             }
             ns = "ipfs" /* ipfs */;
             path = parts.slice(2).join('/');
@@ -62,13 +62,24 @@ function parsePath(input) {
         }
     }
     else {
-        throw new Error('Invalid path'); // What even is this?
+        throw new TypeError(`Invalid input: ${input}`); // What even is this?
     }
     return {
         ns,
         hash,
         path,
     };
+}
+exports.parsePathCore = parsePathCore;
+function parsePath(input, options) {
+    try {
+        return parsePathCore(input);
+    }
+    catch (e) {
+        if (!(options === null || options === void 0 ? void 0 : options.noThrow)) {
+            throw e;
+        }
+    }
 }
 exports.parsePath = parsePath;
 function assertToEnumNs(ns) {
