@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.16](https://github.com/bluelovers/ws-ipfs/compare/multiaddr-to-url@1.0.15...multiaddr-to-url@1.0.16) (2021-07-11)
+
+
+### 🔖　Miscellaneous
+
+* . ([2742172](https://github.com/bluelovers/ws-ipfs/commit/2742172440928000c1c6aa873c933a5744c49f69))
+
+
+
+
+
 ## [1.0.15](https://github.com/bluelovers/ws-ipfs/compare/multiaddr-to-url@1.0.14...multiaddr-to-url@1.0.15) (2021-07-11)
 
 

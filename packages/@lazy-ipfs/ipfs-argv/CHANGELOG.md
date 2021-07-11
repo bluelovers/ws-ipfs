@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/ipfs-argv@1.0.6...@lazy-ipfs/ipfs-argv@1.0.7) (2021-07-11)
+
+
+### 🔖　Miscellaneous
+
+* . ([2742172](https://github.com/bluelovers/ws-ipfs/commit/2742172440928000c1c6aa873c933a5744c49f69))
+
+
+
+
+
 ## [1.0.6](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/ipfs-argv@1.0.5...@lazy-ipfs/ipfs-argv@1.0.6) (2021-07-04)
 
 

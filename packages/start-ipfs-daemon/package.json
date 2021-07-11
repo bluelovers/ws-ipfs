@@ -27,8 +27,8 @@
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
-  "gitHead": "936a31e7a92cdb3641d2445a506eb6bb27540098",
   "dependencies": {
     "tslib": "^2.3.0"
-  }
+  },
+  "gitHead": "936a31e7a92cdb3641d2445a506eb6bb27540098"
 }

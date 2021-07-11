@@ -1,6 +1,6 @@
 {
   "name": "ipfs-browser-util",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-browser-util#readme",
   "bugs": {
@@ -18,8 +18,8 @@
     "lint": "npx eslint **/*.ts",
     "test": "jest",
     "npm:publish": "npm publish",
-    "prepublish:lockfile": "npx sync-lockfile .",
     "preversion": "yarn run test",
+    "prepublish:lockfile": "npx sync-lockfile .",
     "postpublish_": "git commit -m \"chore(release): publish\" .",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"

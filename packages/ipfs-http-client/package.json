@@ -1,6 +1,6 @@
 {
   "name": "@bluelovers/ipfs-http-client",
-  "version": "1.0.68",
+  "version": "1.0.69",
   "description": "ipfs-http-client with auto search go-ipfs, js-ipfs",
   "keywords": [
     "ipfs",
@@ -29,8 +29,8 @@
     "test": "echo \"Error: no test specified\"",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "npm:publish": "npm publish",
-    "prepublish:lockfile": "npx sync-lockfile .",
     "preversion": "yarn run test",
+    "prepublish:lockfile": "npx sync-lockfile .",
     "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
     "postpublish_": "git commit -m \"chore(release): publish\" .",
     "ncu": "npx yarn-tool ncu -u",
@@ -41,7 +41,7 @@
   "dependencies": {
     "ipfs-env": "^1.0.10",
     "ipfs-types": "^1.0.33",
-    "ipfs-util-lib": "^1.0.53",
+    "ipfs-util-lib": "^1.0.54",
     "ts-type": "^1.2.35",
     "tslib": "^2.3.0"
   },

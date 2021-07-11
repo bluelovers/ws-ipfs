@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/ipfs-argv",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "keywords": [
     "IPFS",
@@ -31,11 +31,11 @@
     "ncu": "yarn-tool ncu -u",
     "sort-package-json": "yarn-tool sort"
   },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "0de896d58ae13387db38242fe99d2796016c550c",
-  "dependencies": {
-    "tslib": "^2.3.0"
-  }
+  "gitHead": "0de896d58ae13387db38242fe99d2796016c550c"
 }

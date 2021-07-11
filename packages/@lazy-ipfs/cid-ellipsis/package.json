@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/cid-ellipsis",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "keywords": [
     "IPFS",
@@ -23,17 +23,16 @@
     "test:jest": "  jest",
     "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "preversion": "yarn run test",
-
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
     "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
     "ncu": "yarn-tool ncu -u",
     "sort-package-json": "yarn-tool sort"
   },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "0de896d58ae13387db38242fe99d2796016c550c",
-  "dependencies": {
-    "tslib": "^2.3.0"
-  }
+  "gitHead": "0de896d58ae13387db38242fe99d2796016c550c"
 }
