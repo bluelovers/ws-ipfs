@@ -189,6 +189,22 @@ export function assertToParsePathResult<H extends string, P extends IParsePathRe
 	assertToParsePathResultPath(result.path)
 }
 
+export function isParsePathResult<H extends string, P extends IParsePathResultPathInput, N extends IParsePathResultNsInput = EnumParsePathResultNs>(result: IParsePathResult<H, P | string, N | string> | unknown): result is IParsePathResultStrict<H, IParsePathResultPath<P>, IParsePathResultNsInputToEnum<N>>
+{
+	try
+	{
+		assertToParsePathResult(result as any);
+
+		return true
+	}
+	catch (e)
+	{
+
+	}
+
+	return false
+}
+
 export function resultToPath<H extends string, P extends IParsePathResultPathInput, N extends IParsePathResultNsInput = EnumParsePathResultNs>(result: IParsePathResult<H, P, N>): `/${IParsePathResultNsInputToEnum<N>}/${H}${IParsePathResultPath<P>}`
 {
 	assertToParsePathResult(result);

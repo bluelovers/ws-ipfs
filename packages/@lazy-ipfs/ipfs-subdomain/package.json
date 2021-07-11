@@ -30,6 +30,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
+    "@lazy-ipfs/parse-ipfs-path": "^1.0.1",
     "@lazy-ipfs/to-cid": "^1.0.14",
     "ipfs-server-list": "^1.0.49",
     "ipfs-types": "^1.0.33",

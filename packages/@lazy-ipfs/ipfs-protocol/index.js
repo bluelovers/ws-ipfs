@@ -3,7 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ipfsProtocol = exports.ipfsProtocolURL = void 0;
 function ipfsProtocolURL(cid, pathname) {
     let url = new URL(`ipfs://${cid}`);
-    url.pathname = pathname;
+    if (typeof pathname === 'string') {
+        url.pathname = pathname;
+    }
     return url;
 }
 exports.ipfsProtocolURL = ipfsProtocolURL;

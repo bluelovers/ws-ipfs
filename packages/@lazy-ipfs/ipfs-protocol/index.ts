@@ -3,7 +3,10 @@ export function ipfsProtocolURL(cid: string, pathname?: string)
 {
 	let url = new URL(`ipfs://${cid}`);
 
-	url.pathname = pathname;
+	if (typeof pathname === 'string')
+	{
+		url.pathname = pathname;
+	}
 
 	return url
 }

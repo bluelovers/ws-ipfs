@@ -4,6 +4,7 @@
 import { ICIDObject, ICIDValue } from 'ipfs-types/lib/types';
 import toCID, { IRawCID, isRawCIDLike } from '@lazy-ipfs/to-cid';
 import { getIpfsServerList, IIPFSAddressesLike } from 'ipfs-server-list';
+import { IParsePathResult, isParsePathResult, parsePath } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
 
 const defaultGatewayDomain = getIpfsServerList().cloudflare.GatewayDomain;
 
@@ -46,20 +47,69 @@ export function getGatewayDomain(gatewayDomain: string | IIPFSAddressesLike): st
 	return gatewayDomain
 }
 
-export function ipfsSubdomainURL(cid: ICIDValue | IRawCID, gatewayDomain: string | IIPFSAddressesLike = defaultGatewayDomain, protocol: string | 'https:' | 'http:' = 'https:')
+export function toSubdomainCID(cid: ICIDValue | IRawCID)
 {
-	cid = toCID(cid).toV1().toBaseEncodedString('base32');
+	return toCID(cid).toV1().toBaseEncodedString('base32');
+}
 
-	gatewayDomain = getGatewayDomain(gatewayDomain);
+export function ipfsSubdomainURL(cid: ICIDValue | IRawCID | IParsePathResult, gatewayDomain?: string | IIPFSAddressesLike, protocol?: string | 'https:' | 'http:')
+{
+	if (typeof cid === 'string')
+	{
+		let result = parsePath(cid, {
+			noThrow: true,
+		})
+
+		if (result?.hash)
+		{
+			cid = result
+		}
+	}
+
+	let path: string = '';
+
+	if (isParsePathResult(cid))
+	{
+		path = cid.path;
+		cid = cid.hash;
+	}
+
+	cid = toSubdomainCID(cid as string);
+
+	gatewayDomain = getGatewayDomain(gatewayDomain ?? defaultGatewayDomain);
 
 	assertGatewayDomain(gatewayDomain);
 
-	return new URL(`${protocol || 'https:'}//${cid}${gatewayDomain}`)
+	return new URL(`${protocol || 'https:'}//${cid}${gatewayDomain}${path ?? ''}`)
 }
 
-export function ipfsSubdomain(cid: ICIDValue | IRawCID, gatewayDomain?: string | IIPFSAddressesLike, protocol?: string | 'https:' | 'http:')
+export interface IOptions
 {
-	return ipfsSubdomainURL(cid, gatewayDomain, protocol).href
+	gatewayDomain?: string | IIPFSAddressesLike,
+	protocol?: string | 'https:' | 'http:',
+	clearPathname?: boolean,
+}
+
+export function ipfsSubdomain(cid: ICIDValue | IRawCID, gatewayDomain?: string | IIPFSAddressesLike, protocol?: string | 'https:' | 'http:' | IOptions, options?: IOptions)
+{
+	if (protocol !== null && typeof protocol === 'object' && !options)
+	{
+		options = protocol;
+		protocol = undefined;
+	}
+
+	options ??= {};
+	gatewayDomain ??= options.gatewayDomain;
+	protocol ??= options.protocol;
+
+	let url = ipfsSubdomainURL(cid, gatewayDomain, protocol as string);
+
+	if (options?.clearPathname)
+	{
+		url.pathname = '';
+	}
+
+	return url.href
 }
 
 export default ipfsSubdomain

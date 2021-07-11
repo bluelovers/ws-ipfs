@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ipfsSubdomain 1`] = `"https://bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m.cf-ipfs.com/"`;
+exports[`ipfsSubdomain 1`] = `"https://bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m.ipfs.cf-ipfs.com/"`;
 
 exports[`ipfsSubdomain:fleek 1`] = `"https://bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m.on.fleek.co/"`;
 
-exports[`ipfsSubdomainURL 1`] = `"https://bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m.cf-ipfs.com/"`;
+exports[`ipfsSubdomainURL 1`] = `"https://bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m.ipfs.cf-ipfs.com/"`;
+
+exports[`ipfsSubdomainURL with path 1`] = `"https://bafybeigyzswwpp2t676ndmdxgi6qkhppugz7wdobsczod5ssas4qgsyeay.ipfs.cf-ipfs.com/dmzj"`;
+
+exports[`ipfsSubdomainURL with path 2`] = `"https://bafybeigyzswwpp2t676ndmdxgi6qkhppugz7wdobsczod5ssas4qgsyeay.ipfs.cf-ipfs.com/dmzj"`;
+
+exports[`ipfsSubdomainURL with path 3`] = `"https://bafybeigyzswwpp2t676ndmdxgi6qkhppugz7wdobsczod5ssas4qgsyeay.ipfs.cf-ipfs.com/"`;

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.strToCidToStr = exports.resultToPath = exports.assertToParsePathResult = exports.assertToParsePathResultPath = exports.assertToEnumNs = exports.parsePath = exports.parsePathCore = exports.EnumParsePathResultNs = void 0;
+exports.strToCidToStr = exports.resultToPath = exports.isParsePathResult = exports.assertToParsePathResult = exports.assertToParsePathResultPath = exports.assertToEnumNs = exports.parsePath = exports.parsePathCore = exports.EnumParsePathResultNs = void 0;
 const tslib_1 = require("tslib");
 const is_valid_domain_1 = (0, tslib_1.__importDefault)(require("is-valid-domain"));
 const to_cid_1 = require("@lazy-ipfs/to-cid");
@@ -113,6 +113,16 @@ function assertToParsePathResult(result) {
     assertToParsePathResultPath(result.path);
 }
 exports.assertToParsePathResult = assertToParsePathResult;
+function isParsePathResult(result) {
+    try {
+        assertToParsePathResult(result);
+        return true;
+    }
+    catch (e) {
+    }
+    return false;
+}
+exports.isParsePathResult = isParsePathResult;
 function resultToPath(result) {
     var _a;
     assertToParsePathResult(result);
