@@ -62,6 +62,9 @@ export function getIpfsServerList()
 				ls: false,
 			},
 		},
+		'infura-ipfs.io': {
+			Gateway: 'https://infura-ipfs.io/ipfs/',
+		},
 		/**
 		 * https://developers.cloudflare.com/distributed-web/ipfs-gateway/
 		 */
@@ -69,10 +72,14 @@ export function getIpfsServerList()
 			Gateway: 'https://cloudflare-ipfs.com/ipfs/',
 			GatewayDomain: '.ipfs.cf-ipfs.com',
 		},
+		'cloudflare-ipfs': {
+			Gateway: 'https://cf-ipfs.com/ipfs/',
+		},
 		'ipfs.gateway': {
 			Gateway: 'https://gateway.ipfs.io/ipfs/',
 		},
 		'dweb': {
+			Gateway: 'https://dweb.link/ipfs/',
 			GatewayDomain: '.ipfs.dweb.link',
 		},
 		/**
@@ -111,6 +118,9 @@ export function getIpfsServerList()
 		},
 		'jorropo': {
 			Gateway: 'https://jorropo.ovh/ipfs/',
+		},
+		'jorropo.net': {
+			Gateway: 'https://jorropo.net/ipfs/',
 		},
 		'jeroendeneef': {
 			Gateway: 'https://ipfs.jeroendeneef.com/ipfs/',
@@ -157,20 +167,104 @@ export function getIpfsServerList()
 		'cwinfo': {
 			Gateway: 'https://cdn.cwinfo.net/ipfs/',
 		},
-		'fooock': { Gateway: 'https://ipfs.fooock.com/ipfs/' },
-		'serph.network': { Gateway: 'https://gateway.serph.network/ipfs/' },
-		'busy.org': { Gateway: 'https://ipfs.busy.org/ipfs/' },
-		'doolta': { Gateway: 'https://ipfs.doolta.com/ipfs/' },
-		'originprotocol': { Gateway: 'https://gateway.originprotocol.com/ipfs/' },
-		'mrh.io': { Gateway: 'https://ipfs.mrh.io/ipfs/' },
-		'ipns.co': { Gateway: 'https://ipns.co/' },
-		'blocksec': { Gateway: 'https://gateway.blocksec.com/ipfs/' },
-		'10.via0.com': { Gateway: 'https://10.via0.com/ipfs/' },
-		'ninetailed.ninja': { Gateway: 'https://ninetailed.ninja/ipfs/' },
+		'fooock': {
+			Gateway: 'https://ipfs.fooock.com/ipfs/',
+		},
+		'serph.network': {
+			Gateway: 'https://gateway.serph.network/ipfs/',
+		},
+		'busy.org': {
+			Gateway: 'https://ipfs.busy.org/ipfs/',
+		},
+		'doolta': {
+			Gateway: 'https://ipfs.doolta.com/ipfs/',
+		},
+		'originprotocol': {
+			Gateway: 'https://gateway.originprotocol.com/ipfs/',
+		},
+		'mrh.io': {
+			Gateway: 'https://ipfs.mrh.io/ipfs/',
+		},
+		'ipns.co': {
+			Gateway: 'https://ipns.co/',
+		},
+		'blocksec': {
+			Gateway:
+				'https://gateway.blocksec.com/ipfs/',
+		},
+		'10.via0.com': {
+			Gateway: 'https://10.via0.com/ipfs/',
+		},
+		'ninetailed.ninja': {
+			Gateway: 'https://ninetailed.ninja/ipfs/',
+		},
 		'geesome-node': {
 			description: `https://github.com/galtproject/geesome-node`,
 			Gateway: 'https://geesome-node.galtproject.io:7722/ipfs/',
 			IPNS: 'https://geesome-node.galtproject.io:7722/ipns/',
+		},
+		'ipfs.yt': {
+			Gateway: 'https://ipfs.yt/ipfs/',
+		},
+		'overpi': {
+			Gateway: 'https://ipfs.overpi.com/ipfs/',
+		},
+		'adatools.io': {
+			Gateway: 'https://ipfs.adatools.io/ipfs/',
+		},
+		'drink.cafe': {
+			Gateway: 'https://ipfs.drink.cafe/ipfs/',
+		},
+		'robotizing.net': {
+			Gateway: 'https://robotizing.net/ipfs/',
+		},
+		'mihir.ch': {
+			Gateway: 'https://ipfs.mihir.ch/ipfs/',
+		},
+		'telos.miami': {
+			Gateway: 'https://ipfs.telos.miami/ipfs/',
+		},
+		'tubby.cloud': {
+			Gateway: 'https://ipfs.tubby.cloud/ipfs/',
+		},
+		'kaleido.art': {
+			Gateway: 'https://ipfs.kaleido.art/ipfs/',
+		},
+		'3cloud.ee': {
+			Gateway: 'https://3cloud.ee/ipfs/',
+		},
+		'crustwebsites.net': {
+			Gateway: 'https://crustwebsites.net/ipfs/',
+		},
+		'textile.io': {
+			Gateway: 'https://hub.textile.io/ipfs/',
+		},
+		'itargo.io': {
+			Gateway: 'https://ipfs.itargo.io/ipfs/',
+		},
+		'decoo.io': {
+			Gateway: 'https://ipfs.decoo.io/ipfs/',
+		},
+		'denarius.io': {
+			Gateway: 'https://ipfs.denarius.io/ipfs/',
+		},
+		'jbb.one': {
+			Gateway: 'https://ipfs.jbb.one/ipfs/',
+		},
+		'ravencoinipfs-gateway.com': {
+			Gateway: 'https://ravencoinipfs-gateway.com/ipfs/',
+		},
+		'trusted-setup.filecoin.io': {
+			Gateway: 'https://trusted-setup.filecoin.io/ipfs/',
+		},
+		'eth.aragon.network': {
+			Gateway: 'https://ipfs.eth.aragon.network/ipfs/',
+		},
+		'bluelight.link': {
+			Gateway: 'https://bluelight.link/ipfs/',
+		},
+		'birds-are-nice.me': {
+			Gateway: 'https://birds-are-nice.me/ipfs/',
 		},
 	} as const;
 
@@ -199,10 +293,13 @@ export function getIpfsLocalList()
 	return data as Record<keyof typeof data, IIPFSAddressesLike> & Record<string, IIPFSAddressesLike>
 }
 
-export function filterList<K extends keyof IIPFSAddressesLike>(key: K, serverList: Record<string, IIPFSAddressesLike> = ipfsServerList)
+export function filterList<K extends keyof IIPFSAddressesLike>(key: K,
+	serverList: Record<string, IIPFSAddressesLike> = ipfsServerList,
+)
 {
 	return Object.keys(serverList)
-		.reduce((a, b) => {
+		.reduce((a, b) =>
+		{
 
 			if (serverList[b][key] != null)
 			{
