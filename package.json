@@ -34,7 +34,7 @@
     "lerna:publish:yes": "yarn run prepublishOnly:root && lerna publish --yes --bump patch && yarn run postpublishOnly",
     "preversion": "yt ws run test",
     "prepare:fix-ws-links": "ynpx --quiet @yarn-tool/fix-ws-links",
-    "prepublishOnly": "echo prepublishOnly",
+
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
     "prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",
     "prepublishOnly:root": "yarn run prepublishOnly:check-bin",
@@ -57,6 +57,7 @@
     "ipfsd-ctl": "^9.0.0",
     "is-ipfs": "^6.0.1",
     "jest": "^27.0.6",
+    "jest-node-exports-resolver": "^1.0.3",
     "scramjet": "^4.35.20",
     "ts-jest": "^27.0.3"
   },

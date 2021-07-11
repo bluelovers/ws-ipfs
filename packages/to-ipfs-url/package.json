@@ -27,7 +27,7 @@
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "npm:publish": "npm publish",
     "prepublish:lockfile": "npx sync-lockfile .",
-    "prepublishOnly": "yarn test",
+    "preversion": "yarn test",
     "postpublish_": "git commit -m \"chore(release): publish\" .",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort",
@@ -38,5 +38,5 @@
     "is-ipfs": "^6.0.1",
     "tslib": "^2.3.0"
   },
-  "gitHead": "d406cdd242e5445ea1f1a463a2dfc3bd8e3c4651"
+  "gitHead": "2fea22e93302e75dcbb0b61f1920cc4f86db0ee5"
 }
