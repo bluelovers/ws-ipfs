@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.23](https://github.com/bluelovers/ws-ipfs/compare/to-ipfs-url@1.0.22...to-ipfs-url@1.0.23) (2021-07-11)
+
+
+### 🔖　Miscellaneous
+
+* . ([5631f20](https://github.com/bluelovers/ws-ipfs/commit/5631f2093178db2a887d3e92e2d233fcbb7449fb))
+
+
+
+
+
 ## [1.0.22](https://github.com/bluelovers/ws-ipfs/compare/to-ipfs-url@1.0.21...to-ipfs-url@1.0.22) (2021-07-11)
 
 
