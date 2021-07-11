@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/parse-ipfs-path@1.0.1...@lazy-ipfs/parse-ipfs-path@1.0.2) (2021-07-11)
+
+
+### ✨　Features
+
+* support subdomain with path ([5035976](https://github.com/bluelovers/ws-ipfs/commit/50359768e282533776b44226fb3cd0e4851127df))
+* allow not throw ([08844dc](https://github.com/bluelovers/ws-ipfs/commit/08844dc05ac6332296f82a847762025467a20cb0))
+
+
+
+
+
 ## 1.0.1 (2021-07-11)
 
 
