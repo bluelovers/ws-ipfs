@@ -2,6 +2,7 @@
 import Bluebird from 'bluebird';
 import { IIPFSPromiseApi } from 'ipfs-types';
 import { newAbortController } from './util';
+import { IPFS } from 'ipfs-core-types';
 
 export function refIPFS(cid: string, ipfs: IIPFSPromiseApi, timeout?: number)
 {
@@ -31,7 +32,7 @@ export function refIPFS(cid: string, ipfs: IIPFSPromiseApi, timeout?: number)
 		.finally(() => controller.clear())
 }
 
-export function catIPFS(cid: string, ipfs: IIPFSPromiseApi, timeout?: number)
+export function catIPFS(cid: string, ipfs: IPFS, timeout?: number)
 {
 	timeout = timeout |= 0 || 60 * 1000;
 
@@ -56,6 +57,7 @@ export function catIPFS(cid: string, ipfs: IIPFSPromiseApi, timeout?: number)
 				signal: controller.signal,
 				//pin: false,
 			})) {
+				// @ts-ignore
 				chunks.push(chunk)
 			}
 			return Buffer.concat(chunks)

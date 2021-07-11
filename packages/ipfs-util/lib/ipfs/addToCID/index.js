@@ -5,7 +5,7 @@ exports.addSourceToTarget = exports.addSourceToTargetCore = void 0;
  * https://discuss.ipfs.io/t/how-can-attach-cid-to-new-node/7534/5
  */
 function addSourceToTargetCore(source, target, ipfs) {
-    return ipfs.object.patch.addLink(target.cid.toString(), {
+    return ipfs.object.patch.addLink(target.cid, {
         name: source.name,
         cid: source.cid,
     });

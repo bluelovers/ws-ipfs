@@ -44,6 +44,7 @@ function catIPFS(cid, ipfs, timeout) {
             signal: controller.signal,
             //pin: false,
         })) {
+            // @ts-ignore
             chunks.push(chunk);
         }
         return Buffer.concat(chunks);

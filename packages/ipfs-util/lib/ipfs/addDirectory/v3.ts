@@ -6,8 +6,9 @@ import { normaliseInput } from '../../files/toFileObject';
 import getStream from 'get-stream';
 import deepFilesList, { ipfsFilesExists } from '../mfs/list';
 import console from 'debug-color2/logger';
+import { IPFS } from 'ipfs-core-types';
 
-export async function addDirectoryToIPFS(ipfs: IIPFSFilesApi & IIPFSFilesApi, targetDirPath: string, {
+export async function addDirectoryToIPFS(ipfs: IPFS, targetDirPath: string, {
 	options,
 	globSourceOptions,
 	ignoreExists,
@@ -30,6 +31,7 @@ export async function addDirectoryToIPFS(ipfs: IIPFSFilesApi & IIPFSFilesApi, ta
 
 	for await (const entry of stream)
 	{
+		// @ts-ignore
 		if (entry.content)
 		{
 			if (ignoreExists === true && await ipfsFilesExists(ipfs, entry.path))
@@ -40,6 +42,7 @@ export async function addDirectoryToIPFS(ipfs: IIPFSFilesApi & IIPFSFilesApi, ta
 
 			console.debug(entry.path)
 
+			// @ts-ignore
 			let buf = await getStream.buffer(entry.content)
 
 			await ipfs.files.write(entry.path, buf, {
@@ -53,7 +56,7 @@ export async function addDirectoryToIPFS(ipfs: IIPFSFilesApi & IIPFSFilesApi, ta
 
 			if ((i % 100) === 0)
 			{
-				const cid = await ipfs.files.flush()
+				const cid = await ipfs.files.flush(entry.path)
 
 				console.debug(cid.toString())
 			}
@@ -65,6 +68,7 @@ export async function addDirectoryToIPFS(ipfs: IIPFSFilesApi & IIPFSFilesApi, ta
 
 	}
 
+	// @ts-ignore
 	cid = await ipfs.files.flush()
 
 	return {

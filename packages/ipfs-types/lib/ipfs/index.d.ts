@@ -1,14 +1,7 @@
 import { IIPFSFileApi } from './file';
-import { IIPFSDagApi } from './dag';
-import { IIPFSRefsApi } from './refs';
-import { IIPFSObjectApi } from './object';
-import { IIPFSConfigApi } from './config';
-import { IIPFSNameApi } from './name';
 import { IApiOptions } from '../options';
-import { IIPFSFilesApi } from './files';
-import { IIPFSSwarmApi } from './swarm';
-import { IIPFSPubsubApi } from './pubsub';
 import { IId, IVersion } from '../types';
+import { IPFS } from 'ipfs-core-types';
 export interface IIPFSApiReturnType {
     version: IVersion;
     id: IId;
@@ -41,5 +34,4 @@ export interface IIPFSApiCtrl {
     start(): any;
     stop(): any;
 }
-export interface IIPFSPromiseApi extends IIPFSAsyncIterableApi, IIPFSApiUtils, IIPFSDagApi, IIPFSRefsApi, IIPFSObjectApi, IIPFSConfigApi, IIPFSNameApi, IIPFSFilesApi, IIPFSSwarmApi, IIPFSPubsubApi, IIPFSApiCtrl {
-}
+export { IPFS as IIPFSPromiseApi };

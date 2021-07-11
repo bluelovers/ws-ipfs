@@ -10,6 +10,7 @@ import { IIPFSFilesApi } from './files';
 import { IIPFSSwarmApi } from './swarm';
 import { IIPFSPubsubApi } from './pubsub';
 import { IId, IVersion } from '../types';
+import { IPFS } from 'ipfs-core-types';
 
 export interface IIPFSApiReturnType
 {
@@ -61,8 +62,12 @@ export interface IIPFSApiCtrl
 
 }
 
+export { IPFS as IIPFSPromiseApi }
+
+/*
 export interface IIPFSPromiseApi extends IIPFSAsyncIterableApi, IIPFSApiUtils, IIPFSDagApi, IIPFSRefsApi, IIPFSObjectApi, IIPFSConfigApi, IIPFSNameApi, IIPFSFilesApi, IIPFSSwarmApi, IIPFSPubsubApi, IIPFSApiCtrl
 {
 
 }
+ */
 

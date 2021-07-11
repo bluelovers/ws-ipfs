@@ -15,12 +15,14 @@ async function addDirectoryToIPFS(ipfs, targetDirPath, { options, globSourceOpti
     let cid;
     ignoreExists = !!ignoreExists;
     for await (const entry of stream) {
+        // @ts-ignore
         if (entry.content) {
             if (ignoreExists === true && await (0, list_1.ipfsFilesExists)(ipfs, entry.path)) {
                 logger_1.default.gray.debug(entry.path);
                 continue;
             }
             logger_1.default.debug(entry.path);
+            // @ts-ignore
             let buf = await get_stream_1.default.buffer(entry.content);
             await ipfs.files.write(entry.path, buf, {
                 create: true,
@@ -30,7 +32,7 @@ async function addDirectoryToIPFS(ipfs, targetDirPath, { options, globSourceOpti
             });
             i++;
             if ((i % 100) === 0) {
-                const cid = await ipfs.files.flush();
+                const cid = await ipfs.files.flush(entry.path);
                 logger_1.default.debug(cid.toString());
             }
         }
@@ -38,6 +40,7 @@ async function addDirectoryToIPFS(ipfs, targetDirPath, { options, globSourceOpti
             logger_1.default.debug(entry.path);
         }
     }
+    // @ts-ignore
     cid = await ipfs.files.flush();
     return {
         targetDirPath,

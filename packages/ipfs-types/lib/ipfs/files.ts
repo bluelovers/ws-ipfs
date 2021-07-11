@@ -4,6 +4,7 @@
 import { ICIDValue, ICIDObject, IMtime } from '../types';
 import { IApiOptions } from '../options';
 import { IFileContent } from './file';
+import { IPFS } from 'ipfs-core-types';
 
 export const enum EnumMutableFileSystemType
 {
@@ -81,7 +82,7 @@ export interface IIPFSFilesApiCore
 
 }
 
-export interface IIPFSFilesApi
+export interface IIPFSFilesApi extends Pick<IPFS, 'files'>
 {
-	files: IIPFSFilesApiCore
+	//files: IIPFSFilesApiCore
 }

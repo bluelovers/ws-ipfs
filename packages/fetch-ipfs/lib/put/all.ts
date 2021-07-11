@@ -26,7 +26,7 @@ export function publishToIPFSAll(data: IFileData,
 		...addOptions,
 	}
 
-	return handleClientList(useIPFS, (ipfs => typeof ipfs?.add === 'function'))
+	return handleClientList(useIPFS as any, (ipfs => typeof ipfs?.add === 'function'))
 		.reduce(async (list, ipfs) =>
 		{
 			const value: IIPFSFileApiAddReturnEntry[] = [];

@@ -17,6 +17,11 @@ export interface IIPFSEnv
 	 * @see https://github.com/ipfs/js-ipfs/blob/master/packages/ipfs/src/cli/daemon.js
 	 */
 	IPFS_MONITORING?: string;
+
+	/**
+	 * @see https://github.com/ipfs/npm-go-ipfs/blob/3fd83aa6f42521410908bae5f6d2f32e8ac2fba5/src/download.js#L32
+	 */
+	NPM_GO_IPFS_CACHE?: string;
 }
 
 declare global

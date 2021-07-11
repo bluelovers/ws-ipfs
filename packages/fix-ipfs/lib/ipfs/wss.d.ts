@@ -4,4 +4,4 @@ export declare function fixIPFSAddressesSwarmWss(argv: {
         code?: string;
     };
     ipfs: IIPFSPromiseApi;
-}): Promise<any>;
+}): Promise<void | IIPFSPromiseApi>;

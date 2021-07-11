@@ -24,6 +24,10 @@ function getIpfsServerList() {
                 protocol: 'https',
             },
             Gateway: 'https://ipfs.infura.io/ipfs/',
+            /**
+             * https://blog.infura.io/ipfs-0-5-is-here-with-a-new-improved-gateway/
+             */
+            GatewayDomain: '.ipfs.infura-ipfs.io',
             limit: {
                 ref: false,
                 id: false,
@@ -36,7 +40,7 @@ function getIpfsServerList() {
          */
         'cloudflare': {
             Gateway: 'https://cloudflare-ipfs.com/ipfs/',
-            GatewayDomain: '.cf-ipfs.com',
+            GatewayDomain: '.ipfs.cf-ipfs.com',
         },
         'ipfs.gateway': {
             Gateway: 'https://gateway.ipfs.io/ipfs/',

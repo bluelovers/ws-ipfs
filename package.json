@@ -4,7 +4,26 @@
   "private": true,
   "keywords": [
     "IPFS",
-    "ipfs"
+    "ipfs",
+    "multihash",
+    "multiformats",
+    "hash",
+    "multibase",
+    "encode",
+    "decode",
+    "formats",
+    "libp2p",
+    "datastore",
+    "unixfs",
+    "cid",
+    "dweb",
+    "node",
+    "webrtc",
+    "swarm",
+    "pubsub",
+    "p2p",
+    "ipns",
+    "ipld"
   ],
   "workspaces": [
     "packages/@lazy-ipfs/*",

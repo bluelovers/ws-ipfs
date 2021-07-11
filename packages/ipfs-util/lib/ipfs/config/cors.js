@@ -6,9 +6,14 @@ async function configApiCors(ipfs) {
     let ls = [];
     let bool;
     bool = await (0, setConfigIfNotExists_1.setConfigIfNotExists)(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Origin', [
-        'https://webui.ipfs.io',
-        'https://dev.webui.ipfs.io/',
         '*',
+        "http://webui.ipfs.io.ipns.localhost:8080",
+        "http://webui.ipfs.io.ipns.localhost:9090",
+        "http://localhost:3000",
+        "http://127.0.0.1:5001",
+        "http://127.0.0.1:5002",
+        'https://webui.ipfs.io',
+        'https://dev.webui.ipfs.io',
     ]);
     ls.push(bool);
     bool = await (0, setConfigIfNotExists_1.setConfigIfNotExists)(ipfs, 'API.HTTPHeaders.Access-Control-Allow-Methods', (0, setConfigIfNotExists_1.fillEntryIfNotExists)([

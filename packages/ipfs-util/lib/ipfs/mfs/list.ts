@@ -10,6 +10,7 @@ import {
 import { ITSResolvable } from 'ts-type';
 import micromatch from 'micromatch';
 import { posix as path } from 'path';
+import { IPFS } from 'ipfs-core-types';
 
 export function mfsFileType(type: EnumMutableFileSystemType | EnumMutableFileSystemTypeName | string | number): IMutableFileSystemType
 {
@@ -52,7 +53,7 @@ export function isNull(value): value is void
 	return typeof value === 'undefined' || value === null
 }
 
-export async function* deepFilesListCore(ipfs: IIPFSFilesApi, rootPath: string, options: {
+export async function* deepFilesListCore(ipfs: IPFS, rootPath: string, options: {
 	prefix?: string,
 	deep?: number,
 	level?: number,
@@ -84,7 +85,7 @@ export async function* deepFilesListCore(ipfs: IIPFSFilesApi, rootPath: string, 
 	}
 }
 
-export async function ipfsFilesExists(ipfs: IIPFSFilesApi, targetPath: string)
+export async function ipfsFilesExists(ipfs: IPFS, targetPath: string)
 {
 	let cwd = path.dirname(targetPath);
 
@@ -120,7 +121,7 @@ export async function ipfsFilesExists(ipfs: IIPFSFilesApi, targetPath: string)
 	return false
 }
 
-export async function* deepFilesList(ipfs: IIPFSFilesApi, options: {
+export async function* deepFilesList(ipfs: IPFS, options: {
 	cwd?: string,
 	globPattern?: string[],
 	globOptions?: micromatch.Options,
