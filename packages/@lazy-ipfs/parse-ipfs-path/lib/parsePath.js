@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.strToCidToStr = exports.resultToPath = exports.parsePath = exports.EnumParsePathResultNs = void 0;
+exports.strToCidToStr = exports.resultToPath = exports.assertToParsePathResult = exports.assertToParsePathResultPath = exports.assertToEnumNs = exports.parsePath = exports.EnumParsePathResultNs = void 0;
 const tslib_1 = require("tslib");
 const is_valid_domain_1 = (0, tslib_1.__importDefault)(require("is-valid-domain"));
 const to_cid_1 = require("@lazy-ipfs/to-cid");
@@ -15,7 +15,7 @@ var EnumParsePathResultNs;
 function parsePath(input) {
     let ns, hash, path;
     if (Buffer.isBuffer(input) || (0, to_cid_1.isCID)(input)) {
-        hash = (0, to_cid_1.toCID)(input).toBaseEncodedString();
+        hash = (0, to_cid_1.toCID)(input).toString();
         ns = "ipfs" /* ipfs */;
         path = '';
     }
@@ -64,18 +64,48 @@ function parsePath(input) {
     else {
         throw new Error('Invalid path'); // What even is this?
     }
-    const toString = () => `/${ns}/${hash}${path}`;
-    return Object.defineProperties({}, {
-        ns: { value: ns, enumerable: true },
-        hash: { value: hash, enumerable: true },
-        path: { value: path, enumerable: true },
-        toString: { value: toString },
-        toJSON: { value: toString },
-    });
+    return {
+        ns,
+        hash,
+        path,
+    };
 }
 exports.parsePath = parsePath;
+function assertToEnumNs(ns) {
+    // @ts-ignore
+    if (EnumParsePathResultNs[ns] !== ns) {
+        throw new TypeError(`Invalid ns: ${ns}`);
+    }
+}
+exports.assertToEnumNs = assertToEnumNs;
+function assertToParsePathResultPath(path) {
+    if (typeof path === 'string' && path.length) {
+        if (path[0] !== '/' || path.length < 2) {
+            throw new TypeError(`Invalid path: ${path}`);
+        }
+    }
+    else if (path !== '' && typeof path !== 'undefined' && path !== null) {
+        throw new TypeError(`Invalid path: ${path}`);
+    }
+}
+exports.assertToParsePathResultPath = assertToParsePathResultPath;
+function assertToParsePathResult(result) {
+    assertToEnumNs(result.ns);
+    if (result.ns !== "ipns" /* ipns */) {
+        try {
+            (0, to_cid_1.toCID)(result.hash);
+        }
+        catch (e) {
+            throw new TypeError(`Invalid hash: ${result.hash}`);
+        }
+    }
+    assertToParsePathResultPath(result.path);
+}
+exports.assertToParsePathResult = assertToParsePathResult;
 function resultToPath(result) {
-    return `/${result.ns}/${result.hash}${result.path}`;
+    var _a;
+    assertToParsePathResult(result);
+    return `/${result.ns}/${result.hash}${(_a = result.path) !== null && _a !== void 0 ? _a : ''}`;
 }
 exports.resultToPath = resultToPath;
 function strToCidToStr(str) {

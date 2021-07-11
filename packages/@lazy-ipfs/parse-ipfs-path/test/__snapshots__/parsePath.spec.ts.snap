@@ -1,3 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`should allow IPNS path 1`] = `"/ipns/yourdomain.name"`;
+
+exports[`should not alter CID encoding 1`] = `"/ipfs/bafybeic7rclblnrf76dtmmrdfxix2aq7hnvms5hlb3f7zko52kvv42mb64"`;
+
+exports[`should not alter CID encoding 2`] = `
+Object {
+  "hash": "bafybeic7rclblnrf76dtmmrdfxix2aq7hnvms5hlb3f7zko52kvv42mb64",
+  "ns": "ipfs",
+  "path": "",
+}
+`;
+
+exports[`should only enumerate certain properties 1`] = `
+Array [
+  "ns",
+  "hash",
+  "path",
+]
+`;
+
+exports[`should only enumerate certain properties 2`] = `"/ipfs/QmUmaEnH1uMmvckMZbh3yShaasvELPW4ZLPWnB4entMTEn"`;
+
+exports[`should parse input as CID instance 1`] = `"/ipfs/zdpuArHMUAYi3VtD3f7iSkXxYK9xo687SoNf5stAQNCMzd77k"`;
+
+exports[`should parse input as CID instance 2`] = `
+Object {
+  "hash": "zdpuArHMUAYi3VtD3f7iSkXxYK9xo687SoNf5stAQNCMzd77k",
+  "ns": "ipfs",
+  "path": "",
+}
+`;
+
 exports[`should parse input as buffer CID 1`] = `"bafybeidskjjd4zmr7oh6ku6wp72vvbxyibcli2r6if3ocdcy7jjjusvl2u"`;
+
+exports[`should parse input as buffer CID 2`] = `"/ipfs/bafybeidskjjd4zmr7oh6ku6wp72vvbxyibcli2r6if3ocdcy7jjjusvl2u"`;
+
+exports[`should parse input as buffer CID 3`] = `
+Object {
+  "hash": "bafybeidskjjd4zmr7oh6ku6wp72vvbxyibcli2r6if3ocdcy7jjjusvl2u",
+  "ns": "ipfs",
+  "path": "",
+}
+`;
+
+exports[`should parse input as string CID 1`] = `"/ipfs/QmUmaEnH1uMmvckMZbh3yShaasvELPW4ZLPWnB4entMTEn"`;
+
+exports[`should parse input as string CID 2`] = `
+Object {
+  "hash": "QmUmaEnH1uMmvckMZbh3yShaasvELPW4ZLPWnB4entMTEn",
+  "ns": "ipfs",
+  "path": "",
+}
+`;
+
+exports[`should parse input as string with path and without namespace 1`] = `"/ipfs/QmUmaEnH1uMmvckMZbh3yShaasvELPW4ZLPWnB4entMTEn/path/to"`;
+
+exports[`should parse input as string with path and without namespace 2`] = `
+Object {
+  "hash": "QmUmaEnH1uMmvckMZbh3yShaasvELPW4ZLPWnB4entMTEn",
+  "ns": "ipfs",
+  "path": "/path/to",
+}
+`;
+
+exports[`should parse input as string with trailing slash 1`] = `"/ipfs/QmUmaEnH1uMmvckMZbh3yShaasvELPW4ZLPWnB4entMTEn/path/to"`;
+
+exports[`should parse input as string with trailing slash 2`] = `
+Object {
+  "hash": "QmUmaEnH1uMmvckMZbh3yShaasvELPW4ZLPWnB4entMTEn",
+  "ns": "ipfs",
+  "path": "/path/to",
+}
+`;
+
+exports[`should parse input as string without leading slash 1`] = `"/ipfs/QmUmaEnH1uMmvckMZbh3yShaasvELPW4ZLPWnB4entMTEn/path/to"`;
+
+exports[`should parse input as string without leading slash 2`] = `
+Object {
+  "hash": "QmUmaEnH1uMmvckMZbh3yShaasvELPW4ZLPWnB4entMTEn",
+  "ns": "ipfs",
+  "path": "/path/to",
+}
+`;

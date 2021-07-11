@@ -8,27 +8,51 @@ export const enum EnumParsePathResultNs
 	'ipns' = 'ipns',
 }
 
-export interface IParsePathResult
+export type IParsePathResultNsInput = 'ipfs' | 'ipns' | EnumParsePathResultNs;
+
+export type IParsePathResultNsInputToEnum<T extends string> = T extends 'ipfs'
+	? EnumParsePathResultNs.ipfs
+	: T extends 'ipns'
+		? EnumParsePathResultNs.ipns
+		: T extends EnumParsePathResultNs
+			? T
+			: T extends string
+				? EnumParsePathResultNs
+				: never
+	;
+
+export type IParsePathResultPathInput = string;
+
+export type IParsePathResultPath<P> = P extends null ? ''
+	: P extends undefined ? ''
+		: P extends void ? ''
+			: P extends never ? ''
+				: P
+	;
+
+export interface IParsePathResult<H extends string = string, P extends IParsePathResultPathInput = string, N extends string | IParsePathResultNsInput = IParsePathResultNsInput>
 {
-	ns: 'ipfs' | 'ipns' | EnumParsePathResultNs;
-	hash: string;
-	path: string;
+	ns: N;
+	hash: H;
+	path?: P;
+}
 
-	toString(): string;
-
-	toJSON(): string;
+export interface IParsePathResultStrict<H extends string = string, P extends IParsePathResultPathInput = string, N extends IParsePathResultNsInput = IParsePathResultNsInput> extends Omit<IParsePathResult<H, P, N>, 'path' | 'ns'>
+{
+	ns: IParsePathResultNsInputToEnum<N>;
+	path: IParsePathResultPath<P>;
 }
 
 /**
  * @see https://github.com/tableflip/dweb-path
  */
-export function parsePath(input: string | Buffer | CID)
+export function parsePath<H extends string = string, P extends IParsePathResultPathInput = string, N extends EnumParsePathResultNs = EnumParsePathResultNs>(input: string | Buffer | CID): IParsePathResultStrict<H, P, N>
 {
-	let ns: string, hash: string, path: string
+	let ns: EnumParsePathResultNs, hash: string, path: string
 
 	if (Buffer.isBuffer(input) || isCID(input))
 	{
-		hash = toCID(input).toBaseEncodedString()
+		hash = toCID(input).toString()
 
 		ns = EnumParsePathResultNs.ipfs
 		path = ''
@@ -98,20 +122,61 @@ export function parsePath(input: string | Buffer | CID)
 		throw new Error('Invalid path') // What even is this?
 	}
 
-	const toString = () => `/${ns}/${hash}${path}`
-
-	return Object.defineProperties({} as IParsePathResult, {
-		ns: { value: ns, enumerable: true },
-		hash: { value: hash, enumerable: true },
-		path: { value: path, enumerable: true },
-		toString: { value: toString },
-		toJSON: { value: toString },
-	})
+	return {
+		ns,
+		hash,
+		path,
+	} as null
 }
 
-export function resultToPath(result: IParsePathResult)
+export function assertToEnumNs<N extends IParsePathResultNsInput>(ns: N | unknown): asserts ns is IParsePathResultNsInputToEnum<N>
 {
-	return `/${result.ns}/${result.hash}${result.path}`
+	// @ts-ignore
+	if (EnumParsePathResultNs[ns] !== ns)
+	{
+		throw new TypeError(`Invalid ns: ${ns}`)
+	}
+}
+
+export function assertToParsePathResultPath<P extends IParsePathResultPathInput>(path: P | unknown): asserts path is IParsePathResultPath<P>
+{
+	if (typeof path === 'string' && path.length)
+	{
+		if (path[0] !== '/' || path.length < 2)
+		{
+			throw new TypeError(`Invalid path: ${path}`)
+		}
+	}
+	else if (path !== '' && typeof path !== 'undefined' && path !== null)
+	{
+		throw new TypeError(`Invalid path: ${path}`)
+	}
+}
+
+export function assertToParsePathResult<H extends string, P extends IParsePathResultPathInput, N extends IParsePathResultNsInput = EnumParsePathResultNs>(result: IParsePathResult<H, P | string, N | string>): asserts result is IParsePathResultStrict<H, IParsePathResultPath<P>, IParsePathResultNsInputToEnum<N>>
+{
+	assertToEnumNs(result.ns);
+
+	if (result.ns !== EnumParsePathResultNs.ipns)
+	{
+		try
+		{
+			toCID(result.hash)
+		}
+		catch (e)
+		{
+			throw new TypeError(`Invalid hash: ${result.hash}`)
+		}
+	}
+
+	assertToParsePathResultPath(result.path)
+}
+
+export function resultToPath<H extends string, P extends IParsePathResultPathInput, N extends IParsePathResultNsInput = EnumParsePathResultNs>(result: IParsePathResult<H, P, N>): `/${IParsePathResultNsInputToEnum<N>}/${H}${IParsePathResultPath<P>}`
+{
+	assertToParsePathResult(result);
+
+	return `/${result.ns}/${result.hash}${result.path ?? ''}` as null
 }
 
 export function strToCidToStr(str: string)
