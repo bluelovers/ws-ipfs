@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/ipfs-protocol@1.0.5...@lazy-ipfs/ipfs-protocol@1.0.6) (2021-07-14)
+
+
+### ✨　Features
+
+* support `ipns` ([fc2dc49](https://github.com/bluelovers/ws-ipfs/commit/fc2dc492d2a997dc40b3e913ec6f0ec6a8ff466d))
+
+
+
+
+
 ## [1.0.5](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/ipfs-protocol@1.0.4...@lazy-ipfs/ipfs-protocol@1.0.5) (2021-07-11)
 
 
