@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.10](https://github.com/bluelovers/ws-ipfs/compare/fix-ipfs@1.0.9...fix-ipfs@1.0.10) (2021-07-20)
+
+
+### ✨　Features
+
+* add `unlinkIPFSApiAsync` ([f7a0873](https://github.com/bluelovers/ws-ipfs/commit/f7a08730e35b4de991a8bda2326452966b30e085))
+
+
+
+
+
 ## [1.0.9](https://github.com/bluelovers/ws-ipfs/compare/fix-ipfs@1.0.8...fix-ipfs@1.0.9) (2021-07-20)
 
 

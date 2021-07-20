@@ -1,6 +1,6 @@
 {
   "name": "use-ipfs",
-  "version": "1.0.77",
+  "version": "1.0.78",
   "description": "lazy way for create or connect ipfs",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/use-ipfs#readme",
   "bugs": {
@@ -31,7 +31,7 @@
   "dependencies": {
     "@bluelovers/ipfs-http-client": "^1.0.71",
     "find-free-port-sync-fixed": "^1.0.0",
-    "fix-ipfs": "^1.0.9",
+    "fix-ipfs": "^1.0.10",
     "get-port": "^5.1.1",
     "ipfs-defaults": "^1.0.37",
     "lodash": "^4.17.21",
