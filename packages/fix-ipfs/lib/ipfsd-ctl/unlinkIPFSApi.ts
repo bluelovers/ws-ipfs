@@ -1,15 +1,26 @@
 import { join } from "path";
-import { statSync, unlinkSync } from "fs";
+import { statSync, unlinkSync, Stats } from "fs";
 
 export function unlinkIPFSApi(ipfsPath: string)
 {
-	let api = join(ipfsPath, 'api');
-	let stat = statSync(api);
-
-	if (!stat.isFile())
+	const api = join(ipfsPath, 'api');
+	let stat: Stats;
+	try
 	{
-		throw new Error(`target path not a file, ${api}`);
+		stat = statSync(api);
+	}
+	catch (e)
+	{
+
 	}
 
-	unlinkSync(api);
+	if (stat)
+	{
+		if (!stat.isFile())
+		{
+			throw new Error(`target path not a file, ${api}`);
+		}
+
+		unlinkSync(api);
+	}
 }
