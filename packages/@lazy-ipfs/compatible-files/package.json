@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/compatible-files",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "IPFS",
@@ -50,8 +50,6 @@
     "ipfs-core-types": "*",
     "tslib": "^2.3.0"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   }
