@@ -3,10 +3,10 @@
  */
 
 import { PromiseSettledResult } from '../types';
-import { IIPFSFileApiAddReturnEntry } from 'ipfs-types/lib/ipfs/file';
+import { AddResult } from 'ipfs-core-types/src/root';
 
-export type IPublishToIPFSReturn = PromiseSettledResult<IIPFSFileApiAddReturnEntry[], {
+export type IPublishToIPFSReturn = PromiseSettledResult<AddResult[], {
 	error: Error,
-	value: IIPFSFileApiAddReturnEntry[],
+	value: AddResult[],
 }>[];
 

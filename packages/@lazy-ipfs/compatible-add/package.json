@@ -25,14 +25,12 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
+    "ipfs-core-types": "^0.5.2",
+    "it-all": "^1.0.5",
     "it-last": "^1.0.5",
     "tslib": "^2.3.0"
   },
-  "peerDependencies": {
-    "ipfs": "*",
-    "ipfs-http-client": "*",
-    "ipfsd-ctl": "*"
-  },
+  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   },
