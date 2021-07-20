@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.69](https://github.com/bluelovers/ws-ipfs/compare/ipfs-api-check@1.0.68...ipfs-api-check@1.0.69) (2021-07-20)
+
+
+### ♻️　Chores
+
+* update type ([ea23695](https://github.com/bluelovers/ws-ipfs/commit/ea23695d11064ce5f0154d67b14f8558939c2d99))
+
+
+
+
+
 ## [1.0.68](https://github.com/bluelovers/ws-ipfs/compare/ipfs-api-check@1.0.67...ipfs-api-check@1.0.68) (2021-07-11)
 
 

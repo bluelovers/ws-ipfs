@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.78](https://github.com/bluelovers/ws-ipfs/compare/fetch-ipfs@1.0.77...fetch-ipfs@1.0.78) (2021-07-20)
+
+
+### ✨　Features
+
+* add `valueOfSettledResult` ([af995d4](https://github.com/bluelovers/ws-ipfs/commit/af995d44747976b3a1a03834f33c9519735d033f))
+
+
+### 📦　Code Refactoring
+
+* update to `ipfs-core-types` ([72e5f8f](https://github.com/bluelovers/ws-ipfs/commit/72e5f8f55c886bb83c4dc7d052401cc099fe14d2))
+* update to `ipfs-core-types` ([9f626f0](https://github.com/bluelovers/ws-ipfs/commit/9f626f00f9ec970f7b39d7f8aa88b69a52fd1121))
+
+
+### ♻️　Chores
+
+* update type ([ea23695](https://github.com/bluelovers/ws-ipfs/commit/ea23695d11064ce5f0154d67b14f8558939c2d99))
+
+
+
+
+
 ## [1.0.77](https://github.com/bluelovers/ws-ipfs/compare/fetch-ipfs@1.0.75...fetch-ipfs@1.0.77) (2021-07-11)
 
 

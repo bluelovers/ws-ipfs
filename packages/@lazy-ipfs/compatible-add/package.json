@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/compatible-add",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "detect ipfs.addAll or ipfs.add",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/@lazy-ipfs/compatible-add#readme",
   "bugs": {
@@ -30,7 +30,6 @@
     "it-last": "^1.0.5",
     "tslib": "^2.3.0"
   },
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   },

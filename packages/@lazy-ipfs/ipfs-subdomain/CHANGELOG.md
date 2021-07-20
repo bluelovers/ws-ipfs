@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.27](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/ipfs-subdomain@1.0.26...@lazy-ipfs/ipfs-subdomain@1.0.27) (2021-07-20)
+
+**Note:** Version bump only for package @lazy-ipfs/ipfs-subdomain
+
+
+
+
+
 ## [1.0.26](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/ipfs-subdomain@1.0.24...@lazy-ipfs/ipfs-subdomain@1.0.26) (2021-07-11)
 
 

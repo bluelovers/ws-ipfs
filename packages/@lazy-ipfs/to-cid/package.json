@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/to-cid",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/@lazy-ipfs/to-cid#readme",
   "bugs": {
@@ -30,7 +30,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "ipfs-types": "^1.0.33",
+    "ipfs-types": "^1.0.34",
     "tslib": "^2.3.0"
   },
   "peerDependencies": {

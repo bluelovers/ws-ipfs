@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/compatible-add@1.0.10...@lazy-ipfs/compatible-add@1.0.11) (2021-07-20)
+
+
+### 📦　Code Refactoring
+
+* update to `ipfs-core-types` ([72e5f8f](https://github.com/bluelovers/ws-ipfs/commit/72e5f8f55c886bb83c4dc7d052401cc099fe14d2))
+* update to `ipfs-core-types` ([9f626f0](https://github.com/bluelovers/ws-ipfs/commit/9f626f00f9ec970f7b39d7f8aa88b69a52fd1121))
+
+
+
+
+
 ## [1.0.10](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/compatible-add@1.0.8...@lazy-ipfs/compatible-add@1.0.10) (2021-07-11)
 
 
