@@ -13,6 +13,11 @@ declare module 'ipfs-core-types/src/config' {
         get<T>(key: string, options?: AbortOptions & OptionExtension): Promise<T>;
     }
 }
+declare module 'ipfs-core-types/src/root' {
+    interface Directory {
+        content?: undefined;
+    }
+}
 export declare type IIPFSExtendType2<OptionExtension = {}> = {
     config: IIPFSConfigApiCore<OptionExtension>;
 };

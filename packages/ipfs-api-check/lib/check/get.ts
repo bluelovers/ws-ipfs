@@ -1,5 +1,4 @@
 import { IIPFSClientReturn } from '@bluelovers/ipfs-http-client';
-import { IIPFSPromiseApi } from 'ipfs-types/lib/ipfs/index';
 import { IIPFSFileApi } from 'ipfs-types/lib/ipfs/file';
 import BufferList from 'bl';
 import { runSubCheck } from '../util';
@@ -25,7 +24,7 @@ export async function get(ipfs: IIPFSFileApi)
 				const content = new BufferList();
 				for await (const chunk of file.content)
 				{
-					content.append(chunk)
+					content.append(chunk as any)
 				}
 
 				success = content.toString() === expected

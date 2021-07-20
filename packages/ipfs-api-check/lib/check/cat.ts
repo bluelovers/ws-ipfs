@@ -12,7 +12,7 @@ export async function cat(ipfs: IIPFSFileApi)
 	const expected = 'Hello from IPFS Gateway Checker\n';
 
 	return runSubCheck(async () => {
-			const chunks: Buffer[] = [];
+			const chunks: Uint8Array[] = [];
 
 			for await (const chunk of ipfs.cat(ipfsPath, {
 				timeout: 5000,

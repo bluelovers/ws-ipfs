@@ -20,6 +20,14 @@ declare module 'ipfs-core-types/src/config'
 	}
 }
 
+declare module 'ipfs-core-types/src/root'
+{
+	interface Directory
+	{
+		content?: undefined
+	}
+}
+
 export type IIPFSExtendType2<OptionExtension = {}> = {
 	config: IIPFSConfigApiCore<OptionExtension>
 }
