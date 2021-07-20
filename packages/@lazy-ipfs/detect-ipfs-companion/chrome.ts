@@ -1,7 +1,7 @@
 ///<reference types="chrome"/>
 
-import { IIPFSPromiseApi } from 'ipfs-types';
 import { IWindow, IDetectIpfsCompanionSyncParams } from './types';
+import { IPFS } from 'ipfs-core-types';
 
 /**
  * @see https://github.com/ipfs-shipyard/ipfs-redux-bundle/blob/master/src/companion/index.js
@@ -12,7 +12,7 @@ export function detectIpfsCompanionSync(opts?: IDetectIpfsCompanionSyncParams)
 	{
 		const win: IWindow = opts?.window ?? ((typeof window !== 'undefined') && window);
 
-		const ipfs: IIPFSPromiseApi = win?.chrome?.extension?.getBackgroundPage?.()?.ipfsCompanion?.ipfs;
+		const ipfs: IPFS = win?.chrome?.extension?.getBackgroundPage?.()?.ipfsCompanion?.ipfs;
 
 		if (ipfs === null || ipfs === void 0)
 		{

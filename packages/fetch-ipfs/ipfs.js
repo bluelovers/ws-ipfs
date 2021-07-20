@@ -13,6 +13,7 @@ function refIPFS(cid, ipfs, timeout) {
         for await (const ref of ipfs.refs(cid, {
             timeout,
             signal: controller.signal,
+            preload: true,
             //pin: false,
         })) {
             if (ref.err) {
@@ -42,6 +43,7 @@ function catIPFS(cid, ipfs, timeout) {
         for await (const chunk of ipfs.cat(cid, {
             timeout,
             signal: controller.signal,
+            preload: true,
             //pin: false,
         })) {
             // @ts-ignore
@@ -51,7 +53,6 @@ function catIPFS(cid, ipfs, timeout) {
     })
         .finally(() => {
         controller.abort();
-        controller.clear();
     });
 }
 exports.catIPFS = catIPFS;

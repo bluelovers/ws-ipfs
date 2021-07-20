@@ -1,13 +1,16 @@
-import { IIPFSPromiseApi } from 'ipfs-types';
+import { IPFS } from 'ipfs-core-types';
 
 declare global
 {
 	interface Window
 	{
 		ipfsCompanion?: {
-			ipfs?: IIPFSPromiseApi,
+			ipfs?: IPFS,
 		}
-		ipfs?: IIPFSPromiseApi,
+		ipfs?: IPFS,
+		chrome: Window["chrome"] & {
+
+		}
 	}
 }
 export type IWindow = Window & typeof globalThis;
@@ -18,6 +21,6 @@ export type IDetectIpfsCompanionSyncParams = {
 
 export type IDetectIpfsWindowParams = {
 	window?: {
-		ipfs?: IIPFSPromiseApi,
+		ipfs?: IPFS,
 	}
 };

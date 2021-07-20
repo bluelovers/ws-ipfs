@@ -4,7 +4,7 @@ import { IIPFSPromiseApi } from 'ipfs-types';
 import { newAbortController } from './util';
 import { IPFS } from 'ipfs-core-types';
 
-export function refIPFS(cid: string, ipfs: IIPFSPromiseApi, timeout?: number)
+export function refIPFS(cid: string, ipfs: Pick<IPFS, 'refs'>, timeout?: number)
 {
 	timeout = timeout |= 0 || 10 * 1000;
 
@@ -16,6 +16,7 @@ export function refIPFS(cid: string, ipfs: IIPFSPromiseApi, timeout?: number)
 			for await (const ref of ipfs.refs(cid, {
 				timeout,
 				signal: controller.signal,
+				preload: true,
 				//pin: false,
 			}))
 			{
@@ -32,7 +33,7 @@ export function refIPFS(cid: string, ipfs: IIPFSPromiseApi, timeout?: number)
 		.finally(() => controller.clear())
 }
 
-export function catIPFS(cid: string, ipfs: IPFS, timeout?: number)
+export function catIPFS(cid: string, ipfs: Pick<IPFS, 'refs' | 'cat'>, timeout?: number)
 {
 	timeout = timeout |= 0 || 60 * 1000;
 
@@ -55,6 +56,7 @@ export function catIPFS(cid: string, ipfs: IPFS, timeout?: number)
 			for await (const chunk of ipfs.cat(cid, {
 				timeout,
 				signal: controller.signal,
+				preload: true,
 				//pin: false,
 			})) {
 				// @ts-ignore
@@ -64,7 +66,6 @@ export function catIPFS(cid: string, ipfs: IPFS, timeout?: number)
 		})
 		.finally(() => {
 			controller.abort();
-			controller.clear();
 		})
 	;
 }

@@ -1,7 +1,10 @@
 import { INetworkOptionsBase } from '../options';
 import { ITSValueOrArray, ITSPartialPick, ITSPartialRecord } from 'ts-type';
 import { ICIDObject, ICIDValue, IDagHashAlg } from '../types';
-import { IIPFSAddresses } from '../../index';
+import { IIPFSAddresses, IIPFSExtendType, IIPFSExtendTypePick } from '../../index';
+import { IPFS } from 'ipfs-core-types';
+import { API as ConfigAPI } from 'ipfs-core-types/src/config';
+import { AbortOptions } from 'ipfs-core-types/src/utils';
 
 export type IPartialOrAny<T> = IPartial2<T> | any;
 
@@ -117,29 +120,8 @@ export interface IIPFSConfigApiCoreProfiles
 
 }
 
-export interface IIPFSConfigApiCore
-{
-
-	get<K extends keyof IConfigObject>(key: K): Promise<IConfigObject[K]>
-
-	get<T extends IConfigObject = IConfigObject, K extends keyof T = keyof T>(key: K): Promise<T[K]>
-
-	get<T = any>(key: string): Promise<T>
-
-	get<T = IConfigObject>(): Promise<T>
-
-	set(key: keyof IConfigObject | string, value): Promise<void>
-
-	replace(newConfig: IConfigObject): Promise<void>
-
-	profiles: IIPFSConfigApiCoreProfiles,
-
+export type IIPFSConfigApiCore<OptionExtension = {}> = IPFS["config"] & ConfigAPI<OptionExtension> & {
+	get<T>(key: string, options?: AbortOptions & OptionExtension): Promise<T>
 }
 
-export interface IIPFSConfigApi
-{
-	/**
-	 * https://github.com/ipfs/js-ipfs/blob/master/packages/interface-ipfs-core/SPEC/CONFIG.md#configget
-	 */
-	config: IIPFSConfigApiCore,
-}
+export type IIPFSConfigApi<OptionExtension = {}> = IIPFSExtendTypePick<'config', OptionExtension>

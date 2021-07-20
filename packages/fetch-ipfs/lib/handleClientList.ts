@@ -1,12 +1,12 @@
 import { ITSValueOrArray, ITSResolvable } from 'ts-type';
-import { IIPFSPromiseApi } from 'ipfs-types';
 import ipfsClient, { IIPFSClientAddresses } from '@bluelovers/ipfs-http-client';
 import Bluebird from 'bluebird';
+import { IPFS } from 'ipfs-core-types';
 
-export type IUseIPFSInput = string | Partial<IIPFSPromiseApi> | IIPFSClientAddresses;
+export type IUseIPFSInput = string | Partial<IPFS> | IIPFSClientAddresses;
 
 export function handleClientList(useIPFS: ITSValueOrArray<IUseIPFSInput>,
-	filter?: (ipfs: Partial<IIPFSPromiseApi>) => ITSResolvable<boolean>,
+	filter?: (ipfs: Partial<IPFS>) => ITSResolvable<boolean>,
 )
 {
 	return Bluebird
@@ -33,7 +33,7 @@ export function handleClientList(useIPFS: ITSValueOrArray<IUseIPFSInput>,
 			}
 			else if (filter && await filter(ipfs as any))
 			{
-				return ipfs as IIPFSPromiseApi
+				return ipfs as IPFS
 			}
 			// @ts-ignore
 			else if (typeof ipfs === 'object' && (ipfs.port || ipfs.host))
@@ -43,12 +43,12 @@ export function handleClientList(useIPFS: ITSValueOrArray<IUseIPFSInput>,
 			}
 			else if (ipfs)
 			{
-				return ipfs as IIPFSPromiseApi
+				return ipfs as IPFS
 			}
 
 			return
 		})
-		.filter<IIPFSPromiseApi>((ipfs) => {
+		.filter<IPFS>((ipfs) => {
 			if (ipfs)
 			{
 				if (filter)

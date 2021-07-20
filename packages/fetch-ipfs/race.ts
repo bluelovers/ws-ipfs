@@ -1,7 +1,6 @@
 /**
  * Created by user on 2020/3/22.
  */
-import { IIPFSPromiseApi } from 'ipfs-types';
 import pAny from 'p-any';
 import { IIPFSClientAddresses } from '@bluelovers/ipfs-http-client';
 import { fetchIPFSCore } from './index';
@@ -10,9 +9,10 @@ import { filterList } from 'ipfs-server-list';
 import { array_unique } from 'array-hyper-unique';
 import { handleClientList } from './lib/handleClientList';
 import { handleTimeout, handleCID, IFetchOptions } from './util';
+import { IPFS } from 'ipfs-core-types';
 
 export function raceFetchIPFS(cid: string,
-	useIPFS: ITSValueOrArray<(string | IIPFSPromiseApi | IIPFSClientAddresses)>,
+	useIPFS: ITSValueOrArray<(string | Pick<IPFS, 'refs' | 'cat'> | IIPFSClientAddresses)>,
 	timeout?: number,
 	options?: {
 	filter?(buf: Buffer): boolean,

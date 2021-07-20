@@ -32,7 +32,6 @@ export async function fetchIPFSCore(cidLink: string, useIPFS?, timeout?: number,
 		}) as ReturnType<typeof fetch>)
 		.timeout(timeout)
 		.tapCatch(TimeoutError, () => controller.abort())
-		.finally(() => controller.clear())
 		.tap(v =>
 		{
 			if (isErrorCode(v.status))
@@ -45,6 +44,7 @@ export async function fetchIPFSCore(cidLink: string, useIPFS?, timeout?: number,
 		})
 		.then(v => v.arrayBuffer())
 		.then(buf => Buffer.from(buf))
+		.finally(() => controller.abort())
 		;
 }
 

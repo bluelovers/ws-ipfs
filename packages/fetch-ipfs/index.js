@@ -27,7 +27,6 @@ async function fetchIPFSCore(cidLink, useIPFS, timeout, options = {}) {
     }))
         .timeout(timeout)
         .tapCatch(bluebird_1.TimeoutError, () => controller.abort())
-        .finally(() => controller.clear())
         .tap(v => {
         if ((0, is_error_code_1.default)(v.status)) {
             let e = new Error(v.statusText);
@@ -37,7 +36,8 @@ async function fetchIPFSCore(cidLink, useIPFS, timeout, options = {}) {
         }
     })
         .then(v => v.arrayBuffer())
-        .then(buf => Buffer.from(buf));
+        .then(buf => Buffer.from(buf))
+        .finally(() => controller.abort());
 }
 exports.fetchIPFSCore = fetchIPFSCore;
 exports.default = fetchIPFS;

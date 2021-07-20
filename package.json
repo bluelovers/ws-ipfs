@@ -52,6 +52,7 @@
     "cross-fetch": "^3.1.4",
     "fs-extra": "^10.0.0",
     "ipfs": "^0.55.4",
+    "ipfs-core-types": "^0.5.2",
     "ipfs-http-client": "^50.1.2",
     "ipfs-utils": "^8.1.4",
     "ipfsd-ctl": "^9.0.0",

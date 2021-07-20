@@ -2,6 +2,8 @@ import TypedArray = NodeJS.TypedArray;
 import { INetworkOptionsBase, IApiOptions } from '../options';
 import BufferList from 'bl';
 import { IMtime, IMtimeInput, IAsyncIterableAbleOrValue, IAsyncIterableAble, ICIDObject, IDagHashAlg } from '../types';
+import { AddOptions as IIPFSFileApiAddOptions, AddResult as IIPFSFileApiAddReturnEntry } from 'ipfs-core-types/src/root';
+import { IPFS } from 'ipfs-core-types';
 
 export type IBytes = number[]
 	| Buffer
@@ -38,34 +40,25 @@ export type IFileData = IAsyncIterableAbleOrValue<IFileObject>
 	| Iterable<number>
 	;
 
-export interface IIPFSFileApiAddOptions extends IApiOptions<{
-	chunker?: string | 'size-262144' | 'rabin',
-	cidVersion?: number,
-	enableShardingExperiment?,
-	hashAlg?: IDagHashAlg,
-	onlyHash?: boolean,
-	pin?: boolean,
-	progress?,
-	rawLeaves?: boolean,
-	shardSplitThreshold?: number,
-	trickle?: boolean,
-	wrapWithDirectory?: boolean,
-}>
+declare module "ipfs-core-types/src/root"
 {
+	interface AddOptions
+	{
+		hashAlg?: IDagHashAlg,
+		chunker?: string | 'size-262144' | 'rabin',
+	}
 
 }
 
-export interface IIPFSFileApiAddReturnEntry
-{
-	path: string;
-	cid: ICIDObject;
-	mode: number;
-	mtime: IMtime;
-	size: number;
-}
+export { IIPFSFileApiAddOptions }
+export { IIPFSFileApiAddReturnEntry }
 
-export interface IIPFSFileApi
+/**
+ * @deprecated
+ */
+export interface IIPFSFileApi extends Pick<IPFS, 'add' | 'cat' | 'get' | 'ls'>
 {
+	/*
 	add(data: IFileData, options?: IIPFSFileApiAddOptions): AsyncIterable<IIPFSFileApiAddReturnEntry>
 
 	cat(ipfsPath, options?: IApiOptions<{
@@ -90,5 +83,5 @@ export interface IIPFSFileApi
 		mode: number,
 		mtime: IMtime
 	}>
-
+*/
 }

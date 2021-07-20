@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@types/bl": "^5.0.1",
+    "ipfs-core-types": "*",
     "ts-type": "^1.2.35",
     "tslib": "^2.3.0"
   },

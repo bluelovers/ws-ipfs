@@ -2,6 +2,9 @@ import CID from 'cids';
 import { DAGNode, DAGLink } from 'ipld-dag-pb';
 import { IMultiaddr } from './ipfs/types';
 
+import { Mtime as IMtime } from 'ipfs-unixfs'
+import { MtimeLike } from 'ipfs-unixfs/dist/src/types';
+
 export type ICallback<T, E = Error, R = void> = (error: E, result?: T) => R;
 
 export type IParametersWithCallbackWithMaybeArgv<T, Argv1 = any, E = Error> =
@@ -18,13 +21,9 @@ export type ICIDValue = ICIDObject | string;
 export type IAsyncIterableAble<T> = Iterable<T> | AsyncIterable<T>
 export type IAsyncIterableAbleOrValue<T> = T | IAsyncIterableAble<T>;
 
-export type IMtimeInput = Date | IMtime | number[] | [number, number];
+export type IMtimeInput = Date | IMtime | number[] | [number, number] | MtimeLike;
 
-export interface IMtime
-{
-	secs: number;
-	nsecs: number;
-}
+export { IMtime }
 
 export type IMultihash = string | Buffer;
 

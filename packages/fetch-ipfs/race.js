@@ -2,6 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.raceFetchIPFS = void 0;
 const tslib_1 = require("tslib");
+/**
+ * Created by user on 2020/3/22.
+ */
 const p_any_1 = (0, tslib_1.__importDefault)(require("p-any"));
 const index_1 = require("./index");
 const ipfs_server_list_1 = require("ipfs-server-list");

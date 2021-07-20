@@ -9,9 +9,10 @@ import { PromiseSettledResult } from '../types';
 import Bluebird from 'bluebird';
 import { IPublishToIPFSReturn } from './types';
 import _addAll from '@lazy-ipfs/compatible-add';
+import { IPFS } from 'ipfs-core-types';
 
 export function publishToIPFSRace(data: IFileData,
-	useIPFS: ITSValueOrArray<string | IIPFSPromiseApi | IIPFSClientAddresses | Pick<IIPFSFileApi, 'add'>>,
+	useIPFS: ITSValueOrArray<string | IIPFSPromiseApi | IIPFSClientAddresses | Pick<IPFS, 'add'>>,
 	options?: {
 		addOptions?: IIPFSFileApiAddOptions,
 	} & INetworkOptionsBase,

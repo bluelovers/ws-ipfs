@@ -1,11 +1,11 @@
 import { IDetectIpfsWindowParams } from './types';
-import { IIPFSPromiseApi } from 'ipfs-types';
+import { IPFS } from 'ipfs-core-types';
 export declare function detectIpfsWindowSync(opts?: IDetectIpfsWindowParams): {
-    ipfs: IIPFSPromiseApi;
+    ipfs: IPFS;
     provider: "window.ipfs";
 };
 export declare function detectIpfsWindow(opts?: IDetectIpfsWindowParams): Promise<{
-    ipfs: IIPFSPromiseApi;
+    ipfs: IPFS;
     provider: "window.ipfs";
 }>;
 export default detectIpfsWindow;

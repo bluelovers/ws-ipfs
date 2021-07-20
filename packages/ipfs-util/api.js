@@ -4,32 +4,38 @@ exports.ipfsGatewayAddresses = exports.ipfsApiAddresses = exports.ipfsAddresses 
 const tslib_1 = require("tslib");
 const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
 function checkIPFS(ipfs) {
+    return assertCheckIPFS(ipfs)
+        .catch(() => null);
+}
+exports.checkIPFS = checkIPFS;
+function assertCheckIPFS(ipfs) {
     return bluebird_1.default.resolve(ipfs)
         .then(async (ipfs) => {
         let bool;
         const timeout = 2000;
-        //await ipfs.id();
+        let _error;
         bool = await ipfs
             .version({
             timeout,
         })
-            .then(v => !!v);
+            .then(v => !!v)
+            .catch(e => {
+            _error = e;
+            return null;
+        });
         if (!bool) {
             bool = await ipfs
                 .id({
                 timeout,
             })
-                .then(v => !!v);
+                .then(v => !!v)
+                .catch(e => {
+                _error = e;
+                return null;
+            });
         }
-        return bool;
-    });
-}
-exports.checkIPFS = checkIPFS;
-function assertCheckIPFS(ipfs) {
-    return checkIPFS(ipfs)
-        .then(bool => {
         if (!bool) {
-            return Promise.reject(new TypeError('invalid ipfs'));
+            throw (_error || new Error('Invalid ipfs'));
         }
         return bool;
     });
