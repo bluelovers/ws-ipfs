@@ -12,7 +12,10 @@ export async function ipfsFilesCopy(ipfs: IPFS, from: IPFSPath | IPFSPath[], to:
 	{
 		const dir_path = dirname(to);
 
-		await ipfs.files.mkdir(dir_path, options).catch(e => null);
+		if (dir_path.length && dir_path !== '/')
+		{
+			await ipfs.files.mkdir(dir_path, options).catch(e => null);
+		}
 	}
 
 	return ipfs.files.cp(from, to, options)

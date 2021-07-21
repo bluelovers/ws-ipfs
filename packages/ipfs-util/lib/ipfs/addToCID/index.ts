@@ -1,4 +1,4 @@
-import { ICIDValue, ICIDObject } from 'ipfs-types/lib/types';
+import { ICIDValue, ICIDObject } from '@lazy-ipfs/to-cid';
 import { IIPFSPromiseApi } from 'ipfs-types';
 import { ITSValueOrArray } from 'ts-type';
 import CID from 'cids';
@@ -14,9 +14,11 @@ export function addSourceToTargetCore(source: {
 }, ipfs: IIPFSPromiseApi)
 {
 	return ipfs.object.patch.addLink(target.cid as CID, {
-		name: source.name,
-		cid: source.cid,
-	})
+		// @ts-ignore
+		name: source.Name ?? source.name,
+		// @ts-ignore
+		cid: source.Hash ?? source.cid,
+	} as any)
 }
 
 export async function addSourceToTarget(source: ITSValueOrArray<{

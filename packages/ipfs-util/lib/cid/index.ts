@@ -1,7 +1,7 @@
 /**
  * Created by user on 2020/3/25.
  */
-import { ICIDValue } from 'ipfs-types/lib/types';
+import { ICIDValue } from '@lazy-ipfs/to-cid';
 import CID from 'cids';
 import toCID, { ICIDValueInput } from '@lazy-ipfs/to-cid';
 

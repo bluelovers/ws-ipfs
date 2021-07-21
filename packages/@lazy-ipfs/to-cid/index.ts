@@ -3,9 +3,8 @@
  */
 
 import CID from 'cids';
-import { ICIDValue } from 'ipfs-types/lib/types';
 
-const symbolName = '@ipld/js-cid/CID';
+const symbolName = '@ipld/js-cid/CID' as const;
 export const SymbolCID = Symbol.for(symbolName);
 
 export type IRawCIDVersion = 0 | 1;
@@ -17,6 +16,9 @@ export interface IRawCID
 	multihash: Buffer;
 	multibaseName?: string;
 }
+
+export type ICIDObject = CID;
+export type ICIDValue = ICIDObject | string;
 
 export type ICIDValueInput = ICIDValue | IRawCID | Buffer;
 
@@ -34,8 +36,7 @@ export type IStaticCID<C extends CID = CID> = {
 
 export function getSymbolCID()
 {
-	const symbolName = '@ipld/js-cid/CID';
-	return Symbol.for(symbolName)
+	return Symbol.for('@ipld/js-cid/CID')
 }
 
 export function classCID<C extends CID = CID>(libCID?: (new (...argv) => C)): IStaticCID<C> & {

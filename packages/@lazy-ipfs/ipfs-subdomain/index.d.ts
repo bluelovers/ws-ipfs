@@ -1,7 +1,7 @@
 /**
  * Created by user on 2020/5/17.
  */
-import { ICIDValue } from 'ipfs-types/lib/types';
+import { ICIDValue } from '@lazy-ipfs/to-cid';
 import { IRawCID } from '@lazy-ipfs/to-cid';
 import { IIPFSAddressesLike } from 'ipfs-server-list';
 import { IParsePathResult } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';

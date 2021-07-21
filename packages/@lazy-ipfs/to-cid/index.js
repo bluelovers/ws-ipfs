@@ -9,8 +9,7 @@ const cids_1 = (0, tslib_1.__importDefault)(require("cids"));
 const symbolName = '@ipld/js-cid/CID';
 exports.SymbolCID = Symbol.for(symbolName);
 function getSymbolCID() {
-    const symbolName = '@ipld/js-cid/CID';
-    return Symbol.for(symbolName);
+    return Symbol.for('@ipld/js-cid/CID');
 }
 exports.getSymbolCID = getSymbolCID;
 function classCID(libCID) {

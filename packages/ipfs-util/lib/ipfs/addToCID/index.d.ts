@@ -1,4 +1,4 @@
-import { ICIDValue, ICIDObject } from 'ipfs-types/lib/types';
+import { ICIDValue, ICIDObject } from '@lazy-ipfs/to-cid';
 import { IIPFSPromiseApi } from 'ipfs-types';
 import { ITSValueOrArray } from 'ts-type';
 import CID from 'cids';
