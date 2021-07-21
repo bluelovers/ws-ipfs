@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.26](https://github.com/bluelovers/ws-ipfs/compare/to-ipfs-url@1.0.25...to-ipfs-url@1.0.26) (2021-07-21)
+
+
+### 🐛　Bug Fixes
+
+* safe support input `CID` ([9f5b347](https://github.com/bluelovers/ws-ipfs/commit/9f5b3470c3b183bb28a82f28b52cc3c4b9aa8d33))
+
+
+### 📦　Code Refactoring
+
+* cid ([e20d309](https://github.com/bluelovers/ws-ipfs/commit/e20d309716b4d4a2473725319e9a2172ee811415))
+
+
+
+
+
 ## [1.0.25](https://github.com/bluelovers/ws-ipfs/compare/to-ipfs-url@1.0.23...to-ipfs-url@1.0.25) (2021-07-11)
 
 

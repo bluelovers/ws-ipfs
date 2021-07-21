@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/parse-ipfs-path",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "keywords": [
     "IPFS",
@@ -29,7 +29,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@lazy-ipfs/to-cid": "^1.0.15",
+    "@lazy-ipfs/to-cid": "^1.0.16",
     "is-valid-domain": "^0.0.20",
     "tslib": "^2.3.0"
   },
