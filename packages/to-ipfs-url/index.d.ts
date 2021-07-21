@@ -1,3 +1,4 @@
+import CID from 'cids';
 export declare enum EnumIPFSLinkType {
     ipfs = "ipfs",
     ipld = "ipld",
@@ -27,10 +28,10 @@ export interface IOptions {
     };
 }
 export declare type IOptionsInput = IOptions | string;
-export declare function isPath(cid: string): boolean;
-export declare function isCidOrPath(cid: string): boolean;
-export declare function pathToCid(cid: string): string;
-export declare function toURL(cid: string, options?: IOptionsInput): URL;
-export declare function toPath(cid: string, options?: IOptionsInput): string;
-export declare function toLink(cid: string, options?: IOptionsInput): string;
+export declare function isPath(cid: string | CID): cid is string;
+export declare function isCidOrPath(cid: string | CID): boolean;
+export declare function pathToCid(cid: string | CID): string;
+export declare function toURL(cid: string | CID, options?: IOptionsInput): URL;
+export declare function toPath(cid: string | CID, options?: IOptionsInput): string;
+export declare function toLink(cid: string | CID, options?: IOptionsInput): string;
 export default toURL;
