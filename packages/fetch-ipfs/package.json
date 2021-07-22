@@ -31,7 +31,7 @@
     "@bluelovers/ipfs-http-client": "^1.0.72",
     "@lazy-ipfs/compatible-add": "^1.0.11",
     "abort-controller": "^3.0.0",
-    "abort-controller-timer": "^1.0.10",
+    "abort-controller-timer": "^1.0.11",
     "array-hyper-unique": "^1.1.10",
     "bluebird": "^3.7.2",
     "cross-fetch": "^3.1.4",
@@ -41,7 +41,7 @@
     "is-error-code": "^1.0.0",
     "p-any": "<4 >=3",
     "to-ipfs-url": "^1.0.26",
-    "ts-type": "^1.2.35",
+    "ts-type": "^1.2.39",
     "tslib": "^2.3.0"
   },
   "peerDependencies": {

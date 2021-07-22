@@ -60,16 +60,16 @@
     "jest": "^27.0.6",
     "jest-node-exports-resolver": "^1.0.3",
     "scramjet": "^4.35.20",
-    "ts-jest": "^27.0.3"
+    "ts-jest": "^27.0.4"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.24",
+    "@bluelovers/tsconfig": "^1.0.25",
     "@types/bluebird": "^3.5.36",
-    "@types/chrome": "^0.0.146",
+    "@types/chrome": "^0.0.148",
     "@types/fs-extra": "^9.0.12",
     "@types/jest": "^26.0.24",
     "@types/lodash": "^4.14.171",
-    "@types/node": "^16.3.1",
+    "@types/node": "^16.4.1",
     "@types/node-fetch": "*",
     "@types/yargs": "^17.0.2",
     "tslib": "^2.3.0"
