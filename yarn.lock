@@ -8609,6 +8609,13 @@ unordered-array-remove@^1.0.2:
   resolved "https://registry.npmjs.org/unordered-array-remove/-/unordered-array-remove-1.0.2.tgz#c546e8f88e317a0cf2644c97ecb57dba66d250ef"
   integrity sha1-xUbo+I4xegzyZEyX7LV9umbSUO8=
 
+unsafe-https-agent@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/unsafe-https-agent/-/unsafe-https-agent-1.0.1.tgz#4f271537819ca9e98c820efeed1929c6759ae315"
+  integrity sha512-ET2x1rG0c80H1mubpmK6nJ4q9FgSuFYwUSR52s4OMxu4T14ITPSMAm3ZAbE8NXCLGoOitONC1V7nyFk8OONvzw==
+  dependencies:
+    tslib "^2.3.0"
+
 update-notifier@^5.0.0:
   version "5.1.0"
   resolved "https://registry.npmjs.org/update-notifier/-/update-notifier-5.1.0.tgz#4ab0d7c7f36a231dd7316cf7729313f0214d9ad9"

@@ -3,6 +3,9 @@
  */
 
 import CID from 'cids';
+import fetch from 'cross-fetch';
+import { RequestInit, RequestInfo, Response } from 'node-fetch';
+
 export type ICIDValue = CID | string;
 
 export type IAsyncIteratorAble<T> = AsyncGenerator<T, void> | ReadableStream<T>;
@@ -24,4 +27,6 @@ export interface IPokeOptions
 	 * @default 1000
 	 */
 	timeout?: number
+
+	fetchOptions?: RequestInit,
 }

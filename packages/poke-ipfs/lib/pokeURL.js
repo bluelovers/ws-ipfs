@@ -8,11 +8,15 @@ const tslib_1 = require("tslib");
 const cross_fetch_1 = (0, tslib_1.__importDefault)(require("cross-fetch"));
 const util_1 = require("./util");
 const abort_controller_timer_1 = require("abort-controller-timer");
+const unsafe_https_agent_1 = require("unsafe-https-agent");
 function pokeURL(ipfsURL, options) {
+    var _a;
     let url = (0, util_1.corsURL)(ipfsURL.toString(), options === null || options === void 0 ? void 0 : options.cors);
     let fetchOptions = {
         method: 'HEAD',
+        ...options.fetchOptions,
     };
+    (_a = fetchOptions.agent) !== null && _a !== void 0 ? _a : (fetchOptions.agent = (0, unsafe_https_agent_1.getUnSafeAgent)());
     let controller = new abort_controller_timer_1.AbortControllerTimer((options === null || options === void 0 ? void 0 : options.timeout) || 1000);
     fetchOptions.signal = controller.signal;
     return (0, cross_fetch_1.default)(url.href, fetchOptions)

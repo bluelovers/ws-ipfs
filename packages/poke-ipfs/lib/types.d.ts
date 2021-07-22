@@ -2,6 +2,7 @@
  * Created by user on 2020/4/3.
  */
 import CID from 'cids';
+import { RequestInit } from 'node-fetch';
 export declare type ICIDValue = CID | string;
 export declare type IAsyncIteratorAble<T> = AsyncGenerator<T, void> | ReadableStream<T>;
 export declare type IPokeReturnBase = {
@@ -18,4 +19,5 @@ export interface IPokeOptions {
      * @default 1000
      */
     timeout?: number;
+    fetchOptions?: RequestInit;
 }

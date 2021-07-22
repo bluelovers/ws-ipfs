@@ -5,6 +5,9 @@ import fetch from 'cross-fetch';
 import { IPokeReturn, IPokeReturnBase, IPokeOptions } from './types';
 import { corsURL } from './util';
 import { AbortControllerTimer } from 'abort-controller-timer';
+import { Agent } from 'https';
+import { RequestInit, RequestInfo, Response } from 'node-fetch';
+import { getUnSafeAgent } from 'unsafe-https-agent';
 
 export function pokeURL(ipfsURL: URL | string, options?: IPokeOptions)
 {
@@ -12,12 +15,15 @@ export function pokeURL(ipfsURL: URL | string, options?: IPokeOptions)
 
 	let fetchOptions: RequestInit = {
 		method: 'HEAD',
+		...options.fetchOptions,
 	};
+
+	fetchOptions.agent ??= getUnSafeAgent();
 
 	let controller = new AbortControllerTimer(options?.timeout || 1000)
 	fetchOptions.signal = controller.signal;
 
-	return fetch(url.href, fetchOptions)
+	return fetch(url.href, fetchOptions as any)
 		.then(async (res) =>
 		{
 			const { headers, status, statusText } = res;
