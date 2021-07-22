@@ -3,7 +3,7 @@ import { IIPFSClientAddresses } from '@bluelovers/ipfs-http-client';
 
 export type ILimit = ITSPartialRecord<'ref' | 'id' | 'config', boolean>;
 
-export type IIPFSAddressesLike = ITSRequireAtLeastOne<{
+export type IIPFSAddressesLikeBase = {
 	API?: IIPFSClientAddresses,
 	Gateway?: string,
 	IPLD?: string,
@@ -17,7 +17,9 @@ export type IIPFSAddressesLike = ITSRequireAtLeastOne<{
 	IPNSDomain?: string,
 
 	btfsGateway?: string,
-}> & {
+}
+
+export type IIPFSAddressesLike = ITSRequireAtLeastOne<IIPFSAddressesLikeBase> & {
 	/**
 	 * @deprecated
 	 */
@@ -25,6 +27,8 @@ export type IIPFSAddressesLike = ITSRequireAtLeastOne<{
 
 	name?: string,
 	description?: string,
+
+	disable?: ITSPartialRecord<keyof IIPFSAddressesLikeBase, boolean>
 };
 
 export function getIpfsServerList()
@@ -92,42 +96,58 @@ export function getIpfsServerList()
 		},
 		'bdaily': {
 			Gateway: 'https://gateway.bdaily.club/ipfs/',
+			disable: {
+				Gateway: true,
+			},
 		},
 		'globalupload': {
 			Gateway: 'https://ipfs.globalupload.io/',
+			disable: {
+				Gateway: true,
+			},
 		},
 		'pinata': {
 			Gateway: 'https://gateway.pinata.cloud/ipfs/',
 		},
 		'hardbin': {
 			Gateway: 'https://hardbin.com/ipfs/',
+			disable: {
+				Gateway: true,
+			},
 		},
 		'eternum': {
 			Gateway: 'https://ipfs.eternum.io/ipfs/',
 			IPNS: 'https://ipfs.eternum.io/ipns/',
+			disable: {
+				Gateway: true,
+			},
 		},
 		'temporal': {
 			Gateway: 'https://gateway.temporal.cloud/ipfs/',
 			IPNS: 'https://gateway.temporal.cloud/ipns/',
-		},
-		'sloppyta': {
-			Gateway: 'https://ipfs.sloppyta.co/ipfs/',
+			disable: {
+				Gateway: true,
+			},
 		},
 		'greyh': {
 			Gateway: 'https://ipfs.greyh.at/ipfs/',
-		},
-		'jorropo': {
-			Gateway: 'https://jorropo.ovh/ipfs/',
 		},
 		'jorropo.net': {
 			Gateway: 'https://jorropo.net/ipfs/',
 		},
 		'jeroendeneef': {
 			Gateway: 'https://ipfs.jeroendeneef.com/ipfs/',
+			disable: {
+				Gateway: true,
+			},
 		},
 		'2read': {
 			GatewayDomain: '.ipfs.2read.net',
 			Gateway: 'https://ipfs.2read.net/ipfs/',
+			disable: {
+				GatewayDomain: true,
+				Gateway: true,
+			},
 		},
 		'runfission': {
 			Gateway: 'https://ipfs.runfission.com/ipfs/',
@@ -135,14 +155,11 @@ export function getIpfsServerList()
 		'best-practice': {
 			Gateway: 'https://ipfs.best-practice.se/ipfs/',
 		},
-		'privacytools': {
-			Gateway: 'https://ipfs.privacytools.io/ipfs/',
-		},
 		'trusti': {
 			Gateway: 'https://trusti.id/ipfs/',
-		},
-		'stibarc': {
-			Gateway: 'https://ipfs.stibarc.com/ipfs/',
+			disable: {
+				Gateway: true,
+			},
 		},
 		'dtube': {
 			name: 'DTube',
@@ -157,27 +174,21 @@ export function getIpfsServerList()
 		},
 		'cosmos-ink': {
 			GatewayDomain: '.ipfs.cosmos-ink.net',
-		},
-		'storjipfs-gateway': {
-			Gateway: 'https://storjipfs-gateway.com/ipfs/',
-		},
-		'permaweb': {
-			Gateway: 'https://permaweb.io/ipfs/',
+			disable: {
+				GatewayDomain: true,
+			},
 		},
 		'cwinfo': {
 			Gateway: 'https://cdn.cwinfo.net/ipfs/',
-		},
-		'fooock': {
-			Gateway: 'https://ipfs.fooock.com/ipfs/',
-		},
-		'serph.network': {
-			Gateway: 'https://gateway.serph.network/ipfs/',
-		},
-		'busy.org': {
-			Gateway: 'https://ipfs.busy.org/ipfs/',
+			disable: {
+				Gateway: true,
+			},
 		},
 		'doolta': {
 			Gateway: 'https://ipfs.doolta.com/ipfs/',
+			disable: {
+				Gateway: true,
+			},
 		},
 		'originprotocol': {
 			Gateway: 'https://gateway.originprotocol.com/ipfs/',
@@ -187,10 +198,15 @@ export function getIpfsServerList()
 		},
 		'ipns.co': {
 			Gateway: 'https://ipns.co/',
+			disable: {
+				Gateway: true,
+			},
 		},
 		'blocksec': {
-			Gateway:
-				'https://gateway.blocksec.com/ipfs/',
+			Gateway: 'https://gateway.blocksec.com/ipfs/',
+			disable: {
+				Gateway: true,
+			},
 		},
 		'10.via0.com': {
 			Gateway: 'https://10.via0.com/ipfs/',
@@ -202,6 +218,9 @@ export function getIpfsServerList()
 			description: `https://github.com/galtproject/geesome-node`,
 			Gateway: 'https://geesome-node.galtproject.io:7722/ipfs/',
 			IPNS: 'https://geesome-node.galtproject.io:7722/ipns/',
+			disable: {
+				Gateway: true,
+			},
 		},
 		'ipfs.yt': {
 			Gateway: 'https://ipfs.yt/ipfs/',
@@ -211,6 +230,9 @@ export function getIpfsServerList()
 		},
 		'adatools.io': {
 			Gateway: 'https://ipfs.adatools.io/ipfs/',
+			disable: {
+				Gateway: true,
+			},
 		},
 		'drink.cafe': {
 			Gateway: 'https://ipfs.drink.cafe/ipfs/',
@@ -220,6 +242,9 @@ export function getIpfsServerList()
 		},
 		'mihir.ch': {
 			Gateway: 'https://ipfs.mihir.ch/ipfs/',
+			disable: {
+				Gateway: true,
+			},
 		},
 		'telos.miami': {
 			Gateway: 'https://ipfs.telos.miami/ipfs/',
@@ -232,6 +257,9 @@ export function getIpfsServerList()
 		},
 		'3cloud.ee': {
 			Gateway: 'https://3cloud.ee/ipfs/',
+			disable: {
+				Gateway: true,
+			},
 		},
 		'crustwebsites.net': {
 			Gateway: 'https://crustwebsites.net/ipfs/',
@@ -250,6 +278,9 @@ export function getIpfsServerList()
 		},
 		'jbb.one': {
 			Gateway: 'https://ipfs.jbb.one/ipfs/',
+			disable: {
+				Gateway: true,
+			},
 		},
 		'ravencoinipfs-gateway.com': {
 			Gateway: 'https://ravencoinipfs-gateway.com/ipfs/',
@@ -265,15 +296,24 @@ export function getIpfsServerList()
 		},
 		'birds-are-nice.me': {
 			Gateway: 'https://birds-are-nice.me/ipfs/',
+			disable: {
+				Gateway: true,
+			},
 		},
 		'smartholdem.io': {
 			Gateway: 'https://ipfs.smartholdem.io/ipfs/',
 		},
 		'astyanax.io': {
 			Gateway: 'https://astyanax.io/ipfs/',
+			disable: {
+				Gateway: true,
+			},
 		},
 		'azurewebsites.net': {
 			Gateway: 'https://ipfs.azurewebsites.net/ipfs/',
+			disable: {
+				Gateway: true,
+			},
 		},
 		'slang.cx': {
 			Gateway: 'https://ipfs.slang.cx/ipfs/',
@@ -308,21 +348,25 @@ export function getIpfsLocalList()
 	return data as Record<keyof typeof data, IIPFSAddressesLike> & Record<string, IIPFSAddressesLike>
 }
 
-export function filterList<K extends keyof IIPFSAddressesLike>(key: K,
+export function filterList<K extends keyof IIPFSAddressesLikeBase>(key: K,
 	serverList: Record<string, IIPFSAddressesLike> = ipfsServerList,
 )
 {
 	return Object.keys(serverList)
 		.reduce((a, b) =>
 		{
-
-			if (serverList[b][key] != null)
+			if (serverList[b][key] != null && !isDisabled(serverList[b], key))
 			{
 				a.push(serverList[b][key])
 			}
 
 			return a
 		}, [] as IIPFSAddressesLike[K][])
+}
+
+export function isDisabled<T extends IIPFSAddressesLike>(data: T, key: keyof IIPFSAddressesLikeBase)
+{
+	return data.disable?.[key]
 }
 
 export const ipfsServerList = getIpfsServerList();
