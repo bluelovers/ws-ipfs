@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.15](https://github.com/bluelovers/ws-ipfs/compare/poke-ipfs@1.1.14...poke-ipfs@1.1.15) (2021-07-22)
+
+
+### ✨　Features
+
+* use `unsafe-https-agent` ([32eea9e](https://github.com/bluelovers/ws-ipfs/commit/32eea9e9f2a52c2e18a5bae4238a2574a3720f22))
+
+
+
+
+
 ## [1.1.14](https://github.com/bluelovers/ws-ipfs/compare/poke-ipfs@1.1.13...poke-ipfs@1.1.14) (2021-07-22)
 
 

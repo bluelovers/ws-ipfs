@@ -1,6 +1,6 @@
 {
   "name": "to-ipfs-url",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "create ipfs link",
   "keywords": [
     "ipfs",
@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "cids": "^1.1.7",
-    "ipfs-server-list": "^1.0.57",
+    "ipfs-server-list": "^1.0.59",
     "is-ipfs": "^6.0.1",
     "tslib": "^2.3.0"
   },
