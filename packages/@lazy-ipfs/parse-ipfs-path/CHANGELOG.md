@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/parse-ipfs-path@1.0.7...@lazy-ipfs/parse-ipfs-path@1.0.8) (2021-07-22)
+
+
+### 🔖　Miscellaneous
+
+* . ([34432fd](https://github.com/bluelovers/ws-ipfs/commit/34432fd827763dc4c63329e99dc37e91b25a27cd))
+
+
+
+
+
 ## [1.0.7](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/parse-ipfs-path@1.0.6...@lazy-ipfs/parse-ipfs-path@1.0.7) (2021-07-22)
 
 

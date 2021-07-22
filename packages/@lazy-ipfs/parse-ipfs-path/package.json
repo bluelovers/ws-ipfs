@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/parse-ipfs-path",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "keywords": [
     "IPFS",
@@ -33,7 +33,6 @@
     "is-valid-domain": "^0.1.2",
     "tslib": "^2.3.0"
   },
-  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   }
