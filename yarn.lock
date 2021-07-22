@@ -1174,11 +1174,6 @@
   resolved "https://registry.npmjs.org/@types/har-format/-/har-format-1.2.7.tgz#debfe36378f26c4fc2abca1df99f00a8ff94fd29"
   integrity sha512-/TPzUG0tJn5x1TUcVLlDx2LqbE58hyOzDVAc9kf8SpOEmguHjU6bKUyfqb211AdqLOmU/SNyXvLKPNP5qTlfRw==
 
-"@types/is-valid-domain@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.npmjs.org/@types/is-valid-domain/-/is-valid-domain-0.0.1.tgz#8232fc96d017d3433ddc89fd6fb04c00227f7d1d"
-  integrity sha512-vBcDZ2emHcMJ6+WRfc3NffiKtiXCoJJkDlRniTGPQNI9WSnUVRUc0Yz6YDGa7s93gko1MmTLaxSJ/bnkMJOHjA==
-
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0", "@types/istanbul-lib-coverage@^2.0.1":
   version "2.0.3"
   resolved "https://registry.npmjs.org/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.3.tgz#4ba8ddb720221f432e443bd5f9117fd22cfd4762"

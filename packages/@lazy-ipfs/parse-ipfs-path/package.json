@@ -33,9 +33,7 @@
     "is-valid-domain": "^0.1.2",
     "tslib": "^2.3.0"
   },
-  "devDependencies": {
-    "@types/is-valid-domain": "^0.0.1"
-  },
+  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   }
