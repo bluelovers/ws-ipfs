@@ -68,8 +68,10 @@ export async function* deepFilesListCore(ipfs: IPFS, rootPath: string, options: 
 			file.name = prefix + '/' + file.name;
 		}
 
+		// @ts-ignore
 		yield file;
 
+		// @ts-ignore
 		if (file.type === EnumMutableFileSystemType.DIR)
 		{
 			if (level >= deep)

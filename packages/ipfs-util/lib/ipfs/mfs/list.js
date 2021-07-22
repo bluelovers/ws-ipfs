@@ -41,7 +41,9 @@ async function* deepFilesListCore(ipfs, rootPath, options = {}) {
         if (prefix !== '') {
             file.name = prefix + '/' + file.name;
         }
+        // @ts-ignore
         yield file;
+        // @ts-ignore
         if (file.type === 1 /* DIR */) {
             if (level >= deep) {
                 continue;
