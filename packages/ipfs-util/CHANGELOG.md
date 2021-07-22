@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.58](https://github.com/bluelovers/ws-ipfs/compare/ipfs-util-lib@1.0.57...ipfs-util-lib@1.0.58) (2021-07-22)
+
+
+### 🐛　Bug Fixes
+
+* `path/posix` => `import { posix } from 'path';` ([757618e](https://github.com/bluelovers/ws-ipfs/commit/757618e4eef7f418c6e708ec53a5755642020904))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([85d6561](https://github.com/bluelovers/ws-ipfs/commit/85d6561e987b7753cdd248b73a5e74a82d4c23e7))
+
+
+
+
+
 ## [1.0.57](https://github.com/bluelovers/ws-ipfs/compare/ipfs-util-lib@1.0.56...ipfs-util-lib@1.0.57) (2021-07-21)
 
 

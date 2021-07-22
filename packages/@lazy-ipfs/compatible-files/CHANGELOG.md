@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/compatible-files@1.0.2...@lazy-ipfs/compatible-files@1.0.3) (2021-07-22)
+
+
+### 🐛　Bug Fixes
+
+* `path/posix` => `import { posix } from 'path';` ([757618e](https://github.com/bluelovers/ws-ipfs/commit/757618e4eef7f418c6e708ec53a5755642020904))
+
+
+
+
+
 ## [1.0.2](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/compatible-files@1.0.1...@lazy-ipfs/compatible-files@1.0.2) (2021-07-21)
 
 
