@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.41](https://github.com/bluelovers/ws-ipfs/compare/ipfs-defaults@1.0.40...ipfs-defaults@1.0.41) (2021-07-23)
+
+**Note:** Version bump only for package ipfs-defaults
+
+
+
+
+
 ## [1.0.40](https://github.com/bluelovers/ws-ipfs/compare/ipfs-defaults@1.0.39...ipfs-defaults@1.0.40) (2021-07-22)
 
 **Note:** Version bump only for package ipfs-defaults

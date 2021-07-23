@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.37](https://github.com/bluelovers/ws-ipfs/compare/ipfs-types@1.0.35...ipfs-types@1.0.37) (2021-07-23)
+
+
+### 🔖　Miscellaneous
+
+* . ([250b05e](https://github.com/bluelovers/ws-ipfs/commit/250b05eead30e217ab1750f79ff6442b5eb120e8))
+
+
+
+
+
 ## [1.0.35](https://github.com/bluelovers/ws-ipfs/compare/ipfs-types@1.0.34...ipfs-types@1.0.35) (2021-07-22)
 
 
