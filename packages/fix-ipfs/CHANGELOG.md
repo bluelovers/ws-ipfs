@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.13](https://github.com/bluelovers/ws-ipfs/compare/fix-ipfs@1.0.12...fix-ipfs@1.0.13) (2021-07-25)
+
+
+### 🐛　Bug Fixes
+
+* `fs/promises` ([bb6e5e6](https://github.com/bluelovers/ws-ipfs/commit/bb6e5e6306bde457727e61135b326e7a31bd6676))
+
+
+
+
+
 ## [1.0.12](https://github.com/bluelovers/ws-ipfs/compare/fix-ipfs@1.0.11...fix-ipfs@1.0.12) (2021-07-23)
 
 **Note:** Version bump only for package fix-ipfs
