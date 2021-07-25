@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.unlinkIPFSApiAsync = exports.unlinkIPFSApi = void 0;
 const path_1 = require("path");
 const fs_1 = require("fs");
-const promises_1 = require("fs/promises");
+const util_1 = require("util");
 function unlinkIPFSApi(ipfsPath) {
     const api = (0, path_1.join)(ipfsPath, 'api');
     let stat;
@@ -24,7 +24,7 @@ function unlinkIPFSApi(ipfsPath) {
 exports.unlinkIPFSApi = unlinkIPFSApi;
 async function unlinkIPFSApiAsync(ipfsPath) {
     const api = (0, path_1.join)(ipfsPath, 'api');
-    return (0, promises_1.stat)(api, {
+    return (0, util_1.promisify)(fs_1.stat)(api, {
         throwIfNoEntry: false
     })
         .then(stat => {
@@ -32,7 +32,7 @@ async function unlinkIPFSApiAsync(ipfsPath) {
             if (!stat.isFile()) {
                 throw new Error(`target path not a file, ${api}`);
             }
-            return (0, promises_1.unlink)(api);
+            return (0, util_1.promisify)(fs_1.unlink)(api);
         }
     });
 }

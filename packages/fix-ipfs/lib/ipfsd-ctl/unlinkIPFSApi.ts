@@ -1,6 +1,6 @@
 import { join } from "path";
-import { statSync, unlinkSync, Stats } from "fs";
-import { stat, unlink } from "fs/promises";
+import { statSync, unlinkSync, Stats, stat, unlink } from "fs";
+import { promisify } from "util";
 
 export function unlinkIPFSApi(ipfsPath: string)
 {
@@ -31,7 +31,7 @@ export function unlinkIPFSApi(ipfsPath: string)
 export async function unlinkIPFSApiAsync(ipfsPath: string)
 {
 	const api = join(ipfsPath, 'api');
-	return stat(api, {
+	return promisify(stat)(api, {
 		throwIfNoEntry: false
 	})
 		.then(stat =>
@@ -43,7 +43,7 @@ export async function unlinkIPFSApiAsync(ipfsPath: string)
 					throw new Error(`target path not a file, ${api}`);
 				}
 
-				return unlink(api);
+				return promisify(unlink)(api);
 			}
 		})
 }
