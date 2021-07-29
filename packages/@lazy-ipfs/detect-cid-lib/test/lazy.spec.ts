@@ -1,11 +1,13 @@
-import typeofCID, { EnumTypeofCID, isJsCID, isMultiformatsCID } from '../index';
+import typeofCID, { EnumTypeofCID} from '../index';
 import JsCID from 'cids';
 import { CID as MultiformatsCID } from 'multiformats';
+import { isMultiformatsCID } from '../lib/js-multiformats';
+import { isJsCID } from '../lib/js-cids';
 
 describe(`describe`, () =>
 {
 
-	test(EnumTypeofCID.js_cid, () =>
+	test(EnumTypeofCID.js_cids, () =>
 	{
 		const cid = new JsCID('bafybeidw5mmxmimpuzo7wiwmhwvea2zalug5djderubacu2aqnneva6zwy');
 

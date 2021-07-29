@@ -1,54 +1,51 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.assertMultiformatsCID = exports.assertJsCID = exports.typeofCID = exports.isMultiformatsCID = exports.isJsCID = exports._isCIDLike = exports._isArrayLike = exports.SymbolMultiformatsCID = exports.SymbolJsCID = exports.EnumTypeofCID = void 0;
+exports.typeofRawCID = exports.typeofCID = exports.EnumTypeofCID = void 0;
+const tslib_1 = require("tslib");
+const js_multiformats_1 = require("./lib/js-multiformats");
+const js_cids_1 = require("./lib/js-cids");
+const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
+(0, tslib_1.__exportStar)(require("./lib/js-cids"), exports);
+(0, tslib_1.__exportStar)(require("./lib/js-multiformats"), exports);
+(0, tslib_1.__exportStar)(require("./lib/util"), exports);
+(0, tslib_1.__exportStar)(require("./lib/types"), exports);
 var EnumTypeofCID;
 (function (EnumTypeofCID) {
+    /**
+     * for typo
+     * @deprecated
+     */
     EnumTypeofCID["js_cid"] = "@ipld/js-cid/CID";
+    EnumTypeofCID["js_cids"] = "@ipld/js-cid/CID";
     EnumTypeofCID["multiformats_cid"] = "@ipld/js-multiformats/CID";
 })(EnumTypeofCID = exports.EnumTypeofCID || (exports.EnumTypeofCID = {}));
-exports.SymbolJsCID = Symbol.for("@ipld/js-cid/CID" /* js_cid */);
-/**
- * @deprecated this is not exists
- * @see https://github.com/multiformats/js-multiformats/pull/109
- */
-exports.SymbolMultiformatsCID = Symbol.for("@ipld/js-multiformats/CID" /* multiformats_cid */);
-function _isArrayLike(input) {
-    const type = typeof input;
-    return Array.isArray(input) || type !== 'function' && type !== 'string' && typeof (input === null || input === void 0 ? void 0 : input.length) === 'number' && typeof input.forEach === 'function' && typeof input.slice === 'function';
-}
-exports._isArrayLike = _isArrayLike;
-function _isCIDLike(cid) {
-    return typeof (cid === null || cid === void 0 ? void 0 : cid.version) === 'number' && typeof cid.multihash !== 'undefined';
-}
-exports._isCIDLike = _isCIDLike;
-function isJsCID(cid) {
-    return (cid[exports.SymbolJsCID] === true) && _isArrayLike(cid.multihash);
-}
-exports.isJsCID = isJsCID;
-function isMultiformatsCID(cid) {
-    return !isJsCID(cid) && _isArrayLike(cid.bytes) && !_isArrayLike(cid.multihash);
-}
-exports.isMultiformatsCID = isMultiformatsCID;
-function typeofCID(cid) {
-    if (isJsCID(cid)) {
-        return "@ipld/js-cid/CID" /* js_cid */;
+function typeofCID(cid, throwError) {
+    if ((0, js_cids_1.isJsCID)(cid)) {
+        return "@ipld/js-cid/CID" /* js_cids */;
     }
-    else if (isMultiformatsCID(cid)) {
+    else if ((0, js_multiformats_1.isMultiformatsCID)(cid)) {
         return "@ipld/js-multiformats/CID" /* multiformats_cid */;
+    }
+    else if (throwError) {
+        throw (0, err_code_1.default)(new TypeError(`Unknown type of cid`), {
+            input: cid,
+        });
     }
 }
 exports.typeofCID = typeofCID;
-function assertJsCID(cid) {
-    if (!isJsCID(cid)) {
-        throw new TypeError(`CID is not '${"@ipld/js-cid/CID" /* js_cid */}'`);
+function typeofRawCID(cid, throwError) {
+    if ((0, js_cids_1.isRawJsCIDLike)(cid)) {
+        return "@ipld/js-cid/CID" /* js_cids */;
+    }
+    else if ((0, js_multiformats_1.isRawMultiformatsCIDLike)(cid)) {
+        return "@ipld/js-multiformats/CID" /* multiformats_cid */;
+    }
+    else if (throwError) {
+        throw (0, err_code_1.default)(new TypeError(`Unknown type of raw cid`), {
+            input: cid,
+        });
     }
 }
-exports.assertJsCID = assertJsCID;
-function assertMultiformatsCID(cid) {
-    if (!isMultiformatsCID(cid)) {
-        throw new TypeError(`CID is not '${"@ipld/js-multiformats/CID" /* multiformats_cid */}'`);
-    }
-}
-exports.assertMultiformatsCID = assertMultiformatsCID;
+exports.typeofRawCID = typeofRawCID;
 exports.default = typeofCID;
 //# sourceMappingURL=index.js.map

@@ -1,0 +1,10 @@
+import JsCID from 'cids';
+import { CID as MultiformatsCID } from 'multiformats';
+import { IRawJsCID } from './js-cids';
+import { IRawMultiformatsCID } from './js-multiformats';
+export declare type ICIDObject = JsCID | MultiformatsCID;
+export declare type ICIDRawObject = IRawJsCID | IRawMultiformatsCID;
+export declare type IRawCIDVersion = ICIDObject["version"];
+export declare type ICIDValue = ICIDObject | string;
+export declare type ICIDValueOrRaw = ICIDValue | ICIDRawObject;
+export declare type I_CIDLike = Pick<ICIDObject, 'version' | 'multihash'>;

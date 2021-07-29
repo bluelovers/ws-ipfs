@@ -1,69 +1,56 @@
-import JsCID from 'cids';
-import { CID as MultiformatsCID } from 'multiformats';
+import { isMultiformatsCID, isRawMultiformatsCIDLike } from './lib/js-multiformats';
+import { isJsCID, isRawJsCIDLike } from './lib/js-cids';
+import err_code from 'err-code';
+
+export * from './lib/js-cids';
+export * from './lib/js-multiformats';
+export * from './lib/util';
+export * from './lib/types';
 
 export const enum EnumTypeofCID
 {
+	/**
+	 * for typo
+	 * @deprecated
+	 */
 	js_cid = '@ipld/js-cid/CID',
+	js_cids = '@ipld/js-cid/CID',
 	multiformats_cid = '@ipld/js-multiformats/CID',
 }
 
-export const SymbolJsCID = Symbol.for(EnumTypeofCID.js_cid);
-
-/**
- * @deprecated this is not exists
- * @see https://github.com/multiformats/js-multiformats/pull/109
- */
-export const SymbolMultiformatsCID = Symbol.for(EnumTypeofCID.multiformats_cid);
-
-export function _isArrayLike<T extends Pick<any[], number | 'length'>>(input: any): input is T
-{
-	const type = typeof input;
-
-	return Array.isArray(input) || type !== 'function' && type !== 'string' && typeof input?.length === 'number' && typeof input.forEach === 'function' && typeof input.slice === 'function';
-}
-
-export function _isCIDLike(cid: JsCID | MultiformatsCID)
-{
-	return typeof cid?.version === 'number' && typeof cid.multihash !== 'undefined'
-}
-
-export type ICID = JsCID | MultiformatsCID;
-
-export function isJsCID<T extends JsCID = JsCID>(cid: any): cid is T
-{
-	return (cid[SymbolJsCID] === true) && _isArrayLike<Uint8Array>((cid as any as JsCID).multihash)
-}
-
-export function isMultiformatsCID<T extends MultiformatsCID = MultiformatsCID>(cid: any): cid is T
-{
-	return !isJsCID(cid) && _isArrayLike((cid as any as MultiformatsCID).bytes) && !_isArrayLike<Uint8Array>((cid as any as MultiformatsCID).multihash)
-}
-
-export function typeofCID(cid: any)
+export function typeofCID(cid: any, throwError?: boolean)
 {
 	if (isJsCID(cid))
 	{
-		return EnumTypeofCID.js_cid
+		return EnumTypeofCID.js_cids
 	}
 	else if (isMultiformatsCID(cid))
 	{
 		return EnumTypeofCID.multiformats_cid
 	}
-}
-
-export function assertJsCID<T extends JsCID = JsCID>(cid: any): asserts cid is T
-{
-	if (!isJsCID(cid))
+	else if (throwError)
 	{
-		throw new TypeError(`CID is not '${EnumTypeofCID.js_cid}'`)
+		throw err_code(new TypeError(`Unknown type of cid`), {
+			input: cid,
+		})
 	}
 }
 
-export function assertMultiformatsCID<T extends MultiformatsCID = MultiformatsCID>(cid: any): asserts cid is T
+export function typeofRawCID(cid: any, throwError?: boolean)
 {
-	if (!isMultiformatsCID(cid))
+	if (isRawJsCIDLike(cid))
 	{
-		throw new TypeError(`CID is not '${EnumTypeofCID.multiformats_cid}'`)
+		return EnumTypeofCID.js_cids
+	}
+	else if (isRawMultiformatsCIDLike(cid))
+	{
+		return EnumTypeofCID.multiformats_cid
+	}
+	else if (throwError)
+	{
+		throw err_code(new TypeError(`Unknown type of raw cid`), {
+			input: cid,
+		})
 	}
 }
 
