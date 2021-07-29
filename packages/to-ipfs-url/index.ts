@@ -1,6 +1,8 @@
 import isIPFS from 'is-ipfs';
 import ipfsServerList from 'ipfs-server-list';
-import CID from 'cids';
+import { isCID } from '@lazy-ipfs/to-cid';
+import { ICIDValue } from '@lazy-ipfs/detect-cid-lib/lib/types';
+import { cidToString } from '@lazy-ipfs/cid-to-string';
 
 export enum EnumIPFSLinkType
 {
@@ -39,9 +41,9 @@ export interface IOptions
 
 export type IOptionsInput = IOptions | string;
 
-export function isPath(cid: string | CID): cid is string
+export function isPath(cid: ICIDValue): cid is string
 {
-	if (CID.isCID(cid))
+	if (isCID(cid))
 	{
 		return false
 	}
@@ -49,22 +51,22 @@ export function isPath(cid: string | CID): cid is string
 	return isIPFS.path(cid) || isIPFS.ipnsPath(cid) || isIPFS.cidPath(cid)
 }
 
-export function isCidOrPath(cid: string | CID): boolean
+export function isCidOrPath(cid: ICIDValue): boolean
 {
-	return isIPFS.cid(cid) || isPath(cid)
+	return isIPFS.cid(cid) || isPath(cid) || isCID(cid)
 }
 
-export function pathToCid(cid: string | CID): string
+export function pathToCid(cid: ICIDValue): string
 {
-	if (CID.isCID(cid))
+	if (isCID(cid))
 	{
-		return cid.toString()
+		return cidToString(cid)
 	}
 
 	return cid.replace(/^\/ip[nf]s\//, '')
 }
 
-export function toURL(cid: string | CID, options: IOptionsInput = {})
+export function toURL(cid: ICIDValue, options: IOptionsInput = {})
 {
 	if (typeof options === 'string')
 	{
@@ -92,9 +94,9 @@ export function toURL(cid: string | CID, options: IOptionsInput = {})
 			break;
 	}
 
-	if (CID.isCID(cid))
+	if (isCID(cid))
 	{
-		cid = cid.toString()
+		cid = cidToString(cid)
 	}
 	else if (isPath(cid))
 	{
@@ -111,12 +113,12 @@ export function toURL(cid: string | CID, options: IOptionsInput = {})
 	return url;
 }
 
-export function toPath(cid: string | CID, options?: IOptionsInput)
+export function toPath(cid: ICIDValue, options?: IOptionsInput)
 {
 	return toURL(cid, options).pathname
 }
 
-export function toLink(cid: string | CID, options?: IOptionsInput)
+export function toLink(cid: ICIDValue, options?: IOptionsInput)
 {
 	return toURL(cid, options).href
 }

@@ -1,4 +1,5 @@
 import { toURL, toLink, EnumIPFSLinkType } from '../index';
+import { toCID } from '@lazy-ipfs/to-cid';
 
 describe(`describe`, () =>
 {
@@ -22,6 +23,18 @@ describe(`describe`, () =>
 			type: EnumIPFSLinkType.ipfs,
 		});
 		let expected = "https://ipfs.io/ipfs/Qmdbkxdh8tUA7zcnmcU6Nu7B7bNtubYTBjUHes799tgu83";
+
+
+		expect(actual).toMatchSnapshot();
+		expect(actual.toString()).toStrictEqual(expected);
+
+	});
+
+	test(`toURL by cid object`, () =>
+	{
+
+		let actual = toURL(toCID(`Qmdbkxdh8tUA7zcnmcU6Nu7B7bNtubYTBjUHes799tgu83`), '001.png');
+		let expected = "https://ipfs.io/ipfs/Qmdbkxdh8tUA7zcnmcU6Nu7B7bNtubYTBjUHes799tgu83?filename=001.png";
 
 
 		expect(actual).toMatchSnapshot();

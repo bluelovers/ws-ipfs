@@ -4,7 +4,8 @@ exports.toLink = exports.toPath = exports.toURL = exports.pathToCid = exports.is
 const tslib_1 = require("tslib");
 const is_ipfs_1 = (0, tslib_1.__importDefault)(require("is-ipfs"));
 const ipfs_server_list_1 = (0, tslib_1.__importDefault)(require("ipfs-server-list"));
-const cids_1 = (0, tslib_1.__importDefault)(require("cids"));
+const to_cid_1 = require("@lazy-ipfs/to-cid");
+const cid_to_string_1 = require("@lazy-ipfs/cid-to-string");
 var EnumIPFSLinkType;
 (function (EnumIPFSLinkType) {
     EnumIPFSLinkType["ipfs"] = "ipfs";
@@ -16,19 +17,19 @@ var EnumIPFSLinkType;
     EnumIPFSLinkType["IPNS"] = "ipns";
 })(EnumIPFSLinkType = exports.EnumIPFSLinkType || (exports.EnumIPFSLinkType = {}));
 function isPath(cid) {
-    if (cids_1.default.isCID(cid)) {
+    if ((0, to_cid_1.isCID)(cid)) {
         return false;
     }
     return is_ipfs_1.default.path(cid) || is_ipfs_1.default.ipnsPath(cid) || is_ipfs_1.default.cidPath(cid);
 }
 exports.isPath = isPath;
 function isCidOrPath(cid) {
-    return is_ipfs_1.default.cid(cid) || isPath(cid);
+    return is_ipfs_1.default.cid(cid) || isPath(cid) || (0, to_cid_1.isCID)(cid);
 }
 exports.isCidOrPath = isCidOrPath;
 function pathToCid(cid) {
-    if (cids_1.default.isCID(cid)) {
-        return cid.toString();
+    if ((0, to_cid_1.isCID)(cid)) {
+        return (0, cid_to_string_1.cidToString)(cid);
     }
     return cid.replace(/^\/ip[nf]s\//, '');
 }
@@ -54,8 +55,8 @@ function toURL(cid, options = {}) {
             prefix = (_f = (_e = options.prefix) === null || _e === void 0 ? void 0 : _e.ipns) !== null && _f !== void 0 ? _f : `https://ipfs.io/ipns/`;
             break;
     }
-    if (cids_1.default.isCID(cid)) {
-        cid = cid.toString();
+    if ((0, to_cid_1.isCID)(cid)) {
+        cid = (0, cid_to_string_1.cidToString)(cid);
     }
     else if (isPath(cid)) {
         cid = pathToCid(cid);

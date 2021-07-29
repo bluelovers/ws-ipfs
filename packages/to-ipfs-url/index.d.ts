@@ -1,4 +1,4 @@
-import CID from 'cids';
+import { ICIDValue } from '@lazy-ipfs/detect-cid-lib/lib/types';
 export declare enum EnumIPFSLinkType {
     ipfs = "ipfs",
     ipld = "ipld",
@@ -28,10 +28,10 @@ export interface IOptions {
     };
 }
 export declare type IOptionsInput = IOptions | string;
-export declare function isPath(cid: string | CID): cid is string;
-export declare function isCidOrPath(cid: string | CID): boolean;
-export declare function pathToCid(cid: string | CID): string;
-export declare function toURL(cid: string | CID, options?: IOptionsInput): URL;
-export declare function toPath(cid: string | CID, options?: IOptionsInput): string;
-export declare function toLink(cid: string | CID, options?: IOptionsInput): string;
+export declare function isPath(cid: ICIDValue): cid is string;
+export declare function isCidOrPath(cid: ICIDValue): boolean;
+export declare function pathToCid(cid: ICIDValue): string;
+export declare function toURL(cid: ICIDValue, options?: IOptionsInput): URL;
+export declare function toPath(cid: ICIDValue, options?: IOptionsInput): string;
+export declare function toLink(cid: ICIDValue, options?: IOptionsInput): string;
 export default toURL;
