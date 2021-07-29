@@ -44,6 +44,9 @@
     "ts-type": "^1.2.39",
     "tslib": "^2.3.0"
   },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.36"
+  },
   "peerDependencies": {
     "buffer": "^6.0.3"
   },

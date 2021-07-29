@@ -2,11 +2,8 @@
  * Created by user on 2020/4/3.
  */
 
-import CID from 'cids';
 import fetch from 'cross-fetch';
 import { RequestInit, RequestInfo, Response } from 'node-fetch';
-
-export type ICIDValue = CID | string;
 
 export type IAsyncIteratorAble<T> = AsyncGenerator<T, void> | ReadableStream<T>;
 

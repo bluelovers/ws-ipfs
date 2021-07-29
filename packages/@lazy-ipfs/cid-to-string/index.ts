@@ -32,7 +32,7 @@ export function cidToString(cid: ICIDObject, base?: IBaseNameOrBaseCodec)
 		return (cid as JsCID).toString((base as Codec<IBaseName, string>).name)
 	}
 
-	return (cid as MultiformatsCID).toString(base as IBaseCodec)
+	return (cid as MultiformatsCID).toString(base as any as IBaseCodec)
 }
 
 /**

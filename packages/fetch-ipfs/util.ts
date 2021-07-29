@@ -3,6 +3,7 @@ import { IOptionsInput, isCidOrPath, toPath, toLink } from 'to-ipfs-url';
 import { IIPFSClientAddresses } from '@bluelovers/ipfs-http-client';
 import { filterList } from 'ipfs-server-list';
 import { AbortControllerTimer } from 'abort-controller-timer';
+import { ICIDValue } from '@lazy-ipfs/detect-cid-lib/lib/types';
 
 export type IFetchOptions = Exclude<IOptionsInput, string>
 
@@ -15,12 +16,13 @@ export function newAbortController(timeout: number)
 	}
 }
 
-export function handleCID(cid: string, useIPFS?, options: IOptionsInput = {})
+export function handleCID(cid: ICIDValue, useIPFS?, options: IOptionsInput = {})
 {
 	if (useIPFS)
 	{
 		try
 		{
+			// @ts-ignore
 			cid = new URL(cid).pathname
 		}
 		catch (e)
@@ -35,6 +37,7 @@ export function handleCID(cid: string, useIPFS?, options: IOptionsInput = {})
 	{
 		try
 		{
+			// @ts-ignore
 			cid = new URL(cid).href
 		}
 		catch (e)

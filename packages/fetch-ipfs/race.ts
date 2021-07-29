@@ -10,8 +10,9 @@ import { array_unique } from 'array-hyper-unique';
 import { handleClientList } from './lib/handleClientList';
 import { handleTimeout, handleCID, IFetchOptions } from './util';
 import { IPFS } from 'ipfs-core-types';
+import { ICIDValue } from '@lazy-ipfs/detect-cid-lib/lib/types';
 
-export function raceFetchIPFS(cid: string,
+export function raceFetchIPFS(cid: ICIDValue,
 	useIPFS: ITSValueOrArray<(string | Pick<IPFS, 'refs' | 'cat'> | IIPFSClientAddresses)>,
 	timeout?: number,
 	options?: {

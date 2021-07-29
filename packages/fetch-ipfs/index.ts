@@ -5,15 +5,18 @@ import Bluebird, { TimeoutError } from 'bluebird';
 import isErrorCode from 'is-error-code';
 import { newAbortController, handleTimeout, handleCID, IFetchOptions } from './util';
 import { IOptionsInput } from 'to-ipfs-url';
+import { ICIDValue } from '../@lazy-ipfs/detect-cid-lib/lib/types';
+import { cidToString } from '@lazy-ipfs/cid-to-string';
+import { toCID } from '@lazy-ipfs/to-cid';
 
-export async function fetchIPFS(cid: string, useIPFS?, timeout?: number, options: IFetchOptions = {})
+export async function fetchIPFS(cid: ICIDValue, useIPFS?, timeout?: number, options: IFetchOptions = {})
 {
 	cid = handleCID(cid, useIPFS, options)
 
 	return fetchIPFSCore(cid, useIPFS, timeout)
 }
 
-export async function fetchIPFSCore(cidLink: string, useIPFS?, timeout?: number, options: IFetchOptions = {})
+export async function fetchIPFSCore(cidLink: ICIDValue, useIPFS?, timeout?: number, options: IFetchOptions = {})
 {
 	timeout = handleTimeout(timeout);
 
@@ -24,7 +27,8 @@ export async function fetchIPFSCore(cidLink: string, useIPFS?, timeout?: number,
 
 	const { controller, timer } = newAbortController(timeout);
 
-	return Bluebird.resolve(fetch(cidLink, {
+	return Bluebird.resolve(fetch(cidLink.toString(), {
+			...options,
 			redirect: 'follow',
 			// @ts-ignore
 			timeout,

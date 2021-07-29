@@ -15,6 +15,7 @@ exports.newAbortController = newAbortController;
 function handleCID(cid, useIPFS, options = {}) {
     if (useIPFS) {
         try {
+            // @ts-ignore
             cid = new URL(cid).pathname;
         }
         catch (e) {
@@ -25,6 +26,7 @@ function handleCID(cid, useIPFS, options = {}) {
     }
     else {
         try {
+            // @ts-ignore
             cid = new URL(cid).href;
         }
         catch (e) {

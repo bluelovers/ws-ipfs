@@ -3,8 +3,11 @@ import Bluebird from 'bluebird';
 import { IIPFSPromiseApi } from 'ipfs-types';
 import { newAbortController } from './util';
 import { IPFS } from 'ipfs-core-types';
+import { ICIDValue } from '../@lazy-ipfs/detect-cid-lib/lib/types';
+import { toCID } from '@lazy-ipfs/to-cid';
+import { cidToString } from '@lazy-ipfs/cid-to-string';
 
-export function refIPFS(cid: string, ipfs: Pick<IPFS, 'refs'>, timeout?: number)
+export function refIPFS(cid: ICIDValue, ipfs: Pick<IPFS, 'refs'>, timeout?: number)
 {
 	timeout = timeout |= 0 || 10 * 1000;
 
@@ -13,7 +16,7 @@ export function refIPFS(cid: string, ipfs: Pick<IPFS, 'refs'>, timeout?: number)
 	return Bluebird.resolve()
 		.then(async () =>
 		{
-			for await (const ref of ipfs.refs(cid, {
+			for await (const ref of ipfs.refs(cidToString(toCID(cid)), {
 				timeout,
 				signal: controller.signal,
 				preload: true,
@@ -33,7 +36,7 @@ export function refIPFS(cid: string, ipfs: Pick<IPFS, 'refs'>, timeout?: number)
 		.finally(() => controller.clear())
 }
 
-export function catIPFS(cid: string, ipfs: Pick<IPFS, 'refs' | 'cat'>, timeout?: number)
+export function catIPFS(cid: ICIDValue, ipfs: Pick<IPFS, 'refs' | 'cat'>, timeout?: number)
 {
 	timeout = timeout |= 0 || 60 * 1000;
 
@@ -53,7 +56,7 @@ export function catIPFS(cid: string, ipfs: Pick<IPFS, 'refs' | 'cat'>, timeout?:
 		})
 		.then(async () => {
 			const chunks: Buffer[] = [];
-			for await (const chunk of ipfs.cat(cid, {
+			for await (const chunk of ipfs.cat(cidToString(toCID(cid)), {
 				timeout,
 				signal: controller.signal,
 				preload: true,

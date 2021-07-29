@@ -5,12 +5,14 @@ const tslib_1 = require("tslib");
 //import { Buffer } from "buffer";
 const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
 const util_1 = require("./util");
+const to_cid_1 = require("@lazy-ipfs/to-cid");
+const cid_to_string_1 = require("@lazy-ipfs/cid-to-string");
 function refIPFS(cid, ipfs, timeout) {
     timeout = timeout |= 0 || 10 * 1000;
     const { controller, timer } = (0, util_1.newAbortController)(timeout);
     return bluebird_1.default.resolve()
         .then(async () => {
-        for await (const ref of ipfs.refs(cid, {
+        for await (const ref of ipfs.refs((0, cid_to_string_1.cidToString)((0, to_cid_1.toCID)(cid)), {
             timeout,
             signal: controller.signal,
             preload: true,
@@ -40,7 +42,7 @@ function catIPFS(cid, ipfs, timeout) {
     })
         .then(async () => {
         const chunks = [];
-        for await (const chunk of ipfs.cat(cid, {
+        for await (const chunk of ipfs.cat((0, cid_to_string_1.cidToString)((0, to_cid_1.toCID)(cid)), {
             timeout,
             signal: controller.signal,
             preload: true,

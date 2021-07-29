@@ -67,16 +67,16 @@ export function isRawCIDLike<T extends IRawCIDObject = IRawCIDObject>(cid: any):
 	return isRawMultiformatsCIDLike(cid) || isRawJsCIDLike(cid)
 }
 
-export function toRawCID<C extends ICIDObjectInput = ICIDObjectInput>(cid: C)
+export function toRawCID<R extends IRawCIDObject = IRawCIDObject>(cid: ICIDObjectInput): R
 {
 	assertRawCIDLike(cid);
 
 	if (isRawMultiformatsCIDLike(cid))
 	{
-		return toRawMultiformatsCID(cid)
+		return toRawMultiformatsCID(cid) as R
 	}
 
-	return toRawJsCID(cid)
+	return toRawJsCID(cid) as R
 }
 
 export function toCID<C extends ICIDObject = ICIDObject>(cid: any, libCID?: IStaticCID<C>): C

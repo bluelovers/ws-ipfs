@@ -12,7 +12,7 @@ export declare function classCID<C extends ICIDObject = MultiformatsCID>(libCID?
 export declare function isCID<C extends ICIDObject = ICIDObject>(cid: unknown, libCID?: IStaticCID<C>): cid is C;
 export declare function assertRawCIDLike<C extends IRawCIDObject = IRawCIDObject>(cid: unknown): asserts cid is C;
 export declare function isRawCIDLike<T extends IRawCIDObject = IRawCIDObject>(cid: any): cid is T;
-export declare function toRawCID<C extends ICIDObjectInput = ICIDObjectInput>(cid: C): import("@lazy-ipfs/detect-cid-lib/index").IRawJsCID | import("@lazy-ipfs/detect-cid-lib/index").IRawMultiformatsCID;
+export declare function toRawCID<R extends IRawCIDObject = IRawCIDObject>(cid: ICIDObjectInput): R;
 export declare function toCID<C extends ICIDObject = ICIDObject>(cid: any, libCID?: IStaticCID<C>): C;
 export declare function strToCidToStr(str: string, base?: IBaseNameOrBaseCodec): string;
 export default toCID;
