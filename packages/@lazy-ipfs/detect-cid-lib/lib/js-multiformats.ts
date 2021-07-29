@@ -1,7 +1,7 @@
 import { CID as MultiformatsCID } from 'multiformats';
-import { _isCIDLike, EnumTypeofCID } from '../index';
+import { EnumTypeofCID } from '../index';
 import { isJsCID } from './js-cids';
-import { _isArrayLike } from './util';
+import { _isCIDLike, _isArrayLike } from './util';
 import err_code from 'err-code';
 
 /**
@@ -33,4 +33,32 @@ export function assertMultiformatsCID<T extends MultiformatsCID = MultiformatsCI
 			input: cid,
 		})
 	}
+}
+
+export function toRawMultiformatsCID(cid: IRawMultiformatsCID): IRawMultiformatsCID
+{
+	const { version, code, multihash, bytes } = cid
+
+	const value: IRawMultiformatsCID = {
+		version,
+		code,
+		multihash,
+		bytes,
+	}
+
+	return value
+}
+
+export type IRawMultiformatsCIDFake<T extends IRawMultiformatsCID = IRawMultiformatsCID> = T
+	& {
+	asCID?: IRawMultiformatsCIDFake<T>;
+}
+
+export function toRawMultiformatsCIDFake(cid: IRawMultiformatsCID): IRawMultiformatsCIDFake
+{
+	const value: IRawMultiformatsCIDFake = toRawMultiformatsCID(cid)
+
+	value.asCID = value;
+
+	return value
 }

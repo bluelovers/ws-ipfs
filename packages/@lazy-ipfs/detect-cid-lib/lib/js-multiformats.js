@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.assertMultiformatsCID = exports.isMultiformatsCID = exports.isRawMultiformatsCIDLike = exports.SymbolMultiformatsCID = void 0;
+exports.toRawMultiformatsCIDFake = exports.toRawMultiformatsCID = exports.assertMultiformatsCID = exports.isMultiformatsCID = exports.isRawMultiformatsCIDLike = exports.SymbolMultiformatsCID = void 0;
 const tslib_1 = require("tslib");
-const index_1 = require("../index");
 const js_cids_1 = require("./js-cids");
 const util_1 = require("./util");
 const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
@@ -12,7 +11,7 @@ const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
  */
 exports.SymbolMultiformatsCID = Symbol.for("@ipld/js-multiformats/CID" /* multiformats_cid */);
 function isRawMultiformatsCIDLike(cid) {
-    return (0, index_1._isCIDLike)(cid) && typeof cid.code === 'number' && (0, util_1._isArrayLike)(cid.bytes) && !(0, util_1._isArrayLike)(cid.multihash);
+    return (0, util_1._isCIDLike)(cid) && typeof cid.code === 'number' && (0, util_1._isArrayLike)(cid.bytes) && !(0, util_1._isArrayLike)(cid.multihash);
 }
 exports.isRawMultiformatsCIDLike = isRawMultiformatsCIDLike;
 function isMultiformatsCID(cid) {
@@ -28,4 +27,21 @@ function assertMultiformatsCID(cid) {
     }
 }
 exports.assertMultiformatsCID = assertMultiformatsCID;
+function toRawMultiformatsCID(cid) {
+    const { version, code, multihash, bytes } = cid;
+    const value = {
+        version,
+        code,
+        multihash,
+        bytes,
+    };
+    return value;
+}
+exports.toRawMultiformatsCID = toRawMultiformatsCID;
+function toRawMultiformatsCIDFake(cid) {
+    const value = toRawMultiformatsCID(cid);
+    value.asCID = value;
+    return value;
+}
+exports.toRawMultiformatsCIDFake = toRawMultiformatsCIDFake;
 //# sourceMappingURL=js-multiformats.js.map

@@ -9,3 +9,8 @@ export interface IRawMultiformatsCID extends Pick<MultiformatsCID, 'version' | '
 export declare function isRawMultiformatsCIDLike<T extends IRawMultiformatsCID>(cid: T | unknown): cid is T;
 export declare function isMultiformatsCID<T extends MultiformatsCID = MultiformatsCID>(cid: unknown): cid is T;
 export declare function assertMultiformatsCID<T extends MultiformatsCID = MultiformatsCID>(cid: any): asserts cid is T;
+export declare function toRawMultiformatsCID(cid: IRawMultiformatsCID): IRawMultiformatsCID;
+export declare type IRawMultiformatsCIDFake<T extends IRawMultiformatsCID = IRawMultiformatsCID> = T & {
+    asCID?: IRawMultiformatsCIDFake<T>;
+};
+export declare function toRawMultiformatsCIDFake(cid: IRawMultiformatsCID): IRawMultiformatsCIDFake;

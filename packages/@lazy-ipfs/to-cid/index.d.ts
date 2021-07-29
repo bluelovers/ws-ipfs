@@ -1,35 +1,17 @@
 /**
  * Created by user on 2020/5/17.
  */
-/// <reference types="node" />
-import CID from 'cids';
-export declare const SymbolCID: unique symbol;
-export declare type IRawCIDVersion = 0 | 1;
-export interface IRawCID {
-    version: IRawCIDVersion;
-    codec: string;
-    multihash: Buffer;
-    multibaseName?: string;
-}
-export declare type ICIDObject = CID;
-export declare type ICIDValue = ICIDObject | string;
-export declare type ICIDValueInput = ICIDValue | IRawCID | Buffer;
-export declare type IStaticCID<C extends CID = CID> = {
-    new (version: 0 | 1, codec: string, multhash: Buffer, multibaseName?: string): C;
-    new (cid: C): C;
-    new (str: string): C;
-    new (buf: Buffer): C;
-};
-export declare function getSymbolCID(): symbol;
-export declare function classCID<C extends CID = CID>(libCID?: (new (...argv: any[]) => C)): IStaticCID<C> & {
-    isCID(cid: any): boolean;
-};
-export declare function hasCIDSymbol<C extends CID = CID>(cid: C): cid is C & {
-    [SymbolCID]: true;
-};
-export declare function isCID<C extends CID = CID>(cid: any, libCID?: (new (...argv: any[]) => C)): cid is C;
-export declare function assertRawCIDLike(cid: any): asserts cid is IRawCID;
-export declare function isRawCIDLike(cid: any): cid is IRawCID;
-export declare function toRawCID<C extends CID = CID>(cid: CID | IRawCID): IRawCID;
-export declare function toCID<C extends CID = CID>(cid: any, libCID?: IStaticCID<C>): C;
+import JsCID from 'cids';
+import { CID as MultiformatsCID } from 'multiformats';
+import { IRawJsCID } from '@lazy-ipfs/detect-cid-lib/lib/js-cids';
+import { ICIDObject, ICIDObjectInput, ICIDValueInput, IRawCIDObject } from '@lazy-ipfs/detect-cid-lib/lib/types';
+export * from '@lazy-ipfs/detect-cid-lib/lib/types';
+export { SymbolJsCID as SymbolCID } from '@lazy-ipfs/detect-cid-lib/lib/js-cids';
+export declare type IStaticCID<C extends ICIDObject = ICIDObject> = new (...argv: any[]) => C;
+export declare function classCID<C extends ICIDObject = MultiformatsCID>(libCID?: IStaticCID<C> | typeof MultiformatsCID | typeof JsCID): <T extends ICIDValueInput>(cidInput: T, libCID?: IStaticCID<C>) => C;
+export declare function isCID<C extends ICIDObject = ICIDObject>(cid: unknown, libCID?: IStaticCID<C>): cid is C;
+export declare function assertRawCIDLike<C extends IRawCIDObject = IRawCIDObject>(cid: unknown): asserts cid is C;
+export declare function isRawCIDLike<T extends IRawCIDObject = IRawCIDObject>(cid: any): cid is T;
+export declare function toRawCID<C extends ICIDObjectInput = ICIDObjectInput>(cid: C): IRawJsCID | import("@lazy-ipfs/detect-cid-lib/index").IRawMultiformatsCID;
+export declare function toCID<C extends ICIDObject = ICIDObject>(cid: any, libCID?: IStaticCID<C>): C;
 export default toCID;

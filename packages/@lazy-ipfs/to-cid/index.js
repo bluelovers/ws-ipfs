@@ -3,61 +3,62 @@
  * Created by user on 2020/5/17.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.toCID = exports.toRawCID = exports.isRawCIDLike = exports.assertRawCIDLike = exports.isCID = exports.hasCIDSymbol = exports.classCID = exports.getSymbolCID = exports.SymbolCID = void 0;
+exports.toCID = exports.toRawCID = exports.isRawCIDLike = exports.assertRawCIDLike = exports.isCID = exports.classCID = exports.SymbolCID = void 0;
 const tslib_1 = require("tslib");
 const cids_1 = (0, tslib_1.__importDefault)(require("cids"));
-const symbolName = '@ipld/js-cid/CID';
-exports.SymbolCID = Symbol.for(symbolName);
-function getSymbolCID() {
-    return Symbol.for('@ipld/js-cid/CID');
-}
-exports.getSymbolCID = getSymbolCID;
+const multiformats_1 = require("multiformats");
+const js_cids_1 = require("@lazy-ipfs/detect-cid-lib/lib/js-cids");
+const index_1 = (0, tslib_1.__importStar)(require("@lazy-ipfs/detect-cid-lib/index"));
+const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
+const multiformats_2 = (0, tslib_1.__importDefault)(require("./lib/multiformats"));
+const js_cids_2 = require("./lib/js-cids");
+(0, tslib_1.__exportStar)(require("@lazy-ipfs/detect-cid-lib/lib/types"), exports);
+var js_cids_3 = require("@lazy-ipfs/detect-cid-lib/lib/js-cids");
+Object.defineProperty(exports, "SymbolCID", { enumerable: true, get: function () { return js_cids_3.SymbolJsCID; } });
 function classCID(libCID) {
-    // @ts-ignore
-    return (libCID !== null && libCID !== void 0 ? libCID : cids_1.default);
+    libCID !== null && libCID !== void 0 ? libCID : (libCID = multiformats_1.CID);
+    if (libCID === cids_1.default) {
+        return js_cids_2.toJsCID;
+    }
+    return multiformats_2.default;
 }
 exports.classCID = classCID;
-function hasCIDSymbol(cid) {
-    return (cid === null || cid === void 0 ? void 0 : cid[exports.SymbolCID]) === true;
-}
-exports.hasCIDSymbol = hasCIDSymbol;
 function isCID(cid, libCID) {
-    return classCID(libCID).isCID(cid);
+    const type = (0, index_1.default)(cid);
+    // @ts-ignore
+    if (libCID === multiformats_1.CID) {
+        return type === "@ipld/js-multiformats/CID" /* multiformats_cid */;
+    }
+    // @ts-ignore
+    else if (libCID === cids_1.default) {
+        return type === "@ipld/js-cid/CID" /* js_cids */;
+    }
+    return (type === null || type === void 0 ? void 0 : type.length) > 0;
 }
 exports.isCID = isCID;
 function assertRawCIDLike(cid) {
     if (!isRawCIDLike(cid)) {
-        throw new TypeError(`cid not a valid CID like data`);
+        throw (0, err_code_1.default)(new TypeError(`Invalid type for CID like`), {
+            input: cid,
+        });
     }
 }
 exports.assertRawCIDLike = assertRawCIDLike;
 function isRawCIDLike(cid) {
-    var _a, _b;
-    return (!isUndefined(cid === null || cid === void 0 ? void 0 : cid.version) && ((_a = cid === null || cid === void 0 ? void 0 : cid.codec) === null || _a === void 0 ? void 0 : _a.length) && ((_b = cid === null || cid === void 0 ? void 0 : cid.multihash) === null || _b === void 0 ? void 0 : _b.length));
+    return (0, index_1.isRawMultiformatsCIDLike)(cid) || (0, js_cids_1.isRawJsCIDLike)(cid);
 }
 exports.isRawCIDLike = isRawCIDLike;
 function toRawCID(cid) {
     assertRawCIDLike(cid);
-    const { version, codec, multihash, multibaseName, } = cid;
-    return {
-        version,
-        codec,
-        multihash,
-        multibaseName,
-    };
+    if ((0, index_1.isRawMultiformatsCIDLike)(cid)) {
+        return (0, index_1.toRawMultiformatsCID)(cid);
+    }
+    return (0, js_cids_1.toRawJsCID)(cid);
 }
 exports.toRawCID = toRawCID;
 function toCID(cid, libCID) {
-    libCID = classCID(libCID);
-    if (isRawCIDLike(cid)) {
-        const { version, codec, multihash, multibaseName, } = cid;
-        return new libCID(version, codec, multihash, multibaseName);
-    }
-    return new libCID(cid);
+    return classCID(libCID)(cid, libCID);
 }
 exports.toCID = toCID;
 exports.default = toCID;
-function isUndefined(target) {
-    return target === null || target === void 0;
-}
 //# sourceMappingURL=index.js.map

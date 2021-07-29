@@ -1,19 +1,19 @@
 import JsCID from 'cids';
-import { _isCIDLike, EnumTypeofCID, IRawCIDVersion } from '../index';
-import { _isArrayLike } from './util';
-import { ITSPickExtra } from 'ts-type';
+import {
+	EnumTypeofCID,
+} from '../index';
+import { _isCIDLike, _isArrayLike } from './util';
+import { ITSPickExtra, ITSRequireAtLeastOne } from 'ts-type';
 import err_code from 'err-code';
+import { getCodeFromName, getNameFromCode } from 'multicodec';
 
 export const SymbolJsCID = Symbol.for(EnumTypeofCID.js_cids);
 
-export interface IRawJsCID extends ITSPickExtra<JsCID, 'version' | 'codec' | 'multihash', 'multibaseName'>
-{
-
-}
+export type IRawJsCID = ITSRequireAtLeastOne<ITSPickExtra<JsCID, 'version' | 'multihash' | 'codec' | 'code', 'multibaseName'>, 'codec' | 'code'>;
 
 export function isRawJsCIDLike<T extends IRawJsCID = IRawJsCID>(cid: T | unknown): cid is T
 {
-	return _isCIDLike(cid) && typeof cid.codec === 'string' && _isArrayLike(cid.multihash)
+	return _isCIDLike(cid) && (typeof cid.codec === 'string' || typeof cid.code === 'number') && _isArrayLike(cid.multihash)
 }
 
 export function isJsCID<T extends JsCID = JsCID>(cid: unknown): cid is T
@@ -31,3 +31,31 @@ export function assertJsCID<T extends JsCID = JsCID>(cid: any): asserts cid is T
 	}
 }
 
+export function toRawJsCID(cid: IRawJsCID): IRawJsCID
+{
+	let { version, codec, code, multihash } = cid;
+
+	code ??= getCodeFromName(codec);
+	codec ??= getNameFromCode(code);
+
+	return {
+		version,
+		codec,
+		code,
+		multihash,
+	}
+}
+
+export type IRawJsCIDFake<T extends IRawJsCID = IRawJsCID> = T
+	& {
+	[SymbolJsCID]?: true
+}
+
+export function toRawJsCIDFake(cid: IRawJsCID): IRawJsCIDFake
+{
+	const value: IRawJsCIDFake = toRawJsCID(cid)
+
+	value[SymbolJsCID] = true;
+
+	return value
+}

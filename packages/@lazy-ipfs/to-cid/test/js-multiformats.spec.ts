@@ -1,7 +1,8 @@
 import toCID, { toRawCID } from '../index';
 import JsCID from 'cids';
+import { CID as MultiformatsCID } from 'multiformats';
 
-const libCID = JsCID;
+const libCID = MultiformatsCID;
 
 test(`toCID:string`, () =>
 {
@@ -13,7 +14,9 @@ test(`toCID:string`, () =>
 	expect(actual.toV0().toString()).toStrictEqual(cid);
 
 	expect(actual).toMatchSnapshot({
-		multihash: expect.any(Uint8Array),
+		multihash: {
+			bytes: expect.any(Uint8Array),
+		},
 	});
 
 	expect(actual.toV0().toString()).toMatchSnapshot();

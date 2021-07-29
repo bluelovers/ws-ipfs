@@ -2,6 +2,8 @@ import { isMultiformatsCID, isRawMultiformatsCIDLike } from './lib/js-multiforma
 import { isJsCID, isRawJsCIDLike } from './lib/js-cids';
 import err_code from 'err-code';
 
+export { SymbolJsCID } from './lib/js-cids';
+
 export * from './lib/js-cids';
 export * from './lib/js-multiformats';
 export * from './lib/util';
@@ -18,15 +20,15 @@ export const enum EnumTypeofCID
 	multiformats_cid = '@ipld/js-multiformats/CID',
 }
 
-export function typeofCID(cid: any, throwError?: boolean)
+export function typeofCID(cid: unknown, throwError?: boolean)
 {
-	if (isJsCID(cid))
-	{
-		return EnumTypeofCID.js_cids
-	}
-	else if (isMultiformatsCID(cid))
+	if (isMultiformatsCID(cid))
 	{
 		return EnumTypeofCID.multiformats_cid
+	}
+	else if (isJsCID(cid))
+	{
+		return EnumTypeofCID.js_cids
 	}
 	else if (throwError)
 	{
@@ -36,15 +38,15 @@ export function typeofCID(cid: any, throwError?: boolean)
 	}
 }
 
-export function typeofRawCID(cid: any, throwError?: boolean)
+export function typeofRawCID(cid: unknown, throwError?: boolean)
 {
-	if (isRawJsCIDLike(cid))
-	{
-		return EnumTypeofCID.js_cids
-	}
-	else if (isRawMultiformatsCIDLike(cid))
+	if (isRawMultiformatsCIDLike(cid))
 	{
 		return EnumTypeofCID.multiformats_cid
+	}
+	else if (isRawJsCIDLike(cid))
+	{
+		return EnumTypeofCID.js_cids
 	}
 	else if (throwError)
 	{
