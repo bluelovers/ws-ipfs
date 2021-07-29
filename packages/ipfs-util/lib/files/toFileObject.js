@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.readBlob = exports.browserStreamToIt = exports.blobToAsyncGenerator = exports.toAsyncIterable = exports.toFileObject = exports.normaliseInput = void 0;
 const tslib_1 = require("tslib");
-const globalthis_1 = (0, tslib_1.__importDefault)(require("ipfs-utils/src//globalthis"));
 //import { Buffer } from 'buffer';
 const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
 const type_check_1 = require("../util/type-check");
@@ -232,12 +231,13 @@ async function* browserStreamToIt(stream) {
 exports.browserStreamToIt = browserStreamToIt;
 async function* readBlob(blob, options) {
     options = options || {};
-    const reader = new globalthis_1.default.FileReader();
+    const reader = new globalThis.FileReader();
     const chunkSize = options.chunkSize || 1024 * 1024;
     let offset = options.offset || 0;
     const getNextChunk = () => new Promise((resolve, reject) => {
         reader.onloadend = e => {
             const data = e.target.result;
+            // @ts-ignore
             resolve(data.byteLength === 0 ? null : data);
         };
         reader.onerror = reject;

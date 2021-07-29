@@ -20,7 +20,7 @@ function fromString(base64, options) {
 }
 exports.fromString = fromString;
 async function* fromJSZip(zip, options) {
-    zip = await Promise.resolve(zip);
+    zip = await zip;
     const keys = Object.keys(zip.files);
     const { prefixPath = '' } = options || {};
     for (const file of keys) {

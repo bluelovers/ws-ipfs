@@ -1,16 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.addSourceToTarget = exports.addSourceToTargetCore = void 0;
+const to_cid_1 = require("@lazy-ipfs/to-cid");
 /**
  * https://discuss.ipfs.io/t/how-can-attach-cid-to-new-node/7534/5
  */
 function addSourceToTargetCore(source, target, ipfs) {
     var _a, _b;
-    return ipfs.object.patch.addLink(target.cid, {
+    return ipfs.object.patch.addLink((0, to_cid_1.toCID)(target.cid), {
         // @ts-ignore
         name: (_a = source.Name) !== null && _a !== void 0 ? _a : source.name,
         // @ts-ignore
-        cid: (_b = source.Hash) !== null && _b !== void 0 ? _b : source.cid,
+        cid: (0, to_cid_1.toCID)((_b = source.Hash) !== null && _b !== void 0 ? _b : source.cid),
     });
 }
 exports.addSourceToTargetCore = addSourceToTargetCore;

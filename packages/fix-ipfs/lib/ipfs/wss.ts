@@ -16,7 +16,7 @@ export async function fixIPFSAddressesSwarmWss(argv: {
 			// @ts-ignore
 			await ipfs.stop();
 
-			let swarm = await ipfs.config.get('Addresses.Swarm')
+			let swarm: string[] = await ipfs.config.get('Addresses.Swarm') as any
 
 			const wss = '/dns4/ws-star.discovery.libp2p.io/tcp/443/wss/p2p-websocket-star';
 

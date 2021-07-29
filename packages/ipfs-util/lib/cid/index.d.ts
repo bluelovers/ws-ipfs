@@ -1,8 +1,4 @@
-import { ICIDValueInput } from '@lazy-ipfs/to-cid';
 /**
- * https://blog.cloudflare.com/continuing-to-improve-our-ipfs-gateway/
- * @example
- * console.dir(cidToBase32(new CID('QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco')))
- * console.dir(cidToBase32('QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco'))
+ * Created by user on 2020/3/25.
  */
-export declare function cidToBase32(cid: ICIDValueInput): string;
+export { cidToBase32 } from '@lazy-ipfs/cid-to-string';

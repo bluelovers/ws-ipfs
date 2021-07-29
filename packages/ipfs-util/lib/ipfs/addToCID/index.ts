@@ -1,7 +1,7 @@
-import { ICIDValue, ICIDObject } from '@lazy-ipfs/to-cid';
 import { IIPFSPromiseApi } from 'ipfs-types';
 import { ITSValueOrArray } from 'ts-type';
-import CID from 'cids';
+import { ICIDValue, ICIDObject } from '@lazy-ipfs/detect-cid-lib/lib/types';
+import { toCID } from '@lazy-ipfs/to-cid';
 
 /**
  * https://discuss.ipfs.io/t/how-can-attach-cid-to-new-node/7534/5
@@ -13,12 +13,12 @@ export function addSourceToTargetCore(source: {
 	cid: ICIDValue,
 }, ipfs: IIPFSPromiseApi)
 {
-	return ipfs.object.patch.addLink(target.cid as CID, {
+	return ipfs.object.patch.addLink(toCID(target.cid), {
 		// @ts-ignore
 		name: source.Name ?? source.name,
 		// @ts-ignore
-		cid: source.Hash ?? source.cid,
-	} as any)
+		cid: toCID(source.Hash ?? source.cid),
+	})
 }
 
 export async function addSourceToTarget(source: ITSValueOrArray<{

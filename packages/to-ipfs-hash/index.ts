@@ -5,7 +5,7 @@ export interface IOptions
 
 }
 
-export function ipfsHash(input: Buffer | string | AsyncIterable<Buffer>, options?: IOptions): Promise<string>
+export function ipfsHash(input: Buffer | string | AsyncIterable<Uint8Array>, options?: IOptions): Promise<string>
 {
 	return hashOf(input, options)
 }

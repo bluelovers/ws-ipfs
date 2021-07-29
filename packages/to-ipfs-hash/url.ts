@@ -1,19 +1,16 @@
-import urlSource from 'ipfs-utils/src/files/url-source';
+import _urlSource from 'ipfs-utils/src/files/url-source';
 import ipfsHash, { IOptions } from './index';
-import BufferList from 'bl/BufferList';
+import { HTTPOptions } from 'ipfs-utils/dist/src/types';
 
-export async function fromUrl(url: string, options?: IOptions)
+export function urlSource(url: string, options?: IOptions & HTTPOptions)
 {
-	const buf = new BufferList();
-	for await (const file of urlSource(url))
-	{
-		for await (const chunk of file.content)
-		{
-			buf.append(chunk)
-		}
-	}
+	return _urlSource(url, options);
+}
 
-	return ipfsHash(buf, options)
+export async function fromUrl(url: string, options?: IOptions & HTTPOptions)
+{
+	const file = urlSource(url);
+	return ipfsHash(file.content, options)
 }
 
 export default fromUrl

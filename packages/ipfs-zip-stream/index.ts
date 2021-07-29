@@ -29,7 +29,7 @@ export function fromString(base64: ITSResolvable<string>, options?: IOptions)
 
 export async function * fromJSZip(zip: ITSResolvable<JSZip>, options?: IOptions)
 {
-	zip = await Promise.resolve(zip);
+	zip = await zip;
 	const keys = Object.keys(zip.files)
 	const { prefixPath = '' } = options || {} as IOptions;
 

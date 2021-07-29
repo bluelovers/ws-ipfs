@@ -1,6 +1,5 @@
 'use strict'
 
-import globalThis from 'ipfs-utils/src//globalthis';
 //import { Buffer } from 'buffer';
 import errCode from 'err-code';
 import { isFileObject, isBloby, isBytes} from '../util/type-check';
@@ -262,6 +261,7 @@ export async function * readBlob (blob, options?): AsyncGenerator<Buffer, void, 
 	const getNextChunk = () => new Promise((resolve, reject) => {
 		reader.onloadend = e => {
 			const data = e.target.result
+			// @ts-ignore
 			resolve(data.byteLength === 0 ? null : data)
 		}
 		reader.onerror = reject
@@ -279,6 +279,6 @@ export async function * readBlob (blob, options?): AsyncGenerator<Buffer, void, 
 			return
 		}
 
-		yield Buffer.from(data)
+		yield Buffer.from(data as any)
 	}
 }

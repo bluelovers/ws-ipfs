@@ -1,18 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fromUrl = void 0;
+exports.fromUrl = exports.urlSource = void 0;
 const tslib_1 = require("tslib");
 const url_source_1 = (0, tslib_1.__importDefault)(require("ipfs-utils/src/files/url-source"));
 const index_1 = (0, tslib_1.__importDefault)(require("./index"));
-const BufferList_1 = (0, tslib_1.__importDefault)(require("bl/BufferList"));
+function urlSource(url, options) {
+    return (0, url_source_1.default)(url, options);
+}
+exports.urlSource = urlSource;
 async function fromUrl(url, options) {
-    const buf = new BufferList_1.default();
-    for await (const file of (0, url_source_1.default)(url)) {
-        for await (const chunk of file.content) {
-            buf.append(chunk);
-        }
-    }
-    return (0, index_1.default)(buf, options);
+    const file = urlSource(url);
+    return (0, index_1.default)(file.content, options);
 }
 exports.fromUrl = fromUrl;
 exports.default = fromUrl;
