@@ -22,11 +22,11 @@ Array [
 
 exports[`should only enumerate certain properties 2`] = `"/ipfs/QmUmaEnH1uMmvckMZbh3yShaasvELPW4ZLPWnB4entMTEn"`;
 
-exports[`should parse input as CID instance 1`] = `"/ipfs/zdpuArHMUAYi3VtD3f7iSkXxYK9xo687SoNf5stAQNCMzd77k"`;
+exports[`should parse input as CID instance 1`] = `"/ipfs/bafyreicxcphiuj57amuzbb2lq7gzxodccrxrbmjcx4jitkoegcaxffkvj4"`;
 
 exports[`should parse input as CID instance 2`] = `
 Object {
-  "hash": "zdpuArHMUAYi3VtD3f7iSkXxYK9xo687SoNf5stAQNCMzd77k",
+  "hash": "bafyreicxcphiuj57amuzbb2lq7gzxodccrxrbmjcx4jitkoegcaxffkvj4",
   "ns": "ipfs",
   "path": "",
 }

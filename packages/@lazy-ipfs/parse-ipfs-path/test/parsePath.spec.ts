@@ -1,5 +1,5 @@
 import { parsePath, resultToPath } from '../lib/parsePath';
-import CID from 'cids';
+import toCID from '@lazy-ipfs/to-cid';
 
 test('should parse input as string CID', () => {
 	const input = 'QmUmaEnH1uMmvckMZbh3yShaasvELPW4ZLPWnB4entMTEn'
@@ -28,13 +28,13 @@ test('should parse input as buffer CID', () => {
 })
 
 test('should parse input as CID instance', () => {
-	const input = new CID('zdpuArHMUAYi3VtD3f7iSkXxYK9xo687SoNf5stAQNCMzd77k')
+	const input = toCID('bafyreicxcphiuj57amuzbb2lq7gzxodccrxrbmjcx4jitkoegcaxffkvj4')
 	const path = parsePath(input)
 
 	expect(path.ns).toBe('ipfs')
-	expect(path.hash).toBe('zdpuArHMUAYi3VtD3f7iSkXxYK9xo687SoNf5stAQNCMzd77k')
+	expect(path.hash).toBe('bafyreicxcphiuj57amuzbb2lq7gzxodccrxrbmjcx4jitkoegcaxffkvj4')
 	expect(path.path).toBe('')
-	expect(resultToPath(path)).toBe('/ipfs/zdpuArHMUAYi3VtD3f7iSkXxYK9xo687SoNf5stAQNCMzd77k')
+	expect(resultToPath(path)).toBe('/ipfs/bafyreicxcphiuj57amuzbb2lq7gzxodccrxrbmjcx4jitkoegcaxffkvj4')
 	expect(resultToPath(path)).toMatchSnapshot()
 
 	expect(path).toMatchSnapshot()
