@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseCodec @ipld/js-cid/CID 1`] = `"bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m"`;
+
+exports[`BaseCodec @ipld/js-cid/CID 2`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
+
+exports[`BaseCodec @ipld/js-multiformats/CID 1`] = `"bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m"`;
+
+exports[`BaseCodec @ipld/js-multiformats/CID 2`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
+
+exports[`BaseName @ipld/js-cid/CID 1`] = `"bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m"`;
+
+exports[`BaseName @ipld/js-cid/CID 2`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
+
+exports[`BaseName @ipld/js-multiformats/CID 1`] = `"bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m"`;
+
+exports[`BaseName @ipld/js-multiformats/CID 2`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;

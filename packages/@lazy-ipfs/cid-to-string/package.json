@@ -1,8 +1,9 @@
 {
-  "name": "@lazy-ipfs/detect-cid-lib",
+  "name": "@lazy-ipfs/cid-to-string",
   "version": "1.0.0",
-  "description": "detect input cid is js-multiformats or js-cid",
+  "description": "convert cid of js-multiformats or js-cid to base encoded string",
   "keywords": [
+    "toBaseEncodedString",
     "IPFS",
     "ipfs",
     "multihash",
@@ -25,7 +26,7 @@
     "ipns",
     "ipld"
   ],
-  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/@lazy-ipfs/detect-cid-lib#readme",
+  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/@lazy-ipfs/cid-to-string#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-ipfs/issues"
   },
@@ -49,9 +50,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "err-code": "^3.0.1",
-    "multicodec": "^3.1.0",
-    "ts-type": "^1.2.39",
+    "@lazy-ipfs/detect-cid-lib": "^1.0.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {},

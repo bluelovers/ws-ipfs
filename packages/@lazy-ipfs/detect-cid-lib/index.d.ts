@@ -10,7 +10,9 @@ export declare const enum EnumTypeofCID {
      */
     js_cid = "@ipld/js-cid/CID",
     js_cids = "@ipld/js-cid/CID",
-    multiformats_cid = "@ipld/js-multiformats/CID"
+    multiformats_cid = "@ipld/js-multiformats/CID",
+    js_multiformats = "@ipld/js-multiformats/CID",
+    js_multiformat = "@ipld/js-multiformats/CID"
 }
 export declare function typeofCID(cid: unknown, throwError?: boolean): EnumTypeofCID;
 export declare function typeofRawCID(cid: unknown, throwError?: boolean): EnumTypeofCID;
