@@ -9,7 +9,7 @@ export declare function addSourceToTargetCore(source: {
     name: string;
 }, target: {
     cid: ICIDValue;
-}, ipfs: IIPFSPromiseApi): Promise<import("cids")>;
+}, ipfs: IIPFSPromiseApi): Promise<any>;
 export declare function addSourceToTarget(source: ITSValueOrArray<{
     cid: ICIDValue;
     name: string;

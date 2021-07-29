@@ -9,4 +9,4 @@ export interface ILocalServerParams {
     protocol?: 'http' | 'https' | string;
 }
 export declare function localServerInfo(options?: ILocalServerParams): IIPFSAddressesLike;
-export declare function getLocalServerValue<K extends keyof IIPFSAddressesLike>(key: K, options?: ILocalServerParams): IIPFSAddressesLike[K];
+export declare function getLocalServerValue<K extends keyof IIPFSAddressesLike>(key: K, options?: ILocalServerParams): import("@bluelovers/ipfs-http-client").IIPFSClientAddresses;
