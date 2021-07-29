@@ -1,10 +1,11 @@
 /**
  * Created by user on 2020/5/17.
  */
-import { ICIDObject, ICIDValue } from '@lazy-ipfs/to-cid';
-import toCID, { IRawCID, isRawCIDLike } from '@lazy-ipfs/to-cid';
+import { toCID } from '@lazy-ipfs/to-cid';
 import { getIpfsServerList, IIPFSAddressesLike } from 'ipfs-server-list';
 import { IParsePathResult, isParsePathResult, parsePath } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
+import { cidToString } from '@lazy-ipfs/cid-to-string';
+import { ICIDValueOrRaw, IRawCIDObject } from '@lazy-ipfs/detect-cid-lib/lib/types';
 
 const defaultGatewayDomain = getIpfsServerList().cloudflare.GatewayDomain;
 
@@ -47,12 +48,15 @@ export function getGatewayDomain(gatewayDomain: string | IIPFSAddressesLike): st
 	return gatewayDomain
 }
 
-export function toSubdomainCID(cid: ICIDValue | IRawCID)
+export function toSubdomainCID(cid: ICIDValueOrRaw)
 {
-	return toCID(cid).toV1().toBaseEncodedString('base32');
+	return cidToString(toCID(cid).toV1(), 'base32');
 }
 
-export function ipfsSubdomainURL(cid: ICIDValue | IRawCID | IParsePathResult, gatewayDomain?: string | IIPFSAddressesLike, protocol?: string | 'https:' | 'http:')
+export function ipfsSubdomainURL(cid: ICIDValueOrRaw | IParsePathResult,
+	gatewayDomain?: string | IIPFSAddressesLike,
+	protocol?: string | 'https:' | 'http:',
+)
 {
 	if (typeof cid === 'string')
 	{
@@ -90,7 +94,11 @@ export interface IOptions
 	clearPathname?: boolean,
 }
 
-export function ipfsSubdomain(cid: ICIDValue | IRawCID, gatewayDomain?: string | IIPFSAddressesLike, protocol?: string | 'https:' | 'http:' | IOptions, options?: IOptions)
+export function ipfsSubdomain(cid: ICIDValueOrRaw,
+	gatewayDomain?: string | IIPFSAddressesLike,
+	protocol?: IOptions["protocol"] | IOptions,
+	options?: IOptions,
+)
 {
 	if (protocol !== null && typeof protocol === 'object' && !options)
 	{

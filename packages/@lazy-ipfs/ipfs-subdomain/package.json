@@ -30,15 +30,14 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
+    "@lazy-ipfs/cid-to-string": "^1.0.0",
+    "@lazy-ipfs/detect-cid-lib": "^1.0.0",
     "@lazy-ipfs/parse-ipfs-path": "^1.0.9",
     "@lazy-ipfs/to-cid": "^1.0.18",
     "ipfs-server-list": "^1.0.60",
-    "ipfs-types": "^1.0.37",
     "tslib": "^2.3.0"
   },
-  "peerDependencies": {
-    "cids": "*"
-  },
+  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   },

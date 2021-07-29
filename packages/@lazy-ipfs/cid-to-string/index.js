@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.cidToString = void 0;
 const tslib_1 = require("tslib");
-const index_1 = (0, tslib_1.__importDefault)(require("@lazy-ipfs/detect-cid-lib/index"));
+const detect_cid_lib_1 = (0, tslib_1.__importDefault)(require("@lazy-ipfs/detect-cid-lib"));
 const basics_1 = require("multiformats/basics");
 function cidToString(cid, base) {
-    const type = (0, index_1.default)(cid);
+    const type = (0, detect_cid_lib_1.default)(cid);
     if (typeof base === 'undefined' || base === null) {
         return cid.toString();
     }
