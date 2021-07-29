@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.84](https://github.com/bluelovers/ws-ipfs/compare/fetch-ipfs@1.0.83...fetch-ipfs@1.0.84) (2021-07-29)
+
+
+### 📦　Code Refactoring
+
+* update to new cid ([c16010b](https://github.com/bluelovers/ws-ipfs/commit/c16010b0bbad64b8097f1f21c85e3ed2a1f81e99))
+
+
+
+
+
 ## [1.0.83](https://github.com/bluelovers/ws-ipfs/compare/fetch-ipfs@1.0.82...fetch-ipfs@1.0.83) (2021-07-23)
 
 **Note:** Version bump only for package fetch-ipfs

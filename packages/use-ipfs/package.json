@@ -1,6 +1,6 @@
 {
   "name": "use-ipfs",
-  "version": "1.0.84",
+  "version": "1.0.85",
   "description": "lazy way for create or connect ipfs",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/use-ipfs#readme",
   "bugs": {
@@ -29,11 +29,11 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@bluelovers/ipfs-http-client": "^1.0.76",
+    "@bluelovers/ipfs-http-client": "^1.0.77",
     "find-free-port-sync-fixed": "^1.0.0",
-    "fix-ipfs": "^1.0.13",
+    "fix-ipfs": "^1.0.15",
     "get-port": "^5.1.1",
-    "ipfs-defaults": "^1.0.41",
+    "ipfs-defaults": "^1.0.42",
     "lodash": "^4.17.21",
     "ts-type": "^1.2.39",
     "tslib": "^2.3.0"

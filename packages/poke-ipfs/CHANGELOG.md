@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.17](https://github.com/bluelovers/ws-ipfs/compare/poke-ipfs@1.1.15...poke-ipfs@1.1.17) (2021-07-29)
+
+
+### 📦　Code Refactoring
+
+* update to new cid ([c16010b](https://github.com/bluelovers/ws-ipfs/commit/c16010b0bbad64b8097f1f21c85e3ed2a1f81e99))
+
+
+### 🔖　Miscellaneous
+
+* . ([52c7076](https://github.com/bluelovers/ws-ipfs/commit/52c70765e0e1ca76e00e16cbcc289da34ee7db2a))
+
+
+
+
+
 ## [1.1.16](https://github.com/bluelovers/ws-ipfs/compare/poke-ipfs@1.1.15...poke-ipfs@1.1.16) (2021-07-29)
 
 

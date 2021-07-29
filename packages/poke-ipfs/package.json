@@ -1,6 +1,6 @@
 {
   "name": "poke-ipfs",
-  "version": "1.1.16",
+  "version": "1.1.17",
   "description": "<description>",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/poke-ipfs#readme",
   "bugs": {
@@ -31,7 +31,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@lazy-ipfs/detect-cid-lib": "^1.0.1",
+    "@lazy-ipfs/detect-cid-lib": "^1.0.2",
     "abort-controller": "^3.0.0",
     "abort-controller-timer": "^1.0.11",
     "tslib": "^2.3.0",

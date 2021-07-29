@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.20](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/to-cid@1.0.18...@lazy-ipfs/to-cid@1.0.20) (2021-07-29)
+
+
+### 📦　Code Refactoring
+
+* update to new cid ([c16010b](https://github.com/bluelovers/ws-ipfs/commit/c16010b0bbad64b8097f1f21c85e3ed2a1f81e99))
+* use new cid ([0fc0bb1](https://github.com/bluelovers/ws-ipfs/commit/0fc0bb14e09b80adcea3d059dd3edc7aaca71a6c))
+* update `@lazy-ipfs/to-cid` ([f8b269e](https://github.com/bluelovers/ws-ipfs/commit/f8b269e0a0280d3a2f1b4cd5a1887ee7c014c8c3))
+
+
+### 🔖　Miscellaneous
+
+* . ([52c7076](https://github.com/bluelovers/ws-ipfs/commit/52c70765e0e1ca76e00e16cbcc289da34ee7db2a))
+
+
+
+
+
 ## [1.0.19](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/to-cid@1.0.18...@lazy-ipfs/to-cid@1.0.19) (2021-07-29)
 
 
