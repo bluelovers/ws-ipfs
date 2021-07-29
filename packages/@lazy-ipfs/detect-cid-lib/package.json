@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/detect-cid-lib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "detect input cid is js-multiformats or js-cid",
   "keywords": [
     "IPFS",
@@ -54,8 +54,6 @@
     "ts-type": "^1.2.39",
     "tslib": "^2.3.0"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   }

@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/cid-to-link-object",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/@lazy-ipfs/cid-to-link-object#readme",
   "bugs": {
@@ -25,7 +25,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@lazy-ipfs/detect-cid-lib": "^1.0.0",
+    "@lazy-ipfs/detect-cid-lib": "^1.0.1",
     "tslib": "^2.3.0"
   },
   "peerDependencies": {

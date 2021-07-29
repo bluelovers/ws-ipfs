@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/cid-ellipsis",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "",
   "keywords": [
     "IPFS",
@@ -29,7 +29,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@lazy-ipfs/detect-cid-lib": "^1.0.0",
+    "@lazy-ipfs/detect-cid-lib": "^1.0.1",
     "tslib": "^2.3.0"
   },
   "publishConfig": {

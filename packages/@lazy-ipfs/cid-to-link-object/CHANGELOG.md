@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.10](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/cid-to-link-object@1.0.9...@lazy-ipfs/cid-to-link-object@1.0.10) (2021-07-29)
+
+
+### 📦　Code Refactoring
+
+* use new cid ([0fc0bb1](https://github.com/bluelovers/ws-ipfs/commit/0fc0bb14e09b80adcea3d059dd3edc7aaca71a6c))
+
+
+
+
+
 ## [1.0.9](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/cid-to-link-object@1.0.7...@lazy-ipfs/cid-to-link-object@1.0.9) (2021-07-11)
 
 
