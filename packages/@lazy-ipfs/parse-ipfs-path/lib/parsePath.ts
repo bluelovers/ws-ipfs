@@ -1,6 +1,10 @@
 import isValidDomain from 'is-valid-domain';
-import CID from 'cids';
-import { isCID, toCID } from '@lazy-ipfs/to-cid';
+import { isCID, toCID, strToCidToStr } from '@lazy-ipfs/to-cid';
+import { ICIDValue } from '@lazy-ipfs/detect-cid-lib/lib/types';
+import { _isArrayLike } from '@lazy-ipfs/detect-cid-lib/lib/util';
+import cidToString from '@lazy-ipfs/cid-to-string/index';
+
+export { strToCidToStr }
 
 export const enum EnumParsePathResultNs
 {
@@ -43,16 +47,18 @@ export interface IParsePathResultStrict<H extends string = string, P extends IPa
 	path: IParsePathResultPath<P>;
 }
 
+export type IParsePathInputValue = ICIDValue | Uint8Array;
+
 /**
  * @see https://github.com/tableflip/dweb-path
  */
-export function parsePathCore<H extends string = string, P extends IParsePathResultPathInput = string, N extends EnumParsePathResultNs = EnumParsePathResultNs>(input: string | Buffer | CID): IParsePathResultStrict<H, P, N>
+export function parsePathCore<H extends string = string, P extends IParsePathResultPathInput = string, N extends EnumParsePathResultNs = EnumParsePathResultNs>(input: IParsePathInputValue): IParsePathResultStrict<H, P, N>
 {
 	let ns: EnumParsePathResultNs, hash: string, path: string
 
-	if (Buffer.isBuffer(input) || isCID(input))
+	if (Buffer.isBuffer(input) || _isArrayLike(input) || isCID(input))
 	{
-		hash = toCID(input).toString()
+		hash = cidToString(toCID(input));
 
 		ns = EnumParsePathResultNs.ipfs
 		path = ''
@@ -129,7 +135,7 @@ export function parsePathCore<H extends string = string, P extends IParsePathRes
 	} as null
 }
 
-export function parsePath<H extends string = string, P extends IParsePathResultPathInput = string, N extends EnumParsePathResultNs = EnumParsePathResultNs>(input: string | Buffer | CID, options?: {
+export function parsePath<H extends string = string, P extends IParsePathResultPathInput = string, N extends EnumParsePathResultNs = EnumParsePathResultNs>(input: IParsePathInputValue, options?: {
 	noThrow?: boolean,
 }): IParsePathResultStrict<H, P, N>
 {
@@ -212,7 +218,3 @@ export function resultToPath<H extends string, P extends IParsePathResultPathInp
 	return `/${result.ns}/${result.hash}${result.path ?? ''}` as null
 }
 
-export function strToCidToStr(str: string)
-{
-	return toCID(str).toString()
-}

@@ -35,7 +35,7 @@ function getGatewayDomain(gatewayDomain) {
 }
 exports.getGatewayDomain = getGatewayDomain;
 function toSubdomainCID(cid) {
-    return (0, cid_to_string_1.cidToString)((0, to_cid_1.toCID)(cid).toV1(), 'base32');
+    return (0, cid_to_string_1.cidToBase32)((0, to_cid_1.toCID)(cid));
 }
 exports.toSubdomainCID = toSubdomainCID;
 function ipfsSubdomainURL(cid, gatewayDomain, protocol) {

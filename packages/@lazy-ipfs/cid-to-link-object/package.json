@@ -25,6 +25,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
+    "@lazy-ipfs/detect-cid-lib": "^1.0.0",
     "tslib": "^2.3.0"
   },
   "peerDependencies": {

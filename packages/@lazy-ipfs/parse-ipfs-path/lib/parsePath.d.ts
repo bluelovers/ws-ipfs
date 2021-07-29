@@ -1,5 +1,6 @@
-/// <reference types="node" />
-import CID from 'cids';
+import { strToCidToStr } from '@lazy-ipfs/to-cid';
+import { ICIDValue } from '@lazy-ipfs/detect-cid-lib/lib/types';
+export { strToCidToStr };
 export declare const enum EnumParsePathResultNs {
     'ipfs' = "ipfs",
     'ipns' = "ipns"
@@ -17,11 +18,12 @@ export interface IParsePathResultStrict<H extends string = string, P extends IPa
     ns: IParsePathResultNsInputToEnum<N>;
     path: IParsePathResultPath<P>;
 }
+export declare type IParsePathInputValue = ICIDValue | Uint8Array;
 /**
  * @see https://github.com/tableflip/dweb-path
  */
-export declare function parsePathCore<H extends string = string, P extends IParsePathResultPathInput = string, N extends EnumParsePathResultNs = EnumParsePathResultNs>(input: string | Buffer | CID): IParsePathResultStrict<H, P, N>;
-export declare function parsePath<H extends string = string, P extends IParsePathResultPathInput = string, N extends EnumParsePathResultNs = EnumParsePathResultNs>(input: string | Buffer | CID, options?: {
+export declare function parsePathCore<H extends string = string, P extends IParsePathResultPathInput = string, N extends EnumParsePathResultNs = EnumParsePathResultNs>(input: IParsePathInputValue): IParsePathResultStrict<H, P, N>;
+export declare function parsePath<H extends string = string, P extends IParsePathResultPathInput = string, N extends EnumParsePathResultNs = EnumParsePathResultNs>(input: IParsePathInputValue, options?: {
     noThrow?: boolean;
 }): IParsePathResultStrict<H, P, N>;
 export declare function assertToEnumNs<N extends IParsePathResultNsInput>(ns: N | unknown): asserts ns is IParsePathResultNsInputToEnum<N>;
@@ -29,4 +31,3 @@ export declare function assertToParsePathResultPath<P extends IParsePathResultPa
 export declare function assertToParsePathResult<H extends string, P extends IParsePathResultPathInput, N extends IParsePathResultNsInput = EnumParsePathResultNs>(result: IParsePathResult<H, P | string, N | string>): asserts result is IParsePathResultStrict<H, IParsePathResultPath<P>, IParsePathResultNsInputToEnum<N>>;
 export declare function isParsePathResult<H extends string, P extends IParsePathResultPathInput, N extends IParsePathResultNsInput = EnumParsePathResultNs>(result: IParsePathResult<H, P | string, N | string> | unknown): result is IParsePathResultStrict<H, IParsePathResultPath<P>, IParsePathResultNsInputToEnum<N>>;
 export declare function resultToPath<H extends string, P extends IParsePathResultPathInput, N extends IParsePathResultNsInput = EnumParsePathResultNs>(result: IParsePathResult<H, P, N>): `/${IParsePathResultNsInputToEnum<N>}/${H}${IParsePathResultPath<P>}`;
-export declare function strToCidToStr(str: string): string;

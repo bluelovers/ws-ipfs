@@ -4,12 +4,18 @@
 
 import JsCID from 'cids';
 import { CID as MultiformatsCID } from 'multiformats';
-import { IRawJsCID, isRawJsCIDLike, toRawJsCID } from '@lazy-ipfs/detect-cid-lib/lib/js-cids';
+import { isRawJsCIDLike, toRawJsCID } from '@lazy-ipfs/detect-cid-lib/lib/js-cids';
 import { ICIDObject, ICIDObjectInput, ICIDValueInput, IRawCIDObject } from '@lazy-ipfs/detect-cid-lib/lib/types';
-import typeofCID, { EnumTypeofCID, isRawMultiformatsCIDLike, toRawMultiformatsCID } from '@lazy-ipfs/detect-cid-lib/index';
+import typeofCID, {
+	EnumTypeofCID,
+	isRawMultiformatsCIDLike,
+	toRawMultiformatsCID,
+} from '@lazy-ipfs/detect-cid-lib/index';
 import err_code from 'err-code';
 import toMultiformatsCID from './lib/multiformats';
 import { toJsCID } from './lib/js-cids';
+import { cidToString, IBaseNameOrBaseCodec } from '@lazy-ipfs/cid-to-string/index';
+
 export * from '@lazy-ipfs/detect-cid-lib/lib/types';
 
 export { SymbolJsCID as SymbolCID } from '@lazy-ipfs/detect-cid-lib/lib/js-cids';
@@ -76,6 +82,11 @@ export function toRawCID<C extends ICIDObjectInput = ICIDObjectInput>(cid: C)
 export function toCID<C extends ICIDObject = ICIDObject>(cid: any, libCID?: IStaticCID<C>): C
 {
 	return classCID(libCID)(cid, libCID)
+}
+
+export function strToCidToStr(str: string, base?: IBaseNameOrBaseCodec)
+{
+	return cidToString(toCID(str), base)
 }
 
 export default toCID;

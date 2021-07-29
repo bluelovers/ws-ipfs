@@ -35,4 +35,20 @@ export function cidToString(cid: ICIDObject, base?: IBaseNameOrBaseCodec)
 	return (cid as MultiformatsCID).toString(base as IBaseCodec)
 }
 
+/**
+ * default ipfs cid hash
+ */
+export function cidToQmHash(cid: ICIDObject)
+{
+	return cidToString(cid.toV0(), 'base58btc')
+}
+
+/**
+ * use for subdomain
+ */
+export function cidToBase32(cid: ICIDObject)
+{
+	return cidToString(cid.toV1(), 'base32')
+}
+
 export default cidToString

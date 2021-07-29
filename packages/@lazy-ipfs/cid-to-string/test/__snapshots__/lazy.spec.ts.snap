@@ -4,14 +4,54 @@ exports[`BaseCodec @ipld/js-cid/CID 1`] = `"bafybeifx7yeb55armcsxwwitkymga5xf53d
 
 exports[`BaseCodec @ipld/js-cid/CID 2`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
 
+exports[`BaseCodec @ipld/js-cid/CID 3`] = `"zdj7Whp8MXSDAgmwiv8f7UBseBzjYfTXiNm7Nk9m4GpZzoHCW"`;
+
+exports[`BaseCodec @ipld/js-cid/CID 4`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
+
+exports[`BaseCodec @ipld/js-cid/CID 5`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
+
+exports[`BaseCodec @ipld/js-cid/CID 6`] = `"zdj7Whp8MXSDAgmwiv8f7UBseBzjYfTXiNm7Nk9m4GpZzoHCW"`;
+
+exports[`BaseCodec @ipld/js-cid/CID 7`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
+
 exports[`BaseCodec @ipld/js-multiformats/CID 1`] = `"bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m"`;
 
 exports[`BaseCodec @ipld/js-multiformats/CID 2`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
+
+exports[`BaseCodec @ipld/js-multiformats/CID 3`] = `"bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m"`;
+
+exports[`BaseCodec @ipld/js-multiformats/CID 4`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
+
+exports[`BaseCodec @ipld/js-multiformats/CID 5`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
+
+exports[`BaseCodec @ipld/js-multiformats/CID 6`] = `"zdj7Whp8MXSDAgmwiv8f7UBseBzjYfTXiNm7Nk9m4GpZzoHCW"`;
+
+exports[`BaseCodec @ipld/js-multiformats/CID 7`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
 
 exports[`BaseName @ipld/js-cid/CID 1`] = `"bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m"`;
 
 exports[`BaseName @ipld/js-cid/CID 2`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
 
+exports[`BaseName @ipld/js-cid/CID 3`] = `"zdj7Whp8MXSDAgmwiv8f7UBseBzjYfTXiNm7Nk9m4GpZzoHCW"`;
+
+exports[`BaseName @ipld/js-cid/CID 4`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
+
+exports[`BaseName @ipld/js-cid/CID 5`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
+
+exports[`BaseName @ipld/js-cid/CID 6`] = `"zdj7Whp8MXSDAgmwiv8f7UBseBzjYfTXiNm7Nk9m4GpZzoHCW"`;
+
+exports[`BaseName @ipld/js-cid/CID 7`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
+
 exports[`BaseName @ipld/js-multiformats/CID 1`] = `"bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m"`;
 
 exports[`BaseName @ipld/js-multiformats/CID 2`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
+
+exports[`BaseName @ipld/js-multiformats/CID 3`] = `"bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m"`;
+
+exports[`BaseName @ipld/js-multiformats/CID 4`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
+
+exports[`BaseName @ipld/js-multiformats/CID 5`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
+
+exports[`BaseName @ipld/js-multiformats/CID 6`] = `"zdj7Whp8MXSDAgmwiv8f7UBseBzjYfTXiNm7Nk9m4GpZzoHCW"`;
+
+exports[`BaseName @ipld/js-multiformats/CID 7`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;

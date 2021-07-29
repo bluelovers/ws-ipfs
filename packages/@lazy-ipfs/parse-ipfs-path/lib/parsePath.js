@@ -1,9 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.strToCidToStr = exports.resultToPath = exports.isParsePathResult = exports.assertToParsePathResult = exports.assertToParsePathResultPath = exports.assertToEnumNs = exports.parsePath = exports.parsePathCore = exports.EnumParsePathResultNs = void 0;
+exports.resultToPath = exports.isParsePathResult = exports.assertToParsePathResult = exports.assertToParsePathResultPath = exports.assertToEnumNs = exports.parsePath = exports.parsePathCore = exports.EnumParsePathResultNs = exports.strToCidToStr = void 0;
 const tslib_1 = require("tslib");
 const is_valid_domain_1 = (0, tslib_1.__importDefault)(require("is-valid-domain"));
 const to_cid_1 = require("@lazy-ipfs/to-cid");
+Object.defineProperty(exports, "strToCidToStr", { enumerable: true, get: function () { return to_cid_1.strToCidToStr; } });
+const util_1 = require("@lazy-ipfs/detect-cid-lib/lib/util");
+const index_1 = (0, tslib_1.__importDefault)(require("@lazy-ipfs/cid-to-string/index"));
 var EnumParsePathResultNs;
 (function (EnumParsePathResultNs) {
     EnumParsePathResultNs["ipfs"] = "ipfs";
@@ -14,8 +17,8 @@ var EnumParsePathResultNs;
  */
 function parsePathCore(input) {
     let ns, hash, path;
-    if (Buffer.isBuffer(input) || (0, to_cid_1.isCID)(input)) {
-        hash = (0, to_cid_1.toCID)(input).toString();
+    if (Buffer.isBuffer(input) || (0, util_1._isArrayLike)(input) || (0, to_cid_1.isCID)(input)) {
+        hash = (0, index_1.default)((0, to_cid_1.toCID)(input));
         ns = "ipfs" /* ipfs */;
         path = '';
     }
@@ -31,7 +34,7 @@ function parsePathCore(input) {
         const parts = input.split('/');
         if (parts[1] === "ipfs" /* ipfs */ || parts[1] === "ipns" /* ipns */) {
             try {
-                hash = strToCidToStr(parts[2]);
+                hash = (0, to_cid_1.strToCidToStr)(parts[2]);
             }
             catch (err) {
                 // If IPNS then this could be a domain name
@@ -48,7 +51,7 @@ function parsePathCore(input) {
         else {
             // Is parts[1] a CID?
             try {
-                hash = strToCidToStr(parts[1]);
+                hash = (0, to_cid_1.strToCidToStr)(parts[1]);
             }
             catch (err) {
                 throw new TypeError(`Unknown namespace: ${parts[1]}`);
@@ -129,8 +132,4 @@ function resultToPath(result) {
     return `/${result.ns}/${result.hash}${(_a = result.path) !== null && _a !== void 0 ? _a : ''}`;
 }
 exports.resultToPath = resultToPath;
-function strToCidToStr(str) {
-    return (0, to_cid_1.toCID)(str).toString();
-}
-exports.strToCidToStr = strToCidToStr;
 //# sourceMappingURL=parsePath.js.map

@@ -4,7 +4,7 @@
 import { toCID } from '@lazy-ipfs/to-cid';
 import { getIpfsServerList, IIPFSAddressesLike } from 'ipfs-server-list';
 import { IParsePathResult, isParsePathResult, parsePath } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
-import { cidToString } from '@lazy-ipfs/cid-to-string';
+import { cidToString, cidToBase32 } from '@lazy-ipfs/cid-to-string';
 import { ICIDValueOrRaw, IRawCIDObject } from '@lazy-ipfs/detect-cid-lib/lib/types';
 
 const defaultGatewayDomain = getIpfsServerList().cloudflare.GatewayDomain;
@@ -50,7 +50,7 @@ export function getGatewayDomain(gatewayDomain: string | IIPFSAddressesLike): st
 
 export function toSubdomainCID(cid: ICIDValueOrRaw)
 {
-	return cidToString(toCID(cid).toV1(), 'base32');
+	return cidToBase32(toCID(cid));
 }
 
 export function ipfsSubdomainURL(cid: ICIDValueOrRaw | IParsePathResult,

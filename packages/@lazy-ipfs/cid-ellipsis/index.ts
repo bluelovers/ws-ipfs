@@ -1,4 +1,4 @@
-import CID from 'cids';
+import { ICIDValue } from '@lazy-ipfs/detect-cid-lib/lib/types';
 
 export function cidStartAndEnd(value: string, sep: string = '…')
 {
@@ -20,7 +20,7 @@ export function cidStartAndEnd(value: string, sep: string = '…')
 	}
 }
 
-export function cidEllipsis(value: string | CID, sep?: string)
+export function cidEllipsis(value: ICIDValue , sep?: string)
 {
 	let result = cidStartAndEnd(value?.toString(), sep);
 
