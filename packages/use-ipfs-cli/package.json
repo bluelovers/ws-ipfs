@@ -33,7 +33,7 @@
   "dependencies": {
     "ipfs": ">=0.46.0",
     "ipfs-http-client": "^51",
-    "ipfsd-ctl": "^9",
+    "ipfsd-ctl": "^10",
     "tslib": "^2.3.0",
     "use-ipfs": "^1.0.85",
     "yargs": "^17.0.1"
