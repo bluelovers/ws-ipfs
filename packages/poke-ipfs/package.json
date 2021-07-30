@@ -33,7 +33,7 @@
   "dependencies": {
     "@lazy-ipfs/detect-cid-lib": "^1.0.2",
     "abort-controller": "^3.0.0",
-    "abort-controller-timer": "^1.0.11",
+    "abort-controller-timer": "^1.0.12",
     "tslib": "^2.3.0",
     "unsafe-https-agent": "^1.0.1"
   },

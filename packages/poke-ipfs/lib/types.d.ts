@@ -17,5 +17,6 @@ export interface IPokeOptions {
      * @default 1000
      */
     timeout?: number;
+    signal?: AbortSignal;
     fetchOptions?: RequestInit;
 }

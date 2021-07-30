@@ -19,9 +19,15 @@ export function pokeURL(ipfsURL: URL | string, options?: IPokeOptions)
 	};
 
 	fetchOptions.agent ??= getUnSafeAgent();
+	fetchOptions.signal ??= options.signal;
 
-	let controller = new AbortControllerTimer(options?.timeout || 1000)
-	fetchOptions.signal = controller.signal;
+	let controller: AbortControllerTimer;
+
+	if (!fetchOptions.signal)
+	{
+		controller = new AbortControllerTimer(options?.timeout || 10 * 1000);
+		fetchOptions.signal = controller.signal;
+	}
 
 	return fetch(url.href, fetchOptions as any)
 		.then(async (res) =>
@@ -79,7 +85,7 @@ export function pokeURL(ipfsURL: URL | string, options?: IPokeOptions)
 				error: Error;
 			}>
 		})
-		.finally(() => controller.clear())
+		.finally(() => controller?.clear())
 }
 
 export default pokeURL

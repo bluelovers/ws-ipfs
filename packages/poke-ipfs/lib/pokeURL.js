@@ -10,15 +10,19 @@ const util_1 = require("./util");
 const abort_controller_timer_1 = require("abort-controller-timer");
 const unsafe_https_agent_1 = require("unsafe-https-agent");
 function pokeURL(ipfsURL, options) {
-    var _a;
+    var _a, _b;
     let url = (0, util_1.corsURL)(ipfsURL.toString(), options === null || options === void 0 ? void 0 : options.cors);
     let fetchOptions = {
         method: 'HEAD',
         ...options.fetchOptions,
     };
     (_a = fetchOptions.agent) !== null && _a !== void 0 ? _a : (fetchOptions.agent = (0, unsafe_https_agent_1.getUnSafeAgent)());
-    let controller = new abort_controller_timer_1.AbortControllerTimer((options === null || options === void 0 ? void 0 : options.timeout) || 1000);
-    fetchOptions.signal = controller.signal;
+    (_b = fetchOptions.signal) !== null && _b !== void 0 ? _b : (fetchOptions.signal = options.signal);
+    let controller;
+    if (!fetchOptions.signal) {
+        controller = new abort_controller_timer_1.AbortControllerTimer((options === null || options === void 0 ? void 0 : options.timeout) || 10 * 1000);
+        fetchOptions.signal = controller.signal;
+    }
     return (0, cross_fetch_1.default)(url.href, fetchOptions)
         .then(async (res) => {
         var _a, _b;
@@ -61,7 +65,7 @@ function pokeURL(ipfsURL, options) {
             error,
         };
     })
-        .finally(() => controller.clear());
+        .finally(() => controller === null || controller === void 0 ? void 0 : controller.clear());
 }
 exports.pokeURL = pokeURL;
 exports.default = pokeURL;
