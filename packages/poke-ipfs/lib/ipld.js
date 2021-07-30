@@ -9,6 +9,7 @@ const cross_fetch_1 = (0, tslib_1.__importDefault)(require("cross-fetch"));
 const ndjson_1 = require("./ndjson");
 const util_1 = require("./util");
 const abort_controller_timer_1 = require("abort-controller-timer");
+const _parsePokeResponse_1 = require("./util/_parsePokeResponse");
 function pokeIPLD(cid, options) {
     let url = (0, util_1.corsURL)('https://node0.preload.ipfs.io/api/v0/refs', options === null || options === void 0 ? void 0 : options.cors);
     url.searchParams.set('r', 'true');
@@ -44,11 +45,7 @@ function pokeIPLD(cid, options) {
             headers,
         };
     })
-        .catch((error) => {
-        return {
-            error,
-        };
-    })
+        .catch(e => (0, _parsePokeResponse_1._pokeError)(e, url.href))
         .finally(() => controller.clear());
 }
 exports.pokeIPLD = pokeIPLD;

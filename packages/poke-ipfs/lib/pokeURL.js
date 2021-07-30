@@ -7,65 +7,15 @@ const tslib_1 = require("tslib");
  */
 const cross_fetch_1 = (0, tslib_1.__importDefault)(require("cross-fetch"));
 const util_1 = require("./util");
-const abort_controller_timer_1 = require("abort-controller-timer");
-const unsafe_https_agent_1 = require("unsafe-https-agent");
+const _parsePokeResponse_1 = require("./util/_parsePokeResponse");
+const _handleOptions_1 = require("./util/_handleOptions");
 function pokeURL(ipfsURL, options) {
-    var _a, _b;
     let url = (0, util_1.corsURL)(ipfsURL.toString(), options === null || options === void 0 ? void 0 : options.cors);
-    let fetchOptions = {
-        method: 'HEAD',
-        ...options.fetchOptions,
-    };
-    (_a = fetchOptions.agent) !== null && _a !== void 0 ? _a : (fetchOptions.agent = (0, unsafe_https_agent_1.getUnSafeAgent)());
-    (_b = fetchOptions.signal) !== null && _b !== void 0 ? _b : (fetchOptions.signal = options.signal);
-    let controller;
-    if (!fetchOptions.signal) {
-        controller = new abort_controller_timer_1.AbortControllerTimer((options === null || options === void 0 ? void 0 : options.timeout) || 10 * 1000);
-        fetchOptions.signal = controller.signal;
-    }
+    const { fetchOptions, controller } = (0, _handleOptions_1._handleOptions)(options);
     return (0, cross_fetch_1.default)(url.href, fetchOptions)
-        .then(async (res) => {
-        var _a, _b;
-        const { headers, status, statusText } = res;
-        let xIpfsPath = ((_a = headers.get) === null || _a === void 0 ? void 0 : _a.call(headers, 'x-ipfs-path')) || ((_b = headers.get) === null || _b === void 0 ? void 0 : _b['X-Ipfs-Path']) || headers['x-ipfs-path'] || headers['X-Ipfs-Path'];
-        if (!xIpfsPath) {
-            Object.entries(headers)
-                .some(([key, value]) => {
-                if (key.toLowerCase() === 'x-ipfs-path') {
-                    xIpfsPath = value;
-                    return true;
-                }
-            });
-        }
-        if (xIpfsPath) {
-            return {
-                value: xIpfsPath,
-                status,
-                statusText,
-                headers,
-            };
-        }
-        else if (status < 200 || status >= 400) {
-            return {
-                value: false,
-                status,
-                statusText,
-                headers,
-            };
-        }
-        return {
-            value: null,
-            status,
-            statusText,
-            headers,
-        };
-    })
-        .catch((error) => {
-        return {
-            error,
-        };
-    })
-        .finally(() => controller === null || controller === void 0 ? void 0 : controller.clear());
+        .then(_parsePokeResponse_1._parsePokeResponse)
+        .catch(e => (0, _parsePokeResponse_1._pokeError)(e, url.href))
+        .finally(() => controller === null || controller === void 0 ? void 0 : controller.abort());
 }
 exports.pokeURL = pokeURL;
 exports.default = pokeURL;

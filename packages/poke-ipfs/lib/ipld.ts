@@ -7,6 +7,7 @@ import { IPokeReturn, IPokeReturnBase, IPokeOptions } from './types';
 import { corsURL } from './util';
 import { AbortControllerTimer } from 'abort-controller-timer';
 import { ICIDValue } from '@lazy-ipfs/detect-cid-lib/lib/types';
+import { _pokeError } from './util/_parsePokeResponse';
 
 export function pokeIPLD(cid: ICIDValue, options?: IPokeOptions)
 {
@@ -62,14 +63,7 @@ export function pokeIPLD(cid: ICIDValue, options?: IPokeOptions)
 				headers,
 			} as IPokeReturn
 		})
-		.catch((error: Error) =>
-		{
-			return {
-				error,
-			} as IPokeReturn<{
-				error: Error;
-			}>
-		})
+		.catch(e => _pokeError(e, url.href))
 		.finally(() => controller.clear())
 }
 
