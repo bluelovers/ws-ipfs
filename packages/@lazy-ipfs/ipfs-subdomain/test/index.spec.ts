@@ -1,5 +1,6 @@
 import ipfsSubdomain, { ipfsSubdomainURL } from '../index';
 import { getIpfsServerList } from 'ipfs-server-list';
+import { parsePath } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
 
 test(`ipfsSubdomain`, () =>
 {
@@ -63,4 +64,19 @@ test(`ipfsSubdomainURL with path`, () =>
 	});
 
 	expect(actual3).toStrictEqual(actual2);
+});
+
+test(`ipfsSubdomain:ParsePathResult`, () =>
+{
+	let cid = parsePath('Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a', {
+		unsafeReturn: true,
+		noThrow: true,
+	});
+
+	let actual = ipfsSubdomain(cid);
+	let expected;
+
+	expect(actual).toMatchSnapshot();
+	expect(() => new URL(actual)).not.toThrow();
+
 });

@@ -28,6 +28,9 @@ function toMultiformatsCID(cidInput, libCID) {
         else if ((0, js_multiformats_1.isRawMultiformatsCIDLike)(cidInput)) {
             cid = libCID.asCID((0, js_multiformats_1.toRawMultiformatsCIDFake)(cidInput));
         }
+        else if ((0, parsePath_1.isParsePathResultLoose)(cidInput)) {
+            cid = toMultiformatsCID(cidInput.hash);
+        }
     }
     if (!cid) {
         throw (0, err_code_1.default)(new TypeError(`Invalid type for convert to MultiformatsCID`), {

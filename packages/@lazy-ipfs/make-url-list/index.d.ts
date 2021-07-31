@@ -1,9 +1,10 @@
 import { ICIDValue } from '@lazy-ipfs/detect-cid-lib/lib/types';
 import { IOptions as IToURLOptions } from 'to-ipfs-url';
+import { IOptions as ISubdomainURLOptions } from '@lazy-ipfs/ipfs-subdomain/index';
 import { IPFS } from 'ipfs-core-types';
 import { LazyURL } from 'lazy-url';
 export interface IOptions {
-    handleOptions?: Omit<IToURLOptions, 'prefix'>;
+    handleOptions?: Omit<IToURLOptions, 'prefix'> & Omit<ISubdomainURLOptions, 'gatewayDomain'>;
     serverList?: string[];
     ipfsGatewayList?: string[];
     ipfsGatewayDomainList?: string[];

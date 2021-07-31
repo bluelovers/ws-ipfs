@@ -4,11 +4,12 @@ import { isRawJsCIDLike, SymbolJsCID, toRawJsCIDFake } from '@lazy-ipfs/detect-c
 import { ICIDValueInput, ICIDValueOrRaw } from '@lazy-ipfs/detect-cid-lib/lib/types';
 import { IRawMultiformatsCIDFake, isRawMultiformatsCIDLike, toRawMultiformatsCIDFake } from '@lazy-ipfs/detect-cid-lib/lib/js-multiformats';
 import { _isArrayLike } from '@lazy-ipfs/detect-cid-lib/lib/util';
-import { parsePath } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
+import { isParsePathResult, isParsePathResultLoose, parsePath } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
 import { _handleLibCID } from './_handleLibCID';
 import { EnumTypeofCID } from '@lazy-ipfs/detect-cid-lib';
+import { IToCIDInputValue } from '../index';
 
-export function toMultiformatsCID<T extends ICIDValueInput, C extends MultiformatsCID = MultiformatsCID>(cidInput: T, libCID?: Pick<typeof MultiformatsCID, 'parse' | 'decode' | 'asCID'> | EnumTypeofCID): C
+export function toMultiformatsCID<T extends IToCIDInputValue, C extends MultiformatsCID = MultiformatsCID>(cidInput: T, libCID?: Pick<typeof MultiformatsCID, 'parse' | 'decode' | 'asCID'> | EnumTypeofCID): C
 {
 	libCID = _handleLibCID(libCID, MultiformatsCID);
 
@@ -35,6 +36,10 @@ export function toMultiformatsCID<T extends ICIDValueInput, C extends Multiforma
 		else if (isRawMultiformatsCIDLike(cidInput))
 		{
 			cid = libCID.asCID(toRawMultiformatsCIDFake(cidInput))
+		}
+		else if (isParsePathResultLoose(cidInput))
+		{
+			cid = toMultiformatsCID(cidInput.hash) as any
 		}
 	}
 

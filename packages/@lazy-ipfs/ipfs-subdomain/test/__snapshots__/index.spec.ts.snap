@@ -2,6 +2,8 @@
 
 exports[`ipfsSubdomain 1`] = `"https://bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m.ipfs.cf-ipfs.com/"`;
 
+exports[`ipfsSubdomain:ParsePathResult 1`] = `"https://bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m.ipfs.cf-ipfs.com/"`;
+
 exports[`ipfsSubdomain:fleek 1`] = `"https://bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m.on.fleek.co/"`;
 
 exports[`ipfsSubdomainURL 1`] = `"https://bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m.ipfs.cf-ipfs.com/"`;

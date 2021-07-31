@@ -53,10 +53,12 @@ export function toSubdomainCID(cid: ICIDValueOrRaw)
 	return cidToBase32(toCID(cid));
 }
 
+export type ISubdomainInput = ICIDValueOrRaw | IParsePathResult;
+
 /**
  * @deprecated use {@link ipfsSubdomainURL2}
  */
-export function ipfsSubdomainURL(cid: ICIDValueOrRaw | IParsePathResult,
+export function ipfsSubdomainURL(cid: ISubdomainInput,
 	gatewayDomain?: string | IIPFSAddressesLike,
 	protocol?: string | 'https:' | 'http:',
 )
@@ -98,7 +100,7 @@ export interface IOptions
 	filename?: string,
 }
 
-export function _handleOptions(cid: ICIDValueOrRaw,
+export function _handleOptions(cid: ISubdomainInput,
 	gatewayDomain?: string | IIPFSAddressesLike,
 	protocol?: IOptions["protocol"] | IOptions,
 	options?: IOptions,)
@@ -121,7 +123,7 @@ export function _handleOptions(cid: ICIDValueOrRaw,
 	}
 }
 
-export function ipfsSubdomainURL2(cid: ICIDValueOrRaw,
+export function ipfsSubdomainURL2(cid: ISubdomainInput,
 	gatewayDomain?: string | IIPFSAddressesLike,
 	protocol?: IOptions["protocol"] | IOptions,
 	options?: IOptions,
@@ -149,7 +151,7 @@ export function ipfsSubdomainURL2(cid: ICIDValueOrRaw,
 	return url
 }
 
-export function ipfsSubdomain(cid: ICIDValueOrRaw,
+export function ipfsSubdomain(cid: ISubdomainInput,
 	gatewayDomain?: string | IIPFSAddressesLike,
 	protocol?: IOptions["protocol"] | IOptions,
 	options?: IOptions,

@@ -1,7 +1,7 @@
 import { ICIDValue } from '@lazy-ipfs/detect-cid-lib/lib/types';
 import { filterList } from 'ipfs-server-list';
 import { toURL, IOptions as IToURLOptions } from 'to-ipfs-url';
-import ipfsSubdomain from '@lazy-ipfs/ipfs-subdomain/index';
+import { ipfsSubdomainURL2, IOptions as ISubdomainURLOptions } from '@lazy-ipfs/ipfs-subdomain/index';
 import {
 	EnumParsePathResultNs,
 	IParsePathResult,
@@ -15,7 +15,7 @@ import { ipfsGatewayAddressesLink } from '@lazy-ipfs/ipfs-api-url';
 
 export interface IOptions
 {
-	handleOptions?: Omit<IToURLOptions, 'prefix'>,
+	handleOptions?: Omit<IToURLOptions, 'prefix'> & Omit<ISubdomainURLOptions, 'gatewayDomain'>,
 	serverList?: string[],
 	ipfsGatewayList?: string[],
 	ipfsGatewayDomainList?: string[],
@@ -58,7 +58,7 @@ export function makeIpfsGatewayDomainURLList(cid: ICIDValue, options?: IOptions)
 	{
 		try
 		{
-			return new URL(ipfsSubdomain(resultToPath(data), gateway));
+			return new URL(ipfsSubdomainURL2(data, gateway));
 		}
 		catch (e)
 		{

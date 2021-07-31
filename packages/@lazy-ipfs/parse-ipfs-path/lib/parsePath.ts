@@ -221,6 +221,12 @@ export function isParsePathResult<H extends string, P extends IParsePathResultPa
 	return false
 }
 
+export function isParsePathResultLoose<H extends string, P extends IParsePathResultPathInput, N extends IParsePathResultNsInput = EnumParsePathResultNs>(result: IParsePathResult<H, P | string, N | string> | unknown): result is IParsePathResult<H, IParsePathResultPath<P>, IParsePathResultNsInputToEnum<N>>
+{
+	// @ts-ignore
+	return Boolean(result.ns && result.hash)
+}
+
 export function resultToPath<H extends string, P extends IParsePathResultPathInput, N extends IParsePathResultNsInput = EnumParsePathResultNs>(result: IParsePathResult<H, P, N>): `/${IParsePathResultNsInputToEnum<N>}/${H}${IParsePathResultPath<P>}`
 {
 	assertToParsePathResult(result);

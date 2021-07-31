@@ -12,7 +12,7 @@ const index_1 = (0, tslib_1.__importStar)(require("@lazy-ipfs/detect-cid-lib/ind
 const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
 const multiformats_2 = (0, tslib_1.__importDefault)(require("./lib/multiformats"));
 const js_cids_2 = require("./lib/js-cids");
-const index_2 = require("@lazy-ipfs/cid-to-string/index");
+const cid_to_string_1 = require("@lazy-ipfs/cid-to-string");
 (0, tslib_1.__exportStar)(require("@lazy-ipfs/detect-cid-lib/lib/types"), exports);
 var js_cids_3 = require("@lazy-ipfs/detect-cid-lib/lib/js-cids");
 Object.defineProperty(exports, "SymbolCID", { enumerable: true, get: function () { return js_cids_3.SymbolJsCID; } });
@@ -62,7 +62,7 @@ function toCID(cid, libCID) {
 }
 exports.toCID = toCID;
 function strToCidToStr(str, base) {
-    return (0, index_2.cidToString)(toCID(str), base);
+    return (0, cid_to_string_1.cidToString)(toCID(str), base);
 }
 exports.strToCidToStr = strToCidToStr;
 exports.default = toCID;

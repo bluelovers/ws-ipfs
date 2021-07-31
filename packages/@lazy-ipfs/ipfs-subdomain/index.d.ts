@@ -9,22 +9,23 @@ export declare function isIPFSAddressesLikeWithGatewayDomain<T extends IIPFSAddr
 export declare function assertGatewayDomain<T extends IIPFSAddressesLike = IIPFSAddressesLike>(gatewayDomain: T | any): asserts gatewayDomain is IIPFSAddressesLikeWithGatewayDomain<T>;
 export declare function getGatewayDomain(gatewayDomain: string | IIPFSAddressesLike): string;
 export declare function toSubdomainCID(cid: ICIDValueOrRaw): string;
+export declare type ISubdomainInput = ICIDValueOrRaw | IParsePathResult;
 /**
  * @deprecated use {@link ipfsSubdomainURL2}
  */
-export declare function ipfsSubdomainURL(cid: ICIDValueOrRaw | IParsePathResult, gatewayDomain?: string | IIPFSAddressesLike, protocol?: string | 'https:' | 'http:'): URL;
+export declare function ipfsSubdomainURL(cid: ISubdomainInput, gatewayDomain?: string | IIPFSAddressesLike, protocol?: string | 'https:' | 'http:'): URL;
 export interface IOptions {
     gatewayDomain?: string | IIPFSAddressesLike;
     protocol?: string | 'https:' | 'http:';
     clearPathname?: boolean;
     filename?: string;
 }
-export declare function _handleOptions(cid: ICIDValueOrRaw, gatewayDomain?: string | IIPFSAddressesLike, protocol?: IOptions["protocol"] | IOptions, options?: IOptions): {
-    cid: ICIDValueOrRaw;
+export declare function _handleOptions(cid: ISubdomainInput, gatewayDomain?: string | IIPFSAddressesLike, protocol?: IOptions["protocol"] | IOptions, options?: IOptions): {
+    cid: ISubdomainInput;
     gatewayDomain: string | IIPFSAddressesLike;
     protocol: string | IOptions;
     options: IOptions;
 };
-export declare function ipfsSubdomainURL2(cid: ICIDValueOrRaw, gatewayDomain?: string | IIPFSAddressesLike, protocol?: IOptions["protocol"] | IOptions, options?: IOptions): URL;
-export declare function ipfsSubdomain(cid: ICIDValueOrRaw, gatewayDomain?: string | IIPFSAddressesLike, protocol?: IOptions["protocol"] | IOptions, options?: IOptions): string;
+export declare function ipfsSubdomainURL2(cid: ISubdomainInput, gatewayDomain?: string | IIPFSAddressesLike, protocol?: IOptions["protocol"] | IOptions, options?: IOptions): URL;
+export declare function ipfsSubdomain(cid: ISubdomainInput, gatewayDomain?: string | IIPFSAddressesLike, protocol?: IOptions["protocol"] | IOptions, options?: IOptions): string;
 export default ipfsSubdomain;
