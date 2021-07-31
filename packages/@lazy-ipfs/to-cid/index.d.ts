@@ -6,7 +6,7 @@ import { CID as MultiformatsCID } from 'multiformats';
 import { ICIDObject, ICIDObjectInput, ICIDValueInput, IRawCIDObject } from '@lazy-ipfs/detect-cid-lib/lib/types';
 import { EnumTypeofCID } from '@lazy-ipfs/detect-cid-lib/index';
 import { IBaseNameOrBaseCodec } from '@lazy-ipfs/cid-to-string';
-import { IParsePathResult } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
+import { IParsePathResult } from '@lazy-ipfs/parse-ipfs-path/lib/types';
 export * from '@lazy-ipfs/detect-cid-lib/lib/types';
 export { SymbolJsCID as SymbolCID } from '@lazy-ipfs/detect-cid-lib/lib/js-cids';
 export declare type IStaticCID<C extends ICIDObject = ICIDObject> = new (...argv: any[]) => C;

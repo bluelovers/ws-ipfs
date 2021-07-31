@@ -14,24 +14,12 @@ function newAbortController(timeout) {
 exports.newAbortController = newAbortController;
 function handleCID(cid, useIPFS, options = {}) {
     if (useIPFS) {
-        try {
-            // @ts-ignore
-            cid = new URL(cid).pathname;
-        }
-        catch (e) {
-            if (!(0, to_ipfs_url_1.isCidOrPath)(cid)) {
-                cid = (0, to_ipfs_url_1.toPath)(cid, options);
-            }
+        if (!(0, to_ipfs_url_1.isCidOrPath)(cid)) {
+            cid = (0, to_ipfs_url_1.toPath)(cid, options);
         }
     }
     else {
-        try {
-            // @ts-ignore
-            cid = new URL(cid).href;
-        }
-        catch (e) {
-            cid = (0, to_ipfs_url_1.toLink)(cid, options);
-        }
+        cid = (0, to_ipfs_url_1.toLink)(cid, options);
     }
     return cid;
 }

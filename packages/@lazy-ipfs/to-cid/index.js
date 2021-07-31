@@ -64,7 +64,15 @@ function toCID(cid, libCID) {
             input: cid,
         });
     }
-    return classCID(libCID)(cid, libCID);
+    try {
+        return classCID(libCID)(cid, libCID);
+    }
+    catch (e) {
+        throw (0, err_code_1.default)(e, {
+            input: cid,
+            libCID,
+        });
+    }
 }
 exports.toCID = toCID;
 function strToCidToStr(str, base) {

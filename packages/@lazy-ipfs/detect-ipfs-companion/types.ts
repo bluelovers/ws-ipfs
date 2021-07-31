@@ -8,9 +8,7 @@ declare global
 			ipfs?: IPFS,
 		}
 		ipfs?: IPFS,
-		chrome: Window["chrome"] & {
-
-		}
+		chrome: Window["chrome"] & {}
 	}
 }
 export type IWindow = Window & typeof globalThis;

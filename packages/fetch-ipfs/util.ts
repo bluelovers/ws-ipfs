@@ -20,30 +20,14 @@ export function handleCID(cid: ICIDValue, useIPFS?, options: IOptionsInput = {})
 {
 	if (useIPFS)
 	{
-		try
+		if (!isCidOrPath(cid))
 		{
-			// @ts-ignore
-			cid = new URL(cid).pathname
-		}
-		catch (e)
-		{
-			if (!isCidOrPath(cid))
-			{
-				cid = toPath(cid, options)
-			}
+			cid = toPath(cid, options)
 		}
 	}
 	else
 	{
-		try
-		{
-			// @ts-ignore
-			cid = new URL(cid).href
-		}
-		catch (e)
-		{
-			cid = toLink(cid, options)
-		}
+		cid = toLink(cid, options)
 	}
 
 	return cid

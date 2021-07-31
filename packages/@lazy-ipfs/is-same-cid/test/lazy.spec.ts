@@ -14,7 +14,6 @@ describe(`describe`, () =>
 
 		expect(isSameCID(cid1, cid2)).toBeTruthy();
 
-
 		expect(isSameCID(co1, cid2)).toBeTruthy();
 		expect(isSameCID(cid1, co2)).toBeTruthy();
 

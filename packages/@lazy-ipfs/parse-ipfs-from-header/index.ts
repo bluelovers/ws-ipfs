@@ -1,4 +1,3 @@
-
 import valueFromRecord, { keyFromRecord } from 'value-from-record';
 
 export function parseIpfsFromHeader(headers: Headers | Record<string, any>)

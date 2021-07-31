@@ -1,4 +1,3 @@
-
 export interface ISharedOptionsAndArgv
 {
 	argv?: string[],
@@ -8,7 +7,7 @@ export interface ISharedOptionsAndArgv
 	pass?: string,
 }
 
-export interface IDaemonOptions extends  ISharedOptionsAndArgv
+export interface IDaemonOptions extends ISharedOptionsAndArgv
 {
 
 	repo?: string,
@@ -29,7 +28,7 @@ export interface IDaemonOptions extends  ISharedOptionsAndArgv
 
 }
 
-export interface IDaemonArgv extends  ISharedOptionsAndArgv
+export interface IDaemonArgv extends ISharedOptionsAndArgv
 {
 
 	migrate?: boolean,

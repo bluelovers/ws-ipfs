@@ -1,4 +1,4 @@
-import typeofCID, { EnumTypeofCID} from '../index';
+import typeofCID, { EnumTypeofCID } from '../index';
 import JsCID from 'cids';
 import { CID as MultiformatsCID } from 'multiformats';
 import { isMultiformatsCID } from '../lib/js-multiformats';

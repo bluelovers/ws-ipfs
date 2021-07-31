@@ -8,6 +8,7 @@ const to_cid_1 = require("@lazy-ipfs/to-cid");
 const ipfs_server_list_1 = require("ipfs-server-list");
 const parsePath_1 = require("@lazy-ipfs/parse-ipfs-path/lib/parsePath");
 const cid_to_string_1 = require("@lazy-ipfs/cid-to-string");
+const asserts_1 = require("@lazy-ipfs/parse-ipfs-path/lib/asserts");
 const defaultGatewayDomain = (0, ipfs_server_list_1.getIpfsServerList)().cloudflare.GatewayDomain;
 function assertIPFSAddressesLikeWithGatewayDomain(gatewayDomain) {
     if (isIPFSAddressesLikeWithGatewayDomain(gatewayDomain)) {
@@ -51,7 +52,7 @@ function ipfsSubdomainURL(cid, gatewayDomain, protocol) {
         }
     }
     let path = '';
-    if ((0, parsePath_1.isParsePathResult)(cid)) {
+    if ((0, asserts_1.isParsePathResult)(cid)) {
         path = cid.path;
         cid = cid.hash;
     }

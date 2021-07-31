@@ -1,11 +1,15 @@
 import isIPFS from 'is-ipfs';
 import { LazyURL } from 'lazy-url';
-import { EnumParsePathResultNs, IParsePathResult, IParsePathResultStrict } from './parsePath';
+import { IParsePathResult } from './types';
+import { EnumParsePathResultNs } from './asserts';
+import { _url_href } from '@lazy-ipfs/is-cid/index';
 
 export const subdomainGatewayPattern = /^https?:\/\/([^/]+)\.(ip[fn]s)\.[^/?]+/
 
 export function _handleFromURL(input: string): IParsePathResult | string
 {
+	input = _url_href(input as any);
+
 	if (isIPFS.cidPath(input))
 	{
 		return input
@@ -31,7 +35,9 @@ export function _handleFromURL(input: string): IParsePathResult | string
 	else if (isIPFS.cid((parts = url.host.split('.'))[0]))
 	{
 		return {
-			ns: parts[1]?.toLowerCase() === EnumParsePathResultNs.ipns ? EnumParsePathResultNs.ipns : EnumParsePathResultNs.ipfs,
+			ns: parts[1]?.toLowerCase() === EnumParsePathResultNs.ipns
+				? EnumParsePathResultNs.ipns
+				: EnumParsePathResultNs.ipfs,
 			hash: parts[0],
 			path: url.pathname,
 		}
@@ -41,3 +47,4 @@ export function _handleFromURL(input: string): IParsePathResult | string
 		return url.pathname
 	}
 }
+

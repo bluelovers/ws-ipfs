@@ -1,6 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`describe ParsePathResult 1`] = `
+Object {
+  "hash": "QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "ns": "ipfs",
+  "path": "",
+}
+`;
+
+exports[`describe ParsePathResult 2`] = `
 Array [
   "https://ipfs.io/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
   "https://ipfs.infura.io/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
@@ -46,7 +54,9 @@ Array [
 ]
 `;
 
-exports[`describe cidStr 1`] = `
+exports[`describe cidStr 1`] = `"QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd"`;
+
+exports[`describe cidStr 2`] = `
 Array [
   "https://ipfs.io/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
   "https://ipfs.infura.io/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
@@ -92,7 +102,9 @@ Array [
 ]
 `;
 
-exports[`describe cidToBase32 1`] = `
+exports[`describe cidToBase32 1`] = `"bafybeicm5clh7fl4up4prnbfqksou6vsp5voth54rcsxhsjysimm3o77fq"`;
+
+exports[`describe cidToBase32 2`] = `
 Array [
   "https://ipfs.io/ipfs/bafybeicm5clh7fl4up4prnbfqksou6vsp5voth54rcsxhsjysimm3o77fq",
   "https://ipfs.infura.io/ipfs/bafybeicm5clh7fl4up4prnbfqksou6vsp5voth54rcsxhsjysimm3o77fq",
@@ -138,7 +150,9 @@ Array [
 ]
 `;
 
-exports[`describe cidToQmHash 1`] = `
+exports[`describe cidToQmHash 1`] = `"QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd"`;
+
+exports[`describe cidToQmHash 2`] = `
 Array [
   "https://ipfs.io/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
   "https://ipfs.infura.io/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
@@ -185,6 +199,49 @@ Array [
 `;
 
 exports[`describe toCID 1`] = `
+Object {
+  "code": 112,
+  "hash": Uint8Array [
+    18,
+    32,
+    76,
+    232,
+    150,
+    127,
+    149,
+    124,
+    163,
+    248,
+    248,
+    180,
+    37,
+    130,
+    164,
+    234,
+    122,
+    178,
+    127,
+    106,
+    233,
+    159,
+    188,
+    136,
+    165,
+    115,
+    201,
+    56,
+    146,
+    24,
+    205,
+    187,
+    255,
+    44,
+  ],
+  "version": 0,
+}
+`;
+
+exports[`describe toCID 2`] = `
 Array [
   "https://ipfs.io/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
   "https://ipfs.infura.io/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
@@ -230,7 +287,9 @@ Array [
 ]
 `;
 
-exports[`describe toSubdomainCID 1`] = `
+exports[`describe toSubdomainCID 1`] = `"bafybeicm5clh7fl4up4prnbfqksou6vsp5voth54rcsxhsjysimm3o77fq"`;
+
+exports[`describe toSubdomainCID 2`] = `
 Array [
   "https://ipfs.io/ipfs/bafybeicm5clh7fl4up4prnbfqksou6vsp5voth54rcsxhsjysimm3o77fq",
   "https://ipfs.infura.io/ipfs/bafybeicm5clh7fl4up4prnbfqksou6vsp5voth54rcsxhsjysimm3o77fq",
@@ -269,6 +328,54 @@ Array [
   "https://ipfs.smartholdem.io/ipfs/bafybeicm5clh7fl4up4prnbfqksou6vsp5voth54rcsxhsjysimm3o77fq",
   "https://ipfs.slang.cx/ipfs/bafybeicm5clh7fl4up4prnbfqksou6vsp5voth54rcsxhsjysimm3o77fq",
   "https://video.oneloveipfs.com/ipfs/bafybeicm5clh7fl4up4prnbfqksou6vsp5voth54rcsxhsjysimm3o77fq",
+  "https://bafybeicm5clh7fl4up4prnbfqksou6vsp5voth54rcsxhsjysimm3o77fq.ipfs.infura-ipfs.io/",
+  "https://bafybeicm5clh7fl4up4prnbfqksou6vsp5voth54rcsxhsjysimm3o77fq.ipfs.cf-ipfs.com/",
+  "https://bafybeicm5clh7fl4up4prnbfqksou6vsp5voth54rcsxhsjysimm3o77fq.ipfs.dweb.link/",
+  "https://bafybeicm5clh7fl4up4prnbfqksou6vsp5voth54rcsxhsjysimm3o77fq.on.fleek.co/",
+]
+`;
+
+exports[`describe toURL 1`] = `"https://ipfs.io/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd"`;
+
+exports[`describe toURL 2`] = `
+Array [
+  "https://ipfs.io/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://ipfs.infura.io/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://infura-ipfs.io/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://cloudflare-ipfs.com/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://cf-ipfs.com/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://gateway.ipfs.io/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://dweb.link/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://ipfs.fleek.co/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://gateway.pinata.cloud/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://ipfs.greyh.at/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://jorropo.net/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://ipfs.runfission.com/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://ipfs.best-practice.se/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://snap1.d.tube/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://gateway.originprotocol.com/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://ipfs.mrh.io/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://10.via0.com/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://ninetailed.ninja/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://ipfs.yt/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://ipfs.overpi.com/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://ipfs.drink.cafe/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://robotizing.net/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://ipfs.telos.miami/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://ipfs.tubby.cloud/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://ipfs.kaleido.art/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://crustwebsites.net/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://hub.textile.io/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://ipfs.itargo.io/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://ipfs.decoo.io/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://ipfs.denarius.io/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://ravencoinipfs-gateway.com/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://trusted-setup.filecoin.io/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://ipfs.eth.aragon.network/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://bluelight.link/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://ipfs.smartholdem.io/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://ipfs.slang.cx/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
+  "https://video.oneloveipfs.com/ipfs/QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd",
   "https://bafybeicm5clh7fl4up4prnbfqksou6vsp5voth54rcsxhsjysimm3o77fq.ipfs.infura-ipfs.io/",
   "https://bafybeicm5clh7fl4up4prnbfqksou6vsp5voth54rcsxhsjysimm3o77fq.ipfs.cf-ipfs.com/",
   "https://bafybeicm5clh7fl4up4prnbfqksou6vsp5voth54rcsxhsjysimm3o77fq.ipfs.dweb.link/",

@@ -38,7 +38,7 @@ function makeIpfsGatewayDomainURLList(cid, options) {
     });
     return ((_b = (_a = options === null || options === void 0 ? void 0 : options.ipfsGatewayDomainList) !== null && _a !== void 0 ? _a : options === null || options === void 0 ? void 0 : options.serverList) !== null && _b !== void 0 ? _b : (0, ipfs_server_list_1.filterList)('GatewayDomain')).map(gateway => {
         try {
-            return new URL((0, index_1.ipfsSubdomainURL2)(data, gateway));
+            return (0, index_1.ipfsSubdomainURL2)(data, gateway, options === null || options === void 0 ? void 0 : options.handleOptions);
         }
         catch (e) {
         }

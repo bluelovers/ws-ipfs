@@ -15,8 +15,8 @@ import err_code from 'err-code';
 import toMultiformatsCID from './lib/multiformats';
 import { toJsCID } from './lib/js-cids';
 import { cidToString, IBaseNameOrBaseCodec } from '@lazy-ipfs/cid-to-string';
-import { IParsePathResult } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
 import { _invalidInput } from '@lazy-ipfs/parse-ipfs-path/lib/_invalidInput';
+import { IParsePathResult } from '@lazy-ipfs/parse-ipfs-path/lib/types';
 
 export * from '@lazy-ipfs/detect-cid-lib/lib/types';
 
@@ -26,7 +26,9 @@ export type IStaticCID<C extends ICIDObject = ICIDObject> = new(...argv: any[]) 
 
 export type IToCIDInputValue = ICIDValueInput | IParsePathResult;
 
-export function classCID<C extends ICIDObject = MultiformatsCID>(libCID?: IStaticCID<C> | typeof MultiformatsCID | typeof JsCID | EnumTypeofCID): <T extends IToCIDInputValue>(cidInput: T, libCID?: IStaticCID<C> | EnumTypeofCID) => C
+export function classCID<C extends ICIDObject = MultiformatsCID>(libCID?: IStaticCID<C> | typeof MultiformatsCID | typeof JsCID | EnumTypeofCID): <T extends IToCIDInputValue>(cidInput: T,
+	libCID?: IStaticCID<C> | EnumTypeofCID,
+) => C
 {
 	libCID ??= MultiformatsCID;
 
@@ -83,7 +85,9 @@ export function toRawCID<R extends IRawCIDObject = IRawCIDObject>(cid: ICIDObjec
 	return toRawJsCID(cid) as R
 }
 
-export function toCID<C extends ICIDObject = ICIDObject>(cid: IToCIDInputValue, libCID?: IStaticCID<C> | EnumTypeofCID): C
+export function toCID<C extends ICIDObject = ICIDObject>(cid: IToCIDInputValue,
+	libCID?: IStaticCID<C> | EnumTypeofCID,
+): C
 {
 	if (_invalidInput(cid))
 	{
@@ -92,7 +96,17 @@ export function toCID<C extends ICIDObject = ICIDObject>(cid: IToCIDInputValue, 
 		})
 	}
 
-	return classCID(libCID)(cid, libCID)
+	try
+	{
+		return classCID(libCID)(cid, libCID)
+	}
+	catch (e)
+	{
+		throw err_code(e, {
+			input: cid,
+			libCID,
+		})
+	}
 }
 
 export function strToCidToStr(str: string, base?: IBaseNameOrBaseCodec)

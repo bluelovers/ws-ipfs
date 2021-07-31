@@ -8,7 +8,7 @@ export interface ILinkObjectLike<T = string>
 export function toLinkObjectLike<T = string>(cid: T): ILinkObjectLike<T>
 {
 	return {
-		'/': cid
+		'/': cid,
 	}
 }
 

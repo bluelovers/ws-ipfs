@@ -31,7 +31,10 @@ export interface IOptions {
 export declare type IOptionsInput = IOptions | string;
 export declare function isPath(cid: IToCIDInputValue): cid is string;
 export declare function isCidOrPath(cid: IToCIDInputValue): boolean;
-export declare function pathToCidSource(cid: IToCIDInputValue): string | (Omit<import("ts-type").ITSPickExtra<import("cids"), "version" | "multihash" | "codec" | "code", "multibaseName">, "codec" | "code"> & import("ts-type").ITSRequiredPick<import("ts-type").ITSPickExtra<import("cids"), "version" | "multihash" | "codec" | "code", "multibaseName">, "codec"> & import("ts-type").ITSPartialPick<import("ts-type").ITSPickExtra<import("cids"), "version" | "multihash" | "codec" | "code", "multibaseName">, "code">) | (Omit<import("ts-type").ITSPickExtra<import("cids"), "version" | "multihash" | "codec" | "code", "multibaseName">, "codec" | "code"> & import("ts-type").ITSRequiredPick<import("ts-type").ITSPickExtra<import("cids"), "version" | "multihash" | "codec" | "code", "multibaseName">, "code"> & import("ts-type").ITSPartialPick<import("ts-type").ITSPickExtra<import("cids"), "version" | "multihash" | "codec" | "code", "multibaseName">, "codec">) | import("@lazy-ipfs/detect-cid-lib").IRawMultiformatsCID | Uint8Array | import("@lazy-ipfs/parse-ipfs-path/lib/parsePath").IParsePathResult<string, string, import("@lazy-ipfs/parse-ipfs-path/lib/parsePath").IParsePathResultNsInput>;
+export declare function pathToCidSource(cid: IToCIDInputValue): import("@lazy-ipfs/parse-ipfs-path/lib/types").IParsePathResultStrict<string, string, import("@lazy-ipfs/parse-ipfs-path/lib/asserts").EnumParsePathResultNs>;
+/**
+ * @deprecated
+ */
 export declare function pathToCid(cid: IToCIDInputValue): string;
 export declare function toURL(cid: IToCIDInputValue, options?: IOptionsInput): URL;
 export declare function toPath(cid: ICIDValue, options?: IOptionsInput): string;

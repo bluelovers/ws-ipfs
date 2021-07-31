@@ -10,7 +10,7 @@ function detectIpfsWindowSync(opts) {
         }
         return {
             ipfs,
-            provider: 'window.ipfs'
+            provider: 'window.ipfs',
         };
     }
     catch (err) {

@@ -1,8 +1,10 @@
 import toCID, { isCID, IToCIDInputValue } from '@lazy-ipfs/to-cid';
-import { isParsePathResultLoose, parsePath, resultToPath } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
+import { parsePath } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
 import isIPFS from 'is-ipfs';
 import { isPath } from '../index';
 import { _handleFromURL } from '@lazy-ipfs/parse-ipfs-path/lib/_handleFromURL';
+import { isParsePathResultLoose } from '@lazy-ipfs/parse-ipfs-path/lib/util';
+import { resultToPath } from '@lazy-ipfs/parse-ipfs-path/lib/formatter';
 
 export function _getCidHashFromInput(cid: IToCIDInputValue)
 {
@@ -35,7 +37,7 @@ export function _getCidHashFromInput(cid: IToCIDInputValue)
 		return cid.hash;
 	}
 
-	return toCID(cid)
+	return cid
 }
 
 export function _getPathFromInput(cid: IToCIDInputValue)

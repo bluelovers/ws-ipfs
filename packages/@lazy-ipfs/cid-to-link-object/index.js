@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.cidToLinkObjectLike = exports.toLinkObjectLike = void 0;
 function toLinkObjectLike(cid) {
     return {
-        '/': cid
+        '/': cid,
     };
 }
 exports.toLinkObjectLike = toLinkObjectLike;

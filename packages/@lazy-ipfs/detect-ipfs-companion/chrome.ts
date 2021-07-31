@@ -21,7 +21,7 @@ export function detectIpfsCompanionSync(opts?: IDetectIpfsCompanionSyncParams)
 
 		return {
 			ipfs,
-			provider: 'ipfs-companion' as const
+			provider: 'ipfs-companion' as const,
 		}
 	}
 	catch (err)

@@ -6,9 +6,11 @@ const is_ipfs_1 = (0, tslib_1.__importDefault)(require("is-ipfs"));
 const ipfs_server_list_1 = (0, tslib_1.__importDefault)(require("ipfs-server-list"));
 const to_cid_1 = require("@lazy-ipfs/to-cid");
 const cid_to_string_1 = require("@lazy-ipfs/cid-to-string");
-const util_1 = require("./lib/util");
+const parsePath_1 = require("@lazy-ipfs/parse-ipfs-path/lib/parsePath");
 const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
 const _invalidInput_1 = require("@lazy-ipfs/parse-ipfs-path/lib/_invalidInput");
+const util_1 = require("@lazy-ipfs/parse-ipfs-path/lib/util");
+const formatter_1 = require("@lazy-ipfs/parse-ipfs-path/lib/formatter");
 var EnumIPFSLinkType;
 (function (EnumIPFSLinkType) {
     EnumIPFSLinkType["ipfs"] = "ipfs";
@@ -20,7 +22,7 @@ var EnumIPFSLinkType;
     EnumIPFSLinkType["IPNS"] = "ipns";
 })(EnumIPFSLinkType = exports.EnumIPFSLinkType || (exports.EnumIPFSLinkType = {}));
 function isPath(cid) {
-    if ((0, to_cid_1.isCID)(cid)) {
+    if ((0, to_cid_1.isCID)(cid) || (0, util_1._parsedPathIsCid)(cid)) {
         return false;
     }
     // @ts-ignore
@@ -37,13 +39,12 @@ function pathToCidSource(cid) {
             cid,
         });
     }
-    cid = (0, util_1._getCidHashFromInput)(cid);
-    if (typeof cid === 'string') {
-        return cid.replace(/^\/ip[nf]s\//, '');
-    }
-    return cid;
+    return (0, parsePath_1.parsePath)(cid);
 }
 exports.pathToCidSource = pathToCidSource;
+/**
+ * @deprecated
+ */
 function pathToCid(cid) {
     if ((0, _invalidInput_1._invalidInput)(cid)) {
         throw (0, err_code_1.default)(new TypeError(`Invalid input: ${cid}`), {
@@ -66,7 +67,7 @@ function toURL(cid, options = {}) {
         };
     }
     cid = pathToCidSource(cid);
-    if (!options.ignoreCheck && !isCidOrPath(cid)) {
+    if (!options.ignoreCheck && !(0, util_1.isParsePathResultLoose)(cid) && !isCidOrPath(cid)) {
         throw (0, err_code_1.default)(new TypeError(`cid '${cid}' is not valid ipfs`), {
             cid,
             options,
@@ -86,8 +87,9 @@ function toURL(cid, options = {}) {
     if ((0, to_cid_1.isCID)(cid)) {
         cid = (0, cid_to_string_1.cidToString)(cid);
     }
-    else if (isPath(cid)) {
-        cid = pathToCid(cid);
+    else {
+        let ret = (0, parsePath_1.parsePath)(cid);
+        cid = (0, formatter_1.resultToPathWithNs)(ret);
     }
     let url = new URL(`${prefix}${cid}`);
     if (typeof filename === 'string' && filename.length > 0) {

@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { IOptionsInput } from 'to-ipfs-url';
 import { IIPFSClientAddresses } from '@bluelovers/ipfs-http-client';
 import { AbortControllerTimer } from 'abort-controller-timer';

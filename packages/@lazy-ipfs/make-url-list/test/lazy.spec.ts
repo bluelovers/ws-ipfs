@@ -74,7 +74,17 @@ describe(`describe`, () =>
 
 function _check(cid)
 {
+	expect(cid).toMatchSnapshot();
+
 	let actual = lazyMakeIpfsAllServerURL(cid);
 
 	expect(actual).toMatchSnapshot();
+
+	let actual2 = lazyMakeIpfsAllServerURL(cid, {
+		handleOptions: {
+			filename: '7777.epub',
+		},
+	});
+
+	expect(actual).not.toEqual(actual2);
 }

@@ -20,7 +20,7 @@ export function cidStartAndEnd(value: string, sep: string = '…')
 	}
 }
 
-export function cidEllipsis(value: ICIDValue , sep?: string)
+export function cidEllipsis(value: ICIDValue, sep?: string)
 {
 	let result = cidStartAndEnd(value?.toString(), sep);
 

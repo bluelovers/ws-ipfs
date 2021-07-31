@@ -2,23 +2,64 @@ import err_code from 'err-code';
 import { CID as MultiformatsCID } from 'multiformats'
 import { isRawJsCIDLike, SymbolJsCID, toRawJsCIDFake } from '@lazy-ipfs/detect-cid-lib/lib/js-cids';
 import { ICIDValueInput, ICIDValueOrRaw } from '@lazy-ipfs/detect-cid-lib/lib/types';
-import { IRawMultiformatsCIDFake, isRawMultiformatsCIDLike, toRawMultiformatsCIDFake } from '@lazy-ipfs/detect-cid-lib/lib/js-multiformats';
+import {
+	IRawMultiformatsCIDFake,
+	isRawMultiformatsCIDLike,
+	toRawMultiformatsCIDFake,
+} from '@lazy-ipfs/detect-cid-lib/lib/js-multiformats';
 import { _isArrayLike } from '@lazy-ipfs/detect-cid-lib/lib/util';
-import { isParsePathResult, isParsePathResultLoose, parsePath } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
+import { parsePath } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
 import { _handleLibCID } from './_handleLibCID';
 import { EnumTypeofCID } from '@lazy-ipfs/detect-cid-lib';
-import { IToCIDInputValue } from '../index';
+import { isCID, IToCIDInputValue } from '../index';
+import { isParsePathResultLoose } from '@lazy-ipfs/parse-ipfs-path/lib/util';
+import { isParsePathResult } from '@lazy-ipfs/parse-ipfs-path/lib/asserts';
+import { cid as is_cid } from 'is-ipfs';
+import {
+	_handleFromURL,
 
-export function toMultiformatsCID<T extends IToCIDInputValue, C extends MultiformatsCID = MultiformatsCID>(cidInput: T, libCID?: Pick<typeof MultiformatsCID, 'parse' | 'decode' | 'asCID'> | EnumTypeofCID): C
+} from '@lazy-ipfs/parse-ipfs-path/lib/_handleFromURL';
+import { _if_path_can_be_cid, _remove_path_prefix, _url_href } from '@lazy-ipfs/is-cid/index';
+
+export function toMultiformatsCID<T extends IToCIDInputValue, C extends MultiformatsCID = MultiformatsCID>(cidInput: T,
+	libCID?: Pick<typeof MultiformatsCID, 'parse' | 'decode' | 'asCID'> | EnumTypeofCID,
+): C
 {
 	libCID = _handleLibCID(libCID, MultiformatsCID);
 
-	if (typeof cidInput === 'string')
+	if (typeof cidInput === 'string' || cidInput instanceof URL)
 	{
-		return libCID.parse(parsePath(cidInput, {
-			unsafeReturn: true,
-			noThrow: true,
-		}).hash) as any
+		// @ts-ignore
+		cidInput = _url_href(cidInput as any) as string
+
+		let ret;
+		if (!_if_path_can_be_cid(cidInput))
+		{
+			if ((ret = _handleFromURL(cidInput)))
+			{
+				cidInput = ret.hash ?? ret;
+
+				if (_if_path_can_be_cid(cidInput as any))
+				{
+					cidInput = _remove_path_prefix(cidInput as any) as any
+				}
+			}
+
+			if (/[\/]/.test(cidInput as any))
+			{
+				cidInput = parsePath(cidInput as any, {
+					unsafeReturn: true,
+					noThrow: true,
+				}).hash as any
+			}
+		}
+
+		if (_if_path_can_be_cid(cidInput as any))
+		{
+			cidInput = _remove_path_prefix(cidInput as any) as any
+		}
+
+		return libCID.parse(cidInput as any) as any
 	}
 	else if (_isArrayLike(cidInput))
 	{
@@ -45,7 +86,7 @@ export function toMultiformatsCID<T extends IToCIDInputValue, C extends Multifor
 
 	if (!cid)
 	{
-		throw err_code(new TypeError(`Invalid type for convert to MultiformatsCID`), {
+		throw err_code(new TypeError(`Invalid type for convert to MultiformatsCID: ${cidInput}`), {
 			input: cidInput,
 		})
 	}

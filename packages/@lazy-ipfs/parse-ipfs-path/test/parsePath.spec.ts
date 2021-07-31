@@ -1,5 +1,7 @@
-import { EnumParsePathResultNs, parsePath, resultToPath } from '../lib/parsePath';
+import { parsePath } from '../lib/parsePath';
 import toCID from '@lazy-ipfs/to-cid';
+import { resultToPath } from '../lib/formatter';
+import { EnumParsePathResultNs } from '../lib/asserts';
 
 test('should parse input as string CID', () =>
 {

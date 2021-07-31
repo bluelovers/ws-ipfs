@@ -1,6 +1,6 @@
 import { IIPFSAddressesLike } from 'ipfs-server-list';
-import { IParsePathResult } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
 import { ICIDValueOrRaw } from '@lazy-ipfs/detect-cid-lib/lib/types';
+import { IParsePathResult } from '@lazy-ipfs/parse-ipfs-path/lib/types';
 export declare type IIPFSAddressesLikeWithGatewayDomain<T extends IIPFSAddressesLike> = Omit<T, 'GatewayDomain'> & {
     GatewayDomain: string;
 };

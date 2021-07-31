@@ -3,9 +3,11 @@
  */
 import { toCID } from '@lazy-ipfs/to-cid';
 import { getIpfsServerList, IIPFSAddressesLike } from 'ipfs-server-list';
-import { IParsePathResult, isParsePathResult, parsePath } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
+import { parsePath } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
 import { cidToString, cidToBase32 } from '@lazy-ipfs/cid-to-string';
 import { ICIDValueOrRaw, IRawCIDObject } from '@lazy-ipfs/detect-cid-lib/lib/types';
+import { IParsePathResult } from '@lazy-ipfs/parse-ipfs-path/lib/types';
+import { isParsePathResult } from '@lazy-ipfs/parse-ipfs-path/lib/asserts';
 
 const defaultGatewayDomain = getIpfsServerList().cloudflare.GatewayDomain;
 
@@ -103,7 +105,8 @@ export interface IOptions
 export function _handleOptions(cid: ISubdomainInput,
 	gatewayDomain?: string | IIPFSAddressesLike,
 	protocol?: IOptions["protocol"] | IOptions,
-	options?: IOptions,)
+	options?: IOptions,
+)
 {
 	if (protocol !== null && typeof protocol === 'object' && !options)
 	{

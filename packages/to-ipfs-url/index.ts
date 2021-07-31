@@ -3,10 +3,15 @@ import ipfsServerList from 'ipfs-server-list';
 import { isCID, IToCIDInputValue } from '@lazy-ipfs/to-cid';
 import { ICIDValue } from '@lazy-ipfs/detect-cid-lib/lib/types';
 import { cidToString } from '@lazy-ipfs/cid-to-string';
-import { isParsePathResultLoose, resultToPath } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
+import {
+	parsePath,
+
+} from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
 import { _getCidHashFromInput, _getPathFromInput } from './lib/util';
 import err_code from 'err-code';
 import { _invalidInput } from '@lazy-ipfs/parse-ipfs-path/lib/_invalidInput';
+import { isParsePathResultLoose, _parsedPathIsCid } from '@lazy-ipfs/parse-ipfs-path/lib/util';
+import { resultToPath, resultToPathWithNs } from '@lazy-ipfs/parse-ipfs-path/lib/formatter';
 
 export enum EnumIPFSLinkType
 {
@@ -47,7 +52,7 @@ export type IOptionsInput = IOptions | string;
 
 export function isPath(cid: IToCIDInputValue): cid is string
 {
-	if (isCID(cid))
+	if (isCID(cid) || _parsedPathIsCid(cid as any))
 	{
 		return false
 	}
@@ -70,16 +75,12 @@ export function pathToCidSource(cid: IToCIDInputValue)
 		})
 	}
 
-	cid = _getCidHashFromInput(cid);
-
-	if (typeof cid === 'string')
-	{
-		return cid.replace(/^\/ip[nf]s\//, '')
-	}
-
-	return cid
+	return parsePath(cid as any)
 }
 
+/**
+ * @deprecated
+ */
 export function pathToCid(cid: IToCIDInputValue): string
 {
 	if (_invalidInput(cid))
@@ -110,7 +111,7 @@ export function toURL(cid: IToCIDInputValue, options: IOptionsInput = {})
 
 	cid = pathToCidSource(cid);
 
-	if (!options.ignoreCheck && !isCidOrPath(cid))
+	if (!options.ignoreCheck && !isParsePathResultLoose(cid) && !isCidOrPath(cid))
 	{
 		throw err_code(new TypeError(`cid '${cid}' is not valid ipfs`), {
 			cid,
@@ -136,9 +137,10 @@ export function toURL(cid: IToCIDInputValue, options: IOptionsInput = {})
 	{
 		cid = cidToString(cid)
 	}
-	else if (isPath(cid))
+	else
 	{
-		cid = pathToCid(cid)
+		let ret = parsePath(cid as any)
+		cid = resultToPathWithNs(ret);
 	}
 
 	let url = new URL(`${prefix}${cid}`);

@@ -3,16 +3,17 @@ import { filterList } from 'ipfs-server-list';
 import { toURL, IOptions as IToURLOptions } from 'to-ipfs-url';
 import { ipfsSubdomainURL2, IOptions as ISubdomainURLOptions } from '@lazy-ipfs/ipfs-subdomain/index';
 import {
-	EnumParsePathResultNs,
-	IParsePathResult,
 	parsePath,
-	resultToPath,
+
 } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
 import { IPFS } from 'ipfs-core-types';
 import { array_unique_overwrite } from 'array-hyper-unique';
 import { LazyURL } from 'lazy-url';
 import { ipfsGatewayAddressesLink } from '@lazy-ipfs/ipfs-api-url';
 import { IToCIDInputValue } from '@lazy-ipfs/to-cid';
+import { resultToPath } from '@lazy-ipfs/parse-ipfs-path/lib/formatter';
+import { IParsePathResult } from '@lazy-ipfs/parse-ipfs-path/lib/types';
+import { EnumParsePathResultNs } from '@lazy-ipfs/parse-ipfs-path/lib/asserts';
 
 export interface IOptions
 {
@@ -59,7 +60,7 @@ export function makeIpfsGatewayDomainURLList(cid: IToCIDInputValue, options?: IO
 	{
 		try
 		{
-			return new URL(ipfsSubdomainURL2(data, gateway));
+			return ipfsSubdomainURL2(data, gateway, options?.handleOptions);
 		}
 		catch (e)
 		{

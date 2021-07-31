@@ -15,7 +15,7 @@ function detectIpfsCompanionSync(opts) {
         }
         return {
             ipfs,
-            provider: 'ipfs-companion'
+            provider: 'ipfs-companion',
         };
     }
     catch (err) {

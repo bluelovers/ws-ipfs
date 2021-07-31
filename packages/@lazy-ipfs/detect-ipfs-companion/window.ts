@@ -14,7 +14,7 @@ export function detectIpfsWindowSync(opts?: IDetectIpfsWindowParams)
 
 		return {
 			ipfs,
-			provider: 'window.ipfs' as const
+			provider: 'window.ipfs' as const,
 		}
 	}
 	catch (err)
