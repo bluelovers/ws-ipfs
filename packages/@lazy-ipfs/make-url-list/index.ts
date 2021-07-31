@@ -12,6 +12,7 @@ import { IPFS } from 'ipfs-core-types';
 import { array_unique_overwrite } from 'array-hyper-unique';
 import { LazyURL } from 'lazy-url';
 import { ipfsGatewayAddressesLink } from '@lazy-ipfs/ipfs-api-url';
+import { IToCIDInputValue } from '@lazy-ipfs/to-cid';
 
 export interface IOptions
 {
@@ -21,7 +22,7 @@ export interface IOptions
 	ipfsGatewayDomainList?: string[],
 }
 
-export function makeIpfsGatewayAddressesURLAsync(cid: ICIDValue, options: Omit<IOptions, 'serverList'> & {
+export function makeIpfsGatewayAddressesURLAsync(cid: IToCIDInputValue, options: Omit<IOptions, 'serverList'> & {
 	ipfs: IPFS,
 })
 {
@@ -34,7 +35,7 @@ export function makeIpfsGatewayAddressesURLAsync(cid: ICIDValue, options: Omit<I
 		}))
 }
 
-export function makeIpfsGatewayURLList(cid: ICIDValue, options?: IOptions)
+export function makeIpfsGatewayURLList(cid: IToCIDInputValue, options?: IOptions)
 {
 	return (options?.ipfsGatewayList ?? options?.serverList ?? filterList('Gateway')).map(gateway =>
 	{
@@ -47,9 +48,9 @@ export function makeIpfsGatewayURLList(cid: ICIDValue, options?: IOptions)
 	})
 }
 
-export function makeIpfsGatewayDomainURLList(cid: ICIDValue, options?: IOptions)
+export function makeIpfsGatewayDomainURLList(cid: IToCIDInputValue, options?: IOptions)
 {
-	const data: IParsePathResult = parsePath(cid, {
+	const data: IParsePathResult = parsePath(cid as any, {
 		noThrow: true,
 		unsafeReturn: true,
 	});
@@ -77,7 +78,7 @@ export function makeShareIpfsURL(cid: ICIDValue, server?: string)
 	return new LazyURL(`${server ?? 'https://share.ipfs.io'}/#/${data.hash}`)
 }
 
-export function lazyMakeIpfsAllServerURL(cid: ICIDValue, options?: IOptions)
+export function lazyMakeIpfsAllServerURL(cid: IToCIDInputValue, options?: IOptions)
 {
 	options ??= {};
 
@@ -96,7 +97,7 @@ export function lazyMakeIpfsAllServerURL(cid: ICIDValue, options?: IOptions)
 		}) ?? []);
 	}
 
-	list.push(...makeIpfsGatewayURLList(cid, {
+	list.push(...makeIpfsGatewayURLList(cid as any, {
 		...options,
 		serverList: options.ipfsGatewayList,
 	}));

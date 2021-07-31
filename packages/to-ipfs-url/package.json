@@ -38,6 +38,7 @@
     "@lazy-ipfs/cid-to-string": "^1.0.2",
     "@lazy-ipfs/detect-cid-lib": "^1.0.2",
     "@lazy-ipfs/to-cid": "^1.0.22",
+    "err-code": "^3.0.1",
     "ipfs-server-list": "^1.0.64",
     "is-ipfs": "^6.0.1",
     "tslib": "^2.3.0"

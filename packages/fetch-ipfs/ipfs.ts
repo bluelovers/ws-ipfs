@@ -3,7 +3,7 @@ import Bluebird from 'bluebird';
 import { IIPFSPromiseApi } from 'ipfs-types';
 import { newAbortController } from './util';
 import { IPFS } from 'ipfs-core-types';
-import { ICIDValue } from '../@lazy-ipfs/detect-cid-lib/lib/types';
+import { ICIDValue } from '@lazy-ipfs/detect-cid-lib/lib/types';
 import { toCID } from '@lazy-ipfs/to-cid';
 import { cidToString } from '@lazy-ipfs/cid-to-string';
 

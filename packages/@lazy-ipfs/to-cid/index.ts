@@ -16,6 +16,7 @@ import toMultiformatsCID from './lib/multiformats';
 import { toJsCID } from './lib/js-cids';
 import { cidToString, IBaseNameOrBaseCodec } from '@lazy-ipfs/cid-to-string';
 import { IParsePathResult } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
+import { _invalidInput } from '@lazy-ipfs/parse-ipfs-path/lib/_invalidInput';
 
 export * from '@lazy-ipfs/detect-cid-lib/lib/types';
 
@@ -84,6 +85,13 @@ export function toRawCID<R extends IRawCIDObject = IRawCIDObject>(cid: ICIDObjec
 
 export function toCID<C extends ICIDObject = ICIDObject>(cid: IToCIDInputValue, libCID?: IStaticCID<C> | EnumTypeofCID): C
 {
+	if (_invalidInput(cid))
+	{
+		throw err_code(new TypeError(`Invalid input: ${cid}`), {
+			input: cid,
+		})
+	}
+
 	return classCID(libCID)(cid, libCID)
 }
 

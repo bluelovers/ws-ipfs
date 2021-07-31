@@ -1,8 +1,12 @@
 import isIPFS from 'is-ipfs';
 import ipfsServerList from 'ipfs-server-list';
-import { isCID } from '@lazy-ipfs/to-cid';
+import { isCID, IToCIDInputValue } from '@lazy-ipfs/to-cid';
 import { ICIDValue } from '@lazy-ipfs/detect-cid-lib/lib/types';
 import { cidToString } from '@lazy-ipfs/cid-to-string';
+import { isParsePathResultLoose, resultToPath } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
+import { _getCidHashFromInput, _getPathFromInput } from './lib/util';
+import err_code from 'err-code';
+import { _invalidInput } from '@lazy-ipfs/parse-ipfs-path/lib/_invalidInput';
 
 export enum EnumIPFSLinkType
 {
@@ -41,33 +45,62 @@ export interface IOptions
 
 export type IOptionsInput = IOptions | string;
 
-export function isPath(cid: ICIDValue): cid is string
+export function isPath(cid: IToCIDInputValue): cid is string
 {
 	if (isCID(cid))
 	{
 		return false
 	}
 
+	// @ts-ignore
 	return isIPFS.path(cid) || isIPFS.ipnsPath(cid) || isIPFS.cidPath(cid)
 }
 
-export function isCidOrPath(cid: ICIDValue): boolean
+export function isCidOrPath(cid: IToCIDInputValue): boolean
 {
 	return isIPFS.cid(cid) || isPath(cid) || isCID(cid)
 }
 
-export function pathToCid(cid: ICIDValue): string
+export function pathToCidSource(cid: IToCIDInputValue)
 {
-	if (isCID(cid))
+	if (!cid)
 	{
-		return cidToString(cid)
+		throw err_code(new TypeError(`Invalid input: ${cid}`), {
+			cid,
+		})
 	}
 
-	return cid.replace(/^\/ip[nf]s\//, '')
+	cid = _getCidHashFromInput(cid);
+
+	if (typeof cid === 'string')
+	{
+		return cid.replace(/^\/ip[nf]s\//, '')
+	}
+
+	return cid
 }
 
-export function toURL(cid: ICIDValue, options: IOptionsInput = {})
+export function pathToCid(cid: IToCIDInputValue): string
 {
+	if (_invalidInput(cid))
+	{
+		throw err_code(new TypeError(`Invalid input: ${cid}`), {
+			input: cid,
+		})
+	}
+
+	return pathToCidSource(cid).toString()
+}
+
+export function toURL(cid: IToCIDInputValue, options: IOptionsInput = {})
+{
+	if (_invalidInput(cid))
+	{
+		throw err_code(new TypeError(`Invalid input: ${cid}`), {
+			input: cid,
+		})
+	}
+
 	if (typeof options === 'string')
 	{
 		options = {
@@ -75,9 +108,14 @@ export function toURL(cid: ICIDValue, options: IOptionsInput = {})
 		}
 	}
 
+	cid = pathToCidSource(cid);
+
 	if (!options.ignoreCheck && !isCidOrPath(cid))
 	{
-		throw new TypeError(`cid '${cid}' is not valid ipfs`)
+		throw err_code(new TypeError(`cid '${cid}' is not valid ipfs`), {
+			cid,
+			options,
+		})
 	}
 
 	let { filename, type } = options || {} as null;

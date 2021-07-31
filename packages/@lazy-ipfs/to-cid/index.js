@@ -13,6 +13,7 @@ const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
 const multiformats_2 = (0, tslib_1.__importDefault)(require("./lib/multiformats"));
 const js_cids_2 = require("./lib/js-cids");
 const cid_to_string_1 = require("@lazy-ipfs/cid-to-string");
+const _invalidInput_1 = require("@lazy-ipfs/parse-ipfs-path/lib/_invalidInput");
 (0, tslib_1.__exportStar)(require("@lazy-ipfs/detect-cid-lib/lib/types"), exports);
 var js_cids_3 = require("@lazy-ipfs/detect-cid-lib/lib/js-cids");
 Object.defineProperty(exports, "SymbolCID", { enumerable: true, get: function () { return js_cids_3.SymbolJsCID; } });
@@ -58,6 +59,11 @@ function toRawCID(cid) {
 }
 exports.toRawCID = toRawCID;
 function toCID(cid, libCID) {
+    if ((0, _invalidInput_1._invalidInput)(cid)) {
+        throw (0, err_code_1.default)(new TypeError(`Invalid input: ${cid}`), {
+            input: cid,
+        });
+    }
     return classCID(libCID)(cid, libCID);
 }
 exports.toCID = toCID;

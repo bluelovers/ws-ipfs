@@ -45,6 +45,96 @@ Object {
 
 exports[`describe /ipfs/hash 2`] = `"QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd"`;
 
+exports[`describe @ipld/js-cid/CID 1`] = `
+Object {
+  "code": 112,
+  "hash": Uint8Array [
+    18,
+    32,
+    76,
+    232,
+    150,
+    127,
+    149,
+    124,
+    163,
+    248,
+    248,
+    180,
+    37,
+    130,
+    164,
+    234,
+    122,
+    178,
+    127,
+    106,
+    233,
+    159,
+    188,
+    136,
+    165,
+    115,
+    201,
+    56,
+    146,
+    24,
+    205,
+    187,
+    255,
+    44,
+  ],
+  "version": 0,
+}
+`;
+
+exports[`describe @ipld/js-cid/CID 2`] = `"QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd"`;
+
+exports[`describe @ipld/js-multiformats/CID 1`] = `
+Object {
+  "code": 112,
+  "hash": Uint8Array [
+    18,
+    32,
+    76,
+    232,
+    150,
+    127,
+    149,
+    124,
+    163,
+    248,
+    248,
+    180,
+    37,
+    130,
+    164,
+    234,
+    122,
+    178,
+    127,
+    106,
+    233,
+    159,
+    188,
+    136,
+    165,
+    115,
+    201,
+    56,
+    146,
+    24,
+    205,
+    187,
+    255,
+    44,
+  ],
+  "version": 0,
+}
+`;
+
+exports[`describe @ipld/js-multiformats/CID 2`] = `"QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd"`;
+
 exports[`describe ParsePathResult 1`] = `
 Object {
   "code": 112,
@@ -89,6 +179,51 @@ Object {
 `;
 
 exports[`describe ParsePathResult 2`] = `"QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd"`;
+
+exports[`describe cidStr 1`] = `
+Object {
+  "code": 112,
+  "hash": Uint8Array [
+    18,
+    32,
+    76,
+    232,
+    150,
+    127,
+    149,
+    124,
+    163,
+    248,
+    248,
+    180,
+    37,
+    130,
+    164,
+    234,
+    122,
+    178,
+    127,
+    106,
+    233,
+    159,
+    188,
+    136,
+    165,
+    115,
+    201,
+    56,
+    146,
+    24,
+    205,
+    187,
+    255,
+    44,
+  ],
+  "version": 0,
+}
+`;
+
+exports[`describe cidStr 2`] = `"QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd"`;
 
 exports[`describe url 1`] = `
 Object {

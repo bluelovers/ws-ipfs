@@ -1,11 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.toLink = exports.toPath = exports.toURL = exports.pathToCid = exports.isCidOrPath = exports.isPath = exports.EnumIPFSLinkType = void 0;
+exports.toLink = exports.toPath = exports.toURL = exports.pathToCid = exports.pathToCidSource = exports.isCidOrPath = exports.isPath = exports.EnumIPFSLinkType = void 0;
 const tslib_1 = require("tslib");
 const is_ipfs_1 = (0, tslib_1.__importDefault)(require("is-ipfs"));
 const ipfs_server_list_1 = (0, tslib_1.__importDefault)(require("ipfs-server-list"));
 const to_cid_1 = require("@lazy-ipfs/to-cid");
 const cid_to_string_1 = require("@lazy-ipfs/cid-to-string");
+const util_1 = require("./lib/util");
+const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
+const _invalidInput_1 = require("@lazy-ipfs/parse-ipfs-path/lib/_invalidInput");
 var EnumIPFSLinkType;
 (function (EnumIPFSLinkType) {
     EnumIPFSLinkType["ipfs"] = "ipfs";
@@ -20,6 +23,7 @@ function isPath(cid) {
     if ((0, to_cid_1.isCID)(cid)) {
         return false;
     }
+    // @ts-ignore
     return is_ipfs_1.default.path(cid) || is_ipfs_1.default.ipnsPath(cid) || is_ipfs_1.default.cidPath(cid);
 }
 exports.isPath = isPath;
@@ -27,22 +31,46 @@ function isCidOrPath(cid) {
     return is_ipfs_1.default.cid(cid) || isPath(cid) || (0, to_cid_1.isCID)(cid);
 }
 exports.isCidOrPath = isCidOrPath;
-function pathToCid(cid) {
-    if ((0, to_cid_1.isCID)(cid)) {
-        return (0, cid_to_string_1.cidToString)(cid);
+function pathToCidSource(cid) {
+    if (!cid) {
+        throw (0, err_code_1.default)(new TypeError(`Invalid input: ${cid}`), {
+            cid,
+        });
     }
-    return cid.replace(/^\/ip[nf]s\//, '');
+    cid = (0, util_1._getCidHashFromInput)(cid);
+    if (typeof cid === 'string') {
+        return cid.replace(/^\/ip[nf]s\//, '');
+    }
+    return cid;
+}
+exports.pathToCidSource = pathToCidSource;
+function pathToCid(cid) {
+    if ((0, _invalidInput_1._invalidInput)(cid)) {
+        throw (0, err_code_1.default)(new TypeError(`Invalid input: ${cid}`), {
+            input: cid,
+        });
+    }
+    return pathToCidSource(cid).toString();
 }
 exports.pathToCid = pathToCid;
 function toURL(cid, options = {}) {
     var _a, _b, _c, _d, _e, _f;
+    if ((0, _invalidInput_1._invalidInput)(cid)) {
+        throw (0, err_code_1.default)(new TypeError(`Invalid input: ${cid}`), {
+            input: cid,
+        });
+    }
     if (typeof options === 'string') {
         options = {
             filename: options,
         };
     }
+    cid = pathToCidSource(cid);
     if (!options.ignoreCheck && !isCidOrPath(cid)) {
-        throw new TypeError(`cid '${cid}' is not valid ipfs`);
+        throw (0, err_code_1.default)(new TypeError(`cid '${cid}' is not valid ipfs`), {
+            cid,
+            options,
+        });
     }
     let { filename, type } = options || {};
     let prefix = (_b = (_a = options.prefix) === null || _a === void 0 ? void 0 : _a.ipfs) !== null && _b !== void 0 ? _b : ipfs_server_list_1.default.ipfs.Gateway;

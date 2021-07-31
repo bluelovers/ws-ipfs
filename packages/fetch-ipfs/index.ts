@@ -5,7 +5,7 @@ import Bluebird, { TimeoutError } from 'bluebird';
 import isErrorCode from 'is-error-code';
 import { newAbortController, handleTimeout, handleCID, IFetchOptions } from './util';
 import { IOptionsInput } from 'to-ipfs-url';
-import { ICIDValue } from '../@lazy-ipfs/detect-cid-lib/lib/types';
+import { ICIDValue } from '@lazy-ipfs/detect-cid-lib/lib/types';
 import { cidToString } from '@lazy-ipfs/cid-to-string';
 import { toCID } from '@lazy-ipfs/to-cid';
 

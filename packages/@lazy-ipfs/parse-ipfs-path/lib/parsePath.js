@@ -7,6 +7,10 @@ const to_cid_1 = require("@lazy-ipfs/to-cid");
 Object.defineProperty(exports, "strToCidToStr", { enumerable: true, get: function () { return to_cid_1.strToCidToStr; } });
 const util_1 = require("@lazy-ipfs/detect-cid-lib/lib/util");
 const index_1 = (0, tslib_1.__importDefault)(require("@lazy-ipfs/cid-to-string/index"));
+const util_2 = require("./util");
+const _handleFromURL_1 = require("./_handleFromURL");
+const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
+const _invalidInput_1 = require("./_invalidInput");
 var EnumParsePathResultNs;
 (function (EnumParsePathResultNs) {
     EnumParsePathResultNs["ipfs"] = "ipfs";
@@ -16,13 +20,25 @@ var EnumParsePathResultNs;
  * @see https://github.com/tableflip/dweb-path
  */
 function parsePathCore(input) {
+    var _a, _b, _c, _d;
+    const originalInput = input;
     let ns, hash, path;
-    if (Buffer.isBuffer(input) || (0, util_1._isArrayLike)(input) || (0, to_cid_1.isCID)(input)) {
-        hash = (0, index_1.default)((0, to_cid_1.toCID)(input));
-        ns = "ipfs" /* ipfs */;
-        path = '';
+    if ((0, _invalidInput_1._invalidInput)(input)) {
+        throw (0, err_code_1.default)(new TypeError(`Invalid input: ${input}`), {
+            input,
+        });
     }
-    else if (typeof input === 'string' || Object.prototype.toString.call(input) === '[object String]') {
+    else if (input instanceof URL) {
+        let href = (_c = (_b = (_a = input).toRealString) === null || _b === void 0 ? void 0 : _b.call(_a)) !== null && _c !== void 0 ? _c : input.toString();
+        return parsePathCore(href);
+    }
+    else if (typeof input === 'string' || (0, util_2._isStringObject)(input)) {
+        input = String(input);
+        // @ts-ignore
+        input = (_d = (0, _handleFromURL_1._handleFromURL)(input)) !== null && _d !== void 0 ? _d : input;
+        if (typeof input !== 'string') {
+            return input;
+        }
         // Ensure leading slash
         if (input[0] !== '/') {
             input = `/${input}`;
@@ -42,7 +58,11 @@ function parsePathCore(input) {
                     hash = parts[2];
                 }
                 else {
-                    throw err;
+                    throw (0, err_code_1.default)(err, {
+                        originalInput,
+                        input,
+                        parts,
+                    });
                 }
             }
             ns = parts[1];
@@ -54,7 +74,11 @@ function parsePathCore(input) {
                 hash = (0, to_cid_1.strToCidToStr)(parts[1]);
             }
             catch (err) {
-                throw new TypeError(`Unknown namespace: ${parts[1]}`);
+                throw (0, err_code_1.default)(new TypeError(`Unknown namespace: ${parts[1]}`), {
+                    originalInput,
+                    input,
+                    parts,
+                });
             }
             ns = "ipfs" /* ipfs */;
             path = parts.slice(2).join('/');
@@ -64,8 +88,19 @@ function parsePathCore(input) {
             path = `/${path}`;
         }
     }
+    else if (isParsePathResultLoose(input)) {
+        assertToParsePathResult(input);
+        return input;
+    }
+    else if (Buffer.isBuffer(input) || (0, util_1._isArrayLike)(input) || (0, to_cid_1.isCID)(input)) {
+        hash = (0, index_1.default)((0, to_cid_1.toCID)(input));
+        ns = "ipfs" /* ipfs */;
+        path = '';
+    }
     else {
-        throw new TypeError(`Invalid input: ${input}`); // What even is this?
+        throw (0, err_code_1.default)(new TypeError(`Invalid input: ${input}`), {
+            input,
+        }); // What even is this?
     }
     return {
         ns,
@@ -79,8 +114,11 @@ function parsePath(input, options) {
         return parsePathCore(input);
     }
     catch (e) {
-        if (!(options === null || options === void 0 ? void 0 : options.noThrow)) {
-            throw e;
+        if (!(options === null || options === void 0 ? void 0 : options.noThrow) && !(options === null || options === void 0 ? void 0 : options.unsafeReturn)) {
+            throw (0, err_code_1.default)(e, {
+                originalInput: input,
+                options,
+            });
         }
     }
     if (options === null || options === void 0 ? void 0 : options.unsafeReturn) {
@@ -95,18 +133,24 @@ exports.parsePath = parsePath;
 function assertToEnumNs(ns) {
     // @ts-ignore
     if (EnumParsePathResultNs[ns] !== ns) {
-        throw new TypeError(`Invalid ns: ${ns}`);
+        throw (0, err_code_1.default)(new TypeError(`Invalid ns: ${ns}`), {
+            ns,
+        });
     }
 }
 exports.assertToEnumNs = assertToEnumNs;
 function assertToParsePathResultPath(path) {
     if (typeof path === 'string' && path.length) {
-        if (path[0] !== '/' || path.length < 2) {
-            throw new TypeError(`Invalid path: ${path}`);
+        if (path[0] !== '/' && path.length < 2) {
+            throw (0, err_code_1.default)(new TypeError(`Invalid path: ${path}`), {
+                path,
+            });
         }
     }
     else if (path !== '' && typeof path !== 'undefined' && path !== null) {
-        throw new TypeError(`Invalid path: ${path}`);
+        throw (0, err_code_1.default)(new TypeError(`Invalid path: ${path}`), {
+            path,
+        });
     }
 }
 exports.assertToParsePathResultPath = assertToParsePathResultPath;
@@ -117,7 +161,9 @@ function assertToParsePathResult(result) {
             (0, to_cid_1.toCID)(result.hash);
         }
         catch (e) {
-            throw new TypeError(`Invalid hash: ${result.hash}`);
+            throw (0, err_code_1.default)(new TypeError(`Invalid hash: ${result.hash}`), {
+                result,
+            });
         }
     }
     assertToParsePathResultPath(result.path);

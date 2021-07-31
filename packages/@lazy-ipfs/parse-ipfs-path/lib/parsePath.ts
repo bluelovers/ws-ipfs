@@ -3,6 +3,12 @@ import { isCID, toCID, strToCidToStr } from '@lazy-ipfs/to-cid';
 import { ICIDValue } from '@lazy-ipfs/detect-cid-lib/lib/types';
 import { _isArrayLike } from '@lazy-ipfs/detect-cid-lib/lib/util';
 import cidToString from '@lazy-ipfs/cid-to-string/index';
+import isIPFS from 'is-ipfs';
+import { _isStringObject } from './util';
+import { LazyURL } from 'lazy-url';
+import { _handleFromURL } from './_handleFromURL';
+import err_code from 'err-code';
+import { _invalidInput } from './_invalidInput';
 
 export { strToCidToStr }
 
@@ -54,17 +60,34 @@ export type IParsePathInputValue = ICIDValue | Uint8Array;
  */
 export function parsePathCore<H extends string = string, P extends IParsePathResultPathInput = string, N extends EnumParsePathResultNs = EnumParsePathResultNs>(input: IParsePathInputValue): IParsePathResultStrict<H, P, N>
 {
+	const originalInput = input;
+
 	let ns: EnumParsePathResultNs, hash: string, path: string
 
-	if (Buffer.isBuffer(input) || _isArrayLike(input) || isCID(input))
+	if (_invalidInput(input))
 	{
-		hash = cidToString(toCID(input));
-
-		ns = EnumParsePathResultNs.ipfs
-		path = ''
+		throw err_code(new TypeError(`Invalid input: ${input}`), {
+			input,
+		})
 	}
-	else if (typeof input === 'string' || Object.prototype.toString.call(input) === '[object String]')
+	else if (input instanceof URL)
 	{
+		let href = (input as any as LazyURL).toRealString?.() ?? input.toString();
+
+		return parsePathCore(href)
+	}
+	else if (typeof input === 'string' || _isStringObject(input))
+	{
+		input = String(input) as string;
+
+		// @ts-ignore
+		input = _handleFromURL(input) ?? input;
+
+		if (typeof input !== 'string')
+		{
+			return input as any;
+		}
+
 		// Ensure leading slash
 		if (input[0] !== '/')
 		{
@@ -94,7 +117,11 @@ export function parsePathCore<H extends string = string, P extends IParsePathRes
 				}
 				else
 				{
-					throw err
+					throw err_code(err, {
+						originalInput,
+						input,
+						parts,
+					})
 				}
 			}
 
@@ -110,7 +137,11 @@ export function parsePathCore<H extends string = string, P extends IParsePathRes
 			}
 			catch (err)
 			{
-				throw new TypeError(`Unknown namespace: ${parts[1]}`)
+				throw err_code(new TypeError(`Unknown namespace: ${parts[1]}`), {
+					originalInput,
+					input,
+					parts,
+				})
 			}
 
 			ns = EnumParsePathResultNs.ipfs
@@ -123,9 +154,24 @@ export function parsePathCore<H extends string = string, P extends IParsePathRes
 			path = `/${path}`
 		}
 	}
+	else if (isParsePathResultLoose(input))
+	{
+		assertToParsePathResult(input)
+
+		return input as any;
+	}
+	else if (Buffer.isBuffer(input) || _isArrayLike(input) || isCID(input))
+	{
+		hash = cidToString(toCID(input));
+
+		ns = EnumParsePathResultNs.ipfs
+		path = ''
+	}
 	else
 	{
-		throw new TypeError(`Invalid input: ${input}`) // What even is this?
+		throw err_code(new TypeError(`Invalid input: ${input}`), {
+			input,
+		}) // What even is this?
 	}
 
 	return {
@@ -146,9 +192,12 @@ export function parsePath<H extends string = string, P extends IParsePathResultP
 	}
 	catch (e)
 	{
-		if (!options?.noThrow)
+		if (!options?.noThrow && !options?.unsafeReturn)
 		{
-			throw e
+			throw err_code(e, {
+				originalInput: input,
+				options,
+			})
 		}
 	}
 
@@ -167,7 +216,9 @@ export function assertToEnumNs<N extends IParsePathResultNsInput>(ns: N | unknow
 	// @ts-ignore
 	if (EnumParsePathResultNs[ns] !== ns)
 	{
-		throw new TypeError(`Invalid ns: ${ns}`)
+		throw err_code(new TypeError(`Invalid ns: ${ns}`), {
+			ns,
+		})
 	}
 }
 
@@ -175,14 +226,18 @@ export function assertToParsePathResultPath<P extends IParsePathResultPathInput>
 {
 	if (typeof path === 'string' && path.length)
 	{
-		if (path[0] !== '/' || path.length < 2)
+		if (path[0] !== '/' && path.length < 2)
 		{
-			throw new TypeError(`Invalid path: ${path}`)
+			throw err_code(new TypeError(`Invalid path: ${path}`), {
+				path,
+			})
 		}
 	}
 	else if (path !== '' && typeof path !== 'undefined' && path !== null)
 	{
-		throw new TypeError(`Invalid path: ${path}`)
+		throw err_code(new TypeError(`Invalid path: ${path}`), {
+			path,
+		})
 	}
 }
 
@@ -198,7 +253,9 @@ export function assertToParsePathResult<H extends string, P extends IParsePathRe
 		}
 		catch (e)
 		{
-			throw new TypeError(`Invalid hash: ${result.hash}`)
+			throw err_code(new TypeError(`Invalid hash: ${result.hash}`), {
+				result,
+			})
 		}
 	}
 
@@ -221,7 +278,7 @@ export function isParsePathResult<H extends string, P extends IParsePathResultPa
 	return false
 }
 
-export function isParsePathResultLoose<H extends string, P extends IParsePathResultPathInput, N extends IParsePathResultNsInput = EnumParsePathResultNs>(result: IParsePathResult<H, P | string, N | string> | unknown): result is IParsePathResult<H, IParsePathResultPath<P>, IParsePathResultNsInputToEnum<N>>
+export function isParsePathResultLoose(result: IParsePathResult | any): result is IParsePathResult
 {
 	// @ts-ignore
 	return Boolean(result.ns && result.hash)
