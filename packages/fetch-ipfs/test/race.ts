@@ -8,12 +8,14 @@ import { inspect } from 'util';
 import publishToIPFSRace from '../lib/put/race';
 
 readFile(`./res/demo.png`)
-	.then((data) => {
+	.then((data) =>
+	{
 		return publishToIPFSRace(data, [
 			...filterList('API'),
 		])
 	})
-	.then(data => {
+	.then(data =>
+	{
 		console.dir(data, {
 			colors: true,
 			depth: 3,

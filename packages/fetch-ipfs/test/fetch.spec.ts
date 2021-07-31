@@ -7,6 +7,9 @@ import { join } from 'path';
 import { handleClientList } from '../lib/handleClientList';
 import { jest } from '@jest/globals';
 import Bluebird from 'bluebird';
+import { toCID } from '@lazy-ipfs/to-cid';
+import { toURL } from 'to-ipfs-url';
+import { parsePath } from '../../@lazy-ipfs/parse-ipfs-path/lib/parsePath';
 
 jest.setTimeout(1000 * 60 * 20);
 
@@ -23,23 +26,9 @@ describe(`fetch-ipfs`, () =>
 	/**
 	 * @FIXME: Jest did not exit one second after the test run has completed.
 	 */
-	test.skip(`fetchIPFS`, async () =>
+	test(`fetchIPFS`, async () =>
 	{
-		await fetchIPFS(testData.cid)
-			.then(actual => {
-				expect(actual).toHaveLength(testData.length);
-				expect(actual).toMatchSnapshot();
-			})
-			.catch(e => {
-
-				if (e instanceof Error && e.message.includes('Too Many Requests'))
-				{
-					return null
-				}
-			})
-		;
-
-		return Bluebird.delay(60 * 1000)
+		await _check(testData.cid, testData.length);
 	});
 
 	test(`raceFetchIPFS`, async () =>
@@ -82,4 +71,44 @@ describe(`fetch-ipfs`, () =>
 		expect(await actual[0].version()).toHaveProperty('version');
 	});
 
+	describe('lazy', () => {
+
+		test(`toCID`, async () =>
+		{
+			await _check(toCID(testData.cid), testData.length);
+		});
+
+		test(`toURL`, async () =>
+		{
+			await _check(toURL(testData.cid), testData.length);
+		});
+
+		test(`parsePath`, async () =>
+		{
+			await _check(parsePath(testData.cid), testData.length);
+		});
+
+	})
+
 })
+
+function _check(cid, length)
+{
+	expect(cid).toMatchSnapshot();
+
+	return fetchIPFS(cid)
+		.then(actual =>
+		{
+			expect(actual).toHaveLength(length);
+			expect(actual).toMatchSnapshot();
+		})
+		.catch(e =>
+		{
+
+			if (e instanceof Error && e.message.includes('Too Many Requests'))
+			{
+				return null
+			}
+		})
+	;
+}

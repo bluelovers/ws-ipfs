@@ -13,6 +13,16 @@ function publishToIPFSAll(data, useIPFS, options) {
         signal,
         ...addOptions,
     };
+    addOptions = {
+        timeout,
+        signal,
+        ...addOptions,
+    };
+    let controller;
+    if (addOptions.timeout && !addOptions.signal) {
+        controller = (0, util_1.newAbortController)(addOptions.timeout).controller;
+        addOptions.signal = controller.signal;
+    }
     return (0, handleClientList_1.handleClientList)(useIPFS, (ipfs => typeof (ipfs === null || ipfs === void 0 ? void 0 : ipfs.add) === 'function'))
         .reduce(async (list, ipfs) => {
         const value = [];
@@ -37,7 +47,7 @@ function publishToIPFSAll(data, useIPFS, options) {
             });
         });
         return list;
-    }, []);
+    }, []).finally(() => controller === null || controller === void 0 ? void 0 : controller.abort());
 }
 exports.publishToIPFSAll = publishToIPFSAll;
 exports.default = publishToIPFSAll;

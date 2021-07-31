@@ -14,6 +14,11 @@ function publishToIPFSRace(data, useIPFS, options) {
         signal,
         ...addOptions,
     };
+    let controller;
+    if (addOptions.timeout && !addOptions.signal) {
+        controller = (0, util_1.newAbortController)(addOptions.timeout).controller;
+        addOptions.signal = controller.signal;
+    }
     return new bluebird_1.default(async (resolve, reject) => {
         const list = [];
         await (0, handleClientList_1.handleClientList)(useIPFS, (ipfs => typeof (ipfs === null || ipfs === void 0 ? void 0 : ipfs.add) === 'function'))
@@ -44,7 +49,7 @@ function publishToIPFSRace(data, useIPFS, options) {
             });
         });
         resolve(list);
-    });
+    }).finally(() => controller === null || controller === void 0 ? void 0 : controller.abort());
 }
 exports.publishToIPFSRace = publishToIPFSRace;
 exports.default = publishToIPFSRace;

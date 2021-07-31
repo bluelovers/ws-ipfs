@@ -1,44 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`fetch-ipfs fetchIPFS 1`] = `
+exports[`fetch-ipfs fetchIPFS 1`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
+
+exports[`fetch-ipfs lazy parsePath 1`] = `
 Object {
-  "data": Array [
-    72,
-    101,
-    108,
-    108,
-    111,
-    32,
-    102,
-    114,
-    111,
-    109,
-    32,
-    73,
-    80,
-    70,
-    83,
-    32,
-    71,
-    97,
-    116,
-    101,
-    119,
-    97,
-    121,
-    32,
-    67,
-    104,
-    101,
-    99,
-    107,
-    101,
-    114,
-    10,
-  ],
-  "type": "Buffer",
+  "hash": "Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a",
+  "ns": "ipfs",
+  "path": "",
 }
 `;
+
+exports[`fetch-ipfs lazy toCID 1`] = `
+Object {
+  "code": 112,
+  "hash": Uint8Array [
+    18,
+    32,
+    183,
+    254,
+    8,
+    30,
+    244,
+    17,
+    96,
+    165,
+    123,
+    89,
+    19,
+    86,
+    24,
+    96,
+    118,
+    229,
+    238,
+    199,
+    116,
+    2,
+    56,
+    83,
+    37,
+    188,
+    26,
+    8,
+    22,
+    181,
+    187,
+    118,
+    74,
+    219,
+  ],
+  "version": 0,
+}
+`;
+
+exports[`fetch-ipfs lazy toURL 1`] = `"https://ipfs.io/ipfs/Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
 
 exports[`fetch-ipfs publishToIPFSRace 1`] = `
 Array [
@@ -47,7 +62,7 @@ Array [
     "value": Array [
       Object {
         "cid": Object {
-          "codec": "dag-pb",
+          "code": 112,
           "hash": Uint8Array [
             18,
             32,
@@ -97,7 +112,7 @@ Array [
 exports[`fetch-ipfs publishToIPFSRace 2`] = `
 Object {
   "cid": Object {
-    "codec": "dag-pb",
+    "code": 112,
     "hash": Uint8Array [
       18,
       32,

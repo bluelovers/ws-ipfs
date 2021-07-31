@@ -8,12 +8,14 @@ import { filterList } from 'ipfs-server-list';
 import { inspect } from 'util';
 
 readFile(`D:\\Users\\Downloads\\下載圖\\Screenshots\\ShareX_2020-03-24-12-21-16-193.png`)
-	.then((data) => {
+	.then((data) =>
+	{
 		return publishToIPFSAll(data, [
 			...filterList('API'),
 		])
 	})
-	.then(data => {
+	.then(data =>
+	{
 		console.dir(data, {
 			colors: true,
 			depth: 3,

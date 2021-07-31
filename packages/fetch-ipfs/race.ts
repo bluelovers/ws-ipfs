@@ -8,16 +8,18 @@ import { ITSValueOrArray } from 'ts-type';
 import { filterList } from 'ipfs-server-list';
 import { array_unique } from 'array-hyper-unique';
 import { handleClientList } from './lib/handleClientList';
-import { handleTimeout, handleCID, IFetchOptions } from './util';
+import { handleTimeout, handleCID, IFetchOptions, newAbortController } from './util';
 import { IPFS } from 'ipfs-core-types';
 import { ICIDValue } from '@lazy-ipfs/detect-cid-lib/lib/types';
+import { RequestInit } from 'node-fetch';
+import { AbortControllerTimer } from 'abort-controller-timer';
 
 export function raceFetchIPFS(cid: ICIDValue,
 	useIPFS: ITSValueOrArray<(string | Pick<IPFS, 'refs' | 'cat'> | IIPFSClientAddresses)>,
 	timeout?: number,
 	options?: {
-	filter?(buf: Buffer): boolean,
-	} & IFetchOptions
+		filter?(buf: Buffer): boolean,
+	} & IFetchOptions,
 )
 {
 	const cid2 = handleCID(cid, true, options);
@@ -26,6 +28,27 @@ export function raceFetchIPFS(cid: ICIDValue,
 	return handleClientList(useIPFS, (ipfs => typeof ipfs?.cat === 'function'))
 		.then(ps =>
 		{
+			let fetchOptions: RequestInit = {
+				...options?.fetchOptions,
+				redirect: 'follow',
+			};
+
+			options = {
+				...options,
+				fetchOptions,
+			};
+
+			fetchOptions.timeout ??= options.timeout;
+			fetchOptions.signal ??= options.signal;
+
+			let controller: AbortControllerTimer;
+
+			if (timeout && !fetchOptions.signal)
+			{
+				controller = newAbortController(timeout).controller;
+
+				fetchOptions.signal = controller.signal;
+			}
 
 			const ls = ps.map(ipfs =>
 			{
@@ -51,7 +74,7 @@ export function raceFetchIPFS(cid: ICIDValue,
 				{
 					return buf?.length > 0 && (options?.filter?.(buf) ?? true)
 				},
-			})
+			}).finally(() => controller?.abort())
 		})
 		;
 }

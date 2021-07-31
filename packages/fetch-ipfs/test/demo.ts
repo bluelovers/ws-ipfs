@@ -10,14 +10,16 @@ import { filterList } from 'ipfs-server-list';
 console.log(`fs.stat`, statSync('./temp/111.png').size)
 
 fetchIPFS(`QmdPAhQRxrDKqkGPvQzBvjYe3kU8kiEEAd2J6ETEamKAD9`)
-	.then(async (buf) => {
+	.then(async (buf) =>
+	{
 
 		console.log(`fetch ipfs cid`, buf.length, `QmdPAhQRxrDKqkGPvQzBvjYe3kU8kiEEAd2J6ETEamKAD9`)
 
 		await publishToIPFSAll(buf, [
 			...filterList('API'),
 		])
-			.then(result => {
+			.then(result =>
+			{
 				console.log(`add to ipfs again`, result[0].value[0].size, result[0].value[0].cid.toString());
 			})
 		;

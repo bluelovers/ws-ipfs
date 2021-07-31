@@ -11,7 +11,8 @@ export function handleClientList(useIPFS: ITSValueOrArray<IUseIPFSInput>,
 {
 	return Bluebird
 		.resolve(useIPFS)
-		.then(useIPFS => {
+		.then(useIPFS =>
+		{
 			if (!Array.isArray(useIPFS))
 			{
 				return [useIPFS];
@@ -48,7 +49,8 @@ export function handleClientList(useIPFS: ITSValueOrArray<IUseIPFSInput>,
 
 			return
 		})
-		.filter<IPFS>((ipfs) => {
+		.filter<IPFS>((ipfs) =>
+		{
 			if (ipfs)
 			{
 				if (filter)

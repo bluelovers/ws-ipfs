@@ -1,13 +1,13 @@
 //import { Buffer } from "buffer";
 import Bluebird from 'bluebird';
 import { IIPFSPromiseApi } from 'ipfs-types';
-import { newAbortController } from './util';
+import { IFetchOptions, newAbortController } from './util';
 import { IPFS } from 'ipfs-core-types';
 import { ICIDValue } from '@lazy-ipfs/detect-cid-lib/lib/types';
 import { toCID } from '@lazy-ipfs/to-cid';
 import { cidToString } from '@lazy-ipfs/cid-to-string';
 
-export function refIPFS(cid: ICIDValue, ipfs: Pick<IPFS, 'refs'>, timeout?: number)
+export function refIPFS(cid: ICIDValue, ipfs: Pick<IPFS, 'refs'>, timeout?: number, options?: IFetchOptions)
 {
 	timeout = timeout |= 0 || 10 * 1000;
 
@@ -36,16 +36,17 @@ export function refIPFS(cid: ICIDValue, ipfs: Pick<IPFS, 'refs'>, timeout?: numb
 		.finally(() => controller.clear())
 }
 
-export function catIPFS(cid: ICIDValue, ipfs: Pick<IPFS, 'refs' | 'cat'>, timeout?: number)
+export function catIPFS(cid: ICIDValue, ipfs: Pick<IPFS, 'refs' | 'cat'>, timeout?: number, options?: IFetchOptions)
 {
 	timeout = timeout |= 0 || 60 * 1000;
 
 	const { controller, timer } = newAbortController(timeout);
 
-	return refIPFS(cid, ipfs, timeout)
+	return refIPFS(cid, ipfs, timeout, options)
 		.catch(Error, async (e: Error & {
 			response?: Response
-		}) => {
+		}) =>
+		{
 			if (e.message && e.message.toLowerCase().includes('ipfs method not allowed'))
 			{
 				//console.warn(String(e).replace(/\s+$/, ''), `\nurl: ${e.response.url}`, `\nwill ignore this error and trying fetch content`);
@@ -54,23 +55,26 @@ export function catIPFS(cid: ICIDValue, ipfs: Pick<IPFS, 'refs' | 'cat'>, timeou
 
 			return Promise.reject(e)
 		})
-		.then(async () => {
+		.then(async () =>
+		{
 			const chunks: Buffer[] = [];
 			for await (const chunk of ipfs.cat(cidToString(toCID(cid)), {
 				timeout,
 				signal: controller.signal,
 				preload: true,
 				//pin: false,
-			})) {
+			}))
+			{
 				// @ts-ignore
 				chunks.push(chunk)
 			}
 			return Buffer.concat(chunks)
 		})
-		.finally(() => {
+		.finally(() =>
+		{
 			controller.abort();
 		})
-	;
+		;
 }
 
 export default catIPFS

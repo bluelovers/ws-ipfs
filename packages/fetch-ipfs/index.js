@@ -10,22 +10,28 @@ const is_error_code_1 = (0, tslib_1.__importDefault)(require("is-error-code"));
 const util_1 = require("./util");
 async function fetchIPFS(cid, useIPFS, timeout, options = {}) {
     cid = (0, util_1.handleCID)(cid, useIPFS, options);
-    return fetchIPFSCore(cid, useIPFS, timeout);
+    return fetchIPFSCore(cid, useIPFS, timeout, options);
 }
 exports.fetchIPFS = fetchIPFS;
 async function fetchIPFSCore(cidLink, useIPFS, timeout, options = {}) {
+    var _a, _b;
     timeout = (0, util_1.handleTimeout)(timeout);
     if (useIPFS) {
-        return (0, ipfs_1.default)(cidLink, useIPFS, timeout);
+        return (0, ipfs_1.default)(cidLink, useIPFS, timeout, options);
     }
-    const { controller, timer } = (0, util_1.newAbortController)(timeout);
-    return bluebird_1.default.resolve((0, cross_fetch_1.default)(cidLink.toString(), {
-        ...options,
+    options !== null && options !== void 0 ? options : (options = {});
+    let fetchOptions = {
+        ...options === null || options === void 0 ? void 0 : options.fetchOptions,
         redirect: 'follow',
-        // @ts-ignore
-        timeout,
-        signal: controller.signal,
-    }))
+    };
+    (_a = fetchOptions.timeout) !== null && _a !== void 0 ? _a : (fetchOptions.timeout = options.timeout);
+    (_b = fetchOptions.signal) !== null && _b !== void 0 ? _b : (fetchOptions.signal = options.signal);
+    let controller;
+    if (timeout && !fetchOptions.signal) {
+        controller = (0, util_1.newAbortController)(timeout).controller;
+        fetchOptions.signal = controller.signal;
+    }
+    return bluebird_1.default.resolve((0, cross_fetch_1.default)(cidLink.toString(), fetchOptions))
         .timeout(timeout)
         .tapCatch(bluebird_1.TimeoutError, () => controller.abort())
         .tap(v => {
@@ -38,7 +44,7 @@ async function fetchIPFSCore(cidLink, useIPFS, timeout, options = {}) {
     })
         .then(v => v.arrayBuffer())
         .then(buf => Buffer.from(buf))
-        .finally(() => controller.abort());
+        .finally(() => controller === null || controller === void 0 ? void 0 : controller.abort());
 }
 exports.fetchIPFSCore = fetchIPFSCore;
 exports.default = fetchIPFS;

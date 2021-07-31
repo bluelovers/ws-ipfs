@@ -4,10 +4,11 @@ import { IIPFSFileApi, IFileData, IIPFSFileApiAddOptions, IIPFSFileApiAddReturnE
 import { ITSValueOrArray } from 'ts-type';
 import { handleClientList } from '../handleClientList';
 import { INetworkOptionsBase } from 'ipfs-types/lib/options';
-import { handleTimeout } from '../../util';
+import { handleTimeout, newAbortController } from '../../util';
 import { IPublishToIPFSReturn } from './types';
 import Bluebird from 'bluebird';
 import _addAll from '@lazy-ipfs/compatible-add';
+import { AbortControllerTimer } from 'abort-controller-timer';
 
 export function publishToIPFSAll(data: IFileData,
 	useIPFS: ITSValueOrArray<string | IIPFSPromiseApi | IIPFSClientAddresses | Pick<IIPFSFileApi, 'add'>>,
@@ -24,6 +25,21 @@ export function publishToIPFSAll(data: IFileData,
 		timeout,
 		signal,
 		...addOptions,
+	}
+
+	addOptions = {
+		timeout,
+		signal,
+		...addOptions,
+	}
+
+	let controller: AbortControllerTimer;
+
+	if (addOptions.timeout && !addOptions.signal)
+	{
+		controller = newAbortController(addOptions.timeout).controller;
+
+		addOptions.signal = controller.signal;
 	}
 
 	return handleClientList(useIPFS as any, (ipfs => typeof ipfs?.add === 'function'))
@@ -60,8 +76,8 @@ export function publishToIPFSAll(data: IFileData,
 			;
 
 			return list
-		}, [] as IPublishToIPFSReturn)
-	;
+		}, [] as IPublishToIPFSReturn).finally(() => controller?.abort())
+		;
 
 }
 

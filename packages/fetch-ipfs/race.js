@@ -16,6 +16,22 @@ function raceFetchIPFS(cid, useIPFS, timeout, options) {
     timeout = (0, util_1.handleTimeout)(timeout);
     return (0, handleClientList_1.handleClientList)(useIPFS, (ipfs => typeof (ipfs === null || ipfs === void 0 ? void 0 : ipfs.cat) === 'function'))
         .then(ps => {
+        var _a, _b;
+        let fetchOptions = {
+            ...options === null || options === void 0 ? void 0 : options.fetchOptions,
+            redirect: 'follow',
+        };
+        options = {
+            ...options,
+            fetchOptions,
+        };
+        (_a = fetchOptions.timeout) !== null && _a !== void 0 ? _a : (fetchOptions.timeout = options.timeout);
+        (_b = fetchOptions.signal) !== null && _b !== void 0 ? _b : (fetchOptions.signal = options.signal);
+        let controller;
+        if (timeout && !fetchOptions.signal) {
+            controller = (0, util_1.newAbortController)(timeout).controller;
+            fetchOptions.signal = controller.signal;
+        }
         const ls = ps.map(ipfs => {
             return (0, index_1.fetchIPFSCore)(cid2, ipfs, timeout, options);
         });
@@ -35,7 +51,7 @@ function raceFetchIPFS(cid, useIPFS, timeout, options) {
                 var _a, _b;
                 return (buf === null || buf === void 0 ? void 0 : buf.length) > 0 && ((_b = (_a = options === null || options === void 0 ? void 0 : options.filter) === null || _a === void 0 ? void 0 : _a.call(options, buf)) !== null && _b !== void 0 ? _b : true);
             },
-        });
+        }).finally(() => controller === null || controller === void 0 ? void 0 : controller.abort());
     });
 }
 exports.raceFetchIPFS = raceFetchIPFS;
