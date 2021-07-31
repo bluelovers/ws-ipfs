@@ -6,11 +6,11 @@ const ipfs_server_list_1 = require("ipfs-server-list");
 const to_ipfs_url_1 = require("to-ipfs-url");
 const index_1 = (0, tslib_1.__importDefault)(require("@lazy-ipfs/ipfs-subdomain/index"));
 const parsePath_1 = require("@lazy-ipfs/parse-ipfs-path/lib/parsePath");
-const multiaddr_1 = require("ipfs-util-lib/lib/api/multiaddr");
 const array_hyper_unique_1 = require("array-hyper-unique");
 const lazy_url_1 = require("lazy-url");
+const ipfs_api_url_1 = require("@lazy-ipfs/ipfs-api-url");
 function makeIpfsGatewayAddressesURLAsync(cid, options) {
-    return (0, multiaddr_1.ipfsGatewayAddressesLink)(options.ipfs)
+    return (0, ipfs_api_url_1.ipfsGatewayAddressesLink)(options.ipfs)
         .then(gateway => (0, to_ipfs_url_1.toURL)(cid, {
         ...options === null || options === void 0 ? void 0 : options.handleOptions,
         prefix: {

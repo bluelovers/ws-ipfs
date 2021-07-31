@@ -1,8 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ipfsGatewayAddresses = exports.ipfsApiAddresses = exports.ipfsAddresses = exports.assertCheckIPFS = exports.checkIPFS = void 0;
+exports.ipfsAddresses = exports.assertCheckIPFS = exports.checkIPFS = exports.ipfsGatewayAddresses = exports.ipfsApiAddresses = void 0;
 const tslib_1 = require("tslib");
 const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
+var ipfs_api_url_1 = require("@lazy-ipfs/ipfs-api-url");
+Object.defineProperty(exports, "ipfsApiAddresses", { enumerable: true, get: function () { return ipfs_api_url_1.ipfsApiAddresses; } });
+Object.defineProperty(exports, "ipfsGatewayAddresses", { enumerable: true, get: function () { return ipfs_api_url_1.ipfsGatewayAddresses; } });
 function checkIPFS(ipfs) {
     return assertCheckIPFS(ipfs)
         .catch(() => null);
@@ -45,12 +48,4 @@ async function ipfsAddresses(ipfs) {
     return ipfs.config.get('Addresses');
 }
 exports.ipfsAddresses = ipfsAddresses;
-async function ipfsApiAddresses(ipfs) {
-    return ipfs.config.get('Addresses.API');
-}
-exports.ipfsApiAddresses = ipfsApiAddresses;
-async function ipfsGatewayAddresses(ipfs) {
-    return ipfs.config.get('Addresses.Gateway');
-}
-exports.ipfsGatewayAddresses = ipfsGatewayAddresses;
 //# sourceMappingURL=api.js.map

@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@lazy-ipfs/cid-to-string": "^1.0.2",
+    "@lazy-ipfs/ipfs-api-url": "^1.0.0",
     "@lazy-ipfs/to-cid": "^1.0.20",
     "array-hyper-unique": "^1.1.10",
     "bluebird": "^3.7.2",
@@ -42,11 +43,7 @@
     "multiaddr-to-url": "^1.0.17",
     "tslib": "^2.3.0"
   },
-  "devDependencies": {
-    "@types/micromatch": "^4.0.2"
-  },
-  "peerDependencies": {
-    "@bluelovers/fast-glob": "^3.0.4"
-  },
+  "devDependencies": {},
+  "peerDependencies": {},
   "gitHead": "2fea22e93302e75dcbb0b61f1920cc4f86db0ee5"
 }

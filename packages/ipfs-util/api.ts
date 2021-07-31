@@ -1,9 +1,8 @@
-import { IIPFSPromiseApi, IIPFSAddresses } from 'ipfs-types';
-import { IIPFSConfigApi } from 'ipfs-types/lib/ipfs/config';
+import { IIPFSAddresses } from 'ipfs-types';
 import Bluebird from 'bluebird';
 import { IPFS } from 'ipfs-core-types';
-import { API as ConfigAPI } from 'ipfs-core-types/src/config';
 import { IPFSHttpClient } from 'ipfs-types/index';
+export { ipfsApiAddresses, ipfsGatewayAddresses } from '@lazy-ipfs/ipfs-api-url'
 
 export function checkIPFS(ipfs)
 {
@@ -60,12 +59,3 @@ export async function ipfsAddresses(ipfs): Promise<IIPFSAddresses>
 	return (ipfs as IPFSHttpClient).config.get<IIPFSAddresses>('Addresses')
 }
 
-export async function ipfsApiAddresses(ipfs): Promise<string>
-{
-	return (ipfs as IIPFSConfigApi).config.get<string>('Addresses.API')
-}
-
-export async function ipfsGatewayAddresses(ipfs): Promise<string>
-{
-	return (ipfs as IIPFSConfigApi).config.get<string>('Addresses.Gateway')
-}

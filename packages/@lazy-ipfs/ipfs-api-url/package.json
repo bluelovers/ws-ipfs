@@ -1,5 +1,5 @@
 {
-  "name": "@lazy-ipfs/make-url-list",
+  "name": "@lazy-ipfs/ipfs-api-url",
   "version": "1.0.0",
   "description": "",
   "keywords": [
@@ -25,7 +25,7 @@
     "ipns",
     "ipld"
   ],
-  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/@lazy-ipfs/make-url-list#readme",
+  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/@lazy-ipfs/ipfs-api-url#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-ipfs/issues"
   },
@@ -49,16 +49,8 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@lazy-ipfs/detect-cid-lib": "^1.0.2",
-    "@lazy-ipfs/ipfs-api-url": "^1.0.0",
-    "@lazy-ipfs/ipfs-subdomain": "^1.0.33",
-    "@lazy-ipfs/parse-ipfs-path": "^1.0.10",
-    "array-hyper-unique": "^1.1.10",
-    "ipfs-core-types": "^0.6.1",
-    "ipfs-server-list": "^1.0.61",
-    "ipfs-util-lib": "^1.0.62",
-    "lazy-url": "^1.0.12",
-    "to-ipfs-url": "^1.0.30",
+    "ipfs-types": "^1.0.37",
+    "multiaddr-to-url": "^1.0.17",
     "tslib": "^2.3.0"
   },
   "devDependencies": {},

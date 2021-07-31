@@ -8,10 +8,10 @@ import {
 	parsePath,
 	resultToPath,
 } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
-import { ipfsGatewayAddressesLink } from 'ipfs-util-lib/lib/api/multiaddr';
 import { IPFS } from 'ipfs-core-types';
 import { array_unique_overwrite } from 'array-hyper-unique';
 import { LazyURL } from 'lazy-url';
+import { ipfsGatewayAddressesLink } from '@lazy-ipfs/ipfs-api-url';
 
 export interface IOptions
 {
