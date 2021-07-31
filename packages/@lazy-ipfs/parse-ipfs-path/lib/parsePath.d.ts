@@ -25,6 +25,7 @@ export declare type IParsePathInputValue = ICIDValue | Uint8Array;
 export declare function parsePathCore<H extends string = string, P extends IParsePathResultPathInput = string, N extends EnumParsePathResultNs = EnumParsePathResultNs>(input: IParsePathInputValue): IParsePathResultStrict<H, P, N>;
 export declare function parsePath<H extends string = string, P extends IParsePathResultPathInput = string, N extends EnumParsePathResultNs = EnumParsePathResultNs>(input: IParsePathInputValue, options?: {
     noThrow?: boolean;
+    unsafeReturn?: boolean;
 }): IParsePathResultStrict<H, P, N>;
 export declare function assertToEnumNs<N extends IParsePathResultNsInput>(ns: N | unknown): asserts ns is IParsePathResultNsInputToEnum<N>;
 export declare function assertToParsePathResultPath<P extends IParsePathResultPathInput>(path: P | unknown): asserts path is IParsePathResultPath<P>;

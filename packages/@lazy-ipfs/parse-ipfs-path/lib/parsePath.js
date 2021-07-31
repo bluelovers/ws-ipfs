@@ -83,6 +83,13 @@ function parsePath(input, options) {
             throw e;
         }
     }
+    if (options === null || options === void 0 ? void 0 : options.unsafeReturn) {
+        return {
+            ns: "ipfs" /* ipfs */,
+            hash: input,
+            path: '',
+        };
+    }
 }
 exports.parsePath = parsePath;
 function assertToEnumNs(ns) {
