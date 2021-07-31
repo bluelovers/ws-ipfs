@@ -85,7 +85,7 @@ export function toRawCID<R extends IRawCIDObject = IRawCIDObject>(cid: ICIDObjec
 	return toRawJsCID(cid) as R
 }
 
-export function toCID<C extends ICIDObject = ICIDObject>(cid: IToCIDInputValue,
+export function toCID<C extends ICIDObject = MultiformatsCID>(cid: IToCIDInputValue,
 	libCID?: IStaticCID<C> | EnumTypeofCID,
 ): C
 {

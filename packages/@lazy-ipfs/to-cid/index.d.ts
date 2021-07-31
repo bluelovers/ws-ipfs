@@ -16,6 +16,6 @@ export declare function isCID<C extends ICIDObject = ICIDObject>(cid: unknown, l
 export declare function assertRawCIDLike<C extends IRawCIDObject = IRawCIDObject>(cid: unknown): asserts cid is C;
 export declare function isRawCIDLike<T extends IRawCIDObject = IRawCIDObject>(cid: any): cid is T;
 export declare function toRawCID<R extends IRawCIDObject = IRawCIDObject>(cid: ICIDObjectInput): R;
-export declare function toCID<C extends ICIDObject = ICIDObject>(cid: IToCIDInputValue, libCID?: IStaticCID<C> | EnumTypeofCID): C;
+export declare function toCID<C extends ICIDObject = MultiformatsCID>(cid: IToCIDInputValue, libCID?: IStaticCID<C> | EnumTypeofCID): C;
 export declare function strToCidToStr(str: string, base?: IBaseNameOrBaseCodec): string;
 export default toCID;
