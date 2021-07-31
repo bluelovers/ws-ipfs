@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.25](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/to-cid@1.0.24...@lazy-ipfs/to-cid@1.0.25) (2021-07-31)
+
+
+### 🐛　Bug Fixes
+
+* default return MultiformatsCID ([446567a](https://github.com/bluelovers/ws-ipfs/commit/446567a2366213970032986e1d4e249055e6333c))
+
+
+
+
+
 ## [1.0.24](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/to-cid@1.0.23...@lazy-ipfs/to-cid@1.0.24) (2021-07-31)
 
 

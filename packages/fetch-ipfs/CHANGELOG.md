@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.91](https://github.com/bluelovers/ws-ipfs/compare/fetch-ipfs@1.0.90...fetch-ipfs@1.0.91) (2021-07-31)
+
+
+### 🐛　Bug Fixes
+
+* default return MultiformatsCID ([446567a](https://github.com/bluelovers/ws-ipfs/commit/446567a2366213970032986e1d4e249055e6333c))
+
+
+
+
+
 ## [1.0.90](https://github.com/bluelovers/ws-ipfs/compare/fetch-ipfs@1.0.89...fetch-ipfs@1.0.90) (2021-07-31)
 
 

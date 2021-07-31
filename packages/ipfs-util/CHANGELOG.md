@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.68](https://github.com/bluelovers/ws-ipfs/compare/ipfs-util-lib@1.0.67...ipfs-util-lib@1.0.68) (2021-07-31)
+
+**Note:** Version bump only for package ipfs-util-lib
+
+
+
+
+
 ## [1.0.67](https://github.com/bluelovers/ws-ipfs/compare/ipfs-util-lib@1.0.66...ipfs-util-lib@1.0.67) (2021-07-31)
 
 
