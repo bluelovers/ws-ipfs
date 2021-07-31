@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/make-url-list",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "IPFS",
@@ -50,19 +50,17 @@
   },
   "dependencies": {
     "@lazy-ipfs/detect-cid-lib": "^1.0.2",
-    "@lazy-ipfs/ipfs-api-url": "^1.0.0",
-    "@lazy-ipfs/ipfs-subdomain": "^1.0.33",
-    "@lazy-ipfs/parse-ipfs-path": "^1.0.10",
+    "@lazy-ipfs/ipfs-api-url": "^1.0.1",
+    "@lazy-ipfs/ipfs-subdomain": "^1.0.34",
+    "@lazy-ipfs/parse-ipfs-path": "^1.0.11",
     "array-hyper-unique": "^1.1.10",
     "ipfs-core-types": "^0.6.1",
-    "ipfs-server-list": "^1.0.61",
-    "ipfs-util-lib": "^1.0.62",
+    "ipfs-server-list": "^1.0.62",
+    "ipfs-util-lib": "^1.0.63",
     "lazy-url": "^1.0.12",
-    "to-ipfs-url": "^1.0.30",
+    "to-ipfs-url": "^1.0.31",
     "tslib": "^2.3.0"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   }

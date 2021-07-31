@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/parse-ipfs-from-header",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "IPFS",
@@ -52,8 +52,6 @@
     "tslib": "^2.3.0",
     "value-from-record": "^1.0.3"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   }

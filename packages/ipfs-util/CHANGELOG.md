@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.63](https://github.com/bluelovers/ws-ipfs/compare/ipfs-util-lib@1.0.62...ipfs-util-lib@1.0.63) (2021-07-31)
+
+
+### 📦　Code Refactoring
+
+* code splitting to `@lazy-ipfs/ipfs-api-url` ([2bf3dea](https://github.com/bluelovers/ws-ipfs/commit/2bf3dead160895df068eedea0ff6607643967574))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([3ed6d2d](https://github.com/bluelovers/ws-ipfs/commit/3ed6d2dd3735834a14a95983ef6d8fb21eb9f1f1))
+
+
+### 🔖　Miscellaneous
+
+* . ([26efcab](https://github.com/bluelovers/ws-ipfs/commit/26efcab085209b01adb2c12c196683dec49a10c6))
+
+
+
+
+
 ## [1.0.62](https://github.com/bluelovers/ws-ipfs/compare/ipfs-util-lib@1.0.61...ipfs-util-lib@1.0.62) (2021-07-29)
 
 

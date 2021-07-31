@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.18](https://github.com/bluelovers/ws-ipfs/compare/poke-ipfs@1.1.17...poke-ipfs@1.1.18) (2021-07-31)
+
+
+### ✨　Features
+
+* allow set `signal` ([351524c](https://github.com/bluelovers/ws-ipfs/commit/351524c398a76575d28f83dcfba2581f4c85d2b8))
+
+
+### 📦　Code Refactoring
+
+* add `pokeAllURL` ([c4beec0](https://github.com/bluelovers/ws-ipfs/commit/c4beec00bf8583caae3b3a0b4ebb057f02032710))
+
+
+### 🔖　Miscellaneous
+
+* . ([26efcab](https://github.com/bluelovers/ws-ipfs/commit/26efcab085209b01adb2c12c196683dec49a10c6))
+
+
+
+
+
 ## [1.1.17](https://github.com/bluelovers/ws-ipfs/compare/poke-ipfs@1.1.15...poke-ipfs@1.1.17) (2021-07-29)
 
 
