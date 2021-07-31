@@ -1,6 +1,6 @@
 {
   "name": "to-ipfs-url",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "description": "create ipfs link",
   "keywords": [
     "ipfs",
@@ -37,8 +37,8 @@
   "dependencies": {
     "@lazy-ipfs/cid-to-string": "^1.0.2",
     "@lazy-ipfs/detect-cid-lib": "^1.0.2",
-    "@lazy-ipfs/to-cid": "^1.0.20",
-    "ipfs-server-list": "^1.0.62",
+    "@lazy-ipfs/to-cid": "^1.0.21",
+    "ipfs-server-list": "^1.0.63",
     "is-ipfs": "^6.0.1",
     "tslib": "^2.3.0"
   },

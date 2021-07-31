@@ -1,6 +1,6 @@
 {
   "name": "ipfs-api-check",
-  "version": "1.0.78",
+  "version": "1.0.79",
   "description": "check ipfs api support",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-api-check#readme",
   "bugs": {
@@ -28,11 +28,11 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@bluelovers/ipfs-http-client": "^1.0.78",
+    "@bluelovers/ipfs-http-client": "^1.0.79",
     "bluebird": "^3.7.2",
     "ipfs-types": "^1.0.37",
     "tslib": "^2.3.0",
-    "use-ipfs": "^1.0.86"
+    "use-ipfs": "^1.0.87"
   },
   "peerDependencies": {
     "ipfs": "*",

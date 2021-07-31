@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.20](https://github.com/bluelovers/ws-ipfs/compare/poke-ipfs@1.1.19...poke-ipfs@1.1.20) (2021-07-31)
+
+
+### 🐛　Bug Fixes
+
+* `toCID` not support /ipfs/hash ([67fda96](https://github.com/bluelovers/ws-ipfs/commit/67fda9690bd1dc695d6e6d3afc71834b60d81874))
+
+
+
+
+
 ## [1.1.19](https://github.com/bluelovers/ws-ipfs/compare/poke-ipfs@1.1.18...poke-ipfs@1.1.19) (2021-07-31)
 
 

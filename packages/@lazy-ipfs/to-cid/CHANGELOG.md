@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.21](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/to-cid@1.0.20...@lazy-ipfs/to-cid@1.0.21) (2021-07-31)
+
+
+### 🐛　Bug Fixes
+
+* `toCID` not support /ipfs/hash ([67fda96](https://github.com/bluelovers/ws-ipfs/commit/67fda9690bd1dc695d6e6d3afc71834b60d81874))
+
+
+
+
+
 ## [1.0.20](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/to-cid@1.0.18...@lazy-ipfs/to-cid@1.0.20) (2021-07-29)
 
 
