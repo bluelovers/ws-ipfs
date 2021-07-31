@@ -21,7 +21,7 @@ export function raceFetchIPFS(cid: ICIDValue,
 )
 {
 	const cid2 = handleCID(cid, true, options);
-	timeout = handleTimeout(timeout || 10 * 1000);
+	timeout = handleTimeout(timeout);
 
 	return handleClientList(useIPFS, (ipfs => typeof ipfs?.cat === 'function'))
 		.then(ps =>

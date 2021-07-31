@@ -13,7 +13,7 @@ const handleClientList_1 = require("./lib/handleClientList");
 const util_1 = require("./util");
 function raceFetchIPFS(cid, useIPFS, timeout, options) {
     const cid2 = (0, util_1.handleCID)(cid, true, options);
-    timeout = (0, util_1.handleTimeout)(timeout || 10 * 1000);
+    timeout = (0, util_1.handleTimeout)(timeout);
     return (0, handleClientList_1.handleClientList)(useIPFS, (ipfs => typeof (ipfs === null || ipfs === void 0 ? void 0 : ipfs.cat) === 'function'))
         .then(ps => {
         const ls = ps.map(ipfs => {
