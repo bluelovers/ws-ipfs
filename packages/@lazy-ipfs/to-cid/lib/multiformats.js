@@ -8,9 +8,9 @@ const js_cids_1 = require("@lazy-ipfs/detect-cid-lib/lib/js-cids");
 const js_multiformats_1 = require("@lazy-ipfs/detect-cid-lib/lib/js-multiformats");
 const util_1 = require("@lazy-ipfs/detect-cid-lib/lib/util");
 const parsePath_1 = require("@lazy-ipfs/parse-ipfs-path/lib/parsePath");
+const _handleLibCID_1 = require("./_handleLibCID");
 function toMultiformatsCID(cidInput, libCID) {
-    // @ts-ignore
-    libCID !== null && libCID !== void 0 ? libCID : (libCID = multiformats_1.CID);
+    libCID = (0, _handleLibCID_1._handleLibCID)(libCID, multiformats_1.CID);
     if (typeof cidInput === 'string') {
         return libCID.parse((0, parsePath_1.parsePath)(cidInput, {
             unsafeReturn: true,

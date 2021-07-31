@@ -18,7 +18,7 @@ var js_cids_3 = require("@lazy-ipfs/detect-cid-lib/lib/js-cids");
 Object.defineProperty(exports, "SymbolCID", { enumerable: true, get: function () { return js_cids_3.SymbolJsCID; } });
 function classCID(libCID) {
     libCID !== null && libCID !== void 0 ? libCID : (libCID = multiformats_1.CID);
-    if (libCID === cids_1.default) {
+    if (libCID === cids_1.default || libCID === "@ipld/js-cid/CID" /* js_cids */) {
         return js_cids_2.toJsCID;
     }
     return multiformats_2.default;
@@ -27,11 +27,11 @@ exports.classCID = classCID;
 function isCID(cid, libCID) {
     const type = (0, index_1.default)(cid);
     // @ts-ignore
-    if (libCID === multiformats_1.CID) {
+    if (libCID === multiformats_1.CID || libCID === "@ipld/js-multiformats/CID" /* js_multiformats */) {
         return type === "@ipld/js-multiformats/CID" /* multiformats_cid */;
     }
     // @ts-ignore
-    else if (libCID === cids_1.default) {
+    else if (libCID === cids_1.default || libCID === "@ipld/js-cid/CID" /* js_cids */) {
         return type === "@ipld/js-cid/CID" /* js_cids */;
     }
     return (type === null || type === void 0 ? void 0 : type.length) > 0;

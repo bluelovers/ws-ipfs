@@ -5,11 +5,12 @@ import { ICIDValueInput, ICIDValueOrRaw } from '@lazy-ipfs/detect-cid-lib/lib/ty
 import { IRawMultiformatsCIDFake, isRawMultiformatsCIDLike, toRawMultiformatsCIDFake } from '@lazy-ipfs/detect-cid-lib/lib/js-multiformats';
 import { _isArrayLike } from '@lazy-ipfs/detect-cid-lib/lib/util';
 import { parsePath } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
+import { _handleLibCID } from './_handleLibCID';
+import { EnumTypeofCID } from '@lazy-ipfs/detect-cid-lib';
 
-export function toMultiformatsCID<T extends ICIDValueInput, C extends MultiformatsCID = MultiformatsCID>(cidInput: T, libCID?: Pick<typeof MultiformatsCID, 'parse' | 'decode' | 'asCID'>): C
+export function toMultiformatsCID<T extends ICIDValueInput, C extends MultiformatsCID = MultiformatsCID>(cidInput: T, libCID?: Pick<typeof MultiformatsCID, 'parse' | 'decode' | 'asCID'> | EnumTypeofCID): C
 {
-	// @ts-ignore
-	libCID ??= MultiformatsCID;
+	libCID = _handleLibCID(libCID, MultiformatsCID);
 
 	if (typeof cidInput === 'string')
 	{

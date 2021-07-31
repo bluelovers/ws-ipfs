@@ -22,11 +22,11 @@ export { SymbolJsCID as SymbolCID } from '@lazy-ipfs/detect-cid-lib/lib/js-cids'
 
 export type IStaticCID<C extends ICIDObject = ICIDObject> = new(...argv: any[]) => C;
 
-export function classCID<C extends ICIDObject = MultiformatsCID>(libCID?: IStaticCID<C> | typeof MultiformatsCID | typeof JsCID): <T extends ICIDValueInput>(cidInput: T, libCID?: IStaticCID<C>) => C
+export function classCID<C extends ICIDObject = MultiformatsCID>(libCID?: IStaticCID<C> | typeof MultiformatsCID | typeof JsCID | EnumTypeofCID): <T extends ICIDValueInput>(cidInput: T, libCID?: IStaticCID<C> | EnumTypeofCID) => C
 {
 	libCID ??= MultiformatsCID;
 
-	if (libCID === JsCID)
+	if (libCID === JsCID || libCID === EnumTypeofCID.js_cids)
 	{
 		return toJsCID as any
 	}
@@ -34,17 +34,17 @@ export function classCID<C extends ICIDObject = MultiformatsCID>(libCID?: IStati
 	return toMultiformatsCID as any
 }
 
-export function isCID<C extends ICIDObject = ICIDObject>(cid: unknown, libCID?: IStaticCID<C>): cid is C
+export function isCID<C extends ICIDObject = ICIDObject>(cid: unknown, libCID?: IStaticCID<C> | EnumTypeofCID): cid is C
 {
 	const type = typeofCID(cid);
 
 	// @ts-ignore
-	if (libCID === MultiformatsCID)
+	if (libCID === MultiformatsCID || libCID === EnumTypeofCID.js_multiformats)
 	{
 		return type === EnumTypeofCID.multiformats_cid
 	}
 	// @ts-ignore
-	else if (libCID === JsCID)
+	else if (libCID === JsCID || libCID === EnumTypeofCID.js_cids)
 	{
 		return type === EnumTypeofCID.js_cids
 	}
@@ -79,7 +79,7 @@ export function toRawCID<R extends IRawCIDObject = IRawCIDObject>(cid: ICIDObjec
 	return toRawJsCID(cid) as R
 }
 
-export function toCID<C extends ICIDObject = ICIDObject>(cid: any, libCID?: IStaticCID<C>): C
+export function toCID<C extends ICIDObject = ICIDObject>(cid: any, libCID?: IStaticCID<C> | EnumTypeofCID): C
 {
 	return classCID(libCID)(cid, libCID)
 }
