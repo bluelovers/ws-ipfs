@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.22](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/to-cid@1.0.21...@lazy-ipfs/to-cid@1.0.22) (2021-07-31)
+
+
+### ✨　Features
+
+* support cid is `IParsePathResult` ([db2a21e](https://github.com/bluelovers/ws-ipfs/commit/db2a21e6cca6eafd08855044b57d39ce6cf694ba))
+
+
+### 📦　Code Refactoring
+
+* support use `EnumTypeofCID` ([37a8f12](https://github.com/bluelovers/ws-ipfs/commit/37a8f12feb3b067d687a132487f595703d25e1d5))
+
+
+
+
+
 ## [1.0.21](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/to-cid@1.0.20...@lazy-ipfs/to-cid@1.0.21) (2021-07-31)
 
 

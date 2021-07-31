@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.36](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/ipfs-subdomain@1.0.35...@lazy-ipfs/ipfs-subdomain@1.0.36) (2021-07-31)
+
+
+### ✨　Features
+
+* support cid is `IParsePathResult` ([db2a21e](https://github.com/bluelovers/ws-ipfs/commit/db2a21e6cca6eafd08855044b57d39ce6cf694ba))
+
+
+### 📦　Code Refactoring
+
+* support `filename` ([bce5a3a](https://github.com/bluelovers/ws-ipfs/commit/bce5a3a1d65ae20512dca4146befc2fde473223a))
+
+
+
+
+
 ## [1.0.35](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/ipfs-subdomain@1.0.34...@lazy-ipfs/ipfs-subdomain@1.0.35) (2021-07-31)
 
 **Note:** Version bump only for package @lazy-ipfs/ipfs-subdomain

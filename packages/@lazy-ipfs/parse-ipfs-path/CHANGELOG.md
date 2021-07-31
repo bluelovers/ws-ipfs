@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.13](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/parse-ipfs-path@1.0.12...@lazy-ipfs/parse-ipfs-path@1.0.13) (2021-07-31)
+
+
+### ✨　Features
+
+* support cid is `IParsePathResult` ([db2a21e](https://github.com/bluelovers/ws-ipfs/commit/db2a21e6cca6eafd08855044b57d39ce6cf694ba))
+
+
+
+
+
 ## [1.0.12](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/parse-ipfs-path@1.0.11...@lazy-ipfs/parse-ipfs-path@1.0.12) (2021-07-31)
 
 **Note:** Version bump only for package @lazy-ipfs/parse-ipfs-path
