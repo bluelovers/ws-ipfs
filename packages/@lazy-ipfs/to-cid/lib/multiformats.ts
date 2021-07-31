@@ -4,6 +4,7 @@ import { isRawJsCIDLike, SymbolJsCID, toRawJsCIDFake } from '@lazy-ipfs/detect-c
 import { ICIDValueInput, ICIDValueOrRaw } from '@lazy-ipfs/detect-cid-lib/lib/types';
 import { IRawMultiformatsCIDFake, isRawMultiformatsCIDLike, toRawMultiformatsCIDFake } from '@lazy-ipfs/detect-cid-lib/lib/js-multiformats';
 import { _isArrayLike } from '@lazy-ipfs/detect-cid-lib/lib/util';
+import { parsePath } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
 
 export function toMultiformatsCID<T extends ICIDValueInput, C extends MultiformatsCID = MultiformatsCID>(cidInput: T, libCID?: Pick<typeof MultiformatsCID, 'parse' | 'decode' | 'asCID'>): C
 {
@@ -12,7 +13,10 @@ export function toMultiformatsCID<T extends ICIDValueInput, C extends Multiforma
 
 	if (typeof cidInput === 'string')
 	{
-		return libCID.parse(cidInput) as any
+		return libCID.parse(parsePath(cidInput, {
+			unsafeReturn: true,
+			noThrow: true,
+		}).hash) as any
 	}
 	else if (_isArrayLike(cidInput))
 	{

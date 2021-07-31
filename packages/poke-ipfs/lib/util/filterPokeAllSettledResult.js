@@ -7,7 +7,7 @@ function filterPokeAllSettledResultWithValue(settledResults) {
 }
 exports.filterPokeAllSettledResultWithValue = filterPokeAllSettledResultWithValue;
 function getPokeAllSettledResultWithHref(settledResults) {
-    return filterPokeAllSettledResultWithValue(settledResults).map(value => value.value.href);
+    return filterPokeAllSettledResultWithValue(settledResults).map(value => value.value.href).filter(Boolean);
 }
 exports.getPokeAllSettledResultWithHref = getPokeAllSettledResultWithHref;
 //# sourceMappingURL=filterPokeAllSettledResult.js.map

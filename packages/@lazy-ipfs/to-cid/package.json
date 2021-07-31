@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "@lazy-ipfs/detect-cid-lib": "^1.0.2",
+    "@lazy-ipfs/parse-ipfs-path": "^1.0.11",
     "err-code": "^3.0.1",
     "tslib": "^2.3.0"
   },

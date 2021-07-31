@@ -10,5 +10,5 @@ export function filterPokeAllSettledResultWithValue(settledResults: ITSPromiseSe
 
 export function getPokeAllSettledResultWithHref(settledResults: ITSPromiseSettledResult<IPokeResult>[])
 {
-	return filterPokeAllSettledResultWithValue(settledResults).map(value  => value.value.href)
+	return filterPokeAllSettledResultWithValue(settledResults).map(value  => value.value.href).filter(Boolean)
 }
