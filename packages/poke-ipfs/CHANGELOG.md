@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.19](https://github.com/bluelovers/ws-ipfs/compare/poke-ipfs@1.1.18...poke-ipfs@1.1.19) (2021-07-31)
+
+
+### ✨　Features
+
+* getPokeAllSettledResultWithHref ([415ff47](https://github.com/bluelovers/ws-ipfs/commit/415ff47c48a43cfad7c2775e6ec2f0966503c5ba))
+
+
+
+
+
 ## [1.1.18](https://github.com/bluelovers/ws-ipfs/compare/poke-ipfs@1.1.17...poke-ipfs@1.1.18) (2021-07-31)
 
 
