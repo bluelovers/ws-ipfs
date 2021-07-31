@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/is-cid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "IPFS",
@@ -52,8 +52,6 @@
     "err-code": "^3.0.1",
     "tslib": "^2.3.0"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   }

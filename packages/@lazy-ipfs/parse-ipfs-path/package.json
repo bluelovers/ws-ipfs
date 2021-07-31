@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/parse-ipfs-path",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "",
   "keywords": [
     "IPFS",
@@ -31,8 +31,8 @@
   "dependencies": {
     "@lazy-ipfs/cid-to-string": "^1.0.2",
     "@lazy-ipfs/detect-cid-lib": "^1.0.2",
-    "@lazy-ipfs/is-cid": "^1.0.0",
-    "@lazy-ipfs/to-cid": "^1.0.23",
+    "@lazy-ipfs/is-cid": "^1.0.1",
+    "@lazy-ipfs/to-cid": "^1.0.24",
     "err-code": "^3.0.1",
     "is-valid-domain": "^0.1.2",
     "tslib": "^2.3.0"
