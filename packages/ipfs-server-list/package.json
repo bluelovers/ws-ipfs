@@ -1,6 +1,6 @@
 {
   "name": "ipfs-server-list",
-  "version": "1.0.64",
+  "version": "1.0.65",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-server-list#readme",
   "bugs": {
@@ -27,7 +27,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@bluelovers/ipfs-http-client": "^1.0.80",
+    "@bluelovers/ipfs-http-client": "^1.0.81",
     "ipfs-types": "^1.0.37",
     "ts-type": "^1.2.39",
     "tslib": "^2.3.0"

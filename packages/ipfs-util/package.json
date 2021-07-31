@@ -1,6 +1,6 @@
 {
   "name": "ipfs-util-lib",
-  "version": "1.0.65",
+  "version": "1.0.66",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-util#readme",
   "bugs": {
@@ -30,13 +30,13 @@
   "dependencies": {
     "@lazy-ipfs/cid-to-string": "^1.0.2",
     "@lazy-ipfs/ipfs-api-url": "^1.0.1",
-    "@lazy-ipfs/to-cid": "^1.0.22",
+    "@lazy-ipfs/to-cid": "^1.0.23",
     "array-hyper-unique": "^1.1.10",
     "bluebird": "^3.7.2",
     "debug-color2": "^1.2.7",
     "get-stream": "^6.0.1",
     "ipfs-api-type": "^1.0.18",
-    "ipfs-server-list": "^1.0.64",
+    "ipfs-server-list": "^1.0.65",
     "ipfs-types": "^1.0.37",
     "micromatch": "^4.0.4",
     "multiaddr-to-uri": "^8.0.0",
