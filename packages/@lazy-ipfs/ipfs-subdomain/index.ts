@@ -53,6 +53,9 @@ export function toSubdomainCID(cid: ICIDValueOrRaw)
 	return cidToBase32(toCID(cid));
 }
 
+/**
+ * @deprecated use {@link ipfsSubdomainURL2}
+ */
 export function ipfsSubdomainURL(cid: ICIDValueOrRaw | IParsePathResult,
 	gatewayDomain?: string | IIPFSAddressesLike,
 	protocol?: string | 'https:' | 'http:',
@@ -92,13 +95,13 @@ export interface IOptions
 	gatewayDomain?: string | IIPFSAddressesLike,
 	protocol?: string | 'https:' | 'http:',
 	clearPathname?: boolean,
+	filename?: string,
 }
 
-export function ipfsSubdomain(cid: ICIDValueOrRaw,
+export function _handleOptions(cid: ICIDValueOrRaw,
 	gatewayDomain?: string | IIPFSAddressesLike,
 	protocol?: IOptions["protocol"] | IOptions,
-	options?: IOptions,
-)
+	options?: IOptions,)
 {
 	if (protocol !== null && typeof protocol === 'object' && !options)
 	{
@@ -110,14 +113,49 @@ export function ipfsSubdomain(cid: ICIDValueOrRaw,
 	gatewayDomain ??= options.gatewayDomain;
 	protocol ??= options.protocol;
 
+	return {
+		cid,
+		gatewayDomain,
+		protocol,
+		options,
+	}
+}
+
+export function ipfsSubdomainURL2(cid: ICIDValueOrRaw,
+	gatewayDomain?: string | IIPFSAddressesLike,
+	protocol?: IOptions["protocol"] | IOptions,
+	options?: IOptions,
+)
+{
+	({
+		cid,
+		gatewayDomain,
+		protocol,
+		options,
+	} = _handleOptions(cid, gatewayDomain, protocol, options));
+
 	let url = ipfsSubdomainURL(cid, gatewayDomain, protocol as string);
 
-	if (options?.clearPathname)
+	if (options.clearPathname)
 	{
 		url.pathname = '';
 	}
 
-	return url.href
+	if (options.filename?.length)
+	{
+		url.searchParams.set('filename', options.filename);
+	}
+
+	return url
+}
+
+export function ipfsSubdomain(cid: ICIDValueOrRaw,
+	gatewayDomain?: string | IIPFSAddressesLike,
+	protocol?: IOptions["protocol"] | IOptions,
+	options?: IOptions,
+)
+{
+	return ipfsSubdomainURL2(cid, gatewayDomain, protocol, options).href
 }
 
 export default ipfsSubdomain
