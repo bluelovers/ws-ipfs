@@ -36,7 +36,7 @@
     "ipfsd-ctl": "^10",
     "tslib": "^2.3.0",
     "use-ipfs": "^1.0.91",
-    "yargs": "^17.0.1"
+    "yargs": "^17.1.0"
   },
   "gitHead": "2fea22e93302e75dcbb0b61f1920cc4f86db0ee5"
 }
