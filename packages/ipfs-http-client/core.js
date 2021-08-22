@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.use = exports.find = exports.some = exports.getCreateClientFn = exports.getDefaultServerList = void 0;
-const ipfs_util_lib_1 = require("ipfs-util-lib");
 const util_1 = require("./util");
 Object.defineProperty(exports, "getDefaultServerList", { enumerable: true, get: function () { return util_1.getDefaultServerList; } });
+const index_1 = require("@lazy-ipfs/check-ipfs-connect/index");
 function getCreateClientFn(ipfsClient) {
     if (typeof ipfsClient.create === 'function') {
         return ipfsClient.create;
@@ -19,7 +19,7 @@ async function some(ipfsClient, configs, skipCheck, checkIPFSFn) {
     let ipfs;
     const create = getCreateClientFn(ipfsClient);
     // @ts-ignore
-    checkIPFSFn !== null && checkIPFSFn !== void 0 ? checkIPFSFn : (checkIPFSFn = ipfs_util_lib_1.checkIPFS);
+    checkIPFSFn !== null && checkIPFSFn !== void 0 ? checkIPFSFn : (checkIPFSFn = index_1.checkIPFS);
     for (let argv of configs) {
         try {
             ipfs = await create(...argv);

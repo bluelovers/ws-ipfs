@@ -28,6 +28,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
+    "@lazy-ipfs/check-ipfs-connect": "^1.0.0",
     "@lazy-ipfs/cid-to-string": "^1.0.3",
     "@lazy-ipfs/ipfs-api-url": "^1.0.2",
     "@lazy-ipfs/to-cid": "^1.0.26",

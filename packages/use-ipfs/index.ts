@@ -10,12 +10,12 @@ import { EnumIPFSType, IOptions, IOptionsExtra } from './lib/types';
 import _ipfsHttpModule from 'ipfs-http-client'
 import { IIPFSAddresses } from 'ipfs-types';
 import { IIPFSPromiseApi } from 'ipfs-types/lib/ipfs/index';
-import { ipfsAddresses, checkIPFS } from 'ipfs-util-lib';
+import { ipfsAddresses } from 'ipfs-util-lib';
 import configApiCors from 'ipfs-util-lib/lib/ipfs/config/cors';
 import configApiSwarm from 'ipfs-util-lib/lib/ipfs/config/swarm';
 import configDefaultAll from 'ipfs-util-lib/lib/ipfs/config/default';
 import { unsubscribeAll } from 'ipfs-util-lib/lib/ipfs/pubsub/unsubscribe';
-import { assertCheckIPFS } from 'ipfs-util-lib/api';
+import { assertCheckIPFS, checkIPFS } from '@lazy-ipfs/check-ipfs-connect/index';
 
 export type ICachedObject<IPFS = IIPFSClientReturn> = Readonly<{
 	ipfs: IPFS,

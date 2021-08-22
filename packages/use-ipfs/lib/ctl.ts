@@ -3,7 +3,6 @@ import { checkForRunningApi } from 'ipfsd-ctl/src/utils';
 import IpfsClient from 'ipfs-http-client';
 import { IOptions } from './types';
 import { fixIPFSOptions } from './util/ipfsd';
-import { assertCheckIPFS } from 'ipfs-util-lib/api';
 import createDefaultAddresses, { getDefaultAddressesPorts, IPort } from 'ipfs-defaults/addresses';
 import getPort from 'get-port';
 import defaultsDeep from 'lodash/defaultsDeep';
@@ -11,6 +10,7 @@ import defaultsDeep from 'lodash/defaultsDeep';
 import findFreePort from 'find-free-port-sync-fixed';
 import { unlinkIPFSApi } from 'fix-ipfs/lib/ipfsd-ctl/unlinkIPFSApi';
 import { getCreateClientFn } from '@bluelovers/ipfs-http-client/core';
+import { assertCheckIPFS } from '@lazy-ipfs/check-ipfs-connect/index';
 
 const usedPort = new Set<number>();
 
@@ -77,7 +77,7 @@ export async function startIPFS(options?: IOptions)
 		})
 	}
 
-	let ipfsd = await createController(options);
+	let ipfsd = await createController(options as any);
 
 	let addr = await checkForRunningApi(ipfsd.path);
 	if (addr)

@@ -6,11 +6,11 @@ import {
 	IIPFSClientAddressesURL,
 	IIPFSClientAddresses,
 } from './lib/types';
-import { checkIPFS } from 'ipfs-util-lib';
 import { getDefaultServerList } from './util';
 import { IPFS } from 'ipfs-core-types';
 import _ipfsHttpModule from 'ipfs-http-client'
 import { ITSResolvable } from 'ts-type/lib/generic';
+import { checkIPFS } from '@lazy-ipfs/check-ipfs-connect/index';
 
 export { IIPFSClientFnWrap, IIPFSClientFn, IIPFSClientReturn, IIPFSClientParameters, IIPFSClientAddressesURL, IIPFSClientAddresses }
 

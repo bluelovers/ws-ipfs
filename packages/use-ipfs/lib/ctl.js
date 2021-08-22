@@ -6,13 +6,13 @@ const ipfsd_ctl_1 = require("ipfsd-ctl");
 const utils_1 = require("ipfsd-ctl/src/utils");
 const ipfs_http_client_1 = (0, tslib_1.__importDefault)(require("ipfs-http-client"));
 const ipfsd_1 = require("./util/ipfsd");
-const api_1 = require("ipfs-util-lib/api");
 const addresses_1 = (0, tslib_1.__importStar)(require("ipfs-defaults/addresses"));
 const defaultsDeep_1 = (0, tslib_1.__importDefault)(require("lodash/defaultsDeep"));
 // @ts-ignore
 const find_free_port_sync_fixed_1 = (0, tslib_1.__importDefault)(require("find-free-port-sync-fixed"));
 const unlinkIPFSApi_1 = require("fix-ipfs/lib/ipfsd-ctl/unlinkIPFSApi");
 const core_1 = require("@bluelovers/ipfs-http-client/core");
+const index_1 = require("@lazy-ipfs/check-ipfs-connect/index");
 const usedPort = new Set();
 async function getPort2(options) {
     let port = await (0, find_free_port_sync_fixed_1.default)({
@@ -64,7 +64,7 @@ async function startIPFS(options) {
         let ipfs;
         try {
             ipfs = await (0, core_1.getCreateClientFn)(ipfs_http_client_1.default)(addr);
-            await (0, api_1.assertCheckIPFS)(ipfs);
+            await (0, index_1.assertCheckIPFS)(ipfs);
         }
         catch (e) {
             try {
@@ -83,7 +83,7 @@ async function startIPFS(options) {
     }
     !ipfsd.initialized && await ipfsd.init();
     !ipfsd.started && await ipfsd.start();
-    await (0, api_1.assertCheckIPFS)(ipfsd.api);
+    await (0, index_1.assertCheckIPFS)(ipfsd.api);
     return ipfsd;
 }
 exports.startIPFS = startIPFS;

@@ -1,0 +1,64 @@
+{
+  "name": "@lazy-ipfs/check-ipfs-connect",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "IPFS",
+    "ipfs",
+    "multihash",
+    "multiformats",
+    "hash",
+    "multibase",
+    "encode",
+    "decode",
+    "formats",
+    "libp2p",
+    "datastore",
+    "unixfs",
+    "cid",
+    "dweb",
+    "node",
+    "webrtc",
+    "swarm",
+    "pubsub",
+    "p2p",
+    "ipns",
+    "ipld"
+  ],
+  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/@lazy-ipfs/check-ipfs-connect#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-ipfs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-ipfs.git"
+  },
+  "license": "ISC",
+  "author": "bluelovers",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "yarn run test -- --coverage",
+    "lint": "ynpx --quiet eslint -- **/*.ts",
+    "test": "jest --passWithNoTests",
+    "test:jest": "jest --passWithNoTests",
+    "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "preversion": "echo preversion && yarn run test",
+    "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+    "ncu": "yarn-tool ncu -u",
+    "sort-package-json": "yarn-tool sort",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "err-code": "^3.0.1",
+    "lazy-aggregate-error": "^1.0.4",
+    "tslib": "^2.3.1"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "ipfs-core-types": "^0.7.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

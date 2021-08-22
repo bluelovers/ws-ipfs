@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@bluelovers/ipfs-http-client": "^1.0.84",
+    "@lazy-ipfs/check-ipfs-connect": "^1.0.0",
     "find-free-port-sync-fixed": "^1.0.0",
     "fix-ipfs": "^1.0.16",
     "get-port": "^5.1.1",
