@@ -2,11 +2,91 @@
 
 exports[`fetch-ipfs fetchIPFS 1`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
 
+exports[`fetch-ipfs fetchIPFS 2`] = `
+Object {
+  "data": Array [
+    72,
+    101,
+    108,
+    108,
+    111,
+    32,
+    102,
+    114,
+    111,
+    109,
+    32,
+    73,
+    80,
+    70,
+    83,
+    32,
+    71,
+    97,
+    116,
+    101,
+    119,
+    97,
+    121,
+    32,
+    67,
+    104,
+    101,
+    99,
+    107,
+    101,
+    114,
+    10,
+  ],
+  "type": "Buffer",
+}
+`;
+
 exports[`fetch-ipfs lazy parsePath 1`] = `
 Object {
   "hash": "Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a",
   "ns": "ipfs",
   "path": "",
+}
+`;
+
+exports[`fetch-ipfs lazy parsePath 2`] = `
+Object {
+  "data": Array [
+    72,
+    101,
+    108,
+    108,
+    111,
+    32,
+    102,
+    114,
+    111,
+    109,
+    32,
+    73,
+    80,
+    70,
+    83,
+    32,
+    71,
+    97,
+    116,
+    101,
+    119,
+    97,
+    121,
+    32,
+    67,
+    104,
+    101,
+    99,
+    107,
+    101,
+    114,
+    10,
+  ],
+  "type": "Buffer",
 }
 `;
 
@@ -94,6 +174,46 @@ Object {
 `;
 
 exports[`fetch-ipfs lazy toURL 1`] = `"https://ipfs.io/ipfs/Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
+
+exports[`fetch-ipfs lazy toURL 2`] = `
+Object {
+  "data": Array [
+    72,
+    101,
+    108,
+    108,
+    111,
+    32,
+    102,
+    114,
+    111,
+    109,
+    32,
+    73,
+    80,
+    70,
+    83,
+    32,
+    71,
+    97,
+    116,
+    101,
+    119,
+    97,
+    121,
+    32,
+    67,
+    104,
+    101,
+    99,
+    107,
+    101,
+    114,
+    10,
+  ],
+  "type": "Buffer",
+}
+`;
 
 exports[`fetch-ipfs publishToIPFSRace 1`] = `
 Array [
