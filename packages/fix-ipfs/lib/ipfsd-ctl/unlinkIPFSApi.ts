@@ -1,28 +1,32 @@
 import { join } from "path";
 import { statSync, unlinkSync, Stats, stat, unlink } from "fs";
 import { promisify } from "util";
+import { fsStat, fsStatSync } from 'fs-stat';
+
+export function _assertIsFile(api: string, stat: Stats)
+{
+	if (stat && !stat.isFile())
+	{
+		throw new Error(`target path not a file, ${api}`);
+	}
+}
+
+export function _pathIpfsRunningApi(ipfsPath: string)
+{
+	return join(ipfsPath, 'api');
+}
 
 export function unlinkIPFSApi(ipfsPath: string)
 {
-	const api = join(ipfsPath, 'api');
-	let stat: Stats;
-	try
-	{
-		stat = statSync(api, {
-			throwIfNoEntry: false
-		});
-	}
-	catch (e)
-	{
+	const api = _pathIpfsRunningApi(ipfsPath);
 
-	}
+	let stat: Stats = fsStatSync(api, {
+		throwIfNoEntry: false
+	});
 
 	if (stat)
 	{
-		if (!stat.isFile())
-		{
-			throw new Error(`target path not a file, ${api}`);
-		}
+		_assertIsFile(api, stat);
 
 		unlinkSync(api);
 	}
@@ -30,18 +34,16 @@ export function unlinkIPFSApi(ipfsPath: string)
 
 export async function unlinkIPFSApiAsync(ipfsPath: string)
 {
-	const api = join(ipfsPath, 'api');
-	return promisify(stat)(api, {
+	const api = _pathIpfsRunningApi(ipfsPath);
+
+	return fsStat(api, {
 		throwIfNoEntry: false
 	})
 		.then(stat =>
 		{
 			if (stat)
 			{
-				if (!stat.isFile())
-				{
-					throw new Error(`target path not a file, ${api}`);
-				}
+				_assertIsFile(api, stat);
 
 				return promisify(unlink)(api);
 			}
