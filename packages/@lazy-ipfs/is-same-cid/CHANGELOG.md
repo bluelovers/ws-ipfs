@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.13](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/is-same-cid@1.0.12...@lazy-ipfs/is-same-cid@1.0.13) (2021-08-22)
+
+
+### ✨　Features
+
+* add `newAssertionSameCIDError` ([22c281f](https://github.com/bluelovers/ws-ipfs/commit/22c281f65b8bfe78efbf99e98669ac086c394cf0))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([c236493](https://github.com/bluelovers/ws-ipfs/commit/c236493e8eb6014e3c2265492262cce1ac9c400c))
+
+
+
+
+
 ## [1.0.12](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/is-same-cid@1.0.11...@lazy-ipfs/is-same-cid@1.0.12) (2021-07-31)
 
 **Note:** Version bump only for package @lazy-ipfs/is-same-cid

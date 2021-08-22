@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.16](https://github.com/bluelovers/ws-ipfs/compare/fix-ipfs@1.0.15...fix-ipfs@1.0.16) (2021-08-22)
+
+
+### 📦　Code Refactoring
+
+* update `unlinkIPFSApi` ([110a790](https://github.com/bluelovers/ws-ipfs/commit/110a7907ba7263d1b650c7bf63c0c578b697a409))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([c236493](https://github.com/bluelovers/ws-ipfs/commit/c236493e8eb6014e3c2265492262cce1ac9c400c))
+
+
+
+
+
 ## [1.0.15](https://github.com/bluelovers/ws-ipfs/compare/fix-ipfs@1.0.13...fix-ipfs@1.0.15) (2021-07-29)
 
 

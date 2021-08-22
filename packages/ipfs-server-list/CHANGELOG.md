@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.68](https://github.com/bluelovers/ws-ipfs/compare/ipfs-server-list@1.0.67...ipfs-server-list@1.0.68) (2021-08-22)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([c236493](https://github.com/bluelovers/ws-ipfs/commit/c236493e8eb6014e3c2265492262cce1ac9c400c))
+
+
+
+
+
 ## [1.0.67](https://github.com/bluelovers/ws-ipfs/compare/ipfs-server-list@1.0.66...ipfs-server-list@1.0.67) (2021-07-31)
 
 **Note:** Version bump only for package ipfs-server-list
