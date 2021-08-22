@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.93](https://github.com/bluelovers/ws-ipfs/compare/fetch-ipfs@1.0.92...fetch-ipfs@1.0.93) (2021-08-22)
+
+
+### 🔖　Miscellaneous
+
+* . ([0c0c656](https://github.com/bluelovers/ws-ipfs/commit/0c0c6564383da12563e2eedbed242f851b7fdd3b))
+
+
+
+
+
 ## [1.0.92](https://github.com/bluelovers/ws-ipfs/compare/fetch-ipfs@1.0.91...fetch-ipfs@1.0.92) (2021-08-22)
 
 

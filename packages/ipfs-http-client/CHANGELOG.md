@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.85](https://github.com/bluelovers/ws-ipfs/compare/@bluelovers/ipfs-http-client@1.0.84...@bluelovers/ipfs-http-client@1.0.85) (2021-08-22)
+
+
+### 📦　Code Refactoring
+
+* `@lazy-ipfs/check-ipfs-connect` ([88b1ae7](https://github.com/bluelovers/ws-ipfs/commit/88b1ae7b37bcd6dc8aa5b4b1469907477b5e355a))
+
+
+
+
+
 ## [1.0.84](https://github.com/bluelovers/ws-ipfs/compare/@bluelovers/ipfs-http-client@1.0.83...@bluelovers/ipfs-http-client@1.0.84) (2021-08-22)
 
 
