@@ -10,7 +10,7 @@ export interface IFetchOptions extends IOptions {
     fetchOptions?: RequestInit;
 }
 export declare function newAbortController(timeout: number): {
-    controller: AbortControllerTimer;
+    controller: AbortControllerTimer<number | NodeJS.Timeout>;
     timer: number | NodeJS.Timeout;
 };
 export declare function handleCID(cid: ICIDValue, useIPFS?: any, options?: IFetchOptions): ICIDValue;

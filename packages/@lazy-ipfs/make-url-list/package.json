@@ -54,12 +54,12 @@
     "@lazy-ipfs/ipfs-subdomain": "^1.0.39",
     "@lazy-ipfs/parse-ipfs-path": "^1.0.16",
     "array-hyper-unique": "^1.1.10",
-    "ipfs-core-types": "^0.6.1",
+    "ipfs-core-types": "^0.7.0",
     "ipfs-server-list": "^1.0.67",
     "ipfs-util-lib": "^1.0.68",
-    "lazy-url": "^1.0.12",
+    "lazy-url": "^1.0.19",
     "to-ipfs-url": "^1.0.36",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "publishConfig": {
     "access": "public"

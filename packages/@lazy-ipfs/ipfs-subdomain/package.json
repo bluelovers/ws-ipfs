@@ -36,7 +36,7 @@
     "@lazy-ipfs/to-cid": "^1.0.25",
     "err-code": "^3.0.1",
     "ipfs-server-list": "^1.0.67",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "publishConfig": {
     "access": "public"

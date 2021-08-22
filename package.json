@@ -51,29 +51,30 @@
     "bluebird": "^3.7.2",
     "cross-fetch": "^3.1.4",
     "fs-extra": "^10.0.0",
-    "ipfs": "^0.56.1",
-    "ipfs-core-types": "^0.6.1",
-    "ipfs-http-client": "^51.0.1",
-    "ipfs-utils": "^8.1.4",
+    "go-ipfs": "^0.9.1",
+    "ipfs": "^0.58.1",
+    "ipfs-core-types": "^0.7.0",
+    "ipfs-http-client": "^52.0.1",
+    "ipfs-utils": "^8.1.5",
     "ipfsd-ctl": "^10.0.3",
     "is-ipfs": "^6.0.1",
     "jest": "^27.0.6",
-    "jest-node-exports-resolver": "^1.0.3",
-    "scramjet": "^4.35.20",
-    "ts-jest": "^27.0.4"
+    "jest-node-exports-resolver": "^1.0.5",
+    "scramjet": "^4.35.21",
+    "ts-jest": "^27.0.5"
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.25",
     "@types/bluebird": "^3.5.36",
     "@types/chrome": "^0.0.154",
     "@types/fs-extra": "^9.0.12",
-    "@types/jest": "^26.0.24",
+    "@types/jest": "^27.0.1",
     "@types/lodash": "^4.14.172",
     "@types/micromatch": "^4.0.2",
-    "@types/node": "^16.4.13",
+    "@types/node": "^16.7.1",
     "@types/node-fetch": "*",
     "@types/yargs": "^17.0.2",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "peerDependencies": {
     "lerna": "^4"

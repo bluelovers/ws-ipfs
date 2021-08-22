@@ -36,7 +36,7 @@
     "ipfs-defaults": "^1.0.48",
     "lodash": "^4.17.21",
     "ts-type": "^1.2.39",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "peerDependencies": {
     "ipfs": "*",

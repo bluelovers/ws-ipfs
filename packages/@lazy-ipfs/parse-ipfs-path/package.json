@@ -34,8 +34,10 @@
     "@lazy-ipfs/is-cid": "^1.0.1",
     "@lazy-ipfs/to-cid": "^1.0.25",
     "err-code": "^3.0.1",
+    "is-ipfs": "^6.0.1",
     "is-valid-domain": "^0.1.2",
-    "tslib": "^2.3.0"
+    "lazy-url": "^1.0.19",
+    "tslib": "^2.3.1"
   },
   "publishConfig": {
     "access": "public"

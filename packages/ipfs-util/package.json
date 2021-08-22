@@ -41,7 +41,7 @@
     "micromatch": "^4.0.4",
     "multiaddr-to-uri": "^8.0.0",
     "multiaddr-to-url": "^1.0.17",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "gitHead": "2fea22e93302e75dcbb0b61f1920cc4f86db0ee5"
 }

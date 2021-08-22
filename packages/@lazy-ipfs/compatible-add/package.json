@@ -28,7 +28,7 @@
     "ipfs-core-types": "*",
     "it-all": "^1.0.5",
     "it-last": "^1.0.5",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "publishConfig": {
     "access": "public"

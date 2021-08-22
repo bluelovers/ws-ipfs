@@ -52,7 +52,7 @@
     "err-code": "^3.0.1",
     "multicodec": "^3.1.0",
     "ts-type": "^1.2.39",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "publishConfig": {
     "access": "public"

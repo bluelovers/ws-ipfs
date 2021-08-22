@@ -30,7 +30,7 @@
   "dependencies": {
     "ipfs-server-list": "^1.0.67",
     "lodash": "^4.17.21",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "gitHead": "2fea22e93302e75dcbb0b61f1920cc4f86db0ee5"
 }
