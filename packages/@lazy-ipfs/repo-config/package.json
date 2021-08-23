@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/repo-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "IPFS",
@@ -52,8 +52,6 @@
     "fs-extra": "^10.0.0",
     "tslib": "^2.3.1"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   }
