@@ -1,6 +1,6 @@
 {
   "name": "to-ipfs-url",
-  "version": "1.0.38",
+  "version": "1.0.39",
   "description": "create ipfs link",
   "keywords": [
     "ipfs",
@@ -35,11 +35,11 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@lazy-ipfs/cid-to-string": "^1.0.3",
-    "@lazy-ipfs/detect-cid-lib": "^1.0.3",
-    "@lazy-ipfs/to-cid": "^1.0.26",
+    "@lazy-ipfs/cid-to-string": "^1.0.4",
+    "@lazy-ipfs/detect-cid-lib": "^1.0.4",
+    "@lazy-ipfs/to-cid": "^1.0.27",
     "err-code": "^3.0.1",
-    "ipfs-server-list": "^1.0.69",
+    "ipfs-server-list": "^1.0.70",
     "is-ipfs": "^6.0.1",
     "tslib": "^2.3.1"
   },

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.94](https://github.com/bluelovers/ws-ipfs/compare/use-ipfs@1.0.93...use-ipfs@1.0.94) (2021-08-23)
+
+
+### ♻️　Chores
+
+* update deps ([9a17d4e](https://github.com/bluelovers/ws-ipfs/commit/9a17d4e55367a4fb17b4c1f65ed896ffbd593049))
+
+
+
+
+
 ## [1.0.93](https://github.com/bluelovers/ws-ipfs/compare/use-ipfs@1.0.92...use-ipfs@1.0.93) (2021-08-22)
 
 
