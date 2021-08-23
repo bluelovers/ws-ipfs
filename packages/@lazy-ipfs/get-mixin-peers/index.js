@@ -5,10 +5,16 @@ const tslib_1 = require("tslib");
 const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
 const array_hyper_unique_1 = require("array-hyper-unique");
 async function ipfsPubsubPeers(ipfs, topic, options) {
+    var _a;
+    options !== null && options !== void 0 ? options : (options = {});
+    (_a = options.timeout) !== null && _a !== void 0 ? _a : (options.timeout = 5000);
     return ipfs.pubsub.peers(topic, options);
 }
 exports.ipfsPubsubPeers = ipfsPubsubPeers;
 async function ipfsSwarmPeers(ipfs, options) {
+    var _a;
+    options !== null && options !== void 0 ? options : (options = {});
+    (_a = options.timeout) !== null && _a !== void 0 ? _a : (options.timeout = 5000);
     return ipfs.swarm.peers(options)
         .then(ls => ls.map(value => {
         return value.peer;
@@ -16,6 +22,9 @@ async function ipfsSwarmPeers(ipfs, options) {
 }
 exports.ipfsSwarmPeers = ipfsSwarmPeers;
 async function ipfsSwarmAddrsPeers(ipfs, options) {
+    var _a;
+    options !== null && options !== void 0 ? options : (options = {});
+    (_a = options.timeout) !== null && _a !== void 0 ? _a : (options.timeout = 5000);
     return ipfs.swarm.addrs(options)
         .then(ls => ls.map(value => {
         return value.id;
@@ -23,6 +32,9 @@ async function ipfsSwarmAddrsPeers(ipfs, options) {
 }
 exports.ipfsSwarmAddrsPeers = ipfsSwarmAddrsPeers;
 function ipfsMixinPeers(ipfs, topic, options) {
+    var _a;
+    options !== null && options !== void 0 ? options : (options = {});
+    (_a = options.timeout) !== null && _a !== void 0 ? _a : (options.timeout = 5000);
     return bluebird_1.default.props({
         pubsub: (topic === null || topic === void 0 ? void 0 : topic.length) && ipfsPubsubPeers(ipfs, topic, options).catch(e => []),
         swarm: ipfsSwarmPeers(ipfs, options).catch(e => []),
