@@ -1,10 +1,13 @@
 import {
+	pathExists,
+	pathExistsSync,
 	readJSON,
 	readJSONSync,
 	writeJSON,
 	writeJSONSync,
 } from 'fs-extra';
 import {
+	getRepoConfigPath,
 	IRepoConfig,
 	readRepoConfig,
 	readRepoConfigSync,
@@ -27,6 +30,16 @@ export function recommendIdentityFilename()
 export function getIdentityPath(targetPath: string)
 {
 	return join(targetPath, recommendIdentityFilename())
+}
+
+export function existsIdentityPath(targetPath: string)
+{
+	return pathExists(getIdentityPath(targetPath))
+}
+
+export function existsIdentityPathSync(targetPath: string)
+{
+	return pathExistsSync(getIdentityPath(targetPath))
 }
 
 export function getIdentityFromConfig(config): IRepoIdentity

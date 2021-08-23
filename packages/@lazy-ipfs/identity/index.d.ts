@@ -5,6 +5,8 @@ export interface IRepoIdentity {
 }
 export declare function recommendIdentityFilename(): ".identity.json";
 export declare function getIdentityPath(targetPath: string): string;
+export declare function existsIdentityPath(targetPath: string): Promise<boolean>;
+export declare function existsIdentityPathSync(targetPath: string): boolean;
 export declare function getIdentityFromConfig(config: any): IRepoIdentity;
 export declare function setIdentityToConfig<T extends IRepoConfig>(config: T, Identity: IRepoIdentity): T & {
     Identity: IRepoIdentity;

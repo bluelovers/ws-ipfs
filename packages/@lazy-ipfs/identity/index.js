@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setIdentityToRepoConfigSync = exports.setIdentityToRepoConfig = exports.readIdentityFromRepoConfigSync = exports.readIdentityFromRepoConfig = exports.writeIdentityFileSync = exports.writeIdentityFile = exports.readIdentityFileSync = exports.readIdentityFile = exports.setIdentityToConfig = exports.getIdentityFromConfig = exports.getIdentityPath = exports.recommendIdentityFilename = void 0;
+exports.setIdentityToRepoConfigSync = exports.setIdentityToRepoConfig = exports.readIdentityFromRepoConfigSync = exports.readIdentityFromRepoConfig = exports.writeIdentityFileSync = exports.writeIdentityFile = exports.readIdentityFileSync = exports.readIdentityFile = exports.setIdentityToConfig = exports.getIdentityFromConfig = exports.existsIdentityPathSync = exports.existsIdentityPath = exports.getIdentityPath = exports.recommendIdentityFilename = void 0;
 const fs_extra_1 = require("fs-extra");
 const index_1 = require("@lazy-ipfs/repo-config/index");
 const path_1 = require("path");
@@ -12,6 +12,14 @@ function getIdentityPath(targetPath) {
     return (0, path_1.join)(targetPath, recommendIdentityFilename());
 }
 exports.getIdentityPath = getIdentityPath;
+function existsIdentityPath(targetPath) {
+    return (0, fs_extra_1.pathExists)(getIdentityPath(targetPath));
+}
+exports.existsIdentityPath = existsIdentityPath;
+function existsIdentityPathSync(targetPath) {
+    return (0, fs_extra_1.pathExistsSync)(getIdentityPath(targetPath));
+}
+exports.existsIdentityPathSync = existsIdentityPathSync;
 function getIdentityFromConfig(config) {
     return config.Identity;
 }
