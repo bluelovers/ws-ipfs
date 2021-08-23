@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/identity@1.0.1...@lazy-ipfs/identity@1.0.2) (2021-08-23)
+
+
+### 🔖　Miscellaneous
+
+* . ([0f319bc](https://github.com/bluelovers/ws-ipfs/commit/0f319bcd5142a22422dc9b9b74bb5642b8f7b3f3))
+
+
+
+
+
 ## 1.0.1 (2021-08-23)
 
 
