@@ -1,12 +1,19 @@
 /**
  * Created by user on 2020/4/5.
  */
-import { IIPFSPromiseApi } from 'ipfs-types';
-import { IIPFSApiUtils } from 'ipfs-types/lib/ipfs';
+import { IPFS } from 'ipfs-core-types';
 
-export async function ipfsApiType(ipfs: IIPFSApiUtils): Promise<string | "js" | "go">
+export async function ipfsApiType(ipfs: Pick<IPFS, 'id' | 'version'>, timeout?: number): Promise<string | "js" | "go">
 {
-	const i = await ipfs.id().catch(e => null);
+	if (typeof timeout !== 'number')
+	{
+		timeout = void 0;
+	}
+	timeout ||= 5000;
+
+	const i = await ipfs.id({
+		timeout,
+	}).catch(e => null as null);
 	let apiType: string | 'js' | 'go';
 
 	if (i?.agentVersion?.match(/(js|go)-ipfs/i))
@@ -16,7 +23,9 @@ export async function ipfsApiType(ipfs: IIPFSApiUtils): Promise<string | "js" | 
 
 	if (apiType === void 0)
 	{
-		const v = await ipfs.version().catch(e => null);
+		const v = await ipfs.version({
+		timeout,
+	}).catch(e => null as null);
 
 		if (v?.golang)
 		{
