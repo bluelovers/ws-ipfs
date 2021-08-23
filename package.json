@@ -44,7 +44,7 @@
     "ncu:ws": "yarn-tool ws exec yarn-tool ncu -- -u",
     "sort-package-json": "yarn run sort-package-json:root && yarn run sort-package-json:ws",
     "sort-package-json:root": "yarn-tool sort",
-    "sort-package-json:ws": "yarn-tool ws exec yarn-tool sort"
+    "sort-package-json:ws": "yarn-tool ws sort"
   },
   "resolutions": {},
   "dependencies": {
@@ -53,7 +53,7 @@
     "fs-extra": "^10.0.0",
     "go-ipfs": "^0.9.1",
     "ipfs": "^0.58.1",
-    "ipfs-core-types": "^0.7.0",
+    "ipfs-core-types": "*",
     "ipfs-http-client": "^52.0.1",
     "ipfs-utils": "^8.1.5",
     "ipfsd-ctl": "^10.0.3",

@@ -55,7 +55,7 @@
     "tslib": "^2.3.1"
   },
   "peerDependencies": {
-    "ipfs-core-types": "^0.7.0"
+    "ipfs-core-types": "*"
   },
   "publishConfig": {
     "access": "public"

@@ -169,7 +169,8 @@ export function toFileObject (input) {
 	return obj
 }
 
-export function toAsyncIterable (input) {
+export function toAsyncIterable (input): AsyncGenerator<any, void, unknown> | AsyncGenerator<ArrayBuffer | ArrayBufferView | Buffer, any, unknown>
+{
 	// Bytes | String
 	if (isBytes(input) || typeof input === 'string') {
 		return (async function * () { // eslint-disable-line require-await

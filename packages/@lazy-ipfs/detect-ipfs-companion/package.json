@@ -28,8 +28,10 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "ipfs-core-types": "*",
     "tslib": "^2.3.1"
+  },
+  "peerDependencies": {
+    "ipfs-core-types": "*"
   },
   "publishConfig": {
     "access": "public"

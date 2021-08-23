@@ -2,6 +2,7 @@ import { IIPFSPromiseApi } from 'ipfs-types';
 import { ITSValueOrArray } from 'ts-type';
 import { ICIDValue, ICIDObject } from '@lazy-ipfs/detect-cid-lib/lib/types';
 import { toCID } from '@lazy-ipfs/to-cid';
+import { CID as MultiformatsCID } from 'multiformats';
 
 /**
  * https://discuss.ipfs.io/t/how-can-attach-cid-to-new-node/7534/5
@@ -26,18 +27,18 @@ export async function addSourceToTarget(source: ITSValueOrArray<{
 	name: string,
 }>, target: {
 	cid: ICIDValue,
-}, ipfs: IIPFSPromiseApi): Promise<ICIDObject>
+}, ipfs: IIPFSPromiseApi)
 {
 	if (Array.isArray(source))
 	{
-		let cid: ICIDValue = target.cid;
+		let cid: MultiformatsCID = target.cid as MultiformatsCID;
 		for await (const entry of source)
 		{
 			cid = await addSourceToTargetCore(entry, {
 				cid,
 			}, ipfs)
 		}
-		return cid as ICIDObject;
+		return cid;
 	}
 	else
 	{

@@ -48,10 +48,12 @@
   },
   "dependencies": {
     "@lazy-ipfs/is-same-cid": "^1.0.13",
-    "ipfs-core-types": "*",
     "lazy-aggregate-error": "^1.0.4",
     "ts-type": "^1.2.39",
     "tslib": "^2.3.1"
+  },
+  "peerDependencies": {
+    "ipfs-core-types": "*"
   },
   "publishConfig": {
     "access": "public"

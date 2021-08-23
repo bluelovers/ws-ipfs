@@ -29,7 +29,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "ipfs-core-types": "^0.7.0"
+    "ipfs-core-types": "*"
   },
   "gitHead": "0de896d58ae13387db38242fe99d2796016c550c"
 }
