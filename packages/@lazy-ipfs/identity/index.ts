@@ -103,8 +103,10 @@ export function readIdentityFromRepoConfigSync(repoPath: string): IRepoIdentity
 	return getIdentityFromConfig(config)
 }
 
-export function setIdentityToRepoConfig(repoPath: string, Identity: IRepoIdentity)
+export async function setIdentityToRepoConfig(repoPath: string, Identity: IRepoIdentity)
 {
+	assertIdentity(Identity);
+
 	return readRepoConfig(repoPath)
 		.then(config =>
 		{
@@ -116,6 +118,8 @@ export function setIdentityToRepoConfig(repoPath: string, Identity: IRepoIdentit
 
 export function setIdentityToRepoConfigSync(repoPath: string, Identity: IRepoIdentity)
 {
+	assertIdentity(Identity);
+
 	let config = readRepoConfigSync(repoPath);
 
 	config = setIdentityToConfig(config, Identity);
@@ -155,4 +159,29 @@ export function backupIdentityFromRepoToPath(repoPath: string, targetPath: strin
 export function backupIdentityFromRepoToPathSync(repoPath: string, targetPath: string)
 {
 	return backupIdentityFromRepoToFileSync(repoPath, getIdentityPath(targetPath))
+}
+
+export function restoreIdentityFromFile(repoPath: string, file: string)
+{
+	return readIdentityFile(file)
+		.then(Identity => {
+		return setIdentityToRepoConfig(repoPath, Identity)
+	})
+}
+
+export function restoreIdentityFromFileSync(repoPath: string, file: string)
+{
+	const Identity = readIdentityFileSync(file);
+
+	return setIdentityToRepoConfigSync(repoPath, Identity)
+}
+
+export function restoreIdentityFromPath(repoPath: string, targetPath: string)
+{
+	return restoreIdentityFromFile(repoPath, getIdentityPath(targetPath))
+}
+
+export function restoreIdentityFromPathSync(repoPath: string, targetPath: string)
+{
+	return restoreIdentityFromFileSync(repoPath, getIdentityPath(targetPath))
 }

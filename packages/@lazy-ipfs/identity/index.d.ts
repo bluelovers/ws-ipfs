@@ -36,3 +36,7 @@ export declare function backupIdentityFromRepoToPath(repoPath: string, targetPat
  * targetPath for save .identity.json
  */
 export declare function backupIdentityFromRepoToPathSync(repoPath: string, targetPath: string): void;
+export declare function restoreIdentityFromFile(repoPath: string, file: string): Promise<void>;
+export declare function restoreIdentityFromFileSync(repoPath: string, file: string): void;
+export declare function restoreIdentityFromPath(repoPath: string, targetPath: string): Promise<void>;
+export declare function restoreIdentityFromPathSync(repoPath: string, targetPath: string): void;
