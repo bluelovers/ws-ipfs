@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/get-mixin-peers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "IPFS",
@@ -53,7 +53,6 @@
     "bluebird": "^3.7.2",
     "tslib": "^2.3.1"
   },
-  "devDependencies": {},
   "peerDependencies": {
     "ipfs-core-types": "*"
   },
