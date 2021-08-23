@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/get-mixin-peers@1.0.1...@lazy-ipfs/get-mixin-peers@1.0.2) (2021-08-23)
+
+
+### ✨　Features
+
+* default options ([81037b0](https://github.com/bluelovers/ws-ipfs/commit/81037b0916454ffd95cf4e32947e51b72dff251e))
+
+
+
+
+
 ## 1.0.1 (2021-08-23)
 
 
