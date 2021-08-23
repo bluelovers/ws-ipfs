@@ -32,10 +32,10 @@ async function ipfsFilesCopy(ipfs, from, to, options) {
             throw new TypeError('Not support multiple cids when validCheck is enabled');
         }
     }
-    if (extraOptions.overwrite) {
-        await (0, _promise_1._promiseIgnoreError)((0, rm_1.ipfsFilesRemove)(ipfs, to));
-    }
     const err = new lazy_aggregate_error_1.AggregateErrorExtra();
+    if (extraOptions.overwrite) {
+        await (0, _promise_1._promiseIgnoreError)((0, rm_1.ipfsFilesRemove)(ipfs, to), null, err);
+    }
     let p = _ipfsFilesCopy(ipfs, from, to, options);
     if (extraOptions.validCheck) {
         extraOptions = {

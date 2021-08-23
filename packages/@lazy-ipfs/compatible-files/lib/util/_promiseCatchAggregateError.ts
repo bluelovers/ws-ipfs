@@ -15,5 +15,5 @@ export function _promiseCatchAggregateError<P extends Promise<any>>(p: P, err?: 
 		}
 
 		return Promise.reject(err)
-	})
+	}) as P
 }

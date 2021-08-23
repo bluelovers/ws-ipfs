@@ -59,12 +59,12 @@ export async function ipfsFilesCopy(ipfs: IHasFilesAPI,
 		}
 	}
 
+	const err = new AggregateErrorExtra();
+
 	if (extraOptions.overwrite)
 	{
-		await _promiseIgnoreError(ipfsFilesRemove(ipfs, to));
+		await _promiseIgnoreError(ipfsFilesRemove(ipfs, to), null, err);
 	}
-
-	const err = new AggregateErrorExtra();
 
 	let p: Promise<StatResult> = _ipfsFilesCopy(ipfs, from, to, options) as any;
 
