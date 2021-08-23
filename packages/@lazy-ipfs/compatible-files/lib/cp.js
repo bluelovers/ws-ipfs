@@ -25,6 +25,7 @@ async function _ipfsFilesCopy(ipfs, from, to, options) {
 }
 exports._ipfsFilesCopy = _ipfsFilesCopy;
 async function ipfsFilesCopy(ipfs, from, to, options) {
+    var _a;
     let extraOptions = (0, _getExtraOptions_1._getExtraOptions)(options);
     if (extraOptions.validCheck) {
         // @ts-ignore
@@ -34,7 +35,9 @@ async function ipfsFilesCopy(ipfs, from, to, options) {
     }
     const err = new lazy_aggregate_error_1.AggregateErrorExtra();
     if (extraOptions.overwrite) {
-        await (0, _promise_1._promiseIgnoreError)((0, rm_1.ipfsFilesRemove)(ipfs, to), null, err);
+        await (0, _promise_1._promiseIgnoreError)((0, rm_1.ipfsFilesRemove)(ipfs, to, {
+            timeout: options === null || options === void 0 ? void 0 : options.timeout,
+        }), null, err);
     }
     let p = _ipfsFilesCopy(ipfs, from, to, options);
     if (extraOptions.validCheck) {
@@ -46,6 +49,10 @@ async function ipfsFilesCopy(ipfs, from, to, options) {
             err.push(e);
             return (0, _dummy_1._dummyNull)();
         });
+    }
+    if (options === null || options === void 0 ? void 0 : options.timeout) {
+        (_a = extraOptions.statOptions) !== null && _a !== void 0 ? _a : (extraOptions.statOptions = {});
+        extraOptions.statOptions.timeout = options.timeout;
     }
     p = (0, stat_1._returnStat02)(p, ipfs, to, extraOptions);
     if (extraOptions.validCheck) {

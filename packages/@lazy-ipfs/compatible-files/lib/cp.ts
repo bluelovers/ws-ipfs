@@ -63,7 +63,9 @@ export async function ipfsFilesCopy(ipfs: IHasFilesAPI,
 
 	if (extraOptions.overwrite)
 	{
-		await _promiseIgnoreError(ipfsFilesRemove(ipfs, to), null, err);
+		await _promiseIgnoreError(ipfsFilesRemove(ipfs, to, {
+			timeout: options?.timeout,
+		}), null, err);
 	}
 
 	let p: Promise<StatResult> = _ipfsFilesCopy(ipfs, from, to, options) as any;
@@ -80,6 +82,12 @@ export async function ipfsFilesCopy(ipfs: IHasFilesAPI,
 			err.push(e)
 			return _dummyNull()
 		})
+	}
+
+	if (options?.timeout)
+	{
+		extraOptions.statOptions ??= {};
+		extraOptions.statOptions.timeout = options.timeout;
 	}
 
 	p = _returnStat02(p, ipfs, to, extraOptions);
