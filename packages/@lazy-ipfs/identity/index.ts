@@ -47,10 +47,20 @@ export function getIdentityFromConfig(config): IRepoIdentity
 	return config.Identity
 }
 
+export function assertIdentity(Identity: IRepoIdentity): asserts Identity is IRepoIdentity
+{
+	if (!Identity?.PeerID?.length || !Identity?.PrivKey?.length)
+	{
+		throw new TypeError(`Identity should include PeerID, PrivKey`)
+	}
+}
+
 export function setIdentityToConfig<T extends IRepoConfig>(config: T, Identity: IRepoIdentity): T & {
 	Identity: IRepoIdentity,
 }
 {
+	assertIdentity(Identity);
+
 	// @ts-ignore
 	config.Identity = Identity
 
@@ -111,4 +121,38 @@ export function setIdentityToRepoConfigSync(repoPath: string, Identity: IRepoIde
 	config = setIdentityToConfig(config, Identity);
 
 	return writeRepoConfigSync(repoPath, config)
+}
+
+/**
+ * file path of .identity.json
+ */
+export function backupIdentityFromRepoToFile(repoPath: string, file: string)
+{
+	return readIdentityFromRepoConfig(repoPath).then(Identity => writeIdentityFile(file, Identity))
+}
+
+/**
+ * file path of .identity.json
+ */
+export function backupIdentityFromRepoToFileSync(repoPath: string, file: string)
+{
+	let Identity = readIdentityFromRepoConfigSync(repoPath)
+
+	return writeIdentityFileSync(file, Identity)
+}
+
+/**
+ * targetPath for save .identity.json
+ */
+export function backupIdentityFromRepoToPath(repoPath: string, targetPath: string)
+{
+	return backupIdentityFromRepoToFile(repoPath, getIdentityPath(targetPath))
+}
+
+/**
+ * targetPath for save .identity.json
+ */
+export function backupIdentityFromRepoToPathSync(repoPath: string, targetPath: string)
+{
+	return backupIdentityFromRepoToFileSync(repoPath, getIdentityPath(targetPath))
 }

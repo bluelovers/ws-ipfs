@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setIdentityToRepoConfigSync = exports.setIdentityToRepoConfig = exports.readIdentityFromRepoConfigSync = exports.readIdentityFromRepoConfig = exports.writeIdentityFileSync = exports.writeIdentityFile = exports.readIdentityFileSync = exports.readIdentityFile = exports.setIdentityToConfig = exports.getIdentityFromConfig = exports.existsIdentityPathSync = exports.existsIdentityPath = exports.getIdentityPath = exports.recommendIdentityFilename = void 0;
+exports.backupIdentityFromRepoToPathSync = exports.backupIdentityFromRepoToPath = exports.backupIdentityFromRepoToFileSync = exports.backupIdentityFromRepoToFile = exports.setIdentityToRepoConfigSync = exports.setIdentityToRepoConfig = exports.readIdentityFromRepoConfigSync = exports.readIdentityFromRepoConfig = exports.writeIdentityFileSync = exports.writeIdentityFile = exports.readIdentityFileSync = exports.readIdentityFile = exports.setIdentityToConfig = exports.assertIdentity = exports.getIdentityFromConfig = exports.existsIdentityPathSync = exports.existsIdentityPath = exports.getIdentityPath = exports.recommendIdentityFilename = void 0;
 const fs_extra_1 = require("fs-extra");
 const index_1 = require("@lazy-ipfs/repo-config/index");
 const path_1 = require("path");
@@ -24,7 +24,15 @@ function getIdentityFromConfig(config) {
     return config.Identity;
 }
 exports.getIdentityFromConfig = getIdentityFromConfig;
+function assertIdentity(Identity) {
+    var _a, _b;
+    if (!((_a = Identity === null || Identity === void 0 ? void 0 : Identity.PeerID) === null || _a === void 0 ? void 0 : _a.length) || !((_b = Identity === null || Identity === void 0 ? void 0 : Identity.PrivKey) === null || _b === void 0 ? void 0 : _b.length)) {
+        throw new TypeError(`Identity should include PeerID, PrivKey`);
+    }
+}
+exports.assertIdentity = assertIdentity;
 function setIdentityToConfig(config, Identity) {
+    assertIdentity(Identity);
     // @ts-ignore
     config.Identity = Identity;
     return config;
@@ -73,4 +81,33 @@ function setIdentityToRepoConfigSync(repoPath, Identity) {
     return (0, index_1.writeRepoConfigSync)(repoPath, config);
 }
 exports.setIdentityToRepoConfigSync = setIdentityToRepoConfigSync;
+/**
+ * file path of .identity.json
+ */
+function backupIdentityFromRepoToFile(repoPath, file) {
+    return readIdentityFromRepoConfig(repoPath).then(Identity => writeIdentityFile(file, Identity));
+}
+exports.backupIdentityFromRepoToFile = backupIdentityFromRepoToFile;
+/**
+ * file path of .identity.json
+ */
+function backupIdentityFromRepoToFileSync(repoPath, file) {
+    let Identity = readIdentityFromRepoConfigSync(repoPath);
+    return writeIdentityFileSync(file, Identity);
+}
+exports.backupIdentityFromRepoToFileSync = backupIdentityFromRepoToFileSync;
+/**
+ * targetPath for save .identity.json
+ */
+function backupIdentityFromRepoToPath(repoPath, targetPath) {
+    return backupIdentityFromRepoToFile(repoPath, getIdentityPath(targetPath));
+}
+exports.backupIdentityFromRepoToPath = backupIdentityFromRepoToPath;
+/**
+ * targetPath for save .identity.json
+ */
+function backupIdentityFromRepoToPathSync(repoPath, targetPath) {
+    return backupIdentityFromRepoToFileSync(repoPath, getIdentityPath(targetPath));
+}
+exports.backupIdentityFromRepoToPathSync = backupIdentityFromRepoToPathSync;
 //# sourceMappingURL=index.js.map
