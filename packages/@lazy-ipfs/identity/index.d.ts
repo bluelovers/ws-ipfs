@@ -1,3 +1,4 @@
+import { IRepoConfig } from '@lazy-ipfs/repo-config/index';
 export interface IRepoIdentity {
     PeerID: string;
     PrivKey: string;
@@ -5,7 +6,7 @@ export interface IRepoIdentity {
 export declare function recommendIdentityFilename(): ".identity.json";
 export declare function getIdentityPath(targetPath: string): string;
 export declare function getIdentityFromConfig(config: any): IRepoIdentity;
-export declare function setIdentityToConfig<T>(config: T, Identity: IRepoIdentity): T & {
+export declare function setIdentityToConfig<T extends IRepoConfig>(config: T, Identity: IRepoIdentity): T & {
     Identity: IRepoIdentity;
 };
 export declare function readIdentityFile(file: string): Promise<IRepoIdentity>;

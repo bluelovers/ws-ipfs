@@ -5,6 +5,7 @@ import {
 	writeJSONSync,
 } from 'fs-extra';
 import {
+	IRepoConfig,
 	readRepoConfig,
 	readRepoConfigSync,
 	writeRepoConfig,
@@ -33,7 +34,7 @@ export function getIdentityFromConfig(config): IRepoIdentity
 	return config.Identity
 }
 
-export function setIdentityToConfig<T>(config: T, Identity: IRepoIdentity): T & {
+export function setIdentityToConfig<T extends IRepoConfig>(config: T, Identity: IRepoIdentity): T & {
 	Identity: IRepoIdentity,
 }
 {
@@ -67,7 +68,7 @@ export function writeIdentityFileSync(file: string, Identity: IRepoIdentity)
 	})
 }
 
-export function readIdentityFromRepoConfig(repoPath: string): Promise<IRepoIdentity>
+export function readIdentityFromRepoConfig(repoPath: string)
 {
 	return readRepoConfig(repoPath).then(getIdentityFromConfig)
 }
