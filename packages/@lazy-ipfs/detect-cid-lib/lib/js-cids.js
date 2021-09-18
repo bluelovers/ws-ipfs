@@ -24,7 +24,9 @@ function assertJsCID(cid) {
 exports.assertJsCID = assertJsCID;
 function toRawJsCID(cid) {
     let { version, codec, code, multihash } = cid;
+    // @ts-ignore
     code !== null && code !== void 0 ? code : (code = (0, multicodec_1.getCodeFromName)(codec));
+    // @ts-ignore
     codec !== null && codec !== void 0 ? codec : (codec = (0, multicodec_1.getNameFromCode)(code));
     return {
         version,

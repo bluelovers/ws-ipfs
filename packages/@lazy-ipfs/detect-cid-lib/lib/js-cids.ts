@@ -35,7 +35,9 @@ export function toRawJsCID(cid: IRawJsCID): IRawJsCID
 {
 	let { version, codec, code, multihash } = cid;
 
+	// @ts-ignore
 	code ??= getCodeFromName(codec);
+	// @ts-ignore
 	codec ??= getNameFromCode(code);
 
 	return {

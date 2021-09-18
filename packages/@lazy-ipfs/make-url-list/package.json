@@ -56,7 +56,7 @@
     "array-hyper-unique": "^1.1.10",
     "ipfs-server-list": "^1.0.70",
     "ipfs-util-lib": "^1.0.71",
-    "lazy-url": "^1.0.19",
+    "lazy-url": "^1.0.20",
     "to-ipfs-url": "^1.0.39",
     "tslib": "^2.3.1"
   },

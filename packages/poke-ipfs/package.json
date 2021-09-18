@@ -43,7 +43,6 @@
     "cross-fetch": "^3.1.4"
   },
   "peerDependencies": {
-    "@types/node-fetch": "*",
     "cross-fetch": "^3.1.4"
   },
   "gitHead": "2fea22e93302e75dcbb0b61f1920cc4f86db0ee5"
