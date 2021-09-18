@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/detect-cid-lib@1.0.4...@lazy-ipfs/detect-cid-lib@1.0.5) (2021-09-18)
+
+
+### 🔖　Miscellaneous
+
+* . ([3cd1369](https://github.com/bluelovers/ws-ipfs/commit/3cd1369d3d47541d145c774e94511f7e99d07f71))
+
+
+
+
+
 ## [1.0.4](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/detect-cid-lib@1.0.3...@lazy-ipfs/detect-cid-lib@1.0.4) (2021-08-23)
 
 

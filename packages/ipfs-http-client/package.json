@@ -1,6 +1,6 @@
 {
   "name": "@bluelovers/ipfs-http-client",
-  "version": "1.0.86",
+  "version": "1.0.87",
   "description": "ipfs-http-client with auto search go-ipfs, js-ipfs",
   "keywords": [
     "ipfs",
@@ -39,9 +39,9 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@lazy-ipfs/check-ipfs-connect": "^1.0.2",
+    "@lazy-ipfs/check-ipfs-connect": "^1.0.3",
     "ipfs-env": "^1.0.13",
-    "ipfs-types": "^1.0.39",
+    "ipfs-types": "^1.0.40",
     "ts-type": "^1.2.40",
     "tslib": "^2.3.1"
   },

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.87](https://github.com/bluelovers/ws-ipfs/compare/ipfs-api-check@1.0.86...ipfs-api-check@1.0.87) (2021-09-18)
+
+**Note:** Version bump only for package ipfs-api-check
+
+
+
+
+
 ## [1.0.86](https://github.com/bluelovers/ws-ipfs/compare/ipfs-api-check@1.0.85...ipfs-api-check@1.0.86) (2021-08-23)
 
 
