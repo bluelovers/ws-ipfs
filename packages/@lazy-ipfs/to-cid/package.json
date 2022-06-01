@@ -34,7 +34,7 @@
     "@lazy-ipfs/is-cid": "^1.0.3",
     "@lazy-ipfs/parse-ipfs-path": "^1.0.19",
     "err-code": "^3.0.1",
-    "tslib": "^2.3.1"
+    "tslib": "^2"
   },
   "publishConfig": {
     "access": "public"

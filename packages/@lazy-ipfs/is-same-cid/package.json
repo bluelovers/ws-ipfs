@@ -51,7 +51,7 @@
   "dependencies": {
     "@lazy-ipfs/detect-cid-lib": "^1.0.5",
     "@lazy-ipfs/to-cid": "^1.0.28",
-    "tslib": "^2.3.1"
+    "tslib": "^2"
   },
   "peerDependencies": {
     "cids": "^1.1.9"

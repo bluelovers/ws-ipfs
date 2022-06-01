@@ -49,7 +49,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "tslib": "^2.3.1",
+    "tslib": "^2",
     "value-from-record": "^2.0.2"
   },
   "publishConfig": {

@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@lazy-ipfs/detect-cid-lib": "^1.0.5",
-    "tslib": "^2.3.1"
+    "tslib": "^2"
   },
   "publishConfig": {
     "access": "public"

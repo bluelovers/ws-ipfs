@@ -39,7 +39,7 @@
   "scripts": {
     "coverage": "yarn run test -- --coverage",
     "lint": "ynpx --quiet eslint -- **/*.ts",
-    "test": "echo \"Error: no test specified\"",
+    "test": "jest",
     "test:jest": "jest --passWithNoTests",
     "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "preversion": "echo preversion && yarn run test",
@@ -53,12 +53,12 @@
     "@lazy-ipfs/ipfs-api-url": "^1.0.4",
     "@lazy-ipfs/ipfs-subdomain": "^1.0.43",
     "@lazy-ipfs/parse-ipfs-path": "^1.0.19",
-    "array-hyper-unique": "^1.1.10",
+    "array-hyper-unique": "^2.0.7",
     "ipfs-server-list": "^1.0.71",
     "ipfs-util-lib": "^1.0.72",
-    "lazy-url": "^1.0.20",
+    "lazy-url": "^2.0.3",
     "to-ipfs-url": "^1.0.40",
-    "tslib": "^2.3.1"
+    "tslib": "^2"
   },
   "peerDependencies": {
     "ipfs-core-types": "*"

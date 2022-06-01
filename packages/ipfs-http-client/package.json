@@ -43,7 +43,7 @@
     "ipfs-env": "^1.0.13",
     "ipfs-types": "^1.0.40",
     "ts-type": "^1.2.40",
-    "tslib": "^2.3.1"
+    "tslib": "^2"
   },
   "devDependencies": {
     "@types/bl": "^5.0.1",
