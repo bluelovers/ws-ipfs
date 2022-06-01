@@ -19,6 +19,7 @@ export function pokeIPLD(cid: ICIDValue, options?: IPokeOptions)
 	let fetchOptions: RequestInit = {};
 
 	let controller = new AbortControllerTimer(options?.timeout || 1000)
+	// @ts-ignore
 	fetchOptions.signal = controller.signal;
 
 	return fetch(url.href, fetchOptions)

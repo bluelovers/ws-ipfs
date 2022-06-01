@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.15](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/cid-ellipsis@1.0.14...@lazy-ipfs/cid-ellipsis@1.0.15) (2022-06-01)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([fc61187](https://github.com/bluelovers/ws-ipfs/commit/fc61187b003a17693ce8ba63ec8d80a5981dd9ce))
+
+
+
+
+
 ## [1.0.14](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/cid-ellipsis@1.0.13...@lazy-ipfs/cid-ellipsis@1.0.14) (2021-09-18)
 
 **Note:** Version bump only for package @lazy-ipfs/cid-ellipsis

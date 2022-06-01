@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.26](https://github.com/bluelovers/ws-ipfs/compare/poke-ipfs@1.1.25...poke-ipfs@1.1.26) (2022-06-01)
+
+
+### 🛠　Build System
+
+* update typescript ([e82409a](https://github.com/bluelovers/ws-ipfs/commit/e82409a1d08dcfae1d7e6a1c628d5280b22fb6b7))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([fc61187](https://github.com/bluelovers/ws-ipfs/commit/fc61187b003a17693ce8ba63ec8d80a5981dd9ce))
+
+
+
+
+
 ## [1.1.25](https://github.com/bluelovers/ws-ipfs/compare/poke-ipfs@1.1.24...poke-ipfs@1.1.25) (2021-09-18)
 
 

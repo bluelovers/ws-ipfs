@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.12](https://github.com/bluelovers/ws-ipfs/compare/start-ipfs-daemon-lazy@1.0.11...start-ipfs-daemon-lazy@1.0.12) (2022-06-01)
+
+
+### 🛠　Build System
+
+* update typescript ([e82409a](https://github.com/bluelovers/ws-ipfs/commit/e82409a1d08dcfae1d7e6a1c628d5280b22fb6b7))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([fc61187](https://github.com/bluelovers/ws-ipfs/commit/fc61187b003a17693ce8ba63ec8d80a5981dd9ce))
+
+
+
+
+
 ## [1.0.11](https://github.com/bluelovers/ws-ipfs/compare/start-ipfs-daemon-lazy@1.0.10...start-ipfs-daemon-lazy@1.0.11) (2021-08-23)
 
 

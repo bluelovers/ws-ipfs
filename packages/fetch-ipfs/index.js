@@ -25,10 +25,12 @@ async function fetchIPFSCore(cidLink, useIPFS, timeout, options = {}) {
         redirect: 'follow',
     };
     (_a = fetchOptions.timeout) !== null && _a !== void 0 ? _a : (fetchOptions.timeout = options.timeout);
+    // @ts-ignore
     (_b = fetchOptions.signal) !== null && _b !== void 0 ? _b : (fetchOptions.signal = options.signal);
     let controller;
     if (timeout && !fetchOptions.signal) {
         controller = (0, util_1.newAbortController)(timeout).controller;
+        // @ts-ignore
         fetchOptions.signal = controller.signal;
     }
     return bluebird_1.default.resolve((0, cross_fetch_1.default)(cidLink.toString(), fetchOptions))

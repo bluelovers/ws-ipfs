@@ -39,6 +39,7 @@ export function raceFetchIPFS(cid: ICIDValue,
 			};
 
 			fetchOptions.timeout ??= options.timeout;
+			// @ts-ignore
 			fetchOptions.signal ??= options.signal;
 
 			let controller: AbortControllerTimer;
@@ -47,6 +48,7 @@ export function raceFetchIPFS(cid: ICIDValue,
 			{
 				controller = newAbortController(timeout).controller;
 
+				// @ts-ignore
 				fetchOptions.signal = controller.signal;
 			}
 

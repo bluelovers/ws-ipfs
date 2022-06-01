@@ -13,6 +13,7 @@ export function _handleOptions(options?: IPokeOptions)
 	};
 
 	fetchOptions.agent ??= getUnSafeAgent();
+	// @ts-ignore
 	fetchOptions.signal ??= options.signal;
 
 	let controller: AbortControllerTimer;
@@ -20,6 +21,7 @@ export function _handleOptions(options?: IPokeOptions)
 	if (!fetchOptions.signal)
 	{
 		controller = new AbortControllerTimer(options?.timeout || 10 * 1000);
+		// @ts-ignore
 		fetchOptions.signal = controller.signal;
 	}
 

@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/ipfs-api-url",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "keywords": [
     "IPFS",
@@ -49,8 +49,8 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "ipfs-types": "^1.0.40",
-    "multiaddr-to-url": "^1.0.19",
+    "ipfs-types": "^1.0.41",
+    "multiaddr-to-url": "^1.0.20",
     "tslib": "^2"
   },
   "publishConfig": {

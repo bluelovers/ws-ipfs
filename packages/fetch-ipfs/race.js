@@ -26,10 +26,12 @@ function raceFetchIPFS(cid, useIPFS, timeout, options) {
             fetchOptions,
         };
         (_a = fetchOptions.timeout) !== null && _a !== void 0 ? _a : (fetchOptions.timeout = options.timeout);
+        // @ts-ignore
         (_b = fetchOptions.signal) !== null && _b !== void 0 ? _b : (fetchOptions.signal = options.signal);
         let controller;
         if (timeout && !fetchOptions.signal) {
             controller = (0, util_1.newAbortController)(timeout).controller;
+            // @ts-ignore
             fetchOptions.signal = controller.signal;
         }
         const ls = ps.map(ipfs => {

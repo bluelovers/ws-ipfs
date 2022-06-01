@@ -16,6 +16,7 @@ function pokeIPLD(cid, options) {
     url.searchParams.set('arg', cid.toString());
     let fetchOptions = {};
     let controller = new abort_controller_timer_1.AbortControllerTimer((options === null || options === void 0 ? void 0 : options.timeout) || 1000);
+    // @ts-ignore
     fetchOptions.signal = controller.signal;
     return (0, cross_fetch_1.default)(url.href, fetchOptions)
         .then(async (res) => {

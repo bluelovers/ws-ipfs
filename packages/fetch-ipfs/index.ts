@@ -35,6 +35,7 @@ export async function fetchIPFSCore(cidLink: ICIDValue, useIPFS?, timeout?: numb
 	};
 
 	fetchOptions.timeout ??= options.timeout;
+	// @ts-ignore
 	fetchOptions.signal ??= options.signal;
 
 	let controller: AbortControllerTimer;
@@ -43,6 +44,7 @@ export async function fetchIPFSCore(cidLink: ICIDValue, useIPFS?, timeout?: numb
 	{
 		controller = newAbortController(timeout).controller;
 
+		// @ts-ignore
 		fetchOptions.signal = controller.signal;
 	}
 
@@ -66,4 +68,3 @@ export async function fetchIPFSCore(cidLink: ICIDValue, useIPFS?, timeout?: numb
 }
 
 export default fetchIPFS
-

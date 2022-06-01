@@ -11,10 +11,12 @@ function _handleOptions(options) {
         ...options.fetchOptions,
     };
     (_a = fetchOptions.agent) !== null && _a !== void 0 ? _a : (fetchOptions.agent = (0, unsafe_https_agent_1.getUnSafeAgent)());
+    // @ts-ignore
     (_b = fetchOptions.signal) !== null && _b !== void 0 ? _b : (fetchOptions.signal = options.signal);
     let controller;
     if (!fetchOptions.signal) {
         controller = new abort_controller_timer_1.AbortControllerTimer((options === null || options === void 0 ? void 0 : options.timeout) || 10 * 1000);
+        // @ts-ignore
         fetchOptions.signal = controller.signal;
     }
     return {
