@@ -40,7 +40,7 @@ describe(`fetch-ipfs`, () =>
 		expect(actual).toMatchSnapshot();
 	});
 
-	test(`publishToIPFSRace`, async () =>
+	test.skip(`publishToIPFSRace`, async () =>
 	{
 
 		let data = await readFileSync(join(__dirname, 'res', 'demo.png'));
@@ -50,7 +50,7 @@ describe(`fetch-ipfs`, () =>
 
 		expect(actual).toMatchSnapshot();
 
-		expect(actual[0].status).toStrictEqual(`fulfilled`);
+		expect(actual[0]).toHaveProperty('status', `fulfilled`);
 
 		let target = actual[0].value[0];
 

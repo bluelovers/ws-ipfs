@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/is-same-cid",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "",
   "keywords": [
     "IPFS",
@@ -49,8 +49,8 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@lazy-ipfs/detect-cid-lib": "^1.0.7",
-    "@lazy-ipfs/to-cid": "^1.0.30",
+    "@lazy-ipfs/detect-cid-lib": "^1.0.8",
+    "@lazy-ipfs/to-cid": "^1.0.31",
     "tslib": "^2"
   },
   "peerDependencies": {
