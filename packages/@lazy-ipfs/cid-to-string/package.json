@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/cid-to-string",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "convert cid of js-multiformats or js-cid to base encoded string",
   "keywords": [
     "toBaseEncodedString",
@@ -50,7 +50,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@lazy-ipfs/detect-cid-lib": "^1.0.8",
+    "@lazy-ipfs/detect-cid-lib": "^1.0.9",
     "tslib": "^2"
   },
   "publishConfig": {

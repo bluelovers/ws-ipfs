@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/check-ipfs-connect",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "keywords": [
     "IPFS",
@@ -51,7 +51,7 @@
   "dependencies": {
     "bluebird": "^3.7.2",
     "err-code": "^3.0.1",
-    "lazy-aggregate-error": "^1.0.9",
+    "lazy-aggregate-error": "^1.0.10",
     "tslib": "^2"
   },
   "peerDependencies": {

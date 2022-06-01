@@ -1490,12 +1490,12 @@ agent-base@6:
   dependencies:
     debug "4"
 
-aggregate-error-or-core-js@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/aggregate-error-or-core-js/-/aggregate-error-or-core-js-1.0.3.tgz#fa3cd91f203f1a418947771805fe60b6ac8b3fe8"
-  integrity sha512-2IKOXhkL1Fmw0WiM0ks6kNJMhVeU9e3K5tWs2lQet2dxoVIWISy8BV1axPaaqJIPmeFVzEh0T2pOtqM+ufH+gA==
+aggregate-error-or-core-js@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.npmjs.org/aggregate-error-or-core-js/-/aggregate-error-or-core-js-1.0.4.tgz#55b65321a029bb15a1c061a17c57e28eeef04cd2"
+  integrity sha512-L+uUuj/zXV6fxkiNKSF0TsfIuuXFWuy53/a8XVYsPLDjuIs+DTw2DMjgm3L2AOTykSIZzERbPLqss0sFkSgthA==
   dependencies:
-    core-js-pure "^3.21.0"
+    core-js-pure "^3.22.7"
 
 aggregate-error@^3.0.0, aggregate-error@^3.1.0:
   version "3.1.0"
@@ -1624,7 +1624,7 @@ array-find-index@^1.0.1:
   resolved "https://registry.npmjs.org/array-find-index/-/array-find-index-1.0.2.tgz#df010aa1287e164bbda6f9723b0a96a1ec4187a1"
   integrity sha1-3wEKoSh+Fku9pvlyOwqWoexBh6E=
 
-array-hyper-unique@^2.0.6, array-hyper-unique@^2.0.7:
+array-hyper-unique@^2.0.7:
   version "2.0.7"
   resolved "https://registry.npmjs.org/array-hyper-unique/-/array-hyper-unique-2.0.7.tgz#7f1e159285363405c74946bbbc19f5677c1d45ce"
   integrity sha512-i92HlRCBpFScjFfLqi8+cGM2zjg2q5QJwr1SekHLcjl9aTtfD5+vy0QJ6qXfW6CwzO5/UlWIfAi8LeuZcteVEg==
@@ -2371,7 +2371,7 @@ cookie@~0.4.1:
   resolved "https://registry.npmjs.org/cookie/-/cookie-0.4.1.tgz#afd713fe26ebd21ba95ceb61f9a8116e50a537d1"
   integrity sha512-ZwrFkGJxUR3EIoXtO+yVE69Eb7KlixbaeAWfBQB9vVsNn/o+Yw69gBWSSDK825hQNdN+wF8zELf3dFNl/kxkUA==
 
-core-js-pure@^3.21.0:
+core-js-pure@^3.22.7:
   version "3.22.7"
   resolved "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.22.7.tgz#f58489d9b309fa7b26486a0f70d4ec19a418084e"
   integrity sha512-wTriFxiZI+C8msGeh7fJcbC/a0V8fdInN1oS2eK79DMBGs8iIJiXhtFJCiT3rBa8w6zroHWW3p8ArlujZ/Mz+w==
@@ -2937,46 +2937,46 @@ err-code@^3.0.0, err-code@^3.0.1:
   resolved "https://registry.npmjs.org/err-code/-/err-code-3.0.1.tgz#a444c7b992705f2b120ee320b09972eef331c920"
   integrity sha512-GiaH0KJUewYok+eeY05IIgjtAe4Yltygk9Wqp1V5yVWLdhf0hYZchRjNIT9bb0mSwRcIusT3cx7PJUf3zEIfUA==
 
-err-errors@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.npmjs.org/err-errors/-/err-errors-1.0.6.tgz#47eb82594be4825647ed5b3981a673fa87d20f5a"
-  integrity sha512-xqiWSTpcnDRk8MlY3CWQZuD/ygGpTIvq9mBrcxXKWdFaeZAvznJLlXrB8LrMpB5asWfkdCcaNPJ2p6DRuot+Xw==
+err-errors@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/err-errors/-/err-errors-1.0.7.tgz#a7ebcad18bc62e7561830d0ae7c8b617344929d6"
+  integrity sha512-10Retp2fjaytV6P2UFclep5uf83WdfSWNWSFZOhizSwgLh6sTNb01Bxv6SKm4Z/W5LrMJ4mQAbyCJuV63pafkA==
   dependencies:
-    array-hyper-unique "^2.0.6"
+    array-hyper-unique "^2.0.7"
     check-iterable "^1.0.5"
-    err-stack-reduce "^1.0.8"
-    tslib "^2.3.1"
+    err-stack-reduce "^1.0.9"
+    tslib "^2"
 
-err-indent@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.npmjs.org/err-indent/-/err-indent-1.0.6.tgz#1a16a95a213dff258292188fa8a0e3515f4d7b36"
-  integrity sha512-khZ6ck+/VruXyQSDAn9qtDaRAWEvJHCSPlmzjs0rxq7zj1+FyRZOklyRYcn9PU6Rg2Y9apTOZPDcM818KeQFvA==
+err-indent@^1.0.6, err-indent@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/err-indent/-/err-indent-1.0.7.tgz#bb69e8c65b8efb73eea30a060fdb8ad01c0e7512"
+  integrity sha512-echjbI/1i0QcWysa/Ctcsz06MLqI/QL1WFY8XpsWwcVq5LI9jJjW1O+ovmVkoaQXO2hdk79xrJ0ADSeDbvHr2A==
   dependencies:
-    array-hyper-unique "^2.0.6"
+    array-hyper-unique "^2.0.7"
     check-iterable "^1.0.5"
     clean-stack "<4 >=3.0.1"
-    err-errors "^1.0.6"
-    err-stack-meta "^1.0.9"
+    err-errors "^1.0.7"
+    err-stack-meta "^1.0.10"
     error-stack2 "^2.0.2"
     indent-string "<5 >=4"
-    tslib "^2.3.1"
+    tslib "^2"
 
-err-stack-meta@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.npmjs.org/err-stack-meta/-/err-stack-meta-1.0.9.tgz#f3001e928401027446f526b730b33654cc1bf89f"
-  integrity sha512-NOmBobDP7eQBnynyFB+oJjwXSYPjOYmM7N2+oo7zbP7y47XpCnHqLUcotzgbHuM7Ailko2IB6eaMcn4BT2cX4A==
+err-stack-meta@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.npmjs.org/err-stack-meta/-/err-stack-meta-1.0.10.tgz#d70abe586c1deda1e53e21bd374edde451194a5d"
+  integrity sha512-9RUoItSUfm7kY4lzDdYeIZNMl+2cKc/gQpLKyiNxDe9HbnCyVgKfZETlED/zoliVh5PReHrjU26EqAthhuZvkA==
   dependencies:
     error-stack2 "^2.0.2"
-    ts-type "^2.1.4"
-    tslib "^2.3.1"
+    ts-type "^2.1.6"
+    tslib "^2"
 
-err-stack-reduce@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.npmjs.org/err-stack-reduce/-/err-stack-reduce-1.0.8.tgz#12d392dc59a5387b3609731509cf815a7a9dd339"
-  integrity sha512-4S3CtTriP4sulIZOSvciiAdWqofoI4jhB6eWFPtM7hKJ9JG4XYUcMpD8BccTrGJlBgY8YO0kmLC5dhiPqwRnXA==
+err-stack-reduce@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.npmjs.org/err-stack-reduce/-/err-stack-reduce-1.0.9.tgz#c8373209f2f584ef2d3648b71da2e859e931a886"
+  integrity sha512-zaGpBet5+yv5ptkhifPrD3XJiiBia61IT+jxBWYmZ/E4uGG9jSaGOgf97bemep/zh7AnuWjQ8/NEl0DJhS/ijA==
   dependencies:
-    err-stack-meta "^1.0.9"
-    tslib "^2.3.1"
+    err-stack-meta "^1.0.10"
+    tslib "^2"
 
 errno@^1.0.0:
   version "1.0.0"
@@ -5777,18 +5777,18 @@ latest-version@^5.1.0:
   dependencies:
     package-json "^6.3.0"
 
-lazy-aggregate-error@^1.0.6, lazy-aggregate-error@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.npmjs.org/lazy-aggregate-error/-/lazy-aggregate-error-1.0.9.tgz#fbbf389b56496c7c833bfe3ec44c2ee6742f8661"
-  integrity sha512-mEPo1AMwqY67ykuoRM7x7QhDzt0IjbReHqE3o+Vf+WROQ8esJPVIrO0WvOslif9mEW9jMq2eA6MjhRwGhNcUlA==
+lazy-aggregate-error@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.npmjs.org/lazy-aggregate-error/-/lazy-aggregate-error-1.0.10.tgz#9ab33683798d9028ad961b6e05c87810ab00bb2d"
+  integrity sha512-AutxGgV68OlaMgcZ+2yN1ZuFh3P0wHTLaCRetPiqChKDDeIrqvFroCsWAncZTdGk2kk1XSchPpbyMX1shZiH8g==
   dependencies:
     "@bluelovers/extend-bases" "^1.0.3"
-    aggregate-error-or-core-js "^1.0.3"
-    err-indent "^1.0.6"
-    err-stack-meta "^1.0.9"
+    aggregate-error-or-core-js "^1.0.4"
+    err-indent "^1.0.7"
+    err-stack-meta "^1.0.10"
     error-stack2 "^2.0.2"
     symbol.inspect "^1.0.1"
-    tslib "^2.3.1"
+    tslib "^2"
 
 lazy-url@^2.0.3:
   version "2.0.3"
@@ -8743,7 +8743,7 @@ ts-type@^1.2.23, ts-type@^1.2.35, ts-type@^1.2.39, ts-type@^1.2.40:
     tslib "^2.3.0"
     typedarray-dts "^1.0.0"
 
-ts-type@^2.1.4:
+ts-type@^2.1.4, ts-type@^2.1.6:
   version "2.1.6"
   resolved "https://registry.npmjs.org/ts-type/-/ts-type-2.1.6.tgz#b0416b0aef81ba2e2028645c2e5b22c4ce2b0a72"
   integrity sha512-h2P5O6brCkIm6IN7x61BEC8RaZFKEWqS7Z2DWY8Z7/o+sl3RvCkaRvUeH4JG26T3Fm4zZkaeFex8QAmz24yBTA==
