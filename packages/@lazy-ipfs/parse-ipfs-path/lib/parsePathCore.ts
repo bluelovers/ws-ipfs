@@ -6,10 +6,10 @@ import { _handleFromURL } from './_handleFromURL';
 import { isCID, strToCidToStr, toCID } from '@lazy-ipfs/to-cid';
 import isValidDomain from 'is-valid-domain';
 import { _isArrayLike } from '@lazy-ipfs/detect-cid-lib/lib/util';
-import cidToString from '@lazy-ipfs/cid-to-string/index';
+import cidToString from '@lazy-ipfs/cid-to-string';
 import { assertToParsePathResult, assertToParsePathResultPath, EnumParsePathResultNs } from './asserts';
 import { IParsePathInputValue, IParsePathResultPathInput, IParsePathResultStrict } from './types';
-import { _url_href } from '@lazy-ipfs/is-cid/index';
+import { _url_href } from '@lazy-ipfs/is-cid';
 
 /**
  * @see https://github.com/tableflip/dweb-path

@@ -1,6 +1,6 @@
 import isSameCID from '../index';
 import { toCID } from '@lazy-ipfs/to-cid';
-import cidToString from '@lazy-ipfs/cid-to-string/index';
+import cidToString from '@lazy-ipfs/cid-to-string';
 
 describe(`describe`, () =>
 {

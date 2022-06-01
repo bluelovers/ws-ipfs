@@ -13,7 +13,7 @@ import {
 	readRepoConfigSync,
 	writeRepoConfig,
 	writeRepoConfigSync,
-} from '@lazy-ipfs/repo-config/index';
+} from '@lazy-ipfs/repo-config';
 import { join } from 'path';
 
 export interface IRepoIdentity

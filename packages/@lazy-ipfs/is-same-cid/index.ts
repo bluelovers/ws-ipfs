@@ -2,7 +2,7 @@ import { ICIDValueInput, toCID, IStaticCID } from '@lazy-ipfs/to-cid';
 import JsCID from 'cids';
 import { CID as MultiformatsCID } from 'multiformats';
 import { ICIDObject } from '@lazy-ipfs/detect-cid-lib/lib/types';
-import cidToString, { cidToQmHash } from '@lazy-ipfs/cid-to-string/index';
+import cidToString, { cidToQmHash } from '@lazy-ipfs/cid-to-string';
 import { AssertionError } from 'assert';
 import { inspect } from 'util';
 

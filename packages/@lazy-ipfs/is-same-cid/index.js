@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.isSameCID = exports.assertSameCID = exports.newAssertionSameCIDError = void 0;
 const to_cid_1 = require("@lazy-ipfs/to-cid");
-const index_1 = require("@lazy-ipfs/cid-to-string/index");
+const cid_to_string_1 = require("@lazy-ipfs/cid-to-string");
 const assert_1 = require("assert");
 const util_1 = require("util");
 function newAssertionSameCIDError(actual, expected) {
@@ -25,7 +25,7 @@ exports.assertSameCID = assertSameCID;
 function isSameCID(a, b, libCID) {
     if (a && b) {
         let c;
-        if ((0, index_1.cidToQmHash)(c = (0, to_cid_1.toCID)(a, libCID)) === (0, index_1.cidToQmHash)((0, to_cid_1.toCID)(b, libCID))) {
+        if ((0, cid_to_string_1.cidToQmHash)(c = (0, to_cid_1.toCID)(a, libCID)) === (0, cid_to_string_1.cidToQmHash)((0, to_cid_1.toCID)(b, libCID))) {
             return c;
         }
         return false;

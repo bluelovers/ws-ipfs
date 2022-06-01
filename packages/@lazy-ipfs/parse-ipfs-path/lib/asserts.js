@@ -4,7 +4,7 @@ exports.isParsePathResult = exports.assertToParsePathResult = exports.assertToEn
 const tslib_1 = require("tslib");
 const util_1 = require("./util");
 const err_code_1 = tslib_1.__importDefault(require("err-code"));
-const index_1 = require("@lazy-ipfs/is-cid/index");
+const is_cid_1 = require("@lazy-ipfs/is-cid");
 function assertToParsePathResultPath(path) {
     let bool = false;
     if (typeof path === 'string') {
@@ -40,7 +40,7 @@ function assertToParsePathResult(result) {
     assertToEnumNs(result.ns);
     if (result.ns !== "ipns" /* EnumParsePathResultNs.ipns */) {
         try {
-            (0, index_1._assertCID)(result.hash);
+            (0, is_cid_1._assertCID)(result.hash);
         }
         catch (e) {
             throw (0, err_code_1.default)(e, {

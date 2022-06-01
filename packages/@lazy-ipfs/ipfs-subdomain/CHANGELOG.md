@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.48](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/ipfs-subdomain@1.0.43...@lazy-ipfs/ipfs-subdomain@1.0.48) (2022-06-01)
+
+
+### 🐛　Bug Fixes
+
+* fetchOptions.signal ([34d0f58](https://github.com/bluelovers/ws-ipfs/commit/34d0f582b2aede84c8c3368f120fba53dd44377d))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([fc61187](https://github.com/bluelovers/ws-ipfs/commit/fc61187b003a17693ce8ba63ec8d80a5981dd9ce))
+
+
+### 🔖　Miscellaneous
+
+* . ([27eb99b](https://github.com/bluelovers/ws-ipfs/commit/27eb99bed6b74c042be7d42031a832b572a750e8))
+* . ([f6b9512](https://github.com/bluelovers/ws-ipfs/commit/f6b9512e45c5903bd3768c60b5e317d4f1f18dce))
+* . ([a6b666b](https://github.com/bluelovers/ws-ipfs/commit/a6b666b2408b5e3416c8e3456b19af74ec9b8caa))
+
+
+
+
+
 ## [1.0.47](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/ipfs-subdomain@1.0.43...@lazy-ipfs/ipfs-subdomain@1.0.47) (2022-06-01)
 
 

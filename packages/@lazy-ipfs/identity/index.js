@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.restoreIdentityFromPathSync = exports.restoreIdentityFromPath = exports.restoreIdentityFromFileSync = exports.restoreIdentityFromFile = exports.backupIdentityFromRepoToPathSync = exports.backupIdentityFromRepoToPath = exports.backupIdentityFromRepoToFileSync = exports.backupIdentityFromRepoToFile = exports.setIdentityToRepoConfigSync = exports.setIdentityToRepoConfig = exports.readIdentityFromRepoConfigSync = exports.readIdentityFromRepoConfig = exports.writeIdentityFileSync = exports.writeIdentityFile = exports.readIdentityFileSync = exports.readIdentityFile = exports.setIdentityToConfig = exports.assertIdentity = exports.getIdentityFromConfig = exports.existsIdentityPathSync = exports.existsIdentityPath = exports.getIdentityPath = exports.recommendIdentityFilename = void 0;
 const fs_extra_1 = require("fs-extra");
-const index_1 = require("@lazy-ipfs/repo-config/index");
+const repo_config_1 = require("@lazy-ipfs/repo-config");
 const path_1 = require("path");
 function recommendIdentityFilename() {
     return '.identity.json';
@@ -59,28 +59,28 @@ function writeIdentityFileSync(file, Identity) {
 }
 exports.writeIdentityFileSync = writeIdentityFileSync;
 function readIdentityFromRepoConfig(repoPath) {
-    return (0, index_1.readRepoConfig)(repoPath).then(getIdentityFromConfig);
+    return (0, repo_config_1.readRepoConfig)(repoPath).then(getIdentityFromConfig);
 }
 exports.readIdentityFromRepoConfig = readIdentityFromRepoConfig;
 function readIdentityFromRepoConfigSync(repoPath) {
-    const config = (0, index_1.readRepoConfigSync)(repoPath);
+    const config = (0, repo_config_1.readRepoConfigSync)(repoPath);
     return getIdentityFromConfig(config);
 }
 exports.readIdentityFromRepoConfigSync = readIdentityFromRepoConfigSync;
 async function setIdentityToRepoConfig(repoPath, Identity) {
     assertIdentity(Identity);
-    return (0, index_1.readRepoConfig)(repoPath)
+    return (0, repo_config_1.readRepoConfig)(repoPath)
         .then(config => {
         config = setIdentityToConfig(config, Identity);
-        return (0, index_1.writeRepoConfig)(repoPath, config);
+        return (0, repo_config_1.writeRepoConfig)(repoPath, config);
     });
 }
 exports.setIdentityToRepoConfig = setIdentityToRepoConfig;
 function setIdentityToRepoConfigSync(repoPath, Identity) {
     assertIdentity(Identity);
-    let config = (0, index_1.readRepoConfigSync)(repoPath);
+    let config = (0, repo_config_1.readRepoConfigSync)(repoPath);
     config = setIdentityToConfig(config, Identity);
-    return (0, index_1.writeRepoConfigSync)(repoPath, config);
+    return (0, repo_config_1.writeRepoConfigSync)(repoPath, config);
 }
 exports.setIdentityToRepoConfigSync = setIdentityToRepoConfigSync;
 /**

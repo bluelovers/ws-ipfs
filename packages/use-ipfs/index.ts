@@ -15,7 +15,7 @@ import configApiCors from 'ipfs-util-lib/lib/ipfs/config/cors';
 import configApiSwarm from 'ipfs-util-lib/lib/ipfs/config/swarm';
 import configDefaultAll from 'ipfs-util-lib/lib/ipfs/config/default';
 import { unsubscribeAll } from 'ipfs-util-lib/lib/ipfs/pubsub/unsubscribe';
-import { assertCheckIPFS, checkIPFS } from '@lazy-ipfs/check-ipfs-connect/index';
+import { assertCheckIPFS, checkIPFS } from '@lazy-ipfs/check-ipfs-connect';
 
 export type ICachedObject<IPFS = IIPFSClientReturn> = Readonly<{
 	ipfs: IPFS,

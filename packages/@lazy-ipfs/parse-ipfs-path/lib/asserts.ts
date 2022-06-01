@@ -10,7 +10,7 @@ import {
 } from './types';
 //import { toCID } from '@lazy-ipfs/to-cid';
 import { cid as is_cid } from 'is-ipfs';
-import { _assertCID } from '@lazy-ipfs/is-cid/index';
+import { _assertCID } from '@lazy-ipfs/is-cid';
 
 export function assertToParsePathResultPath<P extends IParsePathResultPathInput>(path: P | unknown): asserts path is IParsePathResultPath<P>
 {

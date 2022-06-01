@@ -1,9 +1,9 @@
 import { parsePath } from '@lazy-ipfs/parse-ipfs-path/lib/parsePath';
 import lazyMakeIpfsAllServerURL from '../index';
 import { toCID } from '@lazy-ipfs/to-cid';
-import { toSubdomainCID } from '@lazy-ipfs/ipfs-subdomain/index';
+import { toSubdomainCID } from '@lazy-ipfs/ipfs-subdomain';
 import { cidToBase32 } from '@lazy-ipfs/cid-to-string';
-import { cidToQmHash } from '@lazy-ipfs/cid-to-string/index';
+import { cidToQmHash } from '@lazy-ipfs/cid-to-string';
 import { toURL } from 'to-ipfs-url';
 
 describe(`describe`, () =>

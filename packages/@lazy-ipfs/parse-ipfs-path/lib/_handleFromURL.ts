@@ -2,7 +2,7 @@ import isIPFS from 'is-ipfs';
 import { LazyURL } from 'lazy-url';
 import { IParsePathResult } from './types';
 import { EnumParsePathResultNs } from './asserts';
-import { _url_href } from '@lazy-ipfs/is-cid/index';
+import { _url_href } from '@lazy-ipfs/is-cid';
 
 export const subdomainGatewayPattern = /^https?:\/\/([^/]+)\.(ip[fn]s)\.[^/?]+/
 
@@ -47,4 +47,3 @@ export function _handleFromURL(input: string): IParsePathResult | string
 		return url.pathname
 	}
 }
-

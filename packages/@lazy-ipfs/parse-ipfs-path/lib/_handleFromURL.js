@@ -4,11 +4,11 @@ exports._handleFromURL = exports.subdomainGatewayPattern = void 0;
 const tslib_1 = require("tslib");
 const is_ipfs_1 = tslib_1.__importDefault(require("is-ipfs"));
 const lazy_url_1 = require("lazy-url");
-const index_1 = require("@lazy-ipfs/is-cid/index");
+const is_cid_1 = require("@lazy-ipfs/is-cid");
 exports.subdomainGatewayPattern = /^https?:\/\/([^/]+)\.(ip[fn]s)\.[^/?]+/;
 function _handleFromURL(input) {
     var _a;
-    input = (0, index_1._url_href)(input);
+    input = (0, is_cid_1._url_href)(input);
     if (is_ipfs_1.default.cidPath(input)) {
         return input;
     }

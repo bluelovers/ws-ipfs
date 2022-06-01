@@ -1,5 +1,5 @@
 import toCID from '../index';
-import toURL from '../../../to-ipfs-url/index';
+import toURL from 'to-ipfs-url';
 
 describe(`describe`, () =>
 {

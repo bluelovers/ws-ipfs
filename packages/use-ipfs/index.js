@@ -11,7 +11,7 @@ const ipfs_http_client_2 = tslib_1.__importDefault(require("ipfs-http-client"));
 const ipfs_util_lib_1 = require("ipfs-util-lib");
 const default_1 = tslib_1.__importDefault(require("ipfs-util-lib/lib/ipfs/config/default"));
 const unsubscribe_1 = require("ipfs-util-lib/lib/ipfs/pubsub/unsubscribe");
-const index_1 = require("@lazy-ipfs/check-ipfs-connect/index");
+const check_ipfs_connect_1 = require("@lazy-ipfs/check-ipfs-connect");
 let _cached;
 /**
  * get IPFS, if not exists, create or connect it
@@ -21,7 +21,7 @@ async function useIPFS(options, optionsExtra = {}) {
         let ret = await getIPFS(options, optionsExtra);
         //console.dir({ ipfs, ipfsType })
         let { stop: closeFnOld, ipfs } = ret;
-        await (0, index_1.assertCheckIPFS)(ipfs)
+        await (0, check_ipfs_connect_1.assertCheckIPFS)(ipfs)
             .catch(async (e) => {
             if (optionsExtra === null || optionsExtra === void 0 ? void 0 : optionsExtra.skipCheck) {
                 e && console.warn(`[checkIPFS]`, String(e));
@@ -70,7 +70,7 @@ async function getIPFS(options, optionsExtra = {}) {
             if (options === null || options === void 0 ? void 0 : options.disposable) {
                 ipfsd = await (0, ctl_1.default)(options);
                 ipfs = ipfsd.api;
-                await (0, index_1.assertCheckIPFS)(ipfs);
+                await (0, check_ipfs_connect_1.assertCheckIPFS)(ipfs);
                 ipfsType = types_1.EnumIPFSType.Controller;
                 return;
             }
@@ -82,7 +82,7 @@ async function getIPFS(options, optionsExtra = {}) {
             try {
                 ipfs = await (0, core_1.getCreateClientFn)(ipfs_http_client_1.default)(optionsExtra === null || optionsExtra === void 0 ? void 0 : optionsExtra.serverAddr);
                 if (!((optionsExtra === null || optionsExtra === void 0 ? void 0 : optionsExtra.skipCheck) && (optionsExtra === null || optionsExtra === void 0 ? void 0 : optionsExtra.serverAddr))) {
-                    await (0, index_1.assertCheckIPFS)(ipfs);
+                    await (0, check_ipfs_connect_1.assertCheckIPFS)(ipfs);
                 }
                 ipfsType = types_1.EnumIPFSType.Client;
             }
@@ -103,7 +103,7 @@ async function getIPFS(options, optionsExtra = {}) {
                 try {
                     ipfsd = await (0, ctl_1.default)(options);
                     ipfs = ipfsd.api;
-                    await (0, index_1.assertCheckIPFS)(ipfs);
+                    await (0, check_ipfs_connect_1.assertCheckIPFS)(ipfs);
                     ipfsType = types_1.EnumIPFSType.Controller;
                 }
                 catch (e) {

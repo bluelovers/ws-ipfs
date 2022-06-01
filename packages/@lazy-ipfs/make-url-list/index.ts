@@ -1,7 +1,7 @@
 import { ICIDValue } from '@lazy-ipfs/detect-cid-lib/lib/types';
 import { filterList } from 'ipfs-server-list';
 import { toURL, IOptions as IToURLOptions } from 'to-ipfs-url';
-import { ipfsSubdomainURL2, IOptions as ISubdomainURLOptions } from '@lazy-ipfs/ipfs-subdomain/index';
+import { ipfsSubdomainURL2, IOptions as ISubdomainURLOptions } from '@lazy-ipfs/ipfs-subdomain';
 import {
 	parsePath,
 
@@ -108,7 +108,9 @@ export function lazyMakeIpfsAllServerURL(cid: IToCIDInputValue, options?: IOptio
 		serverList: options.ipfsGatewayDomainList,
 	}));
 
-	return array_unique_overwrite(list.filter(Boolean))
+	console.dir(list)
+
+	return array_unique_overwrite(list.filter(v => typeof v !== 'symbol' && v))
 }
 
 export function _notAllowedAddress(url: URL | string)

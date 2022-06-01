@@ -10,7 +10,7 @@ import defaultsDeep from 'lodash/defaultsDeep';
 import findFreePort from 'find-free-port-sync-fixed';
 import { unlinkIPFSApi } from 'fix-ipfs/lib/ipfsd-ctl/unlinkIPFSApi';
 import { getCreateClientFn } from '@bluelovers/ipfs-http-client/core';
-import { assertCheckIPFS } from '@lazy-ipfs/check-ipfs-connect/index';
+import { assertCheckIPFS } from '@lazy-ipfs/check-ipfs-connect';
 
 const usedPort = new Set<number>();
 

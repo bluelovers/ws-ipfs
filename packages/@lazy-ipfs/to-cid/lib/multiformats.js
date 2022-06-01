@@ -11,19 +11,19 @@ const parsePath_1 = require("@lazy-ipfs/parse-ipfs-path/lib/parsePath");
 const _handleLibCID_1 = require("./_handleLibCID");
 const util_2 = require("@lazy-ipfs/parse-ipfs-path/lib/util");
 const _handleFromURL_1 = require("@lazy-ipfs/parse-ipfs-path/lib/_handleFromURL");
-const index_1 = require("@lazy-ipfs/is-cid/index");
+const is_cid_1 = require("@lazy-ipfs/is-cid");
 function toMultiformatsCID(cidInput, libCID) {
     var _a;
     libCID = (0, _handleLibCID_1._handleLibCID)(libCID, multiformats_1.CID);
     if (typeof cidInput === 'string' || cidInput instanceof URL) {
         // @ts-ignore
-        cidInput = (0, index_1._url_href)(cidInput);
+        cidInput = (0, is_cid_1._url_href)(cidInput);
         let ret;
-        if (!(0, index_1._if_path_can_be_cid)(cidInput)) {
+        if (!(0, is_cid_1._if_path_can_be_cid)(cidInput)) {
             if ((ret = (0, _handleFromURL_1._handleFromURL)(cidInput))) {
                 cidInput = (_a = ret.hash) !== null && _a !== void 0 ? _a : ret;
-                if ((0, index_1._if_path_can_be_cid)(cidInput)) {
-                    cidInput = (0, index_1._remove_path_prefix)(cidInput);
+                if ((0, is_cid_1._if_path_can_be_cid)(cidInput)) {
+                    cidInput = (0, is_cid_1._remove_path_prefix)(cidInput);
                 }
             }
             if (/[\/]/.test(cidInput)) {
@@ -33,8 +33,8 @@ function toMultiformatsCID(cidInput, libCID) {
                 }).hash;
             }
         }
-        if ((0, index_1._if_path_can_be_cid)(cidInput)) {
-            cidInput = (0, index_1._remove_path_prefix)(cidInput);
+        if ((0, is_cid_1._if_path_can_be_cid)(cidInput)) {
+            cidInput = (0, is_cid_1._remove_path_prefix)(cidInput);
         }
         return libCID.parse(cidInput);
     }

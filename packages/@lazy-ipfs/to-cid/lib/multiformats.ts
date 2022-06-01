@@ -19,7 +19,7 @@ import {
 	_handleFromURL,
 
 } from '@lazy-ipfs/parse-ipfs-path/lib/_handleFromURL';
-import { _if_path_can_be_cid, _remove_path_prefix, _url_href } from '@lazy-ipfs/is-cid/index';
+import { _if_path_can_be_cid, _remove_path_prefix, _url_href } from '@lazy-ipfs/is-cid';
 
 export function toMultiformatsCID<T extends IToCIDInputValue, C extends MultiformatsCID = MultiformatsCID>(cidInput: T,
 	libCID?: Pick<typeof MultiformatsCID, 'parse' | 'decode' | 'asCID'> | EnumTypeofCID,

@@ -8,7 +8,7 @@ const mkdir_1 = require("./mkdir");
 const stat_1 = require("./stat");
 const rm_1 = require("./rm");
 const _dummy_1 = require("./util/_dummy");
-const index_1 = require("@lazy-ipfs/is-same-cid/index");
+const is_same_cid_1 = require("@lazy-ipfs/is-same-cid");
 const lazy_aggregate_error_1 = require("lazy-aggregate-error");
 const _promiseCatchAggregateError_1 = require("./util/_promiseCatchAggregateError");
 /**
@@ -57,8 +57,8 @@ async function ipfsFilesCopy(ipfs, from, to, options) {
     p = (0, stat_1._returnStat02)(p, ipfs, to, extraOptions);
     if (extraOptions.validCheck) {
         p = p.then(file_stat => {
-            if (!file_stat || !(0, index_1.isSameCID)(file_stat.cid, from)) {
-                return Promise.reject((0, index_1.newAssertionSameCIDError)(file_stat === null || file_stat === void 0 ? void 0 : file_stat.cid, from));
+            if (!file_stat || !(0, is_same_cid_1.isSameCID)(file_stat.cid, from)) {
+                return Promise.reject((0, is_same_cid_1.newAssertionSameCIDError)(file_stat === null || file_stat === void 0 ? void 0 : file_stat.cid, from));
             }
             return file_stat;
         });

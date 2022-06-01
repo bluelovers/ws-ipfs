@@ -1,6 +1,6 @@
 import { ICIDValue } from '@lazy-ipfs/detect-cid-lib/lib/types';
 import { IOptions as IToURLOptions } from 'to-ipfs-url';
-import { IOptions as ISubdomainURLOptions } from '@lazy-ipfs/ipfs-subdomain/index';
+import { IOptions as ISubdomainURLOptions } from '@lazy-ipfs/ipfs-subdomain';
 import { IPFS } from 'ipfs-core-types';
 import { LazyURL } from 'lazy-url';
 import { IToCIDInputValue } from '@lazy-ipfs/to-cid';

@@ -1,4 +1,4 @@
-import { IRepoConfig } from '@lazy-ipfs/repo-config/index';
+import { IRepoConfig } from '@lazy-ipfs/repo-config';
 export interface IRepoIdentity {
     PeerID: string;
     PrivKey: string;

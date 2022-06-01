@@ -8,7 +8,7 @@ import { ipfsFilesMakeDirectory } from './mkdir';
 import { _returnStat02 } from './stat';
 import { ipfsFilesRemove } from './rm';
 import { _dummyNull } from './util/_dummy';
-import { isSameCID, newAssertionSameCIDError } from '@lazy-ipfs/is-same-cid/index';
+import { isSameCID, newAssertionSameCIDError } from '@lazy-ipfs/is-same-cid';
 import { ITSValueOrArray } from 'ts-type/lib/type/base';
 import Bluebird from 'bluebird';
 import { AggregateErrorExtra } from 'lazy-aggregate-error';

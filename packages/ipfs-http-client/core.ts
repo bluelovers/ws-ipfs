@@ -10,7 +10,7 @@ import { getDefaultServerList } from './util';
 import { IPFS } from 'ipfs-core-types';
 import _ipfsHttpModule from 'ipfs-http-client'
 import { ITSResolvable } from 'ts-type/lib/generic';
-import { checkIPFS } from '@lazy-ipfs/check-ipfs-connect/index';
+import { checkIPFS } from '@lazy-ipfs/check-ipfs-connect';
 
 export { IIPFSClientFnWrap, IIPFSClientFn, IIPFSClientReturn, IIPFSClientParameters, IIPFSClientAddressesURL, IIPFSClientAddresses }
 

@@ -4,7 +4,7 @@
 import JsCID from 'cids';
 import { CID as MultiformatsCID } from 'multiformats';
 import { ICIDObject, ICIDObjectInput, ICIDValueInput, IRawCIDObject } from '@lazy-ipfs/detect-cid-lib/lib/types';
-import { EnumTypeofCID } from '@lazy-ipfs/detect-cid-lib/index';
+import { EnumTypeofCID } from '@lazy-ipfs/detect-cid-lib';
 import { IBaseNameOrBaseCodec } from '@lazy-ipfs/cid-to-string';
 import { IParsePathResult } from '@lazy-ipfs/parse-ipfs-path/lib/types';
 export * from '@lazy-ipfs/detect-cid-lib/lib/types';

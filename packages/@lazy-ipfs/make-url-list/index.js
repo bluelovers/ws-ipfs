@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports._notAllowedAddress = exports.lazyMakeIpfsAllServerURL = exports.makeShareIpfsURL = exports.makeIpfsGatewayDomainURLList = exports.makeIpfsGatewayURLList = exports.makeIpfsGatewayAddressesURLAsync = void 0;
 const ipfs_server_list_1 = require("ipfs-server-list");
 const to_ipfs_url_1 = require("to-ipfs-url");
-const index_1 = require("@lazy-ipfs/ipfs-subdomain/index");
+const ipfs_subdomain_1 = require("@lazy-ipfs/ipfs-subdomain");
 const parsePath_1 = require("@lazy-ipfs/parse-ipfs-path/lib/parsePath");
 const array_hyper_unique_1 = require("array-hyper-unique");
 const lazy_url_1 = require("lazy-url");
@@ -38,7 +38,7 @@ function makeIpfsGatewayDomainURLList(cid, options) {
     });
     return ((_b = (_a = options === null || options === void 0 ? void 0 : options.ipfsGatewayDomainList) !== null && _a !== void 0 ? _a : options === null || options === void 0 ? void 0 : options.serverList) !== null && _b !== void 0 ? _b : (0, ipfs_server_list_1.filterList)('GatewayDomain')).map(gateway => {
         try {
-            return (0, index_1.ipfsSubdomainURL2)(data, gateway, options === null || options === void 0 ? void 0 : options.handleOptions);
+            return (0, ipfs_subdomain_1.ipfsSubdomainURL2)(data, gateway, options === null || options === void 0 ? void 0 : options.handleOptions);
         }
         catch (e) {
         }
@@ -75,7 +75,8 @@ function lazyMakeIpfsAllServerURL(cid, options) {
         ...options,
         serverList: options.ipfsGatewayDomainList,
     }));
-    return (0, array_hyper_unique_1.array_unique_overwrite)(list.filter(Boolean));
+    console.dir(list);
+    return (0, array_hyper_unique_1.array_unique_overwrite)(list.filter(v => typeof v !== 'symbol' && v));
 }
 exports.lazyMakeIpfsAllServerURL = lazyMakeIpfsAllServerURL;
 function _notAllowedAddress(url) {

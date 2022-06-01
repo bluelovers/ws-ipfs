@@ -10,7 +10,7 @@ import typeofCID, {
 	EnumTypeofCID,
 	isRawMultiformatsCIDLike,
 	toRawMultiformatsCID,
-} from '@lazy-ipfs/detect-cid-lib/index';
+} from '@lazy-ipfs/detect-cid-lib';
 import err_code from 'err-code';
 import toMultiformatsCID from './lib/multiformats';
 import { toJsCID } from './lib/js-cids';

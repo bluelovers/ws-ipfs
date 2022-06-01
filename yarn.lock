@@ -1624,12 +1624,12 @@ array-find-index@^1.0.1:
   resolved "https://registry.npmjs.org/array-find-index/-/array-find-index-1.0.2.tgz#df010aa1287e164bbda6f9723b0a96a1ec4187a1"
   integrity sha1-3wEKoSh+Fku9pvlyOwqWoexBh6E=
 
-array-hyper-unique@^2.0.7:
-  version "2.0.7"
-  resolved "https://registry.npmjs.org/array-hyper-unique/-/array-hyper-unique-2.0.7.tgz#7f1e159285363405c74946bbbc19f5677c1d45ce"
-  integrity sha512-i92HlRCBpFScjFfLqi8+cGM2zjg2q5QJwr1SekHLcjl9aTtfD5+vy0QJ6qXfW6CwzO5/UlWIfAi8LeuZcteVEg==
+array-hyper-unique@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.npmjs.org/array-hyper-unique/-/array-hyper-unique-2.0.8.tgz#d40a7133d54061772bdd9675513c6b9c9b136a87"
+  integrity sha512-x0HKq5GCmt7CwUkhg9Kv3f0QssjADStancumaOplwMYN2UWtbaxYYw6oDfDbkn29ueYVPCijQqYHRoe2xpFp1g==
   dependencies:
-    deep-eql "^4.0.1"
+    deep-eql "= 4.0.0"
     lodash "^4.17.21"
     tslib "^2"
 
@@ -2608,10 +2608,10 @@ dedent@^0.7.0:
   resolved "https://registry.npmjs.org/dedent/-/dedent-0.7.0.tgz#2495ddbaf6eb874abb0e1be9df22d2e5a544326c"
   integrity sha1-JJXduvbrh0q7Dhvp3yLS5aVEMmw=
 
-deep-eql@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.npmjs.org/deep-eql/-/deep-eql-4.0.1.tgz#2b65bc89491d193780c452edee2144a91bb0a445"
-  integrity sha512-D/Oxqobjr+kxaHsgiQBZq9b6iAWdEj5W/JdJm8deNduAPc9CwXQ3BJJCuEqlrPXcy45iOMkGPZ0T81Dnz7UDCA==
+"deep-eql@= 4.0.0":
+  version "4.0.0"
+  resolved "https://registry.npmjs.org/deep-eql/-/deep-eql-4.0.0.tgz#c70af2713a4e18d9c2c1203ff9d11abbd51c8fbd"
+  integrity sha512-GxJC5MOg2KyQlv6WiUF/VAnMj4MWnYiXo4oLgeptOELVoknyErb4Z8+5F/IM/K4g9/80YzzatxmWcyRwUseH0A==
   dependencies:
     type-detect "^4.0.0"
 
@@ -2937,25 +2937,25 @@ err-code@^3.0.0, err-code@^3.0.1:
   resolved "https://registry.npmjs.org/err-code/-/err-code-3.0.1.tgz#a444c7b992705f2b120ee320b09972eef331c920"
   integrity sha512-GiaH0KJUewYok+eeY05IIgjtAe4Yltygk9Wqp1V5yVWLdhf0hYZchRjNIT9bb0mSwRcIusT3cx7PJUf3zEIfUA==
 
-err-errors@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.npmjs.org/err-errors/-/err-errors-1.0.7.tgz#a7ebcad18bc62e7561830d0ae7c8b617344929d6"
-  integrity sha512-10Retp2fjaytV6P2UFclep5uf83WdfSWNWSFZOhizSwgLh6sTNb01Bxv6SKm4Z/W5LrMJ4mQAbyCJuV63pafkA==
+err-errors@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.npmjs.org/err-errors/-/err-errors-1.0.8.tgz#895ce3318fe43810f83ff17c929e819b60962e70"
+  integrity sha512-0+5fOi12dNvIRR2SVtbdR+d2sTkcXOwzPB1+GoNJXEjOnWaZ7cNo4q5SHzVvOMBNVPE3qc1r+gPnbNIe0l/nGg==
   dependencies:
-    array-hyper-unique "^2.0.7"
+    array-hyper-unique "^2.0.8"
     check-iterable "^1.0.5"
     err-stack-reduce "^1.0.9"
     tslib "^2"
 
-err-indent@^1.0.6, err-indent@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.npmjs.org/err-indent/-/err-indent-1.0.7.tgz#bb69e8c65b8efb73eea30a060fdb8ad01c0e7512"
-  integrity sha512-echjbI/1i0QcWysa/Ctcsz06MLqI/QL1WFY8XpsWwcVq5LI9jJjW1O+ovmVkoaQXO2hdk79xrJ0ADSeDbvHr2A==
+err-indent@^1.0.7, err-indent@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.npmjs.org/err-indent/-/err-indent-1.0.8.tgz#5da19dc866c4db80ed65ac121c1c9bdf51096add"
+  integrity sha512-XpXplsDnORz6hveRJ3xUPeYFvFKTkmnRgjTio7XWj8uw6msQE33P7ZzfPiY+V9TZKCc38lhhNbilCF8K4aSoPw==
   dependencies:
-    array-hyper-unique "^2.0.7"
+    array-hyper-unique "^2.0.8"
     check-iterable "^1.0.5"
     clean-stack "<4 >=3.0.1"
-    err-errors "^1.0.7"
+    err-errors "^1.0.8"
     err-stack-meta "^1.0.10"
     error-stack2 "^2.0.2"
     indent-string "<5 >=4"
@@ -5790,13 +5790,13 @@ lazy-aggregate-error@^1.0.10:
     symbol.inspect "^1.0.1"
     tslib "^2"
 
-lazy-url@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.npmjs.org/lazy-url/-/lazy-url-2.0.3.tgz#536390cc0acd51284ee150260393216b21b94fb8"
-  integrity sha512-fpZl9HcnUUp2St16+EMut7/fs2Icbam11VBH2FoYAM7kLpMQ8Bpm0YS66PwPE/cXJm9VChcIBiqPraJp9rxVRw==
+lazy-url@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.npmjs.org/lazy-url/-/lazy-url-2.0.4.tgz#d4f389ad5453ce3cb411b623237c2ea88134fb2e"
+  integrity sha512-M/B8LtKrYHyrb/15CAbtqfmqK2/hrArsVrZbP8oA4tCmQY2+6CuMNCYif8le3Jpe71Om53Uk55feIL6X7G+nrQ==
   dependencies:
     err-code "^3.0.1"
-    err-indent "^1.0.6"
+    err-indent "^1.0.8"
     replace-url-protocol "^1.0.9"
     symbol.inspect "^1.0.1"
     ts-type-predicates "^1.0.6"

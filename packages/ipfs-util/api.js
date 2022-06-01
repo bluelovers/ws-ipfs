@@ -4,9 +4,9 @@ exports.ipfsAddresses = exports.assertCheckIPFS = exports.checkIPFS = exports.ip
 var ipfs_api_url_1 = require("@lazy-ipfs/ipfs-api-url");
 Object.defineProperty(exports, "ipfsApiAddresses", { enumerable: true, get: function () { return ipfs_api_url_1.ipfsApiAddresses; } });
 Object.defineProperty(exports, "ipfsGatewayAddresses", { enumerable: true, get: function () { return ipfs_api_url_1.ipfsGatewayAddresses; } });
-var index_1 = require("@lazy-ipfs/check-ipfs-connect/index");
-Object.defineProperty(exports, "checkIPFS", { enumerable: true, get: function () { return index_1.checkIPFS; } });
-Object.defineProperty(exports, "assertCheckIPFS", { enumerable: true, get: function () { return index_1.assertCheckIPFS; } });
+var check_ipfs_connect_1 = require("@lazy-ipfs/check-ipfs-connect");
+Object.defineProperty(exports, "checkIPFS", { enumerable: true, get: function () { return check_ipfs_connect_1.checkIPFS; } });
+Object.defineProperty(exports, "assertCheckIPFS", { enumerable: true, get: function () { return check_ipfs_connect_1.assertCheckIPFS; } });
 async function ipfsAddresses(ipfs) {
     return ipfs.config.get('Addresses');
 }

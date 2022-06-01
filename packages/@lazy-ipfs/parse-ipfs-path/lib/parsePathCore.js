@@ -9,9 +9,9 @@ const _handleFromURL_1 = require("./_handleFromURL");
 const to_cid_1 = require("@lazy-ipfs/to-cid");
 const is_valid_domain_1 = tslib_1.__importDefault(require("is-valid-domain"));
 const util_2 = require("@lazy-ipfs/detect-cid-lib/lib/util");
-const index_1 = tslib_1.__importDefault(require("@lazy-ipfs/cid-to-string/index"));
+const cid_to_string_1 = tslib_1.__importDefault(require("@lazy-ipfs/cid-to-string"));
 const asserts_1 = require("./asserts");
-const index_2 = require("@lazy-ipfs/is-cid/index");
+const is_cid_1 = require("@lazy-ipfs/is-cid");
 /**
  * @see https://github.com/tableflip/dweb-path
  */
@@ -23,7 +23,7 @@ function _parsePathCore(input) {
         // dummy
     }
     else if (typeof input === 'string' || (0, util_1._isStringObject)(input) || input instanceof URL) {
-        input = (0, index_2._url_href)(input);
+        input = (0, is_cid_1._url_href)(input);
         // @ts-ignore
         input = (_a = (0, _handleFromURL_1._handleFromURL)(input)) !== null && _a !== void 0 ? _a : input;
         if (typeof input !== 'string') {
@@ -83,7 +83,7 @@ function _parsePathCore(input) {
         return input;
     }
     else if (Buffer.isBuffer(input) || (0, util_2._isArrayLike)(input) || (0, to_cid_1.isCID)(input)) {
-        hash = (0, index_1.default)((0, to_cid_1.toCID)(input));
+        hash = (0, cid_to_string_1.default)((0, to_cid_1.toCID)(input));
         ns = "ipfs" /* EnumParsePathResultNs.ipfs */;
         path = '';
     }

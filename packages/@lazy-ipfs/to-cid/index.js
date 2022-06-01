@@ -8,7 +8,7 @@ const tslib_1 = require("tslib");
 const cids_1 = tslib_1.__importDefault(require("cids"));
 const multiformats_1 = require("multiformats");
 const js_cids_1 = require("@lazy-ipfs/detect-cid-lib/lib/js-cids");
-const index_1 = tslib_1.__importStar(require("@lazy-ipfs/detect-cid-lib/index"));
+const detect_cid_lib_1 = tslib_1.__importStar(require("@lazy-ipfs/detect-cid-lib"));
 const err_code_1 = tslib_1.__importDefault(require("err-code"));
 const multiformats_2 = tslib_1.__importDefault(require("./lib/multiformats"));
 const js_cids_2 = require("./lib/js-cids");
@@ -26,7 +26,7 @@ function classCID(libCID) {
 }
 exports.classCID = classCID;
 function isCID(cid, libCID) {
-    const type = (0, index_1.default)(cid);
+    const type = (0, detect_cid_lib_1.default)(cid);
     // @ts-ignore
     if (libCID === multiformats_1.CID || libCID === "@ipld/js-multiformats/CID" /* EnumTypeofCID.js_multiformats */) {
         return type === "@ipld/js-multiformats/CID" /* EnumTypeofCID.multiformats_cid */;
@@ -47,13 +47,13 @@ function assertRawCIDLike(cid) {
 }
 exports.assertRawCIDLike = assertRawCIDLike;
 function isRawCIDLike(cid) {
-    return (0, index_1.isRawMultiformatsCIDLike)(cid) || (0, js_cids_1.isRawJsCIDLike)(cid);
+    return (0, detect_cid_lib_1.isRawMultiformatsCIDLike)(cid) || (0, js_cids_1.isRawJsCIDLike)(cid);
 }
 exports.isRawCIDLike = isRawCIDLike;
 function toRawCID(cid) {
     assertRawCIDLike(cid);
-    if ((0, index_1.isRawMultiformatsCIDLike)(cid)) {
-        return (0, index_1.toRawMultiformatsCID)(cid);
+    if ((0, detect_cid_lib_1.isRawMultiformatsCIDLike)(cid)) {
+        return (0, detect_cid_lib_1.toRawMultiformatsCID)(cid);
     }
     return (0, js_cids_1.toRawJsCID)(cid);
 }
