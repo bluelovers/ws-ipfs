@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.mergeDefaultConfig = void 0;
 const tslib_1 = require("tslib");
 const lodash_1 = require("lodash");
-const bootstrap_1 = (0, tslib_1.__importDefault)(require("ipfs-server-list/bootstrap"));
-const EXPERIMENTAL_1 = (0, tslib_1.__importDefault)(require("./EXPERIMENTAL"));
+const bootstrap_1 = tslib_1.__importDefault(require("ipfs-server-list/bootstrap"));
+const EXPERIMENTAL_1 = tslib_1.__importDefault(require("./EXPERIMENTAL"));
 function mergeDefaultConfig(config = {}) {
     return (0, lodash_1.merge)({
         API: {

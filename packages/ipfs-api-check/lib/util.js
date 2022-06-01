@@ -5,7 +5,7 @@ const tslib_1 = require("tslib");
 /**
  * Created by user on 2020/3/21.
  */
-const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
+const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 async function runSubCheck(fn) {
     let error;
     const startTime = Date.now();

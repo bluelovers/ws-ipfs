@@ -3,13 +3,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.parsePathCore = exports._parsePathCore = void 0;
 const tslib_1 = require("tslib");
 const _invalidInput_1 = require("./_invalidInput");
-const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
+const err_code_1 = tslib_1.__importDefault(require("err-code"));
 const util_1 = require("./util");
 const _handleFromURL_1 = require("./_handleFromURL");
 const to_cid_1 = require("@lazy-ipfs/to-cid");
-const is_valid_domain_1 = (0, tslib_1.__importDefault)(require("is-valid-domain"));
+const is_valid_domain_1 = tslib_1.__importDefault(require("is-valid-domain"));
 const util_2 = require("@lazy-ipfs/detect-cid-lib/lib/util");
-const index_1 = (0, tslib_1.__importDefault)(require("@lazy-ipfs/cid-to-string/index"));
+const index_1 = tslib_1.__importDefault(require("@lazy-ipfs/cid-to-string/index"));
 const asserts_1 = require("./asserts");
 const index_2 = require("@lazy-ipfs/is-cid/index");
 /**
@@ -38,13 +38,13 @@ function _parsePathCore(input) {
             input = input.slice(0, -1);
         }
         const parts = input.split('/');
-        if (parts[1] === "ipfs" /* ipfs */ || parts[1] === "ipns" /* ipns */) {
+        if (parts[1] === "ipfs" /* EnumParsePathResultNs.ipfs */ || parts[1] === "ipns" /* EnumParsePathResultNs.ipns */) {
             try {
                 hash = (0, to_cid_1.strToCidToStr)(parts[2]);
             }
             catch (err) {
                 // If IPNS then this could be a domain name
-                if (parts[1] === "ipns" /* ipns */ && (0, is_valid_domain_1.default)(parts[2])) {
+                if (parts[1] === "ipns" /* EnumParsePathResultNs.ipns */ && (0, is_valid_domain_1.default)(parts[2])) {
                     hash = parts[2];
                 }
                 else {
@@ -70,7 +70,7 @@ function _parsePathCore(input) {
                     parts,
                 });
             }
-            ns = "ipfs" /* ipfs */;
+            ns = "ipfs" /* EnumParsePathResultNs.ipfs */;
             path = parts.slice(2).join('/');
         }
         // Ensure leading slash on non empty path
@@ -84,7 +84,7 @@ function _parsePathCore(input) {
     }
     else if (Buffer.isBuffer(input) || (0, util_2._isArrayLike)(input) || (0, to_cid_1.isCID)(input)) {
         hash = (0, index_1.default)((0, to_cid_1.toCID)(input));
-        ns = "ipfs" /* ipfs */;
+        ns = "ipfs" /* EnumParsePathResultNs.ipfs */;
         path = '';
     }
     if (!(ns === null || ns === void 0 ? void 0 : ns.length) || !(hash === null || hash === void 0 ? void 0 : hash.length)) {

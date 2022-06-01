@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports._remove_path_prefix = exports._if_path_can_be_cid = exports._url_href = exports._assertCID = void 0;
 const tslib_1 = require("tslib");
 const multiformats_1 = require("multiformats");
-const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
+const err_code_1 = tslib_1.__importDefault(require("err-code"));
 const is_ipfs_1 = require("is-ipfs");
 function _assertCID(hash) {
     let bool;

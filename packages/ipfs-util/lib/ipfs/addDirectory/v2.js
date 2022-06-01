@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.addDirectoryToIPFS = void 0;
 const tslib_1 = require("tslib");
-const glob_source_1 = (0, tslib_1.__importDefault)(require("ipfs-utils/src/files/glob-source"));
-const compatible_add_1 = (0, tslib_1.__importDefault)(require("@lazy-ipfs/compatible-add"));
+const glob_source_1 = tslib_1.__importDefault(require("ipfs-utils/src/files/glob-source"));
+const compatible_add_1 = tslib_1.__importDefault(require("@lazy-ipfs/compatible-add"));
 async function addDirectoryToIPFS(ipfs, targetDirPath, { options, globSourceOptions, } = {}) {
     const stream = (0, glob_source_1.default)(targetDirPath, {
         recursive: true,

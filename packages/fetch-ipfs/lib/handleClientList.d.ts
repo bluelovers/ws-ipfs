@@ -3,4 +3,4 @@ import { IIPFSClientAddresses } from '@bluelovers/ipfs-http-client';
 import Bluebird from 'bluebird';
 import { IPFS } from 'ipfs-core-types';
 export declare type IUseIPFSInput = string | Partial<IPFS> | IIPFSClientAddresses;
-export declare function handleClientList(useIPFS: ITSValueOrArray<IUseIPFSInput>, filter?: (ipfs: Partial<IPFS>) => ITSResolvable<boolean>): Bluebird<any[]>;
+export declare function handleClientList(useIPFS: ITSValueOrArray<IUseIPFSInput>, filter?: (ipfs: Partial<IPFS>) => ITSResolvable<boolean>): Bluebird<IIPFSPromiseApi[]>;

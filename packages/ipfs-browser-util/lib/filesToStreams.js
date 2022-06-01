@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.filesToStreams = void 0;
 const tslib_1 = require("tslib");
-const pull_file_reader2_1 = (0, tslib_1.__importDefault)(require("pull-file-reader2"));
+const pull_file_reader2_1 = tslib_1.__importDefault(require("pull-file-reader2"));
 /**
  * https://github.com/ipfs-shipyard/ipfs-webui/blob/master/src/lib/files.js
  */

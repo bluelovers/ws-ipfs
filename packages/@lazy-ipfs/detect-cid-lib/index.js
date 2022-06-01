@@ -4,13 +4,13 @@ exports.typeofRawCID = exports.typeofCID = exports.EnumTypeofCID = exports.Symbo
 const tslib_1 = require("tslib");
 const js_multiformats_1 = require("./lib/js-multiformats");
 const js_cids_1 = require("./lib/js-cids");
-const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
+const err_code_1 = tslib_1.__importDefault(require("err-code"));
 var js_cids_2 = require("./lib/js-cids");
 Object.defineProperty(exports, "SymbolJsCID", { enumerable: true, get: function () { return js_cids_2.SymbolJsCID; } });
-(0, tslib_1.__exportStar)(require("./lib/js-cids"), exports);
-(0, tslib_1.__exportStar)(require("./lib/js-multiformats"), exports);
-(0, tslib_1.__exportStar)(require("./lib/util"), exports);
-(0, tslib_1.__exportStar)(require("./lib/types"), exports);
+tslib_1.__exportStar(require("./lib/js-cids"), exports);
+tslib_1.__exportStar(require("./lib/js-multiformats"), exports);
+tslib_1.__exportStar(require("./lib/util"), exports);
+tslib_1.__exportStar(require("./lib/types"), exports);
 var EnumTypeofCID;
 (function (EnumTypeofCID) {
     /**
@@ -25,10 +25,10 @@ var EnumTypeofCID;
 })(EnumTypeofCID = exports.EnumTypeofCID || (exports.EnumTypeofCID = {}));
 function typeofCID(cid, throwError) {
     if ((0, js_multiformats_1.isMultiformatsCID)(cid)) {
-        return "@ipld/js-multiformats/CID" /* multiformats_cid */;
+        return "@ipld/js-multiformats/CID" /* EnumTypeofCID.multiformats_cid */;
     }
     else if ((0, js_cids_1.isJsCID)(cid)) {
-        return "@ipld/js-cid/CID" /* js_cids */;
+        return "@ipld/js-cid/CID" /* EnumTypeofCID.js_cids */;
     }
     else if (throwError) {
         throw (0, err_code_1.default)(new TypeError(`Unknown type of cid`), {
@@ -39,10 +39,10 @@ function typeofCID(cid, throwError) {
 exports.typeofCID = typeofCID;
 function typeofRawCID(cid, throwError) {
     if ((0, js_multiformats_1.isRawMultiformatsCIDLike)(cid)) {
-        return "@ipld/js-multiformats/CID" /* multiformats_cid */;
+        return "@ipld/js-multiformats/CID" /* EnumTypeofCID.multiformats_cid */;
     }
     else if ((0, js_cids_1.isRawJsCIDLike)(cid)) {
-        return "@ipld/js-cid/CID" /* js_cids */;
+        return "@ipld/js-cid/CID" /* EnumTypeofCID.js_cids */;
     }
     else if (throwError) {
         throw (0, err_code_1.default)(new TypeError(`Unknown type of raw cid`), {

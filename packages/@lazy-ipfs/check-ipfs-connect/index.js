@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.assertCheckIPFS = exports.checkIPFS = void 0;
 const tslib_1 = require("tslib");
-const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
+const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 const lazy_aggregate_error_1 = require("lazy-aggregate-error");
-const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
+const err_code_1 = tslib_1.__importDefault(require("err-code"));
 function checkIPFS(ipfs) {
     return assertCheckIPFS(ipfs)
         .catch(() => null);

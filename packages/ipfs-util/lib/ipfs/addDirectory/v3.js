@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.addDirectoryToIPFS = void 0;
 const tslib_1 = require("tslib");
-const glob_source_1 = (0, tslib_1.__importDefault)(require("ipfs-utils/src/files/glob-source"));
-const get_stream_1 = (0, tslib_1.__importDefault)(require("get-stream"));
+const glob_source_1 = tslib_1.__importDefault(require("ipfs-utils/src/files/glob-source"));
+const get_stream_1 = tslib_1.__importDefault(require("get-stream"));
 const list_1 = require("../mfs/list");
-const logger_1 = (0, tslib_1.__importDefault)(require("debug-color2/logger"));
+const logger_1 = tslib_1.__importDefault(require("debug-color2/logger"));
 async function addDirectoryToIPFS(ipfs, targetDirPath, { options, globSourceOptions, ignoreExists, } = {}) {
     const stream = (0, glob_source_1.default)(targetDirPath, {
         recursive: true,

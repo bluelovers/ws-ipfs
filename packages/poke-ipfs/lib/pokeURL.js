@@ -5,7 +5,7 @@ const tslib_1 = require("tslib");
 /**
  * Created by user on 2020/4/3.
  */
-const cross_fetch_1 = (0, tslib_1.__importDefault)(require("cross-fetch"));
+const cross_fetch_1 = tslib_1.__importDefault(require("cross-fetch"));
 const util_1 = require("./util");
 const _parsePokeResponse_1 = require("./util/_parsePokeResponse");
 const _handleOptions_1 = require("./util/_handleOptions");

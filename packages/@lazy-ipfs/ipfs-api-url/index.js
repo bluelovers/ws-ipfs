@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ipfsGatewayAddressesLink = exports.ipfsWebuiAddresses = exports.ipfsApiAddressesLink = exports.ipfsGatewayAddresses = exports.ipfsApiAddresses = void 0;
 const tslib_1 = require("tslib");
-const multiaddr_to_url_1 = (0, tslib_1.__importDefault)(require("multiaddr-to-url"));
+const multiaddr_to_url_1 = tslib_1.__importDefault(require("multiaddr-to-url"));
 async function ipfsApiAddresses(ipfs) {
     return ipfs.config.get('Addresses.API');
 }

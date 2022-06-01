@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.readBlob = exports.browserStreamToIt = exports.blobToAsyncGenerator = exports.toAsyncIterable = exports.toFileObject = exports.normaliseInput = void 0;
 const tslib_1 = require("tslib");
 //import { Buffer } from 'buffer';
-const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
+const err_code_1 = tslib_1.__importDefault(require("err-code"));
 const type_check_1 = require("../util/type-check");
 const type_convert_1 = require("../util/type-convert");
 /*

@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fetchIPFSCore = exports.fetchIPFS = void 0;
 const tslib_1 = require("tslib");
-const cross_fetch_1 = (0, tslib_1.__importDefault)(require("cross-fetch"));
+const cross_fetch_1 = tslib_1.__importDefault(require("cross-fetch"));
 //import { Buffer } from "buffer";
-const ipfs_1 = (0, tslib_1.__importDefault)(require("./ipfs"));
-const bluebird_1 = (0, tslib_1.__importStar)(require("bluebird"));
-const is_error_code_1 = (0, tslib_1.__importDefault)(require("is-error-code"));
+const ipfs_1 = tslib_1.__importDefault(require("./ipfs"));
+const bluebird_1 = tslib_1.__importStar(require("bluebird"));
+const is_error_code_1 = tslib_1.__importDefault(require("is-error-code"));
 const util_1 = require("./util");
 async function fetchIPFS(cid, useIPFS, timeout, options = {}) {
     cid = (0, util_1.handleCID)(cid, useIPFS, options);

@@ -5,21 +5,21 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.strToCidToStr = exports.toCID = exports.toRawCID = exports.isRawCIDLike = exports.assertRawCIDLike = exports.isCID = exports.classCID = exports.SymbolCID = void 0;
 const tslib_1 = require("tslib");
-const cids_1 = (0, tslib_1.__importDefault)(require("cids"));
+const cids_1 = tslib_1.__importDefault(require("cids"));
 const multiformats_1 = require("multiformats");
 const js_cids_1 = require("@lazy-ipfs/detect-cid-lib/lib/js-cids");
-const index_1 = (0, tslib_1.__importStar)(require("@lazy-ipfs/detect-cid-lib/index"));
-const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
-const multiformats_2 = (0, tslib_1.__importDefault)(require("./lib/multiformats"));
+const index_1 = tslib_1.__importStar(require("@lazy-ipfs/detect-cid-lib/index"));
+const err_code_1 = tslib_1.__importDefault(require("err-code"));
+const multiformats_2 = tslib_1.__importDefault(require("./lib/multiformats"));
 const js_cids_2 = require("./lib/js-cids");
 const cid_to_string_1 = require("@lazy-ipfs/cid-to-string");
 const _invalidInput_1 = require("@lazy-ipfs/parse-ipfs-path/lib/_invalidInput");
-(0, tslib_1.__exportStar)(require("@lazy-ipfs/detect-cid-lib/lib/types"), exports);
+tslib_1.__exportStar(require("@lazy-ipfs/detect-cid-lib/lib/types"), exports);
 var js_cids_3 = require("@lazy-ipfs/detect-cid-lib/lib/js-cids");
 Object.defineProperty(exports, "SymbolCID", { enumerable: true, get: function () { return js_cids_3.SymbolJsCID; } });
 function classCID(libCID) {
     libCID !== null && libCID !== void 0 ? libCID : (libCID = multiformats_1.CID);
-    if (libCID === cids_1.default || libCID === "@ipld/js-cid/CID" /* js_cids */) {
+    if (libCID === cids_1.default || libCID === "@ipld/js-cid/CID" /* EnumTypeofCID.js_cids */) {
         return js_cids_2.toJsCID;
     }
     return multiformats_2.default;
@@ -28,12 +28,12 @@ exports.classCID = classCID;
 function isCID(cid, libCID) {
     const type = (0, index_1.default)(cid);
     // @ts-ignore
-    if (libCID === multiformats_1.CID || libCID === "@ipld/js-multiformats/CID" /* js_multiformats */) {
-        return type === "@ipld/js-multiformats/CID" /* multiformats_cid */;
+    if (libCID === multiformats_1.CID || libCID === "@ipld/js-multiformats/CID" /* EnumTypeofCID.js_multiformats */) {
+        return type === "@ipld/js-multiformats/CID" /* EnumTypeofCID.multiformats_cid */;
     }
     // @ts-ignore
-    else if (libCID === cids_1.default || libCID === "@ipld/js-cid/CID" /* js_cids */) {
-        return type === "@ipld/js-cid/CID" /* js_cids */;
+    else if (libCID === cids_1.default || libCID === "@ipld/js-cid/CID" /* EnumTypeofCID.js_cids */) {
+        return type === "@ipld/js-cid/CID" /* EnumTypeofCID.js_cids */;
     }
     return (type === null || type === void 0 ? void 0 : type.length) > 0;
 }

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.toMultiformatsCID = void 0;
 const tslib_1 = require("tslib");
-const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
+const err_code_1 = tslib_1.__importDefault(require("err-code"));
 const multiformats_1 = require("multiformats");
 const js_cids_1 = require("@lazy-ipfs/detect-cid-lib/lib/js-cids");
 const js_multiformats_1 = require("@lazy-ipfs/detect-cid-lib/lib/js-multiformats");

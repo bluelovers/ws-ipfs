@@ -5,7 +5,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fromJSZip = exports.fromString = exports.fromBuffer = void 0;
 const tslib_1 = require("tslib");
-const jszip_1 = (0, tslib_1.__importDefault)(require("jszip"));
+const jszip_1 = tslib_1.__importDefault(require("jszip"));
 function fromBuffer(buf, options) {
     return fromJSZip(Promise.resolve(buf)
         .then(data => jszip_1.default.loadAsync(data, options === null || options === void 0 ? void 0 : options.jsZipLoadOptions)), options);

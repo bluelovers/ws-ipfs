@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.isParsePathResult = exports.assertToParsePathResult = exports.assertToEnumNs = exports.EnumParsePathResultNs = exports.assertToParsePathResultPath = void 0;
 const tslib_1 = require("tslib");
 const util_1 = require("./util");
-const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
+const err_code_1 = tslib_1.__importDefault(require("err-code"));
 const index_1 = require("@lazy-ipfs/is-cid/index");
 function assertToParsePathResultPath(path) {
     let bool = false;
@@ -38,7 +38,7 @@ function assertToEnumNs(ns) {
 exports.assertToEnumNs = assertToEnumNs;
 function assertToParsePathResult(result) {
     assertToEnumNs(result.ns);
-    if (result.ns !== "ipns" /* ipns */) {
+    if (result.ns !== "ipns" /* EnumParsePathResultNs.ipns */) {
         try {
             (0, index_1._assertCID)(result.hash);
         }

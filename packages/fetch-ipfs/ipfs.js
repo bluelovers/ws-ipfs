@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.catIPFS = exports.refIPFS = void 0;
 const tslib_1 = require("tslib");
 //import { Buffer } from "buffer";
-const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
+const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 const util_1 = require("./util");
 const to_cid_1 = require("@lazy-ipfs/to-cid");
 const cid_to_string_1 = require("@lazy-ipfs/cid-to-string");

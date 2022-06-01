@@ -2,12 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.toLink = exports.toPath = exports.toURL = exports.pathToCid = exports.pathToCidSource = exports.isCidOrPath = exports.isPath = exports.EnumIPFSLinkType = void 0;
 const tslib_1 = require("tslib");
-const is_ipfs_1 = (0, tslib_1.__importDefault)(require("is-ipfs"));
-const ipfs_server_list_1 = (0, tslib_1.__importDefault)(require("ipfs-server-list"));
+const is_ipfs_1 = tslib_1.__importDefault(require("is-ipfs"));
+const ipfs_server_list_1 = tslib_1.__importDefault(require("ipfs-server-list"));
 const to_cid_1 = require("@lazy-ipfs/to-cid");
 const cid_to_string_1 = require("@lazy-ipfs/cid-to-string");
 const parsePath_1 = require("@lazy-ipfs/parse-ipfs-path/lib/parsePath");
-const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
+const err_code_1 = tslib_1.__importDefault(require("err-code"));
 const _invalidInput_1 = require("@lazy-ipfs/parse-ipfs-path/lib/_invalidInput");
 const util_1 = require("@lazy-ipfs/parse-ipfs-path/lib/util");
 const formatter_1 = require("@lazy-ipfs/parse-ipfs-path/lib/formatter");

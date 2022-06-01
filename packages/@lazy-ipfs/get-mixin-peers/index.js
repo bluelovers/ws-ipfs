@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ipfsMixinPeers = exports.ipfsSwarmAddrsPeers = exports.ipfsSwarmPeers = exports.ipfsPubsubPeers = void 0;
 const tslib_1 = require("tslib");
-const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
+const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 const array_hyper_unique_1 = require("array-hyper-unique");
 async function ipfsPubsubPeers(ipfs, topic, options) {
     var _a;

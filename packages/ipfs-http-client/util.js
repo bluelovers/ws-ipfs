@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getDefaultServerList = void 0;
 const tslib_1 = require("tslib");
-const ipfs_env_1 = (0, tslib_1.__importDefault)(require("ipfs-env"));
+const ipfs_env_1 = tslib_1.__importDefault(require("ipfs-env"));
 function getDefaultServerList(options = {}) {
     const ipfsServerList = [];
     const { IPFS_ADDRESSES_API } = (0, ipfs_env_1.default)();

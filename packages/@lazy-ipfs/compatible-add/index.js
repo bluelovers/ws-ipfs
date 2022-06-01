@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.add = exports.addAllPromise = exports.addAll = void 0;
 const tslib_1 = require("tslib");
-const it_last_1 = (0, tslib_1.__importDefault)(require("it-last"));
-const it_all_1 = (0, tslib_1.__importDefault)(require("it-all"));
+const it_last_1 = tslib_1.__importDefault(require("it-last"));
+const it_all_1 = tslib_1.__importDefault(require("it-all"));
 function addAll(ipfs, ...argv) {
     var _a;
     return ((_a = ipfs.addAll) !== null && _a !== void 0 ? _a : (ipfs.add))(...argv);

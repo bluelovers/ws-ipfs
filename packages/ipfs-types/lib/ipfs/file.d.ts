@@ -1,4 +1,5 @@
 /// <reference types="node" />
+/// <reference types="node" />
 import TypedArray = NodeJS.TypedArray;
 import BufferList from 'bl';
 import { IMtimeInput, IAsyncIterableAbleOrValue, IAsyncIterableAble, IDagHashAlg } from '../types';

@@ -3,9 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.addDirectoryToIPFS = void 0;
 const tslib_1 = require("tslib");
 const list_1 = require("../mfs/list");
-const logger_1 = (0, tslib_1.__importDefault)(require("debug-color2/logger"));
-const fast_glob_1 = (0, tslib_1.__importDefault)(require("@bluelovers/fast-glob"));
-const path_1 = (0, tslib_1.__importDefault)(require("path"));
+const logger_1 = tslib_1.__importDefault(require("debug-color2/logger"));
+const fast_glob_1 = tslib_1.__importDefault(require("@bluelovers/fast-glob"));
+const path_1 = tslib_1.__importDefault(require("path"));
 const fs_extra_1 = require("fs-extra");
 async function addDirectoryToIPFS(ipfs, targetDirPath, { options, globSourceOptions, ignoreExists, } = {}) {
     let i = 0;

@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.handleClientList = void 0;
 const tslib_1 = require("tslib");
-const ipfs_http_client_1 = (0, tslib_1.__importDefault)(require("@bluelovers/ipfs-http-client"));
-const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
+const ipfs_http_client_1 = tslib_1.__importDefault(require("@bluelovers/ipfs-http-client"));
+const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 function handleClientList(useIPFS, filter) {
     return bluebird_1.default
         .resolve(useIPFS)

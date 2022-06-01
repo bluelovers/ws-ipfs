@@ -5,7 +5,7 @@ const tslib_1 = require("tslib");
 /**
  * Created by user on 2020/4/3.
  */
-const cross_fetch_1 = (0, tslib_1.__importDefault)(require("cross-fetch"));
+const cross_fetch_1 = tslib_1.__importDefault(require("cross-fetch"));
 const ndjson_1 = require("./ndjson");
 const util_1 = require("./util");
 const abort_controller_timer_1 = require("abort-controller-timer");

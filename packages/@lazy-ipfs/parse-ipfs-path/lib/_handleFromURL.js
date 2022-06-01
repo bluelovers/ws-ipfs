@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports._handleFromURL = exports.subdomainGatewayPattern = void 0;
 const tslib_1 = require("tslib");
-const is_ipfs_1 = (0, tslib_1.__importDefault)(require("is-ipfs"));
+const is_ipfs_1 = tslib_1.__importDefault(require("is-ipfs"));
 const lazy_url_1 = require("lazy-url");
 const index_1 = require("@lazy-ipfs/is-cid/index");
 exports.subdomainGatewayPattern = /^https?:\/\/([^/]+)\.(ip[fn]s)\.[^/?]+/;
@@ -27,9 +27,9 @@ function _handleFromURL(input) {
     }
     else if (is_ipfs_1.default.cid((parts = url.host.split('.'))[0])) {
         return {
-            ns: ((_a = parts[1]) === null || _a === void 0 ? void 0 : _a.toLowerCase()) === "ipns" /* ipns */
-                ? "ipns" /* ipns */
-                : "ipfs" /* ipfs */,
+            ns: ((_a = parts[1]) === null || _a === void 0 ? void 0 : _a.toLowerCase()) === "ipns" /* EnumParsePathResultNs.ipns */
+                ? "ipns" /* EnumParsePathResultNs.ipns */
+                : "ipfs" /* EnumParsePathResultNs.ipfs */,
             hash: parts[0],
             path: url.pathname,
         };

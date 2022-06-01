@@ -1,4 +1,5 @@
 /// <reference types="node" />
+/// <reference types="node" />
 import { ICallback, IMultihash, ICIDObject, IErrorLike, IParametersWithCallbackWithMaybeArgv } from '../types';
 import { IFileContent } from './file';
 import { IObjectAPI } from './object';

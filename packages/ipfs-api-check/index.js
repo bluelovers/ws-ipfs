@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.checkAll = void 0;
 const tslib_1 = require("tslib");
-const _allChecks = (0, tslib_1.__importStar)(require("./lib"));
+const _allChecks = tslib_1.__importStar(require("./lib"));
 async function checkAll(ipfs) {
     let keys = Object.keys(_allChecks);
     keys.sort();

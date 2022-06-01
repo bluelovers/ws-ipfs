@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fromUrl = exports.urlSource = void 0;
 const tslib_1 = require("tslib");
-const url_source_1 = (0, tslib_1.__importDefault)(require("ipfs-utils/src/files/url-source"));
-const index_1 = (0, tslib_1.__importDefault)(require("./index"));
+const url_source_1 = tslib_1.__importDefault(require("ipfs-utils/src/files/url-source"));
+const index_1 = tslib_1.__importDefault(require("./index"));
 function urlSource(url, options) {
     return (0, url_source_1.default)(url, options);
 }

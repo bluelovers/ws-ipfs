@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.isBufferMaybe = void 0;
 const tslib_1 = require("tslib");
-(0, tslib_1.__exportStar)(require("./api"), exports);
+tslib_1.__exportStar(require("./api"), exports);
 function isBufferMaybe(buf) {
     return (buf === null || buf === void 0 ? void 0 : buf.length) && typeof (buf === null || buf === void 0 ? void 0 : buf[0]) === 'number';
 }

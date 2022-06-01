@@ -2,14 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deepFilesList = exports.ipfsFilesExists = exports.deepFilesListCore = exports.isNull = exports.fixMarkDirectories = exports.fixPath = exports.fixDirPath = exports.mfsFileType = void 0;
 const tslib_1 = require("tslib");
-const micromatch_1 = (0, tslib_1.__importDefault)(require("micromatch"));
+const micromatch_1 = tslib_1.__importDefault(require("micromatch"));
 const path_1 = require("path");
 function mfsFileType(type) {
-    if (type === 0 /* FILE */ || type === "file" /* FILE */) {
-        return 0 /* FILE */;
+    if (type === 0 /* EnumMutableFileSystemType.FILE */ || type === "file" /* EnumMutableFileSystemTypeName.FILE */) {
+        return 0 /* EnumMutableFileSystemType.FILE */;
     }
-    else if (type === 1 /* DIR */ || type === "directory" /* DIR */) {
-        return 1 /* DIR */;
+    else if (type === 1 /* EnumMutableFileSystemType.DIR */ || type === "directory" /* EnumMutableFileSystemTypeName.DIR */) {
+        return 1 /* EnumMutableFileSystemType.DIR */;
     }
     throw new TypeError(`unknown file type: ${type}, ${typeof type}`);
     return type;
@@ -44,7 +44,7 @@ async function* deepFilesListCore(ipfs, rootPath, options = {}) {
         // @ts-ignore
         yield file;
         // @ts-ignore
-        if (file.type === 1 /* DIR */) {
+        if (file.type === 1 /* EnumMutableFileSystemType.DIR */) {
             if (level >= deep) {
                 continue;
             }
@@ -62,7 +62,7 @@ async function ipfsFilesExists(ipfs, targetPath) {
         timeout: 1000,
     }).catch(e => null);
     if (stat) {
-        if (mfsFileType(stat.type) === 0 /* FILE */) {
+        if (mfsFileType(stat.type) === 0 /* EnumMutableFileSystemType.FILE */) {
             return true;
         }
         //console.dir(stat)
@@ -73,7 +73,7 @@ async function ipfsFilesExists(ipfs, targetPath) {
             absolute: true,
         })) {
             //console.dir(file);
-            if (mfsFileType(file.type) === 0 /* FILE */ && file.name === targetPath) {
+            if (mfsFileType(file.type) === 0 /* EnumMutableFileSystemType.FILE */ && file.name === targetPath) {
                 return true;
             }
         }
@@ -120,7 +120,7 @@ async function* deepFilesList(ipfs, options = {}) {
     for await (const file of deepFilesListCore(ipfs, rootPath, {
         deep,
     })) {
-        const isDir = file.type === 1 /* DIR */;
+        const isDir = file.type === 1 /* EnumMutableFileSystemType.DIR */;
         if (onlyFiles === true && isDir) {
             continue;
         }

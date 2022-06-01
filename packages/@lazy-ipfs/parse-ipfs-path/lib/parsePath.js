@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.parsePath = void 0;
 const tslib_1 = require("tslib");
-const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
+const err_code_1 = tslib_1.__importDefault(require("err-code"));
 const parsePathCore_1 = require("./parsePathCore");
 function parsePath(input, options) {
     try {
@@ -18,7 +18,7 @@ function parsePath(input, options) {
     }
     if (options === null || options === void 0 ? void 0 : options.unsafeReturn) {
         return {
-            ns: "ipfs" /* ipfs */,
+            ns: "ipfs" /* EnumParsePathResultNs.ipfs */,
             hash: input,
             path: '',
         };

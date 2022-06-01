@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.findIpfsClient = exports.ipfsClient = void 0;
 const tslib_1 = require("tslib");
-const ipfs_http_client_1 = (0, tslib_1.__importDefault)(require("ipfs-http-client"));
-const core_1 = (0, tslib_1.__importStar)(require("./core"));
+const ipfs_http_client_1 = tslib_1.__importDefault(require("ipfs-http-client"));
+const core_1 = tslib_1.__importStar(require("./core"));
 /**
  * auto detect go-ipfs and js-ipfs
  */

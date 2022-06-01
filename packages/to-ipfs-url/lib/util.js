@@ -4,7 +4,7 @@ exports._getPathFromInput = exports._getCidHashFromInput = void 0;
 const tslib_1 = require("tslib");
 const to_cid_1 = require("@lazy-ipfs/to-cid");
 const parsePath_1 = require("@lazy-ipfs/parse-ipfs-path/lib/parsePath");
-const is_ipfs_1 = (0, tslib_1.__importDefault)(require("is-ipfs"));
+const is_ipfs_1 = tslib_1.__importDefault(require("is-ipfs"));
 const index_1 = require("../index");
 const _handleFromURL_1 = require("@lazy-ipfs/parse-ipfs-path/lib/_handleFromURL");
 const util_1 = require("@lazy-ipfs/parse-ipfs-path/lib/util");

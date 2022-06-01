@@ -4,12 +4,12 @@ exports.startIPFS = exports.getPort2 = void 0;
 const tslib_1 = require("tslib");
 const ipfsd_ctl_1 = require("ipfsd-ctl");
 const utils_1 = require("ipfsd-ctl/src/utils");
-const ipfs_http_client_1 = (0, tslib_1.__importDefault)(require("ipfs-http-client"));
+const ipfs_http_client_1 = tslib_1.__importDefault(require("ipfs-http-client"));
 const ipfsd_1 = require("./util/ipfsd");
-const addresses_1 = (0, tslib_1.__importStar)(require("ipfs-defaults/addresses"));
-const defaultsDeep_1 = (0, tslib_1.__importDefault)(require("lodash/defaultsDeep"));
+const addresses_1 = tslib_1.__importStar(require("ipfs-defaults/addresses"));
+const defaultsDeep_1 = tslib_1.__importDefault(require("lodash/defaultsDeep"));
 // @ts-ignore
-const find_free_port_sync_fixed_1 = (0, tslib_1.__importDefault)(require("find-free-port-sync-fixed"));
+const find_free_port_sync_fixed_1 = tslib_1.__importDefault(require("find-free-port-sync-fixed"));
 const unlinkIPFSApi_1 = require("fix-ipfs/lib/ipfsd-ctl/unlinkIPFSApi");
 const core_1 = require("@bluelovers/ipfs-http-client/core");
 const index_1 = require("@lazy-ipfs/check-ipfs-connect/index");
