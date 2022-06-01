@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/parse-ipfs-path",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "",
   "keywords": [
     "IPFS",
@@ -29,10 +29,10 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@lazy-ipfs/cid-to-string": "^1.0.6",
-    "@lazy-ipfs/detect-cid-lib": "^1.0.6",
-    "@lazy-ipfs/is-cid": "^1.0.4",
-    "@lazy-ipfs/to-cid": "^1.0.29",
+    "@lazy-ipfs/cid-to-string": "^1.0.7",
+    "@lazy-ipfs/detect-cid-lib": "^1.0.7",
+    "@lazy-ipfs/is-cid": "^1.0.5",
+    "@lazy-ipfs/to-cid": "^1.0.30",
     "err-code": "^3.0.1",
     "is-ipfs": "^6.0.2",
     "is-valid-domain": "^0.1.2",

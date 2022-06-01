@@ -1490,6 +1490,13 @@ agent-base@6:
   dependencies:
     debug "4"
 
+aggregate-error-or-core-js@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.npmjs.org/aggregate-error-or-core-js/-/aggregate-error-or-core-js-1.0.3.tgz#fa3cd91f203f1a418947771805fe60b6ac8b3fe8"
+  integrity sha512-2IKOXhkL1Fmw0WiM0ks6kNJMhVeU9e3K5tWs2lQet2dxoVIWISy8BV1axPaaqJIPmeFVzEh0T2pOtqM+ufH+gA==
+  dependencies:
+    core-js-pure "^3.21.0"
+
 aggregate-error@^3.0.0, aggregate-error@^3.1.0:
   version "3.1.0"
   resolved "https://registry.npmjs.org/aggregate-error/-/aggregate-error-3.1.0.tgz#92670ff50f5359bdb7a3e0d40d0ec30c5737687a"
@@ -2364,10 +2371,10 @@ cookie@~0.4.1:
   resolved "https://registry.npmjs.org/cookie/-/cookie-0.4.1.tgz#afd713fe26ebd21ba95ceb61f9a8116e50a537d1"
   integrity sha512-ZwrFkGJxUR3EIoXtO+yVE69Eb7KlixbaeAWfBQB9vVsNn/o+Yw69gBWSSDK825hQNdN+wF8zELf3dFNl/kxkUA==
 
-core-js-pure@^3.16.2:
-  version "3.17.3"
-  resolved "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.17.3.tgz#98ea3587188ab7ef4695db6518eeb71aec42604a"
-  integrity sha512-YusrqwiOTTn8058JDa0cv9unbXdIiIgcgI9gXso0ey4WgkFLd3lYlV9rp9n7nDCsYxXsMDTjA4m1h3T348mdlQ==
+core-js-pure@^3.21.0:
+  version "3.22.7"
+  resolved "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.22.7.tgz#f58489d9b309fa7b26486a0f70d4ec19a418084e"
+  integrity sha512-wTriFxiZI+C8msGeh7fJcbC/a0V8fdInN1oS2eK79DMBGs8iIJiXhtFJCiT3rBa8w6zroHWW3p8ArlujZ/Mz+w==
 
 core-util-is@1.0.2:
   version "1.0.2"
@@ -2940,7 +2947,7 @@ err-errors@^1.0.6:
     err-stack-reduce "^1.0.8"
     tslib "^2.3.1"
 
-err-indent@^1.0.4, err-indent@^1.0.6:
+err-indent@^1.0.6:
   version "1.0.6"
   resolved "https://registry.npmjs.org/err-indent/-/err-indent-1.0.6.tgz#1a16a95a213dff258292188fa8a0e3515f4d7b36"
   integrity sha512-khZ6ck+/VruXyQSDAn9qtDaRAWEvJHCSPlmzjs0rxq7zj1+FyRZOklyRYcn9PU6Rg2Y9apTOZPDcM818KeQFvA==
@@ -2954,7 +2961,7 @@ err-indent@^1.0.4, err-indent@^1.0.6:
     indent-string "<5 >=4"
     tslib "^2.3.1"
 
-err-stack-meta@^1.0.5, err-stack-meta@^1.0.9:
+err-stack-meta@^1.0.9:
   version "1.0.9"
   resolved "https://registry.npmjs.org/err-stack-meta/-/err-stack-meta-1.0.9.tgz#f3001e928401027446f526b730b33654cc1bf89f"
   integrity sha512-NOmBobDP7eQBnynyFB+oJjwXSYPjOYmM7N2+oo7zbP7y47XpCnHqLUcotzgbHuM7Ailko2IB6eaMcn4BT2cX4A==
@@ -5770,15 +5777,16 @@ latest-version@^5.1.0:
   dependencies:
     package-json "^6.3.0"
 
-lazy-aggregate-error@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.npmjs.org/lazy-aggregate-error/-/lazy-aggregate-error-1.0.6.tgz#8e516fb0b53bc0e955c30c2910abb2a2c84f6dbe"
-  integrity sha512-a26refoQxndBdh8JBNaqLCq6b7VB1oCpMwf3JsWPdnzonYy4CSy4AhWu2o8UCExq1vBz4Cuke/XewYHEwPuxNw==
+lazy-aggregate-error@^1.0.6, lazy-aggregate-error@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.npmjs.org/lazy-aggregate-error/-/lazy-aggregate-error-1.0.9.tgz#fbbf389b56496c7c833bfe3ec44c2ee6742f8661"
+  integrity sha512-mEPo1AMwqY67ykuoRM7x7QhDzt0IjbReHqE3o+Vf+WROQ8esJPVIrO0WvOslif9mEW9jMq2eA6MjhRwGhNcUlA==
   dependencies:
     "@bluelovers/extend-bases" "^1.0.3"
-    core-js-pure "^3.16.2"
-    err-indent "^1.0.4"
-    err-stack-meta "^1.0.5"
+    aggregate-error-or-core-js "^1.0.3"
+    err-indent "^1.0.6"
+    err-stack-meta "^1.0.9"
+    error-stack2 "^2.0.2"
     symbol.inspect "^1.0.1"
     tslib "^2.3.1"
 

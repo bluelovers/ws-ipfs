@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.42](https://github.com/bluelovers/ws-ipfs/compare/ipfs-types@1.0.40...ipfs-types@1.0.42) (2022-06-01)
+
+
+### 🐛　Bug Fixes
+
+* fetchOptions.signal ([34d0f58](https://github.com/bluelovers/ws-ipfs/commit/34d0f582b2aede84c8c3368f120fba53dd44377d))
+
+
+### 🛠　Build System
+
+* update typescript ([e82409a](https://github.com/bluelovers/ws-ipfs/commit/e82409a1d08dcfae1d7e6a1c628d5280b22fb6b7))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([fc61187](https://github.com/bluelovers/ws-ipfs/commit/fc61187b003a17693ce8ba63ec8d80a5981dd9ce))
+
+
+
+
+
 ## [1.0.41](https://github.com/bluelovers/ws-ipfs/compare/ipfs-types@1.0.40...ipfs-types@1.0.41) (2022-06-01)
 
 
