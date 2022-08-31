@@ -75,7 +75,7 @@ function lazyMakeIpfsAllServerURL(cid, options) {
         ...options,
         serverList: options.ipfsGatewayDomainList,
     }));
-    console.dir(list);
+    //console.dir(list)
     return (0, array_hyper_unique_1.array_unique_overwrite)(list.filter(v => typeof v !== 'symbol' && v));
 }
 exports.lazyMakeIpfsAllServerURL = lazyMakeIpfsAllServerURL;

@@ -108,7 +108,7 @@ export function lazyMakeIpfsAllServerURL(cid: IToCIDInputValue, options?: IOptio
 		serverList: options.ipfsGatewayDomainList,
 	}));
 
-	console.dir(list)
+	//console.dir(list)
 
 	return array_unique_overwrite(list.filter(v => typeof v !== 'symbol' && v))
 }
