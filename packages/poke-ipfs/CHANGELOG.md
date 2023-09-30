@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/bluelovers/ws-ipfs/compare/poke-ipfs@1.2.0...poke-ipfs@1.2.1) (2023-09-30)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([e63c670](https://github.com/bluelovers/ws-ipfs/commit/e63c6707da499f71947fc1918fa1c8971e90833a))
+
+
+
 # [1.2.0](https://github.com/bluelovers/ws-ipfs/compare/poke-ipfs@1.1.31...poke-ipfs@1.2.0) (2023-09-30)
 
 

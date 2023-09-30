@@ -1,6 +1,6 @@
 {
   "name": "@lazy-ipfs/cid-to-string",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "convert cid of js-multiformats or js-cid to base encoded string",
   "keywords": [
     "toBaseEncodedString",
@@ -56,7 +56,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-ipfs/detect-cid-lib": "^1.1.0",
+    "@lazy-ipfs/detect-cid-lib": "^1.1.1",
     "tslib": "^2"
   },
   "publishConfig": {

@@ -1,6 +1,6 @@
 {
   "name": "ipfs-util-lib",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/ipfs-util#readme",
   "bugs": {
@@ -36,20 +36,20 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-ipfs/check-ipfs-connect": "^1.1.0",
-    "@lazy-ipfs/cid-to-string": "^1.1.0",
-    "@lazy-ipfs/ipfs-api-url": "^1.1.0",
-    "@lazy-ipfs/to-cid": "^1.1.0",
+    "@lazy-ipfs/check-ipfs-connect": "^1.1.1",
+    "@lazy-ipfs/cid-to-string": "^1.1.1",
+    "@lazy-ipfs/ipfs-api-url": "^1.1.1",
+    "@lazy-ipfs/to-cid": "^1.1.1",
     "array-hyper-unique": "^2.1.4",
     "bluebird": "^3.7.2",
     "debug-color2": "^1.3.2",
     "get-stream": "=6.0.1",
-    "ipfs-api-type": "^1.1.0",
-    "ipfs-server-list": "^1.1.0",
-    "ipfs-types": "^1.1.0",
+    "ipfs-api-type": "^1.1.1",
+    "ipfs-server-list": "^1.1.1",
+    "ipfs-types": "^1.1.1",
     "micromatch": "^4.0.5",
     "multiaddr-to-uri": "^8.0.0",
-    "multiaddr-to-url": "^1.1.0",
+    "multiaddr-to-url": "^1.1.1",
     "tslib": "^2"
   },
   "gitHead": "9ff032a1c6083f2c4ecdd6d292129e0e9850a22d"

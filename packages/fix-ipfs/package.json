@@ -1,6 +1,6 @@
 {
   "name": "fix-ipfs",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/fix-ipfs#readme",
   "bugs": {
@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "fs-stat": "^1.0.25",
-    "ipfs-types": "^1.1.0",
+    "ipfs-types": "^1.1.1",
     "tslib": "^2"
   },
   "gitHead": "9ff032a1c6083f2c4ecdd6d292129e0e9850a22d"
