@@ -3,7 +3,7 @@
  */
 import { ICallback, ICIDValue, IDagHashAlg, IDagFormat, IDagNodeValue, ICIDObject } from '../types';
 import { IApiOptions } from '../options';
-export declare type IIPFSDagReturnRemainderPath<T = {}> = T & ({
+export type IIPFSDagReturnRemainderPath<T = {}> = T & ({
     remainderPath: string | '';
     remPath?: never;
 } | {

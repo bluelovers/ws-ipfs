@@ -1,5 +1,5 @@
 import { IIPFSClientReturn } from '@bluelovers/ipfs-http-client';
-import { IIPFSPromiseApi } from 'ipfs-types/lib/ipfs/index';
+import { IIPFSPromiseApi } from 'ipfs-types/lib/ipfs';
 import { IIPFSFileApi } from 'ipfs-types/lib/ipfs/file';
 import { runSubCheck } from '../util';
 

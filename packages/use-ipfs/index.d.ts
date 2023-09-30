@@ -1,7 +1,7 @@
 import { IIPFSClientReturn } from '@bluelovers/ipfs-http-client';
 import { EnumIPFSType, IOptions, IOptionsExtra } from './lib/types';
 import { IIPFSAddresses } from 'ipfs-types';
-export declare type ICachedObject<IPFS = IIPFSClientReturn> = Readonly<{
+export type ICachedObject<IPFS = IIPFSClientReturn> = Readonly<{
     ipfs: IPFS;
     ipfsType: EnumIPFSType;
     stop(...argv: any[]): Promise<void>;

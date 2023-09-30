@@ -10,7 +10,7 @@ export declare function isRawMultiformatsCIDLike<T extends IRawMultiformatsCID>(
 export declare function isMultiformatsCID<T extends MultiformatsCID = MultiformatsCID>(cid: unknown): cid is T;
 export declare function assertMultiformatsCID<T extends MultiformatsCID = MultiformatsCID>(cid: any): asserts cid is T;
 export declare function toRawMultiformatsCID(cid: IRawMultiformatsCID): IRawMultiformatsCID;
-export declare type IRawMultiformatsCIDFake<T extends IRawMultiformatsCID = IRawMultiformatsCID> = T & {
+export type IRawMultiformatsCIDFake<T extends IRawMultiformatsCID = IRawMultiformatsCID> = T & {
     asCID?: IRawMultiformatsCIDFake<T>;
 };
 export declare function toRawMultiformatsCIDFake(cid: IRawMultiformatsCID): IRawMultiformatsCIDFake;

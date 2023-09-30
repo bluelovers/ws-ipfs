@@ -69,7 +69,7 @@ export interface IPeersOptions {
     v?: boolean;
     verbose?: boolean;
 }
-export declare type IPeerId = any;
+export type IPeerId = any;
 export interface IPeerInfo {
     id: IPeerId;
     multiaddr: IMultiaddr;
@@ -98,10 +98,10 @@ export interface ISwarmAPI {
     disconnect(maddr: IMultiaddr | string): Promise<any>;
     filters(callback: ICallback<void>): never;
 }
-export declare type IDAGNode = any;
-export declare type IDAGLink = any;
-export declare type IDAGLinkRef = IDAGLink | any;
-export declare type IObj = BufferSource | Object;
+export type IDAGNode = any;
+export type IDAGLink = any;
+export type IDAGLinkRef = IDAGLink | any;
+export type IObj = BufferSource | Object;
 export interface IObjectStat {
     Hash: IMultihash;
     NumLinks: number;
@@ -142,17 +142,17 @@ export interface IIPFSEventEmitterApi {
     on(event: string, callback: (...argv: any[]) => void): IIPFSInstance;
     once(event: string, callback: (...argv: any[]) => void): IIPFSInstance;
 }
-export declare type IIPFSInstanceWithEventEmitter = IIPFSEventEmitterApi & EventEmitter & IIPFSInstance;
+export type IIPFSInstanceWithEventEmitter = IIPFSEventEmitterApi & EventEmitter & IIPFSInstance;
 export interface IIPFSCallbackApi {
     version(...argv: IParametersWithCallbackWithMaybeArgv<IIPFSApiReturnType['version']>): void;
     id(...argv: IParametersWithCallbackWithMaybeArgv<IIPFSApiReturnType['id']>): void;
 }
-export declare type IIPFSInstanceCoreApi = IIPFSCallbackApi & IIPFSPromiseApi & {};
+export type IIPFSInstanceCoreApi = IIPFSCallbackApi & IIPFSPromiseApi & {};
 /**
  * @todo update this
  * @deprecated
  */
-export declare type IIPFSInstance = IIPFSInstanceCoreApi & {
+export type IIPFSInstance = IIPFSInstanceCoreApi & {
     types: ITypes;
     init(options: IInitOptions, callback: ICallback<boolean>): void;
     init(callback: ICallback<boolean>): void;

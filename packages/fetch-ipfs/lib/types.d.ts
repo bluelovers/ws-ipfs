@@ -9,4 +9,4 @@ export interface PromiseRejectedResult<E = any> {
     reason: E;
     value?: never;
 }
-export declare type PromiseSettledResult<T, E = any> = PromiseFulfilledResult<T> | PromiseRejectedResult<E>;
+export type PromiseSettledResult<T, E = any> = PromiseFulfilledResult<T> | PromiseRejectedResult<E>;

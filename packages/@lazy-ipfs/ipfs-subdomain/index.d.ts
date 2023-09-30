@@ -1,7 +1,7 @@
 import { IIPFSAddressesLike } from 'ipfs-server-list';
 import { ICIDValueOrRaw } from '@lazy-ipfs/detect-cid-lib/lib/types';
 import { IParsePathResult } from '@lazy-ipfs/parse-ipfs-path/lib/types';
-export declare type IIPFSAddressesLikeWithGatewayDomain<T extends IIPFSAddressesLike> = Omit<T, 'GatewayDomain'> & {
+export type IIPFSAddressesLikeWithGatewayDomain<T extends IIPFSAddressesLike> = Omit<T, 'GatewayDomain'> & {
     GatewayDomain: string;
 };
 export declare function assertIPFSAddressesLikeWithGatewayDomain<T extends IIPFSAddressesLike = IIPFSAddressesLike>(gatewayDomain: T | any): asserts gatewayDomain is IIPFSAddressesLikeWithGatewayDomain<T>;
@@ -9,7 +9,7 @@ export declare function isIPFSAddressesLikeWithGatewayDomain<T extends IIPFSAddr
 export declare function assertGatewayDomain<T extends IIPFSAddressesLike = IIPFSAddressesLike>(gatewayDomain: T | any): asserts gatewayDomain is IIPFSAddressesLikeWithGatewayDomain<T>;
 export declare function getGatewayDomain(gatewayDomain: string | IIPFSAddressesLike): string;
 export declare function toSubdomainCID(cid: ICIDValueOrRaw): string;
-export declare type ISubdomainInput = ICIDValueOrRaw | IParsePathResult;
+export type ISubdomainInput = ICIDValueOrRaw | IParsePathResult;
 /**
  * @deprecated use {@link ipfsSubdomainURL2}
  */

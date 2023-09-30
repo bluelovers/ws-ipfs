@@ -1,4 +1,4 @@
-export declare type IRunCheck<E extends Error = Error> = {
+export type IRunCheck<E extends Error = Error> = {
     success: boolean;
     spendTime: number;
     error: E;

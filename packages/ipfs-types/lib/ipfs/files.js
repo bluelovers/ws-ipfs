@@ -5,10 +5,10 @@ var EnumMutableFileSystemType;
 (function (EnumMutableFileSystemType) {
     EnumMutableFileSystemType[EnumMutableFileSystemType["FILE"] = 0] = "FILE";
     EnumMutableFileSystemType[EnumMutableFileSystemType["DIR"] = 1] = "DIR";
-})(EnumMutableFileSystemType = exports.EnumMutableFileSystemType || (exports.EnumMutableFileSystemType = {}));
+})(EnumMutableFileSystemType || (exports.EnumMutableFileSystemType = EnumMutableFileSystemType = {}));
 var EnumMutableFileSystemTypeName;
 (function (EnumMutableFileSystemTypeName) {
     EnumMutableFileSystemTypeName["FILE"] = "file";
     EnumMutableFileSystemTypeName["DIR"] = "directory";
-})(EnumMutableFileSystemTypeName = exports.EnumMutableFileSystemTypeName || (exports.EnumMutableFileSystemTypeName = {}));
+})(EnumMutableFileSystemTypeName || (exports.EnumMutableFileSystemTypeName = EnumMutableFileSystemTypeName = {}));
 //# sourceMappingURL=files.js.map

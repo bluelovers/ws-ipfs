@@ -1,6 +1,6 @@
 import * as _allChecks from './lib';
 import { IIPFSApiUtils } from 'ipfs-types/lib/ipfs';
-import { IIPFSPromiseApi } from 'ipfs-types/lib/ipfs/index';
+import { IIPFSPromiseApi } from 'ipfs-types/lib/ipfs';
 import { IRunCheck } from './lib/util';
 import { ITSUnpackedPromiseLike } from 'ts-type';
 

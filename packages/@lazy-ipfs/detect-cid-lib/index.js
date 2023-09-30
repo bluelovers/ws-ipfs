@@ -22,7 +22,7 @@ var EnumTypeofCID;
     EnumTypeofCID["multiformats_cid"] = "@ipld/js-multiformats/CID";
     EnumTypeofCID["js_multiformats"] = "@ipld/js-multiformats/CID";
     EnumTypeofCID["js_multiformat"] = "@ipld/js-multiformats/CID";
-})(EnumTypeofCID = exports.EnumTypeofCID || (exports.EnumTypeofCID = {}));
+})(EnumTypeofCID || (exports.EnumTypeofCID = EnumTypeofCID = {}));
 function typeofCID(cid, throwError) {
     if ((0, js_multiformats_1.isMultiformatsCID)(cid)) {
         return "@ipld/js-multiformats/CID" /* EnumTypeofCID.multiformats_cid */;

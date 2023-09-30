@@ -4,8 +4,8 @@ import { IIPFSAddresses, IIPFSExtendTypePick } from '../../index';
 import { IPFS } from 'ipfs-core-types';
 import { API as ConfigAPI } from 'ipfs-core-types/src/config';
 import { AbortOptions } from 'ipfs-core-types/src/utils';
-export declare type IPartialOrAny<T> = IPartial2<T> | any;
-export declare type IPartial2<T> = Partial<T> & ITSPartialRecord<keyof T, any>;
+export type IPartialOrAny<T> = IPartial2<T> | any;
+export type IPartial2<T> = Partial<T> & ITSPartialRecord<keyof T, any>;
 export interface IConfigObject extends IPartial2<{
     Addresses: IIPFSAddresses;
     Discovery: {
@@ -70,7 +70,7 @@ export interface IConfigObject extends IPartial2<{
     }>;
 }>, Record<string, any> {
 }
-export declare type IProfilesEntry = {
+export type IProfilesEntry = {
     name: 'server';
     description: 'Recommended for nodes with public IPv4 address (servers, VPSes, etc.), disables host and content discovery in local networks.';
 } | {
@@ -107,7 +107,7 @@ export interface IIPFSConfigApiCoreProfiles {
         updated: IConfigObject;
     }>;
 }
-export declare type IIPFSConfigApiCore<OptionExtension = {}> = IPFS["config"] & ConfigAPI<OptionExtension> & {
+export type IIPFSConfigApiCore<OptionExtension = {}> = IPFS["config"] & ConfigAPI<OptionExtension> & {
     get<T>(key: string, options?: AbortOptions & OptionExtension): Promise<T>;
 };
-export declare type IIPFSConfigApi<OptionExtension = {}> = IIPFSExtendTypePick<'config', OptionExtension>;
+export type IIPFSConfigApi<OptionExtension = {}> = IIPFSExtendTypePick<'config', OptionExtension>;

@@ -26,7 +26,7 @@ var EnumParsePathResultNs;
 (function (EnumParsePathResultNs) {
     EnumParsePathResultNs["ipfs"] = "ipfs";
     EnumParsePathResultNs["ipns"] = "ipns";
-})(EnumParsePathResultNs = exports.EnumParsePathResultNs || (exports.EnumParsePathResultNs = {}));
+})(EnumParsePathResultNs || (exports.EnumParsePathResultNs = EnumParsePathResultNs = {}));
 function assertToEnumNs(ns) {
     // @ts-ignore
     if (EnumParsePathResultNs[ns] !== ns) {

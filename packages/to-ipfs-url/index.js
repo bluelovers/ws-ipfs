@@ -20,7 +20,7 @@ var EnumIPFSLinkType;
     EnumIPFSLinkType["IPFS"] = "ipfs";
     EnumIPFSLinkType["IPLD"] = "ipld";
     EnumIPFSLinkType["IPNS"] = "ipns";
-})(EnumIPFSLinkType = exports.EnumIPFSLinkType || (exports.EnumIPFSLinkType = {}));
+})(EnumIPFSLinkType || (exports.EnumIPFSLinkType = EnumIPFSLinkType = {}));
 function isPath(cid) {
     if ((0, to_cid_1.isCID)(cid) || (0, util_1._parsedPathIsCid)(cid)) {
         return false;

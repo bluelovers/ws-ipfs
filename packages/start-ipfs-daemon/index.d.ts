@@ -36,7 +36,7 @@ export interface IIPFSDaemonOptions {
         profiles?: any;
     } | boolean;
 }
-export declare type IIPFSDaemon = Daemon;
+export type IIPFSDaemon = Daemon;
 export declare function getIPFSDaemonOptions(options?: IOptions): Partial<IIPFSDaemonOptions>;
 /**
  * start js ipfs daemon

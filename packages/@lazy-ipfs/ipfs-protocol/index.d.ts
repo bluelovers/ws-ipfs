@@ -2,7 +2,7 @@ export interface IOptions {
     pathname?: string;
     path?: string;
 }
-export declare type IOptionsCore = IOptions & {
+export type IOptionsCore = IOptions & {
     ns: 'ipfs' | 'ipns';
 } & ({
     cid: string;

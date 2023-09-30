@@ -28,7 +28,7 @@ export interface IOptions {
         ipns?: string;
     };
 }
-export declare type IOptionsInput = IOptions | string;
+export type IOptionsInput = IOptions | string;
 export declare function isPath(cid: IToCIDInputValue): cid is string;
 export declare function isCidOrPath(cid: IToCIDInputValue): boolean;
 export declare function pathToCidSource(cid: IToCIDInputValue): import("@lazy-ipfs/parse-ipfs-path/lib/types").IParsePathResultStrict<string, string, import("@lazy-ipfs/parse-ipfs-path/lib/asserts").EnumParsePathResultNs>;

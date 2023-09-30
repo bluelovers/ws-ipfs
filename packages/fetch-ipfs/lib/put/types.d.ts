@@ -3,7 +3,7 @@
  */
 import { PromiseSettledResult } from '../types';
 import { AddResult } from 'ipfs-core-types/src/root';
-export declare type IPublishToIPFSReturn = PromiseSettledResult<AddResult[], {
+export type IPublishToIPFSReturn = PromiseSettledResult<AddResult[], {
     error: Error;
     value: AddResult[];
 }>[];

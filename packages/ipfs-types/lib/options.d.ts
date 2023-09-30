@@ -5,7 +5,7 @@ export interface IIPFSOptions {
     repo?: string;
     config?: any;
 }
-export declare type IApiOptions<T = {}> = T & INetworkOptionsBase;
+export type IApiOptions<T = {}> = T & INetworkOptionsBase;
 export interface INetworkOptionsBase {
     timeout?: number | string;
     signal?: any;

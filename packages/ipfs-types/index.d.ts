@@ -18,15 +18,15 @@ declare module 'ipfs-core-types/src/root' {
         content?: undefined;
     }
 }
-export declare type IIPFSExtendType2<OptionExtension = {}> = {
+export type IIPFSExtendType2<OptionExtension = {}> = {
     config: IIPFSConfigApiCore<OptionExtension>;
 };
-export declare type IIPFSExtendTypePick<Key extends keyof IPFS, OptionExtension = {}> = Pick<IIPFSExtendType<IPFS, OptionExtension>, Key>;
-export declare type IIPFSExtendType<IPFS, OptionExtension = {}> = IPFS & IIPFSExtendType2<OptionExtension>;
-export declare type IPFSHttpClient<OptionExtension = {}> = IPFS & {
+export type IIPFSExtendTypePick<Key extends keyof IPFS, OptionExtension = {}> = Pick<IIPFSExtendType<IPFS, OptionExtension>, Key>;
+export type IIPFSExtendType<IPFS, OptionExtension = {}> = IPFS & IIPFSExtendType2<OptionExtension>;
+export type IPFSHttpClient<OptionExtension = {}> = IPFS & {
     getEndpointConfig(): EndpointConfig;
 } & IIPFSExtendType<OptionExtension>;
-export declare type IIPFSAddressesURL = Partial<Omit<ITSPickRecordType<URL, string>, 'port'>> & {
+export type IIPFSAddressesURL = Partial<Omit<ITSPickRecordType<URL, string>, 'port'>> & {
     port?: number | string;
     protocol?: 'https' | 'http' | string;
 };

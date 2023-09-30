@@ -1,7 +1,7 @@
 import { INetworkOptionsBase } from '../options';
 import { ITSValueOrArray } from 'ts-type';
 import { ICIDObject, ICIDValue } from '../types';
-declare type IPinType = "recursive" | "direct" | "indirect";
+type IPinType = "recursive" | "direct" | "indirect";
 export interface IIPFSPinApiCore {
     add(hash: any, options?: {
         recursive?: boolean;

@@ -2,7 +2,7 @@ import { IExtendOptions, IHasFilesAPI } from './types';
 import { IPFSPath } from 'ipfs-core-types/src/utils';
 import { CpOptions, StatResult } from 'ipfs-core-types/src/files';
 import { ITSValueOrArray } from 'ts-type/lib/type/base';
-export declare type IFilesCpOptionsExtra = IExtendOptions<CpOptions, {
+export type IFilesCpOptionsExtra = IExtendOptions<CpOptions, {
     overwrite?: boolean;
     validCheck?: boolean;
 }>;

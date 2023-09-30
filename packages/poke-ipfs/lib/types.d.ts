@@ -4,8 +4,8 @@
 import { RequestInit } from 'node-fetch';
 import { ITSUnpackedPromiseLike } from 'ts-type';
 import pokeURL from './pokeURL';
-export declare type IAsyncIteratorAble<T> = AsyncGenerator<T, void> | ReadableStream<T>;
-export declare type IPokeReturnBase = {
+export type IAsyncIteratorAble<T> = AsyncGenerator<T, void> | ReadableStream<T>;
+export type IPokeReturnBase = {
     value?: never;
     status?: number;
     statusText?: string;
@@ -13,7 +13,7 @@ export declare type IPokeReturnBase = {
     headers?: Headers;
     href?: string;
 };
-export declare type IPokeReturn<T extends Record<string, any> = never> = T extends never ? IPokeReturnBase : Omit<IPokeReturnBase, keyof T> & T;
+export type IPokeReturn<T extends Record<string, any> = never> = T extends never ? IPokeReturnBase : Omit<IPokeReturnBase, keyof T> & T;
 export interface IPokeOptions {
     cors?: boolean;
     /**
@@ -23,7 +23,7 @@ export interface IPokeOptions {
     signal?: AbortSignal;
     fetchOptions?: RequestInit;
 }
-export declare type IPokeResult = ITSUnpackedPromiseLike<ReturnType<typeof pokeURL>>;
-export declare type IPokeResultWithValue = IPokeReturn<{
+export type IPokeResult = ITSUnpackedPromiseLike<ReturnType<typeof pokeURL>>;
+export type IPokeResultWithValue = IPokeReturn<{
     value: string;
 }>;

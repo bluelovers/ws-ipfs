@@ -175,9 +175,11 @@ function getIpfsServerList() {
                 Gateway: true,
             },
         },
+        /*
         '10.via0.com': {
             Gateway: 'https://10.via0.com/ipfs/',
         },
+         */
         'ninetailed.ninja': {
             Gateway: 'https://ninetailed.ninja/ipfs/',
         },

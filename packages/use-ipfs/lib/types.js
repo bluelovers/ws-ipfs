@@ -7,5 +7,5 @@ var EnumIPFSType;
     EnumIPFSType[EnumIPFSType["Client"] = 1] = "Client";
     EnumIPFSType[EnumIPFSType["Controller"] = 2] = "Controller";
     EnumIPFSType[EnumIPFSType["ClientFallback"] = 3] = "ClientFallback";
-})(EnumIPFSType = exports.EnumIPFSType || (exports.EnumIPFSType = {}));
+})(EnumIPFSType || (exports.EnumIPFSType = EnumIPFSType = {}));
 //# sourceMappingURL=types.js.map

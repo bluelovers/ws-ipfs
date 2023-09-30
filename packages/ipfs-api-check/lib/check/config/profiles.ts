@@ -1,5 +1,5 @@
 import { IIPFSFileApi } from 'ipfs-types/lib/ipfs/file';
-import { IIPFSApiUtils } from 'ipfs-types/lib/ipfs/index';
+import { IIPFSApiUtils } from 'ipfs-types/lib/ipfs';
 import { runSubCheck } from '../../util';
 import { IIPFSPinApi } from 'ipfs-types/lib/ipfs/pin';
 import { IIPFSConfigApi } from 'ipfs-types/lib/ipfs/config';

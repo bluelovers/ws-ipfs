@@ -13,8 +13,8 @@ export declare const enum EnumMutableFileSystemTypeName {
     FILE = "file",
     DIR = "directory"
 }
-export declare type IMutableFileSystemType = EnumMutableFileSystemType.FILE | EnumMutableFileSystemType.DIR | 0 | 1;
-export declare type IMutableFileSystemTypeName = EnumMutableFileSystemTypeName.FILE | EnumMutableFileSystemTypeName.DIR | 'file' | 'directory';
+export type IMutableFileSystemType = EnumMutableFileSystemType.FILE | EnumMutableFileSystemType.DIR | 0 | 1;
+export type IMutableFileSystemTypeName = EnumMutableFileSystemTypeName.FILE | EnumMutableFileSystemTypeName.DIR | 'file' | 'directory';
 export interface IMutableFileSystemFileObject {
     name: string;
     type: IMutableFileSystemType;

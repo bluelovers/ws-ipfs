@@ -8,11 +8,11 @@ declare global {
         chrome: Window["chrome"] & {};
     }
 }
-export declare type IWindow = Window & typeof globalThis;
-export declare type IDetectIpfsCompanionSyncParams = {
+export type IWindow = Window & typeof globalThis;
+export type IDetectIpfsCompanionSyncParams = {
     window?: IWindow;
 };
-export declare type IDetectIpfsWindowParams = {
+export type IDetectIpfsWindowParams = {
     window?: {
         ipfs?: IPFS;
     };
