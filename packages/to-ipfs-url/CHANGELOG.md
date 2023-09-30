@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/bluelovers/ws-ipfs/compare/to-ipfs-url@1.0.46...to-ipfs-url@1.1.0) (2023-09-30)
+
+
+### BREAKING CHANGES
+
+* update deps
+
+
+
+### 🛠　Build System
+
+* update typescript ([bfdfc2a](https://github.com/bluelovers/ws-ipfs/commit/bfdfc2a0381a712d5ccc0d1be2f739628e7a026f))
+
+
+### 📌　Dependencies
+
+* update deps ([f1afdb4](https://github.com/bluelovers/ws-ipfs/commit/f1afdb41eb9b5a1a93ad0e1d8e38e838fde6cc5a))
+
+
+
 ## [1.0.46](https://github.com/bluelovers/ws-ipfs/compare/to-ipfs-url@1.0.40...to-ipfs-url@1.0.46) (2022-06-01)
 
 

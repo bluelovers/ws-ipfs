@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/buffer-json@1.0.13...@lazy-ipfs/buffer-json@1.1.0) (2023-09-30)
+
+
+### BREAKING CHANGES
+
+* update deps
+
+
+
+### 📌　Dependencies
+
+* update deps ([f1afdb4](https://github.com/bluelovers/ws-ipfs/commit/f1afdb41eb9b5a1a93ad0e1d8e38e838fde6cc5a))
+
+
+
 ## [1.0.13](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/buffer-json@1.0.7...@lazy-ipfs/buffer-json@1.0.13) (2022-06-01)
 
 

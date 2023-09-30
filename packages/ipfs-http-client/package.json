@@ -1,6 +1,6 @@
 {
   "name": "@bluelovers/ipfs-http-client",
-  "version": "1.0.93",
+  "version": "1.1.0",
   "description": "ipfs-http-client with auto search go-ipfs, js-ipfs",
   "keywords": [
     "ipfs",
@@ -46,9 +46,9 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-ipfs/check-ipfs-connect": "^1.0.9",
-    "ipfs-env": "^1.0.19",
-    "ipfs-types": "^1.0.46",
+    "@lazy-ipfs/check-ipfs-connect": "^1.1.0",
+    "ipfs-env": "^1.1.0",
+    "ipfs-types": "^1.1.0",
     "ts-type": "^3.0.1",
     "tslib": "^2"
   },

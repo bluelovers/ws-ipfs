@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/make-url-list@1.0.11...@lazy-ipfs/make-url-list@1.1.0) (2023-09-30)
+
+
+### BREAKING CHANGES
+
+* update deps
+
+
+
+### 📌　Dependencies
+
+* update deps ([f1afdb4](https://github.com/bluelovers/ws-ipfs/commit/f1afdb41eb9b5a1a93ad0e1d8e38e838fde6cc5a))
+
+
+### 🔖　Miscellaneous
+
+* . ([07eb268](https://github.com/bluelovers/ws-ipfs/commit/07eb268eff94eaba637e60c44b7fededfde540ee))
+
+
+
 ## [1.0.11](https://github.com/bluelovers/ws-ipfs/compare/@lazy-ipfs/make-url-list@1.0.10...@lazy-ipfs/make-url-list@1.0.11) (2022-06-01)
 
 
