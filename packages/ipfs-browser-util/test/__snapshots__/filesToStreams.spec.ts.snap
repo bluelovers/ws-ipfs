@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`drop one directory 1`] = `
-Array [
-  Object {
+[
+  {
     "content": [Function],
     "path": "Dir/T.pdf",
     "size": 215786,
   },
-  Object {
+  {
     "content": [Function],
     "path": "Dir/T2.pdf",
     "size": 1511696,

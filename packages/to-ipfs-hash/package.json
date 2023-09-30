@@ -13,13 +13,14 @@
     "cid",
     "ipld"
   ],
-  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/file-to-ipfs#readme",
+  "homepage": "https://github.com/bluelovers/ws-ipfs/tree/master/packages/to-ipfs-hash#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-ipfs/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/ws-ipfs.git"
+    "url": "git+https://github.com/bluelovers/ws-ipfs.git",
+    "directory": "packages/to-ipfs-hash"
   },
   "license": "ISC",
   "author": "",
@@ -28,7 +29,12 @@
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
     "test": "echo \"Error: no test specified\"",
+    "test:jest": "jest --passWithNoTests",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
+    "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "test:snapshot": "yarn run test -- -u",
+    "test:tsd": "ynpx tsd",
     "npm:publish": "npm publish",
     "preversion": "yarn run test",
     "prepublish:lockfile": "npx sync-lockfile .",
@@ -36,15 +42,16 @@
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
-    "tsc:esm": "tsc -p tsconfig.esm.json"
+    "tsc:esm": "tsc -p tsconfig.esm.json",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "fs-extra": "^10.0.0",
+    "fs-extra": "^11.1.1",
     "ipfs-only-hash": "^4.0.0",
     "tslib": "^2"
   },
   "devDependencies": {
-    "@types/bl": "^5.0.1"
+    "@types/bl": "^5.0.2"
   },
   "gitHead": "0de896d58ae13387db38242fe99d2796016c550c"
 }

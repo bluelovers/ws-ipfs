@@ -8,7 +8,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/ws-ipfs.git"
+    "url": "git+https://github.com/bluelovers/ws-ipfs.git",
+    "directory": "packages/fetch-ipfs"
   },
   "license": "ISC",
   "author": "",
@@ -17,7 +18,12 @@
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
     "test": "jest",
+    "test:jest": "jest --passWithNoTests",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
+    "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "test:snapshot": "yarn run test -- -u",
+    "test:tsd": "ynpx tsd",
     "npm:publish": "npm publish",
     "preversion": "yarn run test",
     "prepublish:lockfile": "npx sync-lockfile .",
@@ -25,26 +31,27 @@
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
-    "tsc:esm": "tsc -p tsconfig.esm.json"
+    "tsc:esm": "tsc -p tsconfig.esm.json",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
     "@bluelovers/ipfs-http-client": "^1.0.93",
     "@lazy-ipfs/compatible-add": "^1.0.19",
     "abort-controller": "^3.0.0",
-    "abort-controller-timer": "^1.0.16",
-    "array-hyper-unique": "^2.0.8",
+    "abort-controller-timer": "^1.0.19",
+    "array-hyper-unique": "^2.1.4",
     "bluebird": "^3.7.2",
-    "cross-fetch": "^3.1.4",
+    "cross-fetch": "^4.0.0",
     "ipfs-types": "^1.0.46",
     "ipfs-util-lib": "^1.0.78",
     "is-error-code": "^1.0.0",
     "p-any": "<4 >=3",
     "to-ipfs-url": "^1.0.46",
-    "ts-type": "^1.2.40",
+    "ts-type": "^3.0.1",
     "tslib": "^2"
   },
   "devDependencies": {
-    "@types/bluebird": "^3.5.36"
+    "@types/bluebird": "^3.5.39"
   },
   "peerDependencies": {
     "buffer": "^6.0.3",

@@ -15,7 +15,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/ws-ipfs.git"
+    "url": "git+https://github.com/bluelovers/ws-ipfs.git",
+    "directory": "packages/to-ipfs-url"
   },
   "license": "ISC",
   "author": "",
@@ -24,7 +25,12 @@
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
     "test": "jest",
+    "test:jest": "jest --passWithNoTests",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
+    "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "test:snapshot": "yarn run test -- -u",
+    "test:tsd": "ynpx tsd",
     "npm:publish": "npm publish",
     "preversion": "yarn test",
     "prepublish:lockfile": "npx sync-lockfile .",
@@ -32,7 +38,8 @@
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
-    "tsc:esm": "tsc -p tsconfig.esm.json"
+    "tsc:esm": "tsc -p tsconfig.esm.json",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
     "@lazy-ipfs/cid-to-string": "^1.0.11",
@@ -40,7 +47,7 @@
     "@lazy-ipfs/to-cid": "^1.0.34",
     "err-code": "^3.0.1",
     "ipfs-server-list": "^1.0.77",
-    "is-ipfs": "^6.0.2",
+    "is-ipfs": "=6.0.2",
     "tslib": "^2"
   },
   "gitHead": "2fea22e93302e75dcbb0b61f1920cc4f86db0ee5"

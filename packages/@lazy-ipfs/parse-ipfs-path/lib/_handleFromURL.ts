@@ -32,7 +32,7 @@ export function _handleFromURL(input: string): IParsePathResult | string
 			path: url.pathname,
 		}
 	}
-	else if (isIPFS.cid((parts = url.host.split('.'))[0]))
+	else if (isIPFS.cid((parts = url.host.split('.') as any)[0]))
 	{
 		return {
 			ns: parts[1]?.toLowerCase() === EnumParsePathResultNs.ipns

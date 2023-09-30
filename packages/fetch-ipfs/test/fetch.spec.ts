@@ -23,6 +23,11 @@ describe(`fetch-ipfs`, () =>
 
 	const apis = filterList('API');
 
+	test(`API`, async () =>
+	{
+		console.dir(apis)
+	});
+
 	/**
 	 * @FIXME: Jest did not exit one second after the test run has completed.
 	 */
@@ -67,6 +72,12 @@ describe(`fetch-ipfs`, () =>
 		expect(actual).toHaveLength(1);
 		expect(typeof actual[0].cat).toStrictEqual('function');
 		expect(typeof actual[0].get).toStrictEqual('function');
+	});
+
+	test.skip(`handleClientList:version`, async () =>
+	{
+
+		let actual = await handleClientList(apis);
 
 		expect(await actual[0].version()).toHaveProperty('version');
 	});

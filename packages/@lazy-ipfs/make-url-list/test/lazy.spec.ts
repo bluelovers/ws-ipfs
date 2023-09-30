@@ -86,5 +86,8 @@ function _check(cid)
 		},
 	});
 
-	expect(actual).not.toEqual(actual2);
+	expect(actual.map(u => u.toString())).not.toEqual(actual2.map(u => u.toString()));
+	//expect(actual).not.toEqual(actual2);
+
+	expect(actual2).toMatchSnapshot();
 }

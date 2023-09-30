@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`toCID:CID 1`] = `
-Object {
+{
   "codec": "dag-pb",
   "multibaseName": "base58btc",
-  "multihash": Object {
+  "multihash": {
     "0": 18,
     "1": 32,
     "10": 123,
@@ -49,10 +49,10 @@ exports[`toCID:CID 2`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
 exports[`toCID:CID 3`] = `"zdj7Whp8MXSDAgmwiv8f7UBseBzjYfTXiNm7Nk9m4GpZzoHCW"`;
 
 exports[`toCID:raw 1`] = `
-Object {
+{
   "codec": "dag-pb",
   "multibaseName": "base58btc",
-  "multihash": Object {
+  "multihash": {
     "0": 18,
     "1": 32,
     "10": 123,
@@ -97,10 +97,10 @@ exports[`toCID:raw 2`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
 exports[`toCID:raw 3`] = `"zdj7Whp8MXSDAgmwiv8f7UBseBzjYfTXiNm7Nk9m4GpZzoHCW"`;
 
 exports[`toCID:raw without multibaseName 1`] = `
-Object {
+{
   "codec": "dag-pb",
   "multibaseName": "base58btc",
-  "multihash": Object {
+  "multihash": {
     "0": 18,
     "1": 32,
     "10": 123,
@@ -145,7 +145,7 @@ exports[`toCID:raw without multibaseName 2`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAx
 exports[`toCID:raw without multibaseName 3`] = `"zdj7Whp8MXSDAgmwiv8f7UBseBzjYfTXiNm7Nk9m4GpZzoHCW"`;
 
 exports[`toCID:string 1`] = `
-Object {
+{
   "codec": "dag-pb",
   "multibaseName": "base58btc",
   "multihash": Any<Uint8Array>,

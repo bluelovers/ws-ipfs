@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`toCID:CID 1`] = `
-Object {
-  "bytes": Object {
+{
+  "bytes": {
     "0": 18,
     "1": 32,
     "10": 123,
@@ -39,8 +39,8 @@ Object {
     "9": 165,
   },
   "code": 112,
-  "multihash": Object {
-    "bytes": Object {
+  "multihash": {
+    "bytes": {
       "0": 18,
       "1": 32,
       "10": 123,
@@ -77,7 +77,7 @@ Object {
       "9": 165,
     },
     "code": 18,
-    "digest": Object {
+    "digest": {
       "0": 183,
       "1": 254,
       "10": 19,
@@ -122,8 +122,8 @@ exports[`toCID:CID 2`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
 exports[`toCID:CID 3`] = `"bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m"`;
 
 exports[`toCID:raw 1`] = `
-Object {
-  "bytes": Object {
+{
+  "bytes": {
     "0": 18,
     "1": 32,
     "10": 123,
@@ -160,8 +160,8 @@ Object {
     "9": 165,
   },
   "code": 112,
-  "multihash": Object {
-    "bytes": Object {
+  "multihash": {
+    "bytes": {
       "0": 18,
       "1": 32,
       "10": 123,
@@ -198,7 +198,7 @@ Object {
       "9": 165,
     },
     "code": 18,
-    "digest": Object {
+    "digest": {
       "0": 183,
       "1": 254,
       "10": 19,
@@ -243,8 +243,8 @@ exports[`toCID:raw 2`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
 exports[`toCID:raw 3`] = `"bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m"`;
 
 exports[`toCID:raw without multibaseName 1`] = `
-Object {
-  "bytes": Object {
+{
+  "bytes": {
     "0": 18,
     "1": 32,
     "10": 123,
@@ -281,8 +281,8 @@ Object {
     "9": 165,
   },
   "code": 112,
-  "multihash": Object {
-    "bytes": Object {
+  "multihash": {
+    "bytes": {
       "0": 18,
       "1": 32,
       "10": 123,
@@ -319,7 +319,7 @@ Object {
       "9": 165,
     },
     "code": 18,
-    "digest": Object {
+    "digest": {
       "0": 183,
       "1": 254,
       "10": 19,
@@ -364,7 +364,7 @@ exports[`toCID:raw without multibaseName 2`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAx
 exports[`toCID:raw without multibaseName 3`] = `"bafybeifx7yeb55armcsxwwitkymga5xf53dxiarykms3ygqic223w5sk3m"`;
 
 exports[`toCID:string 1`] = `
-Object {
+{
   "bytes": Uint8Array [
     18,
     32,
@@ -402,7 +402,7 @@ Object {
     219,
   ],
   "code": 112,
-  "multihash": Object {
+  "multihash": {
     "bytes": Any<Uint8Array>,
     "code": 18,
     "digest": Uint8Array [

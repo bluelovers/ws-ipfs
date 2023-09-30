@@ -8,7 +8,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/ws-ipfs.git"
+    "url": "git+https://github.com/bluelovers/ws-ipfs.git",
+    "directory": "packages/use-ipfs"
   },
   "license": "ISC",
   "author": "",
@@ -17,8 +18,13 @@
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
     "test": "echo \"Error: no test specified\"",
+    "test:jest": "jest --passWithNoTests",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
+    "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "test:snapshot": "yarn run test -- -u",
     "test:temp": "ts-node test/temp",
+    "test:tsd": "ynpx tsd",
     "npm:publish": "npm publish",
     "preversion": "yarn run test",
     "prepublish:lockfile": "npx sync-lockfile .",
@@ -26,7 +32,8 @@
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
-    "tsc:esm": "tsc -p tsconfig.esm.json"
+    "tsc:esm": "tsc -p tsconfig.esm.json",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
     "@bluelovers/ipfs-http-client": "^1.0.93",
@@ -36,7 +43,7 @@
     "get-port": "^5.1.1",
     "ipfs-defaults": "^1.0.58",
     "lodash": "^4.17.21",
-    "ts-type": "^1.2.40",
+    "ts-type": "^3.0.1",
     "tslib": "^2"
   },
   "peerDependencies": {

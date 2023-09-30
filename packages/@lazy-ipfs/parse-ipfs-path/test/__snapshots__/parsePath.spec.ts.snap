@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should allow IPNS path 1`] = `
-Array [
+[
   "ns",
   "hash",
   "path",
@@ -11,7 +11,7 @@ Array [
 exports[`should allow IPNS path 2`] = `"/ipns/yourdomain.name"`;
 
 exports[`should allow IPNS path 3`] = `
-Object {
+{
   "hash": "yourdomain.name",
   "ns": "ipns",
   "path": "",
@@ -19,7 +19,7 @@ Object {
 `;
 
 exports[`should not alter CID encoding 1`] = `
-Array [
+[
   "ns",
   "hash",
   "path",
@@ -29,7 +29,7 @@ Array [
 exports[`should not alter CID encoding 2`] = `"/ipfs/bafybeic7rclblnrf76dtmmrdfxix2aq7hnvms5hlb3f7zko52kvv42mb64"`;
 
 exports[`should not alter CID encoding 3`] = `
-Object {
+{
   "hash": "bafybeic7rclblnrf76dtmmrdfxix2aq7hnvms5hlb3f7zko52kvv42mb64",
   "ns": "ipfs",
   "path": "",
@@ -37,7 +37,7 @@ Object {
 `;
 
 exports[`should not alter CID encoding 4`] = `
-Object {
+{
   "hash": "bafybeic7rclblnrf76dtmmrdfxix2aq7hnvms5hlb3f7zko52kvv42mb64",
   "ns": "ipfs",
   "path": "",
@@ -45,7 +45,7 @@ Object {
 `;
 
 exports[`should only enumerate certain properties 1`] = `
-Array [
+[
   "ns",
   "hash",
   "path",
@@ -55,7 +55,7 @@ Array [
 exports[`should only enumerate certain properties 2`] = `"/ipfs/QmUmaEnH1uMmvckMZbh3yShaasvELPW4ZLPWnB4entMTEn"`;
 
 exports[`should only enumerate certain properties 3`] = `
-Object {
+{
   "hash": "QmUmaEnH1uMmvckMZbh3yShaasvELPW4ZLPWnB4entMTEn",
   "ns": "ipfs",
   "path": "",
@@ -63,7 +63,7 @@ Object {
 `;
 
 exports[`should parse input as CID instance 1`] = `
-Array [
+[
   "ns",
   "hash",
   "path",
@@ -73,7 +73,7 @@ Array [
 exports[`should parse input as CID instance 2`] = `"/ipfs/bafyreicxcphiuj57amuzbb2lq7gzxodccrxrbmjcx4jitkoegcaxffkvj4"`;
 
 exports[`should parse input as CID instance 3`] = `
-Object {
+{
   "hash": "bafyreicxcphiuj57amuzbb2lq7gzxodccrxrbmjcx4jitkoegcaxffkvj4",
   "ns": "ipfs",
   "path": "",
@@ -81,7 +81,7 @@ Object {
 `;
 
 exports[`should parse input as buffer CID 1`] = `
-Array [
+[
   "ns",
   "hash",
   "path",
@@ -91,7 +91,7 @@ Array [
 exports[`should parse input as buffer CID 2`] = `"/ipfs/bafybeidskjjd4zmr7oh6ku6wp72vvbxyibcli2r6if3ocdcy7jjjusvl2u"`;
 
 exports[`should parse input as buffer CID 3`] = `
-Object {
+{
   "hash": "bafybeidskjjd4zmr7oh6ku6wp72vvbxyibcli2r6if3ocdcy7jjjusvl2u",
   "ns": "ipfs",
   "path": "",
@@ -99,7 +99,7 @@ Object {
 `;
 
 exports[`should parse input as string CID 1`] = `
-Array [
+[
   "ns",
   "hash",
   "path",
@@ -109,7 +109,7 @@ Array [
 exports[`should parse input as string CID 2`] = `"/ipfs/QmUmaEnH1uMmvckMZbh3yShaasvELPW4ZLPWnB4entMTEn"`;
 
 exports[`should parse input as string CID 3`] = `
-Object {
+{
   "hash": "QmUmaEnH1uMmvckMZbh3yShaasvELPW4ZLPWnB4entMTEn",
   "ns": "ipfs",
   "path": "",
@@ -117,7 +117,7 @@ Object {
 `;
 
 exports[`should parse input as string with path and without namespace 1`] = `
-Array [
+[
   "ns",
   "hash",
   "path",
@@ -127,7 +127,7 @@ Array [
 exports[`should parse input as string with path and without namespace 2`] = `"/ipfs/QmUmaEnH1uMmvckMZbh3yShaasvELPW4ZLPWnB4entMTEn/path/to"`;
 
 exports[`should parse input as string with path and without namespace 3`] = `
-Object {
+{
   "hash": "QmUmaEnH1uMmvckMZbh3yShaasvELPW4ZLPWnB4entMTEn",
   "ns": "ipfs",
   "path": "/path/to",
@@ -135,7 +135,7 @@ Object {
 `;
 
 exports[`should parse input as string with trailing slash 1`] = `
-Array [
+[
   "ns",
   "hash",
   "path",
@@ -145,7 +145,7 @@ Array [
 exports[`should parse input as string with trailing slash 2`] = `"/ipfs/QmUmaEnH1uMmvckMZbh3yShaasvELPW4ZLPWnB4entMTEn/path/to"`;
 
 exports[`should parse input as string with trailing slash 3`] = `
-Object {
+{
   "hash": "QmUmaEnH1uMmvckMZbh3yShaasvELPW4ZLPWnB4entMTEn",
   "ns": "ipfs",
   "path": "/path/to",
@@ -153,7 +153,7 @@ Object {
 `;
 
 exports[`should parse input as string without leading slash 1`] = `
-Array [
+[
   "ns",
   "hash",
   "path",
@@ -163,7 +163,7 @@ Array [
 exports[`should parse input as string without leading slash 2`] = `"/ipfs/QmUmaEnH1uMmvckMZbh3yShaasvELPW4ZLPWnB4entMTEn/path/to"`;
 
 exports[`should parse input as string without leading slash 3`] = `
-Object {
+{
   "hash": "QmUmaEnH1uMmvckMZbh3yShaasvELPW4ZLPWnB4entMTEn",
   "ns": "ipfs",
   "path": "/path/to",
@@ -171,7 +171,7 @@ Object {
 `;
 
 exports[`should parse url .ipfs.dweb.link 1`] = `
-Array [
+[
   "ns",
   "hash",
   "path",
@@ -181,7 +181,7 @@ Array [
 exports[`should parse url .ipfs.dweb.link 2`] = `"/ipfs/bafybeie5gq4jxvzmsym6hjlwxej4rwdoxt7wadqvmmwbqi7r27fclha2va/"`;
 
 exports[`should parse url .ipfs.dweb.link 3`] = `
-Object {
+{
   "hash": "bafybeie5gq4jxvzmsym6hjlwxej4rwdoxt7wadqvmmwbqi7r27fclha2va",
   "ns": "ipfs",
   "path": "/",
@@ -189,7 +189,7 @@ Object {
 `;
 
 exports[`should parse url .ipns.dweb.link 1`] = `
-Array [
+[
   "ns",
   "hash",
   "path",
@@ -199,7 +199,7 @@ Array [
 exports[`should parse url .ipns.dweb.link 2`] = `"/ipns/bafybeiabc2xofh6tdi6vutusorpumwcikw3hf3st4ecjugo6j52f6xwc6q/"`;
 
 exports[`should parse url .ipns.dweb.link 3`] = `
-Object {
+{
   "hash": "bafybeiabc2xofh6tdi6vutusorpumwcikw3hf3st4ecjugo6j52f6xwc6q",
   "ns": "ipns",
   "path": "/",
@@ -207,7 +207,7 @@ Object {
 `;
 
 exports[`should parse url .on.fleek.co 1`] = `
-Array [
+[
   "ns",
   "hash",
   "path",
@@ -217,7 +217,7 @@ Array [
 exports[`should parse url .on.fleek.co 2`] = `"/ipfs/bafybeihq3roumey5wn3xktx57gkvm7cgqdndeaqa52guvotn5dud4pktqm/wenku8/2536/"`;
 
 exports[`should parse url .on.fleek.co 3`] = `
-Object {
+{
   "hash": "bafybeihq3roumey5wn3xktx57gkvm7cgqdndeaqa52guvotn5dud4pktqm",
   "ns": "ipfs",
   "path": "/wenku8/2536/",
@@ -225,7 +225,7 @@ Object {
 `;
 
 exports[`should parse url ipfs.io/ipfs/ 1`] = `
-Array [
+[
   "ns",
   "hash",
   "path",
@@ -235,7 +235,7 @@ Array [
 exports[`should parse url ipfs.io/ipfs/ 2`] = `"/ipfs/QmZuXEbnWnxft26Ehf3rDhZTFXULE7guWa1dG5d8UDJuQP"`;
 
 exports[`should parse url ipfs.io/ipfs/ 3`] = `
-Object {
+{
   "hash": "QmZuXEbnWnxft26Ehf3rDhZTFXULE7guWa1dG5d8UDJuQP",
   "ns": "ipfs",
   "path": "",

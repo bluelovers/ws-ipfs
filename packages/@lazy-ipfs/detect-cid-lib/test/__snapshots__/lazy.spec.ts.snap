@@ -40,7 +40,7 @@ Uint8Array [
 `;
 
 exports[`describe @ipld/js-cid/CID 2`] = `
-Object {
+{
   "codec": "dag-pb",
   "hash": Uint8Array [
     18,
@@ -160,7 +160,7 @@ Digest {
 `;
 
 exports[`describe @ipld/js-multiformats/CID 2`] = `
-Object {
+{
   "code": 112,
   "hash": Uint8Array [
     18,

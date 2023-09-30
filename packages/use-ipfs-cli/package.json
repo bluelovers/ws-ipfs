@@ -8,7 +8,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/ws-ipfs.git"
+    "url": "git+https://github.com/bluelovers/ws-ipfs.git",
+    "directory": "packages/use-ipfs-cli"
   },
   "license": "ISC",
   "author": "",
@@ -20,23 +21,30 @@
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
     "test": "echo \"Error: no test specified\"",
+    "test:jest": "jest --passWithNoTests",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
+    "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "test:snapshot": "yarn run test -- -u",
+    "test:tsd": "ynpx tsd",
     "npm:publish": "npm publish",
+    "preversion": "yarn run test",
     "prepublish:lockfile": "npx sync-lockfile .",
     "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
     "postpublish_": "git commit -m \"chore(release): publish\" .",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
-    "tsc:esm": "tsc -p tsconfig.esm.json"
+    "tsc:esm": "tsc -p tsconfig.esm.json",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
     "ipfs": ">=0.46.0",
     "ipfs-http-client": "^52",
-    "ipfsd-ctl": "^10",
+    "ipfsd-ctl": "=10.0.3",
     "tslib": "^2",
     "use-ipfs": "^1.0.101",
-    "yargs": "^17.1.1"
+    "yargs": "^17.7.2"
   },
   "gitHead": "2fea22e93302e75dcbb0b61f1920cc4f86db0ee5"
 }

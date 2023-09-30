@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`describe /ipfs/hash 1`] = `
-Object {
+{
   "code": 112,
   "hash": Uint8Array [
     18,
@@ -46,7 +46,7 @@ Object {
 exports[`describe /ipfs/hash 2`] = `"QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd"`;
 
 exports[`describe @ipld/js-cid/CID 1`] = `
-Object {
+{
   "code": 112,
   "hash": Uint8Array [
     18,
@@ -91,7 +91,7 @@ Object {
 exports[`describe @ipld/js-cid/CID 2`] = `"QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd"`;
 
 exports[`describe @ipld/js-multiformats/CID 1`] = `
-Object {
+{
   "code": 112,
   "hash": Uint8Array [
     18,
@@ -136,7 +136,7 @@ Object {
 exports[`describe @ipld/js-multiformats/CID 2`] = `"QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd"`;
 
 exports[`describe ParsePathResult 1`] = `
-Object {
+{
   "code": 112,
   "hash": Uint8Array [
     18,
@@ -181,7 +181,7 @@ Object {
 exports[`describe ParsePathResult 2`] = `"QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd"`;
 
 exports[`describe cidStr 1`] = `
-Object {
+{
   "code": 112,
   "hash": Uint8Array [
     18,
@@ -226,7 +226,7 @@ Object {
 exports[`describe cidStr 2`] = `"QmTWsPwz1wrKSgpiKa5tyC3rWkWh3Kym6ikCSmwiGPsfqd"`;
 
 exports[`describe url 1`] = `
-Object {
+{
   "code": 112,
   "hash": Uint8Array [
     18,

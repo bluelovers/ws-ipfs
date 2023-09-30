@@ -3,8 +3,8 @@
 exports[`fetch-ipfs fetchIPFS 1`] = `"Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
 
 exports[`fetch-ipfs fetchIPFS 2`] = `
-Object {
-  "data": Array [
+{
+  "data": [
     72,
     101,
     108,
@@ -43,7 +43,7 @@ Object {
 `;
 
 exports[`fetch-ipfs lazy parsePath 1`] = `
-Object {
+{
   "hash": "Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a",
   "ns": "ipfs",
   "path": "",
@@ -51,8 +51,8 @@ Object {
 `;
 
 exports[`fetch-ipfs lazy parsePath 2`] = `
-Object {
-  "data": Array [
+{
+  "data": [
     72,
     101,
     108,
@@ -91,7 +91,7 @@ Object {
 `;
 
 exports[`fetch-ipfs lazy toCID 1`] = `
-Object {
+{
   "code": 112,
   "hash": Uint8Array [
     18,
@@ -134,8 +134,8 @@ Object {
 `;
 
 exports[`fetch-ipfs lazy toCID 2`] = `
-Object {
-  "data": Array [
+{
+  "data": [
     72,
     101,
     108,
@@ -176,8 +176,8 @@ Object {
 exports[`fetch-ipfs lazy toURL 1`] = `"https://ipfs.io/ipfs/Qmaisz6NMhDB51cCvNWa1GMS7LU1pAxdF4Ld6Ft9kZEP2a"`;
 
 exports[`fetch-ipfs lazy toURL 2`] = `
-Object {
-  "data": Array [
+{
+  "data": [
     72,
     101,
     108,
@@ -317,8 +317,8 @@ Object {
 `;
 
 exports[`fetch-ipfs raceFetchIPFS 1`] = `
-Object {
-  "data": Array [
+{
+  "data": [
     72,
     101,
     108,
